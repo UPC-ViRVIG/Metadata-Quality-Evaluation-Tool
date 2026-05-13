@@ -1,22 +1,46 @@
-# ── store-sources ──────────────────────────────────────────────────────────
-#
-# {
-#   "id":           str   — client-generated uuid4
-#   "label":        str
-#   "selected":     bool
-#   "expanded":     bool  — whether the ontology tree is shown in the sidebar
-#   "source_config": {
-#       "type":         "rdf_file" | "sparql_endpoint"
-#       rdf_file:     "file_path", "format"
-#       sparql:       "endpoint_url", "query"
-#   }
-#   "scope":        list[str] | None  — selected class URIs, None = full graph
-# }
+"""
+Shared frontend state model definitions and default store values.
+The application uses dcc.Store components as the primary mechanism
+for synchronizing state between independent Dash callbacks.
 
+Stores are intentionally normalized into distinct domains:
+store-sources
+    Dataset/source configuration and selection state.
+store-results
+    Evaluation results and execution state.
+store-ontology
+    Cached ontology hierarchy data.
+store-ui
+    Transient frontend interaction state.
+"""
+
+# ============================================================================
+# store-sources
+# ============================================================================
 SOURCES_DEFAULT = []
 
 
 def make_source(id, label, source_config, selected=False):
+    """
+    Create a normalized frontend source configuration object.
+
+    Parameters
+    ----------
+    id : str
+        Unique source identifier.
+    label : str
+        Human-readable source label.
+    source_config : dict
+        Backend-compatible source configuration.
+    selected : bool, default=False
+        Initial evaluation selection state.
+
+    Returns
+    -------
+    dict
+        Canonical store-sources entry structure.
+
+    """
     return {
         "id":            id,
         "label":         label,
@@ -27,12 +51,35 @@ def make_source(id, label, source_config, selected=False):
     }
 
 
-# ── store-results ──────────────────────────────────────────────────────────
-
+# ============================================================================
+# store-results
+# ============================================================================
 RESULTS_DEFAULT = None
 
 
 def make_results(datasets, error_message=None):
+    """
+    Construct normalized frontend evaluation result state.
+
+    Parameters
+    ----------
+    datasets : list[dict]
+        Dataset evaluation results returned by the backend.
+    error_message : str | None, optional
+        Explicit frontend error message.
+
+    Returns
+    -------
+    dict
+        Canonical store-results structure.
+
+    Result Modes
+    ------------
+    analysis
+        Activated when exactly one dataset is evaluated.
+    comparison
+        Activated when multiple datasets are evaluated.
+    """
     if error_message is not None:
         return {
             "status":        "error",
@@ -62,30 +109,14 @@ def make_results(datasets, error_message=None):
     }
 
 
-# ── store-ontology ─────────────────────────────────────────────────────────
-#
-# Maps source_id → ontology tree returned by POST /ontology.
-# Populated lazily when the user expands a source card.
-#
-# {
-#   "<source_id>": {
-#       "dataset_id": str,
-#       "classes": [
-#           {
-#               "uri":            str,
-#               "label":          str,
-#               "instance_count": int,
-#               "properties": [{"uri": str, "label": str, "count": int}],
-#               "children":   [... recursive ...]
-#           }
-#       ]
-#   }
-# }
-
+# ============================================================================
+# store-ontology
+# ============================================================================
 ONTOLOGY_DEFAULT = {}
 
-
-
+# ============================================================================
+# store-ui
+# ============================================================================
 UI_DEFAULT = {
     "active_metric": None,
     "active_class":  None,

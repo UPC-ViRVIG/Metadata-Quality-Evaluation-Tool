@@ -7,16 +7,9 @@ def apply(graph: Graph, scope: list[str] | None) -> Graph:
     """
     Returns a (possibly filtered) view of graph
 
-    Two passes over the graph:
-    1. Collect all subjects that have an rdf:type in scope_set
-       (O(|triples|)).
-    2. Copy every triple whose subject is in the collected set
-       (O(|triples|)).
-
     Parameters
     ----------
     graph : rdflib.Graph
-    
         The full cached graph. This object is never mutated
     scope : list[str] | None
         A list of class URIs to include
@@ -24,10 +17,10 @@ def apply(graph: Graph, scope: list[str] | None) -> Graph:
     Returns
     -------
     rdflib.Graph
-        If scope is empty → the original graph
-        Otherwise → a fresh rdflib.Graph containing only the
-          triples whose subject is an instance of at least one class in
-          scope
+        If scope is empty it returns the original graph.
+        Otherwise, a fresh rdflib.Graph containing only 
+        the triples whose subject is an instance of at 
+        least one class in scope
     """
     if not scope:
         return graph
@@ -46,7 +39,6 @@ def apply(graph: Graph, scope: list[str] | None) -> Graph:
 
     filtered = Graph()
 
-    # Preserve namespace bindings so serialisation / SPARQL in metrics works
     for prefix, namespace in graph.namespaces():
         filtered.bind(prefix, namespace)
 
@@ -76,7 +68,7 @@ def stats(graph: Graph) -> dict:
     entity_uris: set[str] = set()
     class_uris: set[str] = set()
 
-    for subject, predicate, obj in graph.triples((None, RDF.type, None)):
+    for subject, _, obj in graph.triples((None, RDF.type, None)):
         if isinstance(subject, URIRef):
             entity_uris.add(str(subject))
         if isinstance(obj, URIRef):

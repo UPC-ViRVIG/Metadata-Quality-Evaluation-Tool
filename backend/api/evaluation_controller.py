@@ -11,20 +11,23 @@ from models.response import (
     DatasetEvaluationResponse,
     DatasetStatsResponse,
     MetricResultResponse,
+    DimensionConfigResponse,
     MetricConfigResponse,
     OntologyResponse,
     ClassNodeResponse,
     PropertyInfoResponse,
 )
 
-from config.config_loader import load_metrics_config
+from config.config_loader import load_metrics_config, load_dimensions_config
 from metrics.metric_registry import METRIC_REGISTRY
 
 router = APIRouter()
 engine = EvaluationEngine()
 
-
 def _class_node_to_response(node: ClassNode) -> ClassNodeResponse:
+    """
+    Converts an internal 'ClassNode' object into an API response model.
+    """
     return ClassNodeResponse(
         uri=node.uri,
         label=node.label,
@@ -39,17 +42,35 @@ def _class_node_to_response(node: ClassNode) -> ClassNodeResponse:
 
 @router.get("/metrics", response_model=list[MetricConfigResponse])
 def get_metrics():
-    """Returns available metrics from metrics_config.json."""
+    """
+    Returns the list of implemented metrics, along with their details.
+    """
     metric_config = load_metrics_config()
     return [
         MetricConfigResponse(
             metric_id=metric_id,
             name=config["name"],
             description=config["description"],
+            tooltip=config["tooltip"],
             dimension=config["dimension"],
             weight=config["weight"],
         )
         for metric_id, config in metric_config.items()
+    ]
+
+@router.get("/dimensions", response_model=list[DimensionConfigResponse])
+def get_dimensions():
+    """
+    Returns the list of implemented metrics, along with their details.
+    """
+    dimensions = load_dimensions_config()
+    return [
+        DimensionConfigResponse(
+            name=name,
+            description=config["description"],
+            tooltip=config["tooltip"],
+        )
+        for name, config in dimensions.items()
     ]
 
 
@@ -57,9 +78,6 @@ def get_metrics():
 def get_ontology(request: OntologyRequest):
     """
     Returns the class hierarchy found in the dataset.
-
-    Uses get_or_load so that a subsequent /evaluate call for the
-    same source reuses the cached graph at zero cost.
     """
     source_config = request.source_config.model_dump()
 
@@ -88,10 +106,6 @@ def get_ontology(request: OntologyRequest):
 def evaluate(request: EvaluationRequest):
     """
     Executes metadata quality evaluation for the requested datasets.
-
-    The router resolves metric plugins and passes a clean dataset list
-    to the Evaluation Engine. Graph loading, caching, and scope
-    filtering are handled entirely by the engine and data source layer.
     """
     metric_config = load_metrics_config()
     metrics = []

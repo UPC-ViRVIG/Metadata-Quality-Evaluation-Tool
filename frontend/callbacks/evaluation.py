@@ -15,6 +15,51 @@ from store import make_results
     prevent_initial_call=True,
 )
 def run_evaluation_callback(n_clicks, sources, selected_metrics):
+    """
+    Execute dataset evaluation through the backend API.
+
+    Triggered when the user clicks the evaluation button.
+
+    State Inputs
+    ------------
+    store-sources.data
+        All configured frontend dataset sources.
+    metric-selection.data
+        Selected metric identifiers.
+
+    Outputs
+    -------
+    store-results.data
+        Normalized frontend evaluation result state.
+    btn-run-evaluation.disabled
+        Re-enable evaluation button after execution completes.
+    btn-run-evaluation.children
+        Restore button label after execution.
+    run-feedback.children
+        Validation or status feedback message.
+
+    Parameters
+    ----------
+    n_clicks : int | None
+        Number of evaluation button clicks.
+    sources : list[dict]
+        Frontend source configuration state.
+    selected_metrics : list[str]
+        Selected metric identifiers.
+
+    Returns
+    -------
+    tuple
+        Structure:
+
+            (
+                results_store,
+                button_disabled,
+                button_label,
+                feedback_message
+            )
+
+    """
     if not n_clicks:
         return no_update, no_update, no_update, no_update
 
@@ -25,10 +70,6 @@ def run_evaluation_callback(n_clicks, sources, selected_metrics):
     if not selected_metrics:
         return no_update, no_update, no_update, "Select at least one metric."
 
-    # Disable button and show "Running…" for the duration of the call.
-    # Because this is a synchronous callback, Dash won't update the UI
-    # mid-function — but we return the correct restored label at the end
-    # so the button recovers correctly after the call completes.
     label = "Run Analysis" if len(selected_sources) == 1 else "Run Comparison"
 
     try:

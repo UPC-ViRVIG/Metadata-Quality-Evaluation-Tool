@@ -5,7 +5,6 @@ from charts.palette import COLORS, base_layout
 # ════════════════════════════════════════════════════════════════════════════
 # URI helpers
 # ════════════════════════════════════════════════════════════════════════════
-
 def _short(uri: str) -> str:
     """Last fragment of a URI (after # or last /)."""
     return uri.split("#")[-1].split("/")[-1]

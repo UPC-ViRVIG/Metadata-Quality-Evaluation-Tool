@@ -1,15 +1,29 @@
+"""
+Sidebar state-management and dataset configuration callbacks.
+
+Primary Shared Stores
+---------------------
+store-sources
+    Source configuration and ontology scope state.
+store-ontology
+    Lazily loaded ontology hierarchy cache.
+metric-selection
+    Flattened list of selected metrics.
+store-metric-dims
+    Metric → dimension lookup mapping.
+store-dimensions
+    Dimension metadata cache.
+"""
+
 import uuid
 
 from dash import Input, Output, State, ALL, callback, ctx, no_update
 import dash_bootstrap_components as dbc
 from dash import html
 
-from api_client import get_metrics, APIError
+from api_client import get_metrics, get_dimensions, APIError
 from layout.sidebar import build_source_item
 from store import make_source
-
-
-# ── 1. Populate metric accordion on startup ───────────────────────────────
 
 _LABEL_STYLE = {
     "display": "flex", "alignItems": "center", "gap": "8px",
@@ -20,21 +34,38 @@ _LABEL_STYLE = {
     Output("metric-accordion",   "children"),
     Output("metric-selection",   "data"),
     Output("store-metric-dims",  "data"),
-    Input("store-sources", "id"),   # fires once on load (id never changes)
+    Output("store-dimensions",   "data"),
+    Input("store-sources", "id"),
 )
 def populate_metrics(_):
     """
-    Fetches metrics from GET /metrics and:
-      - Builds one accordion item per quality dimension (Intrinsic, Contextual…)
-        each containing a checklist of its metrics, all selected by default.
-      - Writes the flat list of all metric_ids to metric-selection.
-      - Writes {metric_id: dimension} to store-metric-dims so the metric
-        card grouping can use it without re-fetching from the backend.
+    Initialize metric selection UI and dimension metadata.
+
+    Backend Endpoints
+    -----------------
+    GET /metrics
+    GET /dimensions
+
+    Outputs
+    -------
+    metric-accordion.children
+        Dynamically generated metric accordion layout.
+    metric-selection.data
+        Initial empty metric selection list.
+    store-metric-dims.data
+        Mapping:
+            metric_id -> dimension_name
+
+    store-dimensions.data
+        Cached dimension metadata.
     """
     try:
-        metrics = get_metrics()
+        metrics    = get_metrics()
+        dimensions = get_dimensions()
     except APIError:
-        return [], [], {}
+        return [], [], {}, {}
+
+    dim_info = {d["name"]: d for d in dimensions}
 
     from collections import OrderedDict
     by_dim: dict[str, list] = OrderedDict()
@@ -45,23 +76,63 @@ def populate_metrics(_):
     items = []
     for dim, dim_metrics in by_dim.items():
         options = [
-            {"label": m["name"], "value": m["metric_id"],
-             "title": m.get("description", "")}
+            {"label": m["name"], "value": m["metric_id"]}
             for m in dim_metrics
         ]
-        values = []   # unchecked by default — user selects
+
+        # Tooltips
+        tip_spans = []
+        for m in dim_metrics:
+            tip_id = f"tip-metric-{m['metric_id']}"
+            tip_spans.append(html.Div([
+                html.Span(" ℹ", id=tip_id,
+                          style={"fontSize": "0.70rem", "color": "#adb5bd",
+                                 "cursor": "help", "userSelect": "none"}),
+                dbc.Tooltip(
+                    [html.Strong(m.get("tooltip", "")), html.Br(),
+                     html.Small(m.get("description", ""),
+                                style={"color": "#dee2e6"})],
+                    target=tip_id, placement="right",
+                    style={"maxWidth": "280px"},
+                ),
+            ], style={"marginBottom": "4px", "lineHeight": "1.6rem"}))
+
+        dim_tip_id     = f"tip-dim-{dim.lower().replace(' ', '-')}"
+        dim_info_entry = dim_info.get(dim, {})
+
+        title = html.Span([
+            html.Span(dim, style={"fontSize": "0.82rem", "fontWeight": "500"}),
+            html.Span(" ℹ", id=dim_tip_id,
+                      style={"fontSize": "0.70rem", "color": "#adb5bd",
+                             "cursor": "help", "userSelect": "none"}),
+            dbc.Tooltip(
+                [html.Strong(dim_info_entry.get("tooltip", "")), html.Br(),
+                 html.Small(dim_info_entry.get("description", ""),
+                            style={"color": "#dee2e6"})],
+                target=dim_tip_id, placement="right",
+                style={"maxWidth": "280px"},
+            ),
+        ])
+
         items.append(
             dbc.AccordionItem(
-                dbc.Checklist(
-                    id={"type": "dim-checklist", "index": dim},
-                    options=options,
-                    value=values,
-                    labelStyle=_LABEL_STYLE,
-                ),
-                title=html.Span(
-                    dim,
-                    style={"fontSize": "0.82rem", "fontWeight": "500"},
-                ),
+                dbc.Row([
+                    dbc.Col(
+                        dbc.Checklist(
+                            id={"type": "dim-checklist", "index": dim},
+                            options=options,
+                            value=[],
+                            labelStyle=_LABEL_STYLE,
+                        ),
+                        width=10,
+                    ),
+                    dbc.Col(
+                        html.Div(tip_spans),
+                        width=2,
+                        className="ps-0",
+                    ),
+                ], className="g-0"),
+                title=title,
             )
         )
 
@@ -73,11 +144,12 @@ def populate_metrics(_):
         style={"fontSize": "0.875rem"},
     )
 
-    dims_map = {m["metric_id"]: m.get("dimension", "Other") for m in metrics}
-    return accordion, [], dims_map
+    dims_map   = {m["metric_id"]: m.get("dimension", "Other") for m in metrics}
+    dims_store = {d["name"]: {"description": d["description"],
+                               "tooltip":     d["tooltip"]}
+                  for d in dimensions}
+    return accordion, [], dims_map, dims_store
 
-
-# ── 1b. Sync flat metric-selection from all dim-checklists ────────────────
 
 @callback(
     Output("metric-selection", "data", allow_duplicate=True),
@@ -85,18 +157,23 @@ def populate_metrics(_):
     prevent_initial_call=True,
 )
 def sync_metric_selection(checklist_values):
-    """Flatten all per-dimension selections into one list."""
+    """
+    Flatten all per-dimension checklist selections into one list.
+    
+    Parameters
+    ----------
+    checklist_values : list[list[str]]
+        Per-dimension selected metric identifiers.
+
+    Returns
+    -------
+    list[str]
+        Flattened list of selected metric identifiers.
+    """
     flat = []
     for vals in (checklist_values or []):
         flat.extend(vals or [])
     return flat
-
-
-# ── 2. Open modal (add OR edit) + close on Cancel ─────────────────────────
-#
-# We combine open-for-add, open-for-edit, and cancel into one callback
-# because they all write to the same set of modal outputs.
-# ctx.triggered_id tells us which button fired.
 
 @callback(
     Output("modal-add-source",     "is_open"),
@@ -121,9 +198,31 @@ def open_or_close_modal(
     _add, _cancel, _edit_clicks,
     sources,
 ):
+    """
+    Control the dataset/source configuration modal lifecycle.
+
+    This callback unifies:
+        - open-for-add
+        - open-for-edit
+        - cancel/close
+
+    Outputs
+    -------
+    modal-add-source.is_open
+        Modal visibility state.
+    modal-title.children
+        Context-sensitive modal title.
+    modal-edit-id.data
+        Source ID currently being edited.
+        None indicates add mode.
+    input-* fields
+        Modal form field state.
+    modal-source-feedback.children
+        Validation or error feedback.
+    """
     trigger = ctx.triggered_id
 
-    # ── Cancel → just close, clear feedback ───────────────────────────────
+    # Cancel
     if trigger == "btn-modal-cancel":
         return (
             False,
@@ -132,7 +231,7 @@ def open_or_close_modal(
             "",
         )
 
-    # ── Add → open with blank fields ──────────────────────────────────────
+    # Add
     if trigger == "btn-add-source":
         return (
             True,
@@ -147,7 +246,7 @@ def open_or_close_modal(
             "",            # feedback
         )
 
-    # ── Edit → open with pre-filled fields ────────────────────────────────
+    # Edit
     if isinstance(trigger, dict) and trigger.get("type") == "btn-edit-source":
         # Guard: only act when a click actually happened
         if not any(n for n in (_edit_clicks or []) if n):
@@ -178,21 +277,35 @@ def open_or_close_modal(
     return (False, no_update, no_update, no_update, no_update,
             no_update, no_update, no_update, no_update, "")
 
-
-# ── 3. Show / hide RDF vs SPARQL fields ───────────────────────────────────
-
 @callback(
     Output("source-fields-rdf",    "style"),
     Output("source-fields-sparql", "style"),
     Input("input-source-type", "value"),
 )
 def toggle_source_fields(source_type):
+    """
+    Toggle visible source configuration form sections
+
+    Parameters
+    ----------
+    source_type : str
+        Selected source type.
+        Supported values:
+            - "rdf_file"
+            - "sparql_endpoint"
+
+    Returns
+    -------
+    tuple[dict, dict]
+        Style dictionaries controlling visibility of:
+            (
+                rdf_fields_style,
+                sparql_fields_style
+            )
+    """
     if source_type == "rdf_file":
         return {}, {"display": "none"}
     return {"display": "none"}, {}
-
-
-# ── 4. Confirm: add new source OR update existing ─────────────────────────
 
 @callback(
     Output("store-sources",         "data",     allow_duplicate=True),
@@ -217,10 +330,22 @@ def confirm_modal(
     file_path, file_format,
     endpoint_url, sparql_query,
 ):
+    """
+    Persist dataset/source configuration changes. 
+    Supports creating and updating sources.
+
+    Returns
+    -------
+    store-sources.data
+        Updated frontend source state.
+    modal-source-feedback.children
+        Validation feedback message.
+    modal-add-source.is_open
+        Modal visibility state.
+    """
     if not n_clicks:
         return no_update, no_update, no_update
 
-    # ── Validate ──────────────────────────────────────────────────────────
     label = (label or "").strip()
     if not label:
         return no_update, "Please enter a label.", no_update
@@ -249,7 +374,6 @@ def confirm_modal(
 
     sources = sources or []
 
-    # ── Edit: update existing entry ───────────────────────────────────────
     if edit_id is not None:
         updated = []
         for s in sources:
@@ -263,7 +387,6 @@ def confirm_modal(
                 updated.append(s)
         return updated, "", False
 
-    # ── Add: append new entry ─────────────────────────────────────────────
     new_source = make_source(
         id=str(uuid.uuid4()),
         label=label,
@@ -272,9 +395,6 @@ def confirm_modal(
     )
     return sources + [new_source], "", False
 
-
-# ── 5. Delete a source ────────────────────────────────────────────────────
-
 @callback(
     Output("store-sources", "data", allow_duplicate=True),
     Input({"type": "btn-delete-source", "index": ALL}, "n_clicks"),
@@ -282,14 +402,27 @@ def confirm_modal(
     prevent_initial_call=True,
 )
 def delete_source(n_clicks_list, sources):
+    """
+    Delete a dataset/source from frontend state.
+
+    Parameters
+    ----------
+    n_clicks_list : list[int | None]
+        Pattern-matching delete button click states.
+    sources : list[dict]
+        Current source configuration state.
+
+    Returns
+    -------
+    list[dict]
+        Updated source list with the selected source removed.
+    """
     if not any(n for n in (n_clicks_list or []) if n):
         return no_update
 
     source_id = ctx.triggered_id["index"]
     return [s for s in (sources or []) if s["id"] != source_id]
 
-
-# ── 6. Toggle source selection via checkbox ───────────────────────────────
 
 @callback(
     Output("store-sources", "data", allow_duplicate=True),
@@ -298,6 +431,9 @@ def delete_source(n_clicks_list, sources):
     prevent_initial_call=True,
 )
 def toggle_source_selection(checkbox_values, sources):
+    """
+    Synchronize dataset selection checkboxes with store-sources state.
+    """
     if not sources:
         return no_update
 
@@ -315,20 +451,20 @@ def toggle_source_selection(checkbox_values, sources):
 
     return updated
 
-
-# ── 7. Re-render the source list ──────────────────────────────────────────
-
 @callback(
     Output("source-list", "children"),
     Input("store-sources", "data"),
     State("source-list",   "children"),
 )
 def render_source_list(sources, current_children):
-    # Only rebuild the list when the set of source ids changes (add/delete)
-    # or when label/source_config changes (edit).
-    # Skip when only scope or expanded changed — those are handled by
-    # render_scope_trees and update_scope callbacks respectively.
-    # This prevents those callbacks from destroying the scope tree content.
+    """
+    Render sidebar dataset/source cards.
+
+    Returns
+    -------
+    list[Component]
+        Rendered source card components.
+    """
     if not sources:
         return html.P(
             "No sources added yet.",
@@ -337,16 +473,11 @@ def render_source_list(sources, current_children):
         )
 
     if ctx.triggered_id == "store-sources" and current_children:
-        # Extract current source ids and labels from the existing rendered list
-        # to detect whether a structural change actually happened.
-        # If only scope/expanded changed, return no_update.
         triggered_keys = [
             (s["id"], s["label"], s["source_config"].get("file_path", "")
              or s["source_config"].get("endpoint_url", ""))
             for s in sources
         ]
-        # We can't easily inspect current_children (they're dicts), so instead
-        # we store the last-rendered keys in a module-level variable.
         if triggered_keys == _last_rendered_source_keys[0]:
             return no_update
         _last_rendered_source_keys[0] = triggered_keys
@@ -354,12 +485,7 @@ def render_source_list(sources, current_children):
     return [build_source_item(s) for s in sources]
 
 
-# Module-level mutable container to track last rendered source keys.
-# List wrapper used so it can be mutated inside the callback (closure).
 _last_rendered_source_keys = [[]]
-
-
-# ── 8. Enable/disable Run button + set label ─────────────────────────────
 
 @callback(
     Output("btn-run-evaluation", "disabled"),
@@ -369,6 +495,9 @@ _last_rendered_source_keys = [[]]
     Input("metric-selection", "data"),
 )
 def update_run_button(sources, selected_metrics):
+    """
+    Update evaluation button enabled state and label
+    """
     selected_sources = [s for s in (sources or []) if s.get("selected")]
     n_sources = len(selected_sources)
     n_metrics = len(selected_metrics or [])
@@ -383,14 +512,6 @@ def update_run_button(sources, selected_metrics):
     label = "Run Analysis" if n_sources == 1 else "Run Comparison"
     return False, label, ""
 
-
-# ── 9. Toggle source expanded state + fetch ontology ─────────────────────
-#
-# Fires when the user clicks the expand (▸/▾) button on a source card.
-# Toggles source["expanded"] in store-sources, then if expanding and the
-# ontology hasn't been fetched yet, calls POST /ontology and stores the
-# result in store-ontology keyed by source_id.
-
 @callback(
     Output("store-sources",  "data", allow_duplicate=True),
     Output("store-ontology", "data", allow_duplicate=True),
@@ -400,6 +521,17 @@ def update_run_button(sources, selected_metrics):
     prevent_initial_call=True,
 )
 def toggle_expand_source(n_clicks_list, sources, ontology_store):
+    """
+    Toggle ontology tree expansion state for a dataset/source.
+
+    Returns
+    -------
+    tuple
+        (
+            updated_sources,
+            updated_ontology_store
+        )
+    """
     if not any(n for n in (n_clicks_list or []) if n):
         return no_update, no_update
 
@@ -430,15 +562,11 @@ def toggle_expand_source(n_clicks_list, sources, ontology_store):
 )
 def fetch_ontology(ontology_store, sources):
     """
-    Fires after toggle_expand_source writes the None sentinel.
-    Finds any source with a None entry in the ontology store,
-    fetches the real data, and writes it back.
-    Runs as a separate callback so the spinner has time to render first.
+    Lazily fetch ontology hierarchy data from the backend.
     """
     ontology = dict(ontology_store or {})
     sources  = sources or []
 
-    # Find sources that need fetching (sentinel = None)
     to_fetch = [
         s for s in sources
         if s.get("expanded") and ontology.get(s["id"]) is None
@@ -459,9 +587,6 @@ def fetch_ontology(ontology_store, sources):
 
     return ontology if updated else no_update
 
-
-# ── 10. Render scope tree when source is expanded ─────────────────────────
-
 @callback(
     Output({"type": "scope-tree", "index": ALL}, "children"),
     Output({"type": "scope-tree", "index": ALL}, "style"),
@@ -470,6 +595,17 @@ def fetch_ontology(ontology_store, sources):
     prevent_initial_call=True,
 )
 def render_scope_trees(ontology_store, sources):
+    """
+    Render ontology/class scope selection trees.
+
+    Returns
+    -------
+    tuple
+        (
+            tree_children,
+            tree_styles
+        )
+    """
     from layout.sidebar import build_scope_tree
 
     sources      = sources or []
@@ -501,7 +637,6 @@ def render_scope_trees(ontology_store, sources):
 
         tree_data = ontology.get(sid)
         if tree_data is None:
-            # Fetch in progress — show a spinner via dbc.Spinner inline
             children_out.append(
                 html.Div([
                     dbc.Spinner(size="sm", color="primary",
@@ -525,16 +660,22 @@ def render_scope_trees(ontology_store, sources):
 
     return children_out, styles_out
 
-
-# ── 11. Update scope in store-sources when a class checkbox is toggled ────
-#
-# Cascade rules:
-#   Check parent   → add parent + all descendants
-#   Uncheck parent → remove parent + all descendants
-#   Uncheck child  → remove only that child (parent stays checked)
-
 def _all_descendants(uri: str, classes: list) -> set:
-    """Recursively collect all descendant URIs of a given class URI."""
+    """
+    Recursively collect all descendant class URIs.
+
+    Parameters
+    ----------
+    uri : str
+        Root class URI.
+    classes : list
+        Recursive ontology hierarchy tree.
+
+    Returns
+    -------
+    set[str]
+        All descendant class URIs.
+    """
     result = set()
     for cls in classes:
         if cls["uri"] == uri:
@@ -547,7 +688,19 @@ def _all_descendants(uri: str, classes: list) -> set:
 
 
 def _flatten_uris(classes: list) -> set:
-    """Return all URIs in the tree (including nested)."""
+    """
+    Flatten a recursive ontology hierarchy into a set of class URIs.
+
+    Parameters
+    ----------
+    classes : list
+        Recursive ontology hierarchy tree.
+
+    Returns
+    -------
+    set[str]
+        Set of all class URIs contained in the tree.
+    """
     result = set()
     for cls in classes:
         result.add(cls["uri"])
@@ -563,6 +716,9 @@ def _flatten_uris(classes: list) -> set:
     prevent_initial_call=True,
 )
 def update_scope(checkbox_values, sources, ontology_store):
+    """
+    Update ontology class scope selection for a dataset.
+    """
     if not sources:
         return no_update
 

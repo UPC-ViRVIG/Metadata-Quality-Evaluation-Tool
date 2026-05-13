@@ -2,6 +2,11 @@ from abc import ABC, abstractmethod
 from models.dataset_context import DatasetContext
 from models.metric_result import MetricResult
 
+import json
+from pathlib import Path
+
+CONFIG_PATH = Path(__file__).parent.parent / "config" / "metrics_config.json"
+
 class MetricPlugin(ABC):
     """
     Abstract base class for all metadata quality metrics
@@ -13,11 +18,14 @@ class MetricPlugin(ABC):
     Subclasses must implement the 'evaluate' method
     """
     id : str
-    name: str
-    description: str
-    dimension: str
-    subdimension: str
-    weight: float = 1.0
+    
+    def __init__(self):
+        with open(CONFIG_PATH) as f:
+            config = json.load(f)["metrics"].get(self.id, {})
+        self.name        = config.get("name", self.id)
+        self.description = config.get("description", "")
+        self.dimension   = config.get("dimension", "")
+        self.weight      = config.get("weight", 1.0)
 
     @abstractmethod
     def evaluate(self, context: DatasetContext) -> MetricResult:

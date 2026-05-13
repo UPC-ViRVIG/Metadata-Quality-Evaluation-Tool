@@ -8,14 +8,16 @@ _lock = threading.Lock()
 
 
 def _make_key(source_config: dict) -> str:
-    """Return a stable SHA-256 hex digest for *source_config*."""
+    """
+    Return a stable SHA-256 hex digest for a source configuration.
+    """
     canonical = json.dumps(source_config, sort_keys=True, ensure_ascii=True)
     return hashlib.sha256(canonical.encode()).hexdigest()
 
 
 def get(source_config: dict) -> Graph | None:
     """
-    Return the cached Graph for *source_config*, or None if not cached.
+    Return the cached Graph for the source configuration, or None if not cached.
     """
     key = _make_key(source_config)
     with _lock:
@@ -24,11 +26,7 @@ def get(source_config: dict) -> Graph | None:
 
 def store(source_config: dict, graph: Graph) -> None:
     """
-    Store *graph* in the cache under *source_config*.
-
-    If an entry already exists (race between two threads loading the
-    same source), the existing entry is kept and the new graph is
-    discarded.
+    Store graph in the cache under the corresponding source_config.
     """
     key = _make_key(source_config)
     with _lock:
@@ -38,11 +36,8 @@ def store(source_config: dict, graph: Graph) -> None:
 
 def get_or_load(source_config: dict, loader_fn) -> Graph:
     """
-    Return the cached graph, or call *loader_fn* to produce it and
-    store the result.
-
-    Used by the Ontology Extractor, which needs a graph but should
-    not duplicate the loading logic of the data sources.
+    Return the cached graph, or produces it and stores the 
+    result.
 
     Parameters
     ----------
@@ -62,7 +57,7 @@ def get_or_load(source_config: dict, loader_fn) -> Graph:
 
 def invalidate(source_config: dict) -> bool:
     """
-    Remove *source_config* from the cache.
+    Remove source_config from the cache.
 
     Returns True if an entry was removed, False if nothing was cached.
     """
@@ -75,6 +70,6 @@ def invalidate(source_config: dict) -> bool:
 
 
 def clear() -> None:
-    """Evict all cached graphs (useful for testing)."""
+    """Evict all cached graphs."""
     with _lock:
         _cache.clear()

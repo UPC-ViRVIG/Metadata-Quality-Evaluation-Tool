@@ -8,6 +8,10 @@ from results_aggregator.result_aggregator import ResultAggregator
 
 
 class EvaluationEngine:
+    """
+    Orchestrator of all processes needed to perform the metadata
+    quality evaluation
+    """
 
     def __init__(self):
         self.aggregator = ResultAggregator()
@@ -37,7 +41,7 @@ class EvaluationEngine:
             datasource = DataSourceFactory.create(dataset["source_config"])
             full_graph = datasource.load()
 
-            # Step 2: Scope filtering (engine responsibility)
+            # Step 2: Scope filtering
             scope = dataset.get("scope")
             active_graph = apply_scope(full_graph, scope)
 
@@ -59,7 +63,7 @@ class EvaluationEngine:
             # Step 5: Aggregate
             overall_score = self.aggregator.aggregate(metric_results)
 
-            # Step 6: Stats on the active (possibly filtered) graph
+            # Step 6: Stats on the active graph
             stats = compute_stats(active_graph)
 
             all_dataset_results.append(DatasetEvaluationResult(

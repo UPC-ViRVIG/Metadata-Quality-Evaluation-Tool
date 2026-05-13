@@ -23,7 +23,6 @@ def render_details_table(details: dict) -> html.Div:
     blocks = []
     for key, val in details.items():
 
-        # ── Nested dict ───────────────────────────────────────────────────
         if isinstance(val, dict):
             rows = []
             for sub_key, sub_val in val.items():
@@ -57,7 +56,6 @@ def render_details_table(details: dict) -> html.Div:
                           style={"tableLayout": "fixed"}),
             ]))
 
-        # ── List of dicts ─────────────────────────────────────────────────
         elif isinstance(val, list) and val and isinstance(val[0], dict):
             cols  = list(val[0].keys())
             thead = html.Thead(html.Tr([html.Th(c) for c in cols]))
@@ -91,7 +89,6 @@ def render_details_table(details: dict) -> html.Div:
                 ),
             ]))
 
-        # ── Plain list ────────────────────────────────────────────────────
         elif isinstance(val, list):
             blocks.append(panel_card([
                 section_label(key),
@@ -102,7 +99,6 @@ def render_details_table(details: dict) -> html.Div:
                 ),
             ]))
 
-        # ── Scalar ────────────────────────────────────────────────────────
         else:
             display = f"{round(val * 100)}%" if isinstance(val, float) else str(val)
             blocks.append(

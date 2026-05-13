@@ -15,7 +15,9 @@ def _bucket_label(b: str) -> str:
 def _short_uri(uri: str) -> str:
     return uri.split("#")[-1].split("/")[-1]
 
-
+# ════════════════════════════════════════════════════════════════════════════
+# Grouped bar chart
+# ════════════════════════════════════════════════════════════════════════════
 def score_distribution(
     ds_details: list[dict],
 ) -> go.Figure:
@@ -62,165 +64,9 @@ def score_distribution(
     ))
     return fig
 
-
-def class_completeness(
-    ds_details: list[dict],
-) -> go.Figure | None:
-    """
-    Range-box chart: one box per dataset per class.
-
-    Each box spans min → max as a thin semi-transparent filled rectangle,
-    with a solid vertical line at the mean inside it.
-    When min == max == mean (all records identical) a dot is shown instead.
-
-    Multiple datasets sharing a class are stacked vertically within the
-    row using fractional y offsets. The y-axis is numeric with class names
-    as tick labels so sub-row positioning works cleanly.
-
-    Returns None if no class_statistics are present.
-    """
-    all_classes: list[str] = []
-    for d in ds_details:
-        for uri in d["details"].get("class_statistics", {}):
-            if uri not in all_classes:
-                all_classes.append(uri)
-
-    if not all_classes:
-        return None
-
-    n_ds         = len(ds_details)
-    n_classes    = len(all_classes)
-    class_labels = [_short_uri(c) for c in all_classes]
-    uri_to_row   = {uri: i for i, uri in enumerate(all_classes)}
-
-    # Half-height of each box in y-axis units — narrower with more datasets
-    box_half = 0.28 / n_ds
-
-    # Vertical centre of each dataset within its row
-    if n_ds == 1:
-        centres = [0.0]
-    else:
-        span    = 0.55
-        step    = span / (n_ds - 1)
-        centres = [-span / 2 + i * step for i in range(n_ds)]
-
-    def _hex_rgba(hex_color: str, alpha: float) -> str:
-        h = hex_color.lstrip("#")
-        r, g, b = int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
-        return f"rgba({r},{g},{b},{alpha})"
-
-    fig = go.Figure()
-
-    for ds_idx, d in enumerate(ds_details):
-        stats  = d["details"].get("class_statistics", {})
-        color  = d["color"]
-        label  = d["label"]
-        centre = centres[ds_idx]
-
-        box_x, box_y   = [], []
-        mean_x, mean_y = [], []
-        dot_x, dot_y   = [], []
-        hover_x, hover_y, hover_custom = [], [], []
-
-        for uri in all_classes:
-            if uri not in stats:
-                continue
-            s             = stats[uri]
-            mn, mean, mx  = s["min"], s["mean"], s["max"]
-            row           = uri_to_row[uri]
-            yc            = row + centre
-            ylo, yhi      = yc - box_half, yc + box_half
-
-            if abs(mx - mn) < 1e-9:
-                # Point value — dot only, no box
-                dot_x.append(mean)
-                dot_y.append(yc)
-            else:
-                # Filled rectangle path (clockwise, closed)
-                box_x += [mn, mx, mx, mn, mn, None]
-                box_y += [ylo, ylo, yhi, yhi, ylo, None]
-
-            # Vertical mean line inside the box
-            mean_x += [mean, mean, None]
-            mean_y += [ylo, yhi, None]
-
-            # Invisible wide marker for hover
-            hover_x.append(mean)
-            hover_y.append(yc)
-            hover_custom.append((_short_uri(uri), mn, mean, mx))
-
-        fill_color = _hex_rgba(color, 0.20)
-
-        # Filled box
-        if box_x:
-            fig.add_scatter(
-                x=box_x, y=box_y,
-                mode="lines", fill="toself",
-                fillcolor=fill_color,
-                line=dict(color=color, width=1.5),
-                showlegend=False, hoverinfo="none",
-            )
-
-        # Mean line
-        if mean_x:
-            fig.add_scatter(
-                x=mean_x, y=mean_y,
-                mode="lines",
-                line=dict(color=color, width=2.5),
-                showlegend=False, hoverinfo="none",
-            )
-
-        # Point-value dot
-        if dot_x:
-            fig.add_scatter(
-                x=dot_x, y=dot_y,
-                mode="markers",
-                marker=dict(color=color, size=8, symbol="circle",
-                            line=dict(color="white", width=1.5)),
-                showlegend=False, hoverinfo="none",
-            )
-
-        # Legend entry + hover (invisible wide markers)
-        if hover_x:
-            fig.add_scatter(
-                x=hover_x, y=hover_y,
-                mode="markers",
-                marker=dict(color=color, size=16, opacity=0),
-                name=label,
-                customdata=hover_custom,
-                hovertemplate=(
-                    "<b>%{customdata[0]}</b><br>"
-                    f"{label}<br>"
-                    "Mean: %{customdata[2]:.1%}<br>"
-                    "Min: %{customdata[1]:.1%} · Max: %{customdata[3]:.1%}"
-                    "<extra></extra>"
-                ),
-            )
-
-    row_height = 60 + (n_ds - 1) * 24
-    fig.update_layout(base_layout(
-        height=max(180, n_classes * row_height + 80),
-        margin=dict(l=8, r=48, t=8, b=8),
-        xaxis=dict(range=[0, 1.05], tickformat=".0%",
-                   gridcolor="rgba(0,0,0,0.05)",
-                   title="Completeness"),
-        yaxis=dict(
-            tickmode="array",
-            tickvals=list(range(n_classes)),
-            ticktext=class_labels,
-            automargin=True,
-            range=[-0.5, n_classes - 0.5],
-            gridcolor="rgba(0,0,0,0.04)",
-        ),
-        showlegend=n_ds > 1,
-        legend=dict(orientation="h", yanchor="bottom", y=1.02,
-                    xanchor="right", x=1),
-    ))
-    return fig
-
-
-
-
+# ════════════════════════════════════════════════════════════════════════════
+# Violin plot - Class completeness
+# ════════════════════════════════════════════════════════════════════════════
 def class_completeness_violin(
     ds_details: list[dict],
 ) -> go.Figure | None:
@@ -310,9 +156,6 @@ def class_completeness_violin(
                     ),
                 )
             else:
-                # Build a KDE violin manually using y as the numeric position.
-                # We pass y as a constant array (all = yc) so Plotly centres
-                # the violin on that position.
                 import statistics as _st
                 n      = len(scores)
                 mean   = round(_st.mean(scores) * 100, 1)
@@ -320,9 +163,6 @@ def class_completeness_violin(
                 mn     = round(min(scores) * 100, 1)
                 mx     = round(max(scores) * 100, 1)
 
-                # Violin hovertemplate cannot suppress the default stats box,
-                # so we use a transparent scatter on top as the hover target
-                # and disable hover on the violin itself.
                 fig.add_violin(
                     x=scores,
                     y=[yc] * len(scores),

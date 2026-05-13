@@ -13,11 +13,6 @@ class SPARQLEndpointSource(DataSource):
     """
     DataSource strategy that retrieves RDF data from a SPARQL endpoint
     using a CONSTRUCT query and materializes it into an rdflib.Graph.
-
-    Results are cached in the shared in-memory cache keyed by a hash
-    of the source configuration (endpoint URL + query). Subsequent
-    calls with the same configuration return the cached graph without
-    re-querying the endpoint.
     """
 
     def __init__(self, endpoint_url: str, query: str):

@@ -66,8 +66,6 @@ def build_metric_cards(
                 )
             )
 
-        # Only show the dimension label when it's a real category name,
-        # not the "Other" fallback used when dimension is missing.
         dim_label = [] if dim == "Other" else [
             html.P(
                 dim,
@@ -84,8 +82,6 @@ def build_metric_cards(
     return html.Div(sections)
 
 
-# ── Private helpers ───────────────────────────────────────────────────────
-
 def _card_style(is_active: bool) -> dict:
     return {
         "cursor":     "pointer",
@@ -101,11 +97,20 @@ def _analysis_card_body(m: dict) -> list:
         "warning" if score_pct >= 40 else
         "danger"
     )
+    tooltip = m.get("tooltip", "")
+    description = m.get("description", "")
+    tip_id = f"tip-card-{m['metric_id']}"
+
     return [
         dbc.Row([
             dbc.Col(
-                html.Span(m["name"],
-                          style={"fontSize": "0.875rem", "fontWeight": "500"}),
+                html.Span([
+                    m["name"],
+                    html.Span(" ℹ", id=tip_id,
+                              style={"fontSize": "0.70rem", "color": "#adb5bd",
+                                     "cursor": "help", "userSelect": "none"})
+                    if tooltip else html.Span(),
+                ], style={"fontSize": "0.875rem", "fontWeight": "500"}),
                 width=9,
             ),
             dbc.Col(
@@ -115,7 +120,19 @@ def _analysis_card_body(m: dict) -> list:
                 className="text-end d-flex align-items-center justify-content-end",
             ),
         ], className="g-0 mb-1"),
-        html.Small(m.get("dimension", ""), className="text-muted"),
+        html.Small(
+            m.get("tooltip") or m.get("dimension", ""),
+            className="text-muted",
+            style={"fontSize": "0.78rem", "display": "block",
+                   "whiteSpace": "nowrap", "overflow": "hidden",
+                   "textOverflow": "ellipsis"},
+        ),
+        dbc.Tooltip(
+            [html.Strong(tooltip), html.Br(),
+             html.Small(description, style={"color": "#dee2e6"})],
+            target=tip_id, placement="top",
+            style={"maxWidth": "280px"},
+        ) if tooltip else html.Span(),
     ]
 
 
@@ -129,7 +146,6 @@ def _comparison_card_body(m: dict, datasets: list[dict]) -> list:
         )
         ds_scores.append(match["score"] if match else 0.0)
 
-    # One horizontal bar per dataset, text at end, no hover interaction
     ds_labels = [ds.get("label", f"Dataset {i+1}") for i, ds in enumerate(datasets)]
     mini_fig = go.Figure()
     for i, score in enumerate(ds_scores):
@@ -162,12 +178,32 @@ def _comparison_card_body(m: dict, datasets: list[dict]) -> list:
     return [
         dbc.Row([
             dbc.Col(
-                html.Span(m["name"],
-                          style={"fontSize": "0.875rem", "fontWeight": "500"}),
+                html.Span([
+                    m["name"],
+                    html.Span(" ℹ",
+                              id=f"tip-ccard-{m['metric_id']}",
+                              style={"fontSize": "0.70rem", "color": "#adb5bd",
+                                     "cursor": "help", "userSelect": "none"})
+                    if m.get("tooltip") else html.Span(),
+                    dbc.Tooltip(
+                        [html.Strong(m.get("tooltip", "")), html.Br(),
+                         html.Small(m.get("description", ""),
+                                    style={"color": "#dee2e6"})],
+                        target=f"tip-ccard-{m['metric_id']}",
+                        placement="top",
+                        style={"maxWidth": "280px"},
+                    ) if m.get("tooltip") else html.Span(),
+                ], style={"fontSize": "0.875rem", "fontWeight": "500"}),
                 width=12,
             ),
         ], className="g-0 mb-1"),
-        html.Small(m.get("dimension", ""), className="text-muted"),
+        html.Small(
+            m.get("tooltip") or m.get("dimension", ""),
+            className="text-muted",
+            style={"fontSize": "0.78rem", "display": "block",
+                   "whiteSpace": "nowrap", "overflow": "hidden",
+                   "textOverflow": "ellipsis"},
+        ),
         dcc.Graph(
             figure=mini_fig,
             config={"displayModeBar": False},

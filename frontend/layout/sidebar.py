@@ -3,6 +3,14 @@ import dash_bootstrap_components as dbc
 
 
 def build_sidebar() -> html.Div:
+    """
+    Build the full application sidebar.
+
+    Returns
+    -------
+    html.Div
+        Complete sidebar layout.
+    """
     return html.Div([
         _sources_section(),
         html.Hr(className="my-3"),
@@ -12,9 +20,15 @@ def build_sidebar() -> html.Div:
     ])
 
 
-# ── Section builders ───────────────────────────────────────────────────────
-
 def _sources_section() -> html.Div:
+    """
+    Build the data source management section.
+
+    Returns
+    -------
+    html.Div
+        Source management section layout.
+    """
     return html.Div([
         html.P(
             "Data Sources",
@@ -34,27 +48,37 @@ def _sources_section() -> html.Div:
 
 
 def _metrics_section() -> html.Div:
+    """
+    Build the quality metric selection section.
+
+    Returns
+    -------
+    html.Div
+        Metric selection section.
+    """
     return html.Div([
         html.P(
             "Quality Metrics",
             className="text-muted text-uppercase fw-semibold mb-2",
             style={"fontSize": "0.75rem", "letterSpacing": "0.08em"}
         ),
-        # Populated on startup by callbacks/sources.py → populate_metrics.
-        # Each accordion item is one quality category (Intrinsic, Contextual…)
-        # containing a checklist of its metrics.
+
         html.Div(id="metric-accordion"),
-        # Hidden master store of all selected metric ids — read by the run
-        # button callback and the evaluation callback.
         dcc.Store(id="metric-selection", data=[]),
     ])
 
 
 def _run_section() -> html.Div:
+    """
+    Build the evaluation execution section.
+
+    Returns
+    -------
+    html.Div
+        Evaluation control section.
+    """
     from dash import dcc
     return html.Div([
-        # dcc.Loading shows a spinner over the button while the evaluation
-        # callback is running, giving the user clear "in progress" feedback.
         dcc.Loading(
             id="loading-run",
             type="circle",
@@ -76,13 +100,39 @@ def _run_section() -> html.Div:
     ])
 
 
-# ── Source list item ───────────────────────────────────────────────────────
-
 def build_source_item(source: dict) -> html.Div:
     """
-    One card per source.
-    Shows label + type badge, expand (▸/▾) button, edit (✎), delete (✕).
-    Expand triggers lazy ontology fetch and renders the scope tree below.
+    Build a single source card.
+
+    Parameters
+    ----------
+    source : dict
+        Source definition from store-sources.
+        Structure:
+            {
+                "id": str,
+                "label": str,
+                "selected": bool,
+                "expanded": bool,
+                "source_config": dict,
+                "scope": list[str] | None,
+            }
+
+    Returns
+    -------
+    html.Div
+        Source card + scope tree container.
+
+    Card Controls
+    -------------
+    checkbox
+        Enable/disable participation in evaluation.
+    expand button
+        Toggle ontology scope tree visibility.
+    edit button
+        Open source editing modal.
+    delete button
+        Remove source from store.
     """
     source_id   = source["id"]
     label       = source["label"]
@@ -98,7 +148,6 @@ def build_source_item(source: dict) -> html.Div:
         style={"fontSize": "0.65rem"},
     )
 
-    # Show how many classes are scoped when scope is active
     scope_badge = dbc.Badge(
         f"{len(scope)} classes",
         color="primary",
@@ -111,8 +160,6 @@ def build_source_item(source: dict) -> html.Div:
     card = dbc.Card(
         dbc.CardBody(
             dbc.Row([
-
-                # Checkbox + label
                 dbc.Col(
                     dbc.Checkbox(
                         id={"type": "source-checkbox", "index": source_id},
@@ -125,7 +172,6 @@ def build_source_item(source: dict) -> html.Div:
                     className="d-flex align-items-center",
                 ),
 
-                # Expand button (triggers ontology fetch)
                 dbc.Col(
                     dbc.Button(
                         expand_icon,
@@ -140,7 +186,6 @@ def build_source_item(source: dict) -> html.Div:
                     className="d-flex align-items-center justify-content-end",
                 ),
 
-                # Edit button
                 dbc.Col(
                     dbc.Button(
                         "✎",
@@ -155,7 +200,6 @@ def build_source_item(source: dict) -> html.Div:
                     className="d-flex align-items-center justify-content-end",
                 ),
 
-                # Delete button
                 dbc.Col(
                     dbc.Button(
                         "✕",
@@ -177,11 +221,9 @@ def build_source_item(source: dict) -> html.Div:
         style={"border": "1px solid #dee2e6", "borderRadius": "4px 4px 0 0" if expanded else "4px"},
     )
 
-    # The scope-tree div is ALWAYS in the DOM — visibility is controlled
-    # entirely by render_scope_trees callback, never by build_source_item.
     tree_panel = html.Div(
         id={"type": "scope-tree", "index": source_id},
-        style={"display": "none"},   # callback sets visibility
+        style={"display": "none"},   
     )
 
     return html.Div([card, tree_panel], className="mb-1")
@@ -256,8 +298,6 @@ def build_scope_tree(classes: list[dict], source_id: str,
     return html.Div([_render_node(c) for c in classes])
 
 
-# ── Add / Edit Source modal ────────────────────────────────────────────────
-
 def build_add_source_modal() -> dbc.Modal:
     """
     Modal used for both adding and editing a source.
@@ -265,6 +305,11 @@ def build_add_source_modal() -> dbc.Modal:
     - "modal-title"     — text swapped by callback ("Add" vs "Edit")
     - "modal-edit-id"   — hidden store carrying the id of the source being
                           edited, or None when adding a new one
+
+    Returns
+    -------
+    dbc.Modal
+        Source configuration modal.
     """
     return dbc.Modal([
         dbc.ModalHeader(
@@ -317,7 +362,6 @@ def build_add_source_modal() -> dbc.Modal:
                 ],
             ),
 
-            # SPARQL Endpoint fields
             html.Div(
                 id="source-fields-sparql",
                 style={"display": "none"},

@@ -10,14 +10,38 @@ _COLORS  = [_ACCENT, "#F5A05B", "#5BF5A0", "#F55B6E"]
 
 
 def _hex_to_rgba(hex_color: str, alpha: float = 0.15) -> str:
+    """
+    Convert a hex color string into rgba() CSS format.
+
+    Parameters
+    ----------
+    hex_color : str
+        Hexadecimal color string.
+    
+    Returns
+    -------
+    str
+        CSS rgba color string.
+    """
     h = hex_color.lstrip("#")
     r, g, b = int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
     return f"rgba({r},{g},{b},{alpha})"
 
 
-# ── Small chart helpers (self-contained, no shared state) ─────────────────
-
 def _base_layout(**kwargs) -> dict:
+    """
+    Generate standardized Plotly layout configuration.
+
+    Parameters
+    ----------
+    **kwargs
+        Additional Plotly layout overrides.
+
+    Returns
+    -------
+    dict
+        Plotly layout dictionary.
+    """
     return dict(
         plot_bgcolor="white",
         paper_bgcolor="white",
@@ -31,6 +55,32 @@ def _spider(
     datasets: list[dict],   # [{"label": str, "values": [float 0-1]}]
     height: int = 380,
 ) -> go.Figure:
+    """
+    Build a radar/spider comparison chart.
+
+    Parameters
+    ----------
+    metric_names : list[str]
+        Ordered metric labels.
+
+    datasets : list[dict]
+        Dataset comparison series.
+        Structure:
+            [
+                {
+                    "label": str,
+                    "values": list[float]
+                }
+            ]
+    height : int, optional
+        Chart height in pixels.
+
+    Returns
+    -------
+    go.Figure
+        Plotly radar chart.
+
+    """
     fig = go.Figure()
     for i, ds in enumerate(datasets):
         color = _COLORS[i % len(_COLORS)]
@@ -62,6 +112,32 @@ def _hbar(
     height: int = 260,
     title: str = "",
 ) -> go.Figure:
+    """
+    Build a grouped horizontal bar chart.
+
+    Parameters
+    ----------
+    names : list[str]
+        Category labels.
+    series : list[dict]
+        Chart series definitions.
+        Structure:
+            [
+                {
+                    "label": str,
+                    "values": list[float]
+                }
+            ]
+    height : int, optional
+        Figure height in pixels.
+    title : str, optional
+        Optional chart title.
+
+    Returns
+    -------
+    go.Figure
+        Plotly grouped horizontal bar chart.
+    """
     fig = go.Figure()
     for i, s in enumerate(series):
         fig.add_bar(
@@ -87,38 +163,20 @@ def _hbar(
     return fig
 
 
-def _vbar(
-    names: list[str],
-    series: list[dict],
-    height: int = 260,
-    title: str = "",
-) -> go.Figure:
-    fig = go.Figure()
-    for i, s in enumerate(series):
-        fig.add_bar(
-            name=s["label"],
-            x=names,
-            y=s["values"],
-            marker_color=_COLORS[i % len(_COLORS)],
-            text=[f"{round(v * 100)}%" for v in s["values"]],
-            textposition="outside",
-        )
-    fig.update_layout(_base_layout(
-        height=height,
-        margin=dict(l=8, r=8, t=36 if title else 8, b=8),
-        title=dict(text=title, font=dict(size=13)) if title else None,
-        barmode="group",
-        yaxis=dict(range=[0, 1.18], tickformat=".0%",
-                   gridcolor="rgba(0,0,0,0.05)"),
-        legend=dict(orientation="h", yanchor="bottom", y=1.02,
-                    xanchor="right", x=1),
-    ))
-    return fig
-
-
-# ── Shared UI helpers ─────────────────────────────────────────────────────
-
 def _panel_card(children) -> dbc.Card:
+    """
+    Wrap content inside a standardized dashboard panel card.
+
+    Parameters
+    ----------
+    children
+        Dash child components.
+
+    Returns
+    -------
+    dbc.Card
+        Styled dashboard card.
+    """
     return dbc.Card(
         dbc.CardBody(children, className="p-3"),
         className="mb-3",
@@ -126,6 +184,19 @@ def _panel_card(children) -> dbc.Card:
 
 
 def _section_label(text: str) -> html.P:
+    """
+    Build a standardized section title label.
+
+    Parameters
+    ----------
+    text : str
+        Section title text.
+
+    Returns
+    -------
+    html.P
+        Styled section label component.
+    """
     return html.P(
         text,
         className="text-muted fw-semibold mb-2",
@@ -135,12 +206,23 @@ def _section_label(text: str) -> html.P:
 
 
 def _score_badge(score: float) -> dbc.Badge:
+    """
+    Build a color-coded quality score badge.
+
+    Parameters
+    ----------
+    score : float
+        Quality score in range [0, 1].
+
+    Returns
+    -------
+    dbc.Badge
+        Styled percentage badge.
+    """
     pct = round(score * 100)
     color = "success" if pct >= 75 else "warning" if pct >= 40 else "danger"
     return dbc.Badge(f"{pct}%", color=color, className="ms-2 fs-6")
 
-
-# ── Overview panel (no metric selected) ───────────────────────────────────
 
 def _render_overview(results: dict) -> html.Div:
     """
@@ -210,10 +292,6 @@ def _render_overview(results: dict) -> html.Div:
     ])
 
 
-# ════════════════════════════════════════════════════════════════════════════
-# Generic fallback renderer
-# ════════════════════════════════════════════════════════════════════════════
-
 def _render_generic(metric: dict, datasets: list[dict]) -> html.Div:
     """
     Used when no specific renderer is registered for a metric_id.
@@ -254,7 +332,6 @@ def _render_generic(metric: dict, datasets: list[dict]) -> html.Div:
     else:
         score_chart = html.Div()
 
-    # ── Details table ─────────────────────────────────────────────────────
     details = metric.get("details") or {}
     detail_block = _render_details_table(details)
 
@@ -328,7 +405,6 @@ def _render_details_table(details: dict) -> html.Div:
                 ),
             ]))
 
-        # ── List of dicts: violations table or similar ────────────────────
         elif isinstance(val, list) and val and isinstance(val[0], dict):
             cols = list(val[0].keys())
             thead = html.Thead(html.Tr([html.Th(c) for c in cols]))
@@ -364,7 +440,6 @@ def _render_details_table(details: dict) -> html.Div:
                 ),
             ]))
 
-        # ── Plain list of scalars ─────────────────────────────────────────
         elif isinstance(val, list):
             blocks.append(_panel_card([
                 _section_label(key),
@@ -375,7 +450,6 @@ def _render_details_table(details: dict) -> html.Div:
                 ),
             ]))
 
-        # ── Scalar ────────────────────────────────────────────────────────
         else:
             display = (f"{round(val * 100)}%" if isinstance(val, float)
                        else str(val))
@@ -398,22 +472,9 @@ def _render_details_table(details: dict) -> html.Div:
     return html.Div(blocks)
 
 
-# ════════════════════════════════════════════════════════════════════════════
-# Renderer registry
-# ════════════════════════════════════════════════════════════════════════════
-#
-# Keys are metric_id strings exactly as returned by the backend.
-# Add entries here as you implement specific metric visualisations.
 
-_REGISTRY: dict[str, callable] = {
-    # Example (uncomment and implement when ready):
-    # "property_completeness": _render_property_completeness,
-}
+_REGISTRY: dict[str, callable] = {}
 
-
-# ════════════════════════════════════════════════════════════════════════════
-# Public entry point
-# ════════════════════════════════════════════════════════════════════════════
 
 def render_detail_panel(active_metric_id: str | None, results: dict) -> html.Div:
     """
@@ -429,7 +490,6 @@ def render_detail_panel(active_metric_id: str | None, results: dict) -> html.Div
     if results is None or results.get("status") == "error":
         return html.Div()
 
-    # __overview__ sentinel or None both show the overview panel
     if active_metric_id in (None, "__overview__"):
         return _render_overview(results)
 
@@ -451,11 +511,6 @@ def render_detail_panel(active_metric_id: str | None, results: dict) -> html.Div
         renderer(metric, datasets),
     ])
 
-
-# ════════════════════════════════════════════════════════════════════════════
-# Structural Completeness renderer
-# ════════════════════════════════════════════════════════════════════════════
-
 def _render_structural_completeness(metric: dict, datasets: list[dict]) -> html.Div:
     """
     Two sections:
@@ -466,7 +521,6 @@ def _render_structural_completeness(metric: dict, datasets: list[dict]) -> html.
     """
     comparison = len(datasets) > 1
 
-    # ── Collect per-dataset details ───────────────────────────────────────
     ds_details = []
     for i, ds in enumerate(datasets):
         m = next(
@@ -484,8 +538,7 @@ def _render_structural_completeness(metric: dict, datasets: list[dict]) -> html.
 
     if not ds_details:
         return html.Div()
-
-    # ── Header ────────────────────────────────────────────────────────────
+ 
     if comparison:
         header_children = [
             dbc.Col(
@@ -518,7 +571,6 @@ def _render_structural_completeness(metric: dict, datasets: list[dict]) -> html.
             ),
         ], align="center", className="mb-3")
 
-    # ── Score distribution ────────────────────────────────────────────────
     dist_fig = go.Figure()
     buckets = ["0.0","0.1","0.2","0.3","0.4","0.5",
                "0.6","0.7","0.8","0.9","1.0"]
@@ -553,9 +605,6 @@ def _render_structural_completeness(metric: dict, datasets: list[dict]) -> html.
         dcc.Graph(figure=dist_fig, config={"displayModeBar": False}),
     ])
 
-    # ── Class-level completeness ───────────────────────────────────────────
-    # For each dataset collect {class_uri: {mean, min, max}}
-    # Use short class name (fragment after # or last /) for readability
     def _short(uri: str) -> str:
         return uri.split("#")[-1].split("/")[-1]
 
@@ -611,7 +660,6 @@ def _render_structural_completeness(metric: dict, datasets: list[dict]) -> html.
     else:
         class_section = html.Div()
 
-    # ── Scalar stats summary ──────────────────────────────────────────────
     def _stat_row(label, *values):
         cells = [html.Td(html.Strong(label, style={"fontSize": "0.82rem"}))]
         for v in values:
@@ -656,10 +704,6 @@ def _render_structural_completeness(metric: dict, datasets: list[dict]) -> html.
     return html.Div([header, dist_section, class_section, stats_section])
 
 
-# ════════════════════════════════════════════════════════════════════════════
-# Property Completeness renderer
-# ════════════════════════════════════════════════════════════════════════════
-
 def _render_property_completeness(metric: dict, datasets: list[dict]) -> html.Div:
     """
     Three sections:
@@ -695,7 +739,6 @@ def _render_property_completeness(metric: dict, datasets: list[dict]) -> html.Di
     if not ds_details:
         return html.Div()
 
-    # ── Header ────────────────────────────────────────────────────────────
     if comparison:
         header_children = [
             dbc.Col(
@@ -723,7 +766,6 @@ def _render_property_completeness(metric: dict, datasets: list[dict]) -> html.Di
                     width="auto", className="ps-0"),
         ], align="center", className="mb-3")
 
-    # ── Section 1: Class scores ───────────────────────────────────────────
     class_fig = go.Figure()
     all_class_uris = []
     for d in ds_details:
@@ -768,8 +810,6 @@ def _render_property_completeness(metric: dict, datasets: list[dict]) -> html.Di
         ),
     ])
 
-    # ── Section 2: Top missing properties ────────────────────────────────
-    # Aggregate missing counts across all classes per dataset, top 20
     def _top_missing(details: dict, top_n: int = 20) -> list[tuple[str, int]]:
         totals: dict[str, int] = {}
         for class_data in details.get("class_property_fill_rates", {}).values():
@@ -777,7 +817,6 @@ def _render_property_completeness(metric: dict, datasets: list[dict]) -> html.Di
                 totals[prop] = totals.get(prop, 0) + stats.get("missing", 0)
         return sorted(totals.items(), key=lambda x: x[1], reverse=True)[:top_n]
 
-    # Union of top-20 across all datasets
     top_props_union: list[str] = []
     for d in ds_details:
         for prop, _ in _top_missing(d["details"]):
@@ -820,8 +859,6 @@ def _render_property_completeness(metric: dict, datasets: list[dict]) -> html.Di
         dcc.Graph(figure=missing_fig, config={"displayModeBar": False}),
     ])
 
-    # ── Section 3: Class drill-down placeholder ───────────────────────────
-    # Populated by callbacks/ui.py when active_class changes.
     drilldown_section = html.Div(id="property-drilldown-panel")
 
     return html.Div([
@@ -871,7 +908,6 @@ def build_property_drilldown(active_class: str | None, results: dict) -> html.Di
                 ),
             })
 
-    # Collect all properties present in any dataset for this class
     all_props: list[str] = []
     for d in ds_details:
         for p in d["fill_rates"]:
@@ -886,7 +922,6 @@ def build_property_drilldown(active_class: str | None, results: dict) -> html.Di
             )
         ])
 
-    # Sort by fill rate of first dataset (descending)
     first_rates = ds_details[0]["fill_rates"] if ds_details else {}
     all_props.sort(key=lambda p: first_rates.get(p, {}).get("fill_rate", 0))
 
@@ -935,6 +970,5 @@ def build_property_drilldown(active_class: str | None, results: dict) -> html.Di
     ])
 
 
-# ── Register both renderers ───────────────────────────────────────────────
 _REGISTRY["structural_completeness"] = _render_structural_completeness
 _REGISTRY["property_completeness"]   = _render_property_completeness

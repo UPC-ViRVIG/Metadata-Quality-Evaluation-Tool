@@ -77,7 +77,6 @@ def metric_score_bar(
     highest to lowest.
     Used in the overview panel (analysis mode).
     """
-    # Sort highest → lowest
     paired = sorted(zip(scores, metric_names), reverse=True)
     sorted_scores = [p[0] for p in paired]
     sorted_names  = [p[1] for p in paired]
@@ -103,7 +102,7 @@ def metric_score_bar(
 
 def grouped_metric_bar(
     metric_names: list[str],
-    datasets: list[dict],    # [{"label": str, "values": [float]}]
+    datasets: list[dict],    
     height: int | None = None,
 ) -> go.Figure:
     """

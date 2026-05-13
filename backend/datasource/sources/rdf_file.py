@@ -11,10 +11,6 @@ import graph.graph_cache as _cache
 class RDFFileSource(DataSource):
     """
     DataSource strategy that loads RDF data from a local file.
-
-    Parsed graphs are retained in the shared in-memory cache keyed
-    by a hash of the source configuration. Subsequent calls with the
-    same configuration return the cached graph without re-parsing.
     """
 
     def __init__(self, file_path: str, rdf_format: str = None):

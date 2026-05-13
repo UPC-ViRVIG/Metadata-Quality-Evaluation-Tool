@@ -1,9 +1,45 @@
+"""
+Main Dash application entry point.
+
+This module initializes the frontend application, defines the global
+layout structure, registers shared client-side state stores, and loads
+all callback modules.
+
+Main Layout Structure
+---------------------
+Top Bar
+    Application title/header.
+Sidebar
+    Dataset management, metric selection, ontology browsing.
+Main Panel
+    Dynamic metric visualizations and evaluation results.
+Modal Layer
+    Source/dataset configuration dialogs.
+
+Shared State Stores
+-------------------
+store-sources
+    User-configured dataset sources.
+store-results
+    Evaluation results returned from the backend.
+store-ontology
+    Cached ontology/class hierarchy data.
+store-ui
+    Transient UI interaction state.
+store-metric-dims
+    Metric-to-dimension mapping metadata.
+store-dimensions
+    Quality dimension descriptions and tooltips.
+"""
 import dash
 from dash import html, dcc
 import dash_bootstrap_components as dbc
 
 from layout.sidebar import build_sidebar, build_add_source_modal
 
+# ============================================================================
+# Dash application initialization
+# ============================================================================
 app = dash.Dash(
     __name__,
     external_stylesheets=[dbc.themes.BOOTSTRAP],
@@ -12,6 +48,9 @@ app = dash.Dash(
 
 server = app.server
 
+# ============================================================================
+# Global application layout
+# ============================================================================
 app.layout = dbc.Container(
     fluid=True,
     children=[
@@ -25,9 +64,9 @@ app.layout = dbc.Container(
             "active_class":  None
         }),
 
-        # Maps metric_id → dimension string, populated by populate_metrics.
-        # Used by metric card grouping without re-fetching from the backend.
-        dcc.Store(id="store-metric-dims", data={}),
+        dcc.Store(id="store-metric-dims",  data={}),
+
+        dcc.Store(id="store-dimensions",  data={}),
 
         # ── Modal ─────────────────────────────────────────────────────────
         build_add_source_modal(),
@@ -55,7 +94,6 @@ import callbacks.sources      # noqa: F401, E402
 import callbacks.evaluation   # noqa: F401, E402
 import callbacks.main_panel   # noqa: F401, E402
 import callbacks.ui            # noqa: F401, E402
-
 
 if __name__ == "__main__":
     app.run(debug=True, port=8050)

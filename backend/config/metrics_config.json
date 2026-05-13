@@ -1,14 +1,41 @@
 {
+  "dimensions": {
+    "Intrinsic": {
+      "description": "Properties of the metadata itself, independent of context.",
+      "tooltip": "Is the metadata correct and trustworthy on its own?"
+    },
+    "Contextual": {
+      "description": "Whether metadata is sufficient and appropriate for its intended use.",
+      "tooltip": "Is the metadata complete and relevant for how it will be used?"
+    },
+    "Representational": {
+      "description": "How well the metadata is structured and expressed.",
+      "tooltip": "Is the metadata easy to read and consistently formatted?"
+    },
+    "Accessibility": {
+      "description": "",
+      "tooltip": "Can the metadata be found, shared, and reused by others?"
+    }
+  },
   "metrics": {
     "structural_completeness": {
       "name": "Structural Completeness",
-      "description":"Measures the proportion of records that contain all required metadata fields, as defined by the detected schema profile.",
+      "description": "Measures the proportion of records that contain all required metadata fields, as defined by the detected schema profile.",
+      "tooltip": "Are all the expected fields filled in for each record?",
       "dimension": "Contextual",
       "weight": 1.0
     },
-    "property_completeness": {
-      "name": "Property Completeness",
-      "description": "Measures the property presence across the entire dataset",
+    "property_coverage": {
+      "name": "Property Coverage",
+      "description": "Measures how consistently metadata properties are used across all instances of each class in the dataset.",
+      "tooltip": "Are the same properties used consistently across all items of the same type?",
+      "dimension": "Contextual",
+      "weight": 1.0
+    },
+    "multilingual_labeling_coverage": {
+      "name": "Multilingual Labeling Coverage",
+      "description": "Measures the presence and distribution of language-tagged literals across the dataset, including how many resources contain multilingual metadata and how consistently languages are represented.",
+      "tooltip": "Does the metadata support multiple languages and use language tags consistently?",
       "dimension": "Contextual",
       "weight": 1.0
     }

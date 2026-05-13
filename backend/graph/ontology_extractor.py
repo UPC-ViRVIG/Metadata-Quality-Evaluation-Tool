@@ -8,6 +8,16 @@ from rdflib import Graph, RDF, RDFS, OWL, URIRef
 
 @dataclass
 class PropertyInfo:
+    """
+    Attributes
+    ----------
+    uri : str
+        Full predicate URI.
+    label : str
+        Human-readable short name extracted from the URI.
+    count : int
+        Number of class instances using this property.
+    """
     uri: str
     label: str
     count: int
@@ -15,6 +25,22 @@ class PropertyInfo:
 
 @dataclass
 class ClassNode:
+    """
+    Represents a class in the ontology hierarchy.
+
+    Attributes
+    ----------
+    uri : str
+        Full class URI.
+    label : str
+        Human-readable class name.
+    instance_count : int
+        Number of RDF subjects typed as this class.
+    properties : list[PropertyInfo]
+        Properties used by instances of this class.
+    children : list[ClassNode]
+        Child subclasses in the hierarchy tree.
+    """
     uri: str
     label: str
     instance_count: int
@@ -23,7 +49,9 @@ class ClassNode:
 
 
 def _local_name(uri: str) -> str:
-    """Return the fragment or last path segment of a URI as a readable label."""
+    """
+    Return the fragment or last path segment of a URI as a readable label.
+    """
     if "#" in uri:
         return uri.rsplit("#", 1)[-1]
     return uri.rsplit("/", 1)[-1] or uri
@@ -31,7 +59,15 @@ def _local_name(uri: str) -> str:
 
 def _collect_instances(graph: Graph) -> dict[str, set[str]]:
     """
-    Return ``{class_uri: {subject_uri, ...}}`` for every ``rdf:type`` triple.
+    Collect all rdf:type relationships from the graph.
+
+    Returns
+    -------
+    dict[str, set[str]]
+        Mapping:
+            {
+                class_uri: {instance_uri, ...}
+            }
     """
     class_instances: dict[str, set[str]] = defaultdict(set)
 
@@ -50,9 +86,24 @@ def _collect_properties(
     class_instances: dict[str, set[str]],
 ) -> dict[str, list[PropertyInfo]]:
     """
-    For each class, count how many of its instances use each property.
+    Counts property usage for each class
 
-    Returns ``{class_uri: [PropertyInfo, ...]}``, sorted by count desc.
+    For each class:
+        - look at all its instances
+        - determine which predicates those instances use
+        - count how many instances use each predicate
+
+    Returns
+    -------
+    dict[str, list[PropertyInfo]]
+
+    Structure:
+        {
+            class_uri: [
+                PropertyInfo(...),
+                ...
+            ]
+        }
     """
     subject_props: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
 
@@ -90,10 +141,19 @@ def _collect_properties(
 
 def _collect_subclass_edges(graph: Graph) -> dict[str, list[str]]:
     """
-    Return ``{parent_class_uri: [child_class_uri, ...]}``.
+    Extract subclass relationships from the graph.
+    
+    Returns
+    -------
+    dict[str, list[str]]
 
-    We look at both ``rdfs:subClassOf`` and ``owl:equivalentClass`` is *not*
-    used here – we only build a strict parent→child tree.
+    Structure:
+        {
+            parent_class_uri: [
+                child_class_uri,
+                ...
+            ]
+        }
     """
     children: dict[str, list[str]] = defaultdict(list)
 
@@ -112,7 +172,19 @@ def _build_tree(
     visited: set[str],
 ) -> list[ClassNode]:
     """
-    Recursively build the ClassNode tree for roots.
+    Recursively construct a hierarchy of ClassNode objects.
+
+    Parameters
+    ----------
+    roots : list[str]
+        Class URIs to use as the current recursion roots.
+    visited : set[str]
+        Prevents cycles and duplicate processing.
+
+    Returns
+    -------
+    list[ClassNode]
+        Fully constructed subtree.
     """
     nodes: list[ClassNode] = []
 

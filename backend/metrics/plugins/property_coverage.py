@@ -16,10 +16,33 @@ EXCLUDED_PROPERTIES = {
 
 def get_records_by_class(graph: Graph, scope: list[str] | None = None) -> dict[str, set[str]]:
     """
-    Groups all named (non-blank) subjects by their rdf:type.
+    Group named RDF resources by rdf:type.
 
-    Each record appears under every class it belongs to.
-    Records with no type are grouped under 'Unknown'.
+    Each resource is associated with every RDF class declared via
+    rdf:type. Resources without a non-blank rdf:type are grouped
+    under the synthetic class label "Unknown".
+
+    Parameters
+    ----------
+    graph : rdflib.Graph
+        RDF graph to analyse.
+    scope : list[str] | None, optional
+        Optional whitelist of class URIs.
+
+    Returns
+    -------
+    dict
+        Structure:
+
+            {
+                class_uri: str
+                    RDF class URI or the synthetic label "Unknown".
+                    {
+                        resource_uri: str
+                            URI of a named RDF subject/resource.
+                        ...
+                    }
+            } 
     """
     scope_set = set(scope) if scope else None
     print(f"[DEBUG] scope_set = {scope_set}") 
@@ -51,15 +74,47 @@ def compute_class_property_fill_rates(
     class_records: dict[str, set[str]]
 ) -> dict[str, dict[str, dict]]:
     """
-    For each class, computes per-property fill rates based only
-    on records belonging to that class.
+    Compute per-property completeness statistics for each RDF class.
 
-    Returns a nested structure:
-        class_uri -> property_uri -> {present, missing, fill_rate}
+    For every class:
+        - determine which properties appear among its records
+        - count how many records contain each property
+        - compute property fill rates
 
-    Properties in EXCLUDED_PROPERTIES are omitted.
-    Results are sorted by fill_rate ascending within each class
-    so the stacked bar chart renders the worst offenders first.
+    Fill rate is defined as:
+        (# records containing property) / (total records in class)
+
+    Parameters
+    ----------
+    graph : rdflib.Graph
+        RDF graph being analysed.
+    class_records : dict[str, set[str]]
+        Mapping produced by get_records_by_class().
+        Structure:
+            {
+                class_uri: {
+                    resource_uri,
+                    ...
+                }
+            }
+
+    Returns
+    -------
+    dict
+        Nested structure:
+            {
+                class_uri: {
+                    property_uri: {
+                        "present": int,
+                            Number of class records containing at least one value
+                            for the property.
+                        "missing": int,
+                            Number of class records not containing the property.
+                        "fill_rate": float
+                            Fraction of records containing the property.
+                    }
+                }
+            }    
     """
     result = {}
 
@@ -98,11 +153,24 @@ def compute_class_scores(
     class_property_fill_rates: dict[str, dict[str, dict]]
 ) -> dict[str, float]:
     """
-    Computes the mean fill rate across all observed properties
-    for each class.
+    Compute a completeness score for each RDF class.
 
-    This is the per-class quality score used in the overall
-    bar chart visualization.
+    For a class C with properties P: score(C) = Σ fill_rate(p) / |P|                   
+
+    Parameters
+    ----------
+    class_property_fill_rates : dict
+        Per-property completeness statistics produced by
+        compute_class_property_fill_rates().
+
+    Returns
+    -------
+    dict:
+        Structure:
+        {
+             class_uri: class_score
+                Mean property fill rate for the class.
+        }
     """
     return {
         class_uri: round(
@@ -122,11 +190,21 @@ def compute_overall_score(
     class_records: dict[str, set[str]]
 ) -> float:
     """
-    Computes the overall dataset score as the weighted mean
-    of per-class scores, weighted by number of records per class.
+    Compute the overall dataset completeness score.
 
-    This ensures a class with 1000 records influences the score
-    more than a class with 5 records.
+    overall_score = Σ(score(C) × records(C)) / Σ(records(C))
+
+    Parameters
+    ----------
+    class_scores : dict[str, float]
+        Per-class completeness scores.
+    class_records : dict[str, set[str]]
+        Mapping of classes to their associated records.
+
+    Returns
+    -------
+    float
+        Overall dataset completeness score.
     """
     total_weighted = sum(
         class_scores[cls] * len(class_records[cls])
@@ -142,19 +220,12 @@ def compute_overall_score(
     return round(total_weighted / total_weight, 4) if total_weight > 0 else 1.0
 
 
-class PropertyCompletenessMetric(MetricPlugin):
+class PropertyCoverageMetric(MetricPlugin):
+    """
+    Measures metadata completeness across RDF classes.
+    """
 
-    id          = "property_completeness"
-    name        = "Property Completeness"
-    description = (
-        "Measures how consistently each property is used within "
-        "each class across the dataset, without assuming a schema "
-        "contract. Score is the weighted mean of per-class fill "
-        "rates, weighted by number of records per class."
-    )
-    dimension    = "Contextual Quality"
-    subdimension = "Completeness"
-    weight       = 1.0
+    id          = "property_coverage"
 
     def evaluate(self, context: DatasetContext) -> MetricResult:
         graph = context.graph

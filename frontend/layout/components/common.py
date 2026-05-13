@@ -13,23 +13,53 @@ def card(children, className: str = "h-100", **kwargs) -> dbc.Card:
     )
 
 
+# Plain-language explanations for the three RDF dataset statistics.
+_STAT_TOOLTIPS = {
+    "Triples":   "The total number of individual facts in the dataset. "
+                 "Each triple is a subject–predicate–object statement, "
+                 "e.g. 'Painting X has creator Y'.",
+    "Entities":  "The number of distinct real-world things described in "
+                 "the dataset, each identified by a unique URI and classified "
+                 "with rdf:type.",
+    "Classes":   "The number of distinct categories (rdf:type values) used "
+                 "to classify entities, e.g. Artwork, Place, Agent.",
+}
+
+
 def stat_card(label: str, value) -> dbc.Col:
     """
     A single stat display column (Triples / Entities / Classes).
     Renders '—' when value is None.
+    Includes a ℹ tooltip with a plain-language explanation.
     """
+    tip_id  = f"tip-stat-{label.lower()}"
+    tooltip = _STAT_TOOLTIPS.get(label)
+
+    label_content = html.Span([
+        html.Span(
+            label,
+            className="text-muted",
+            style={"fontSize": "0.75rem", "textTransform": "uppercase",
+                   "letterSpacing": "0.06em"},
+        ),
+        html.Span(
+            " ℹ",
+            id=tip_id,
+            style={"fontSize": "0.70rem", "color": "#adb5bd",
+                   "cursor": "help", "userSelect": "none"},
+        ) if tooltip else html.Span(),
+    ])
+
     return dbc.Col(
         card([
-            html.P(
-                label,
-                className="text-muted mb-1",
-                style={"fontSize": "0.75rem", "textTransform": "uppercase",
-                       "letterSpacing": "0.06em"},
-            ),
+            html.P(label_content, className="mb-1"),
             html.H4(
                 str(value) if value is not None else "—",
                 className="mb-0 fw-semibold",
             ),
+            dbc.Tooltip(tooltip, target=tip_id,
+                        placement="bottom",
+                        style={"maxWidth": "240px"}) if tooltip else html.Span(),
         ]),
         xs=6, md=3,
         className="mb-3",

@@ -4,7 +4,7 @@ from charts.palette import COLORS, base_layout
 
 def hbar(
     names: list[str],
-    series: list[dict],     # [{"label": str, "values": [float], "color"?: str}]
+    series: list[dict],     
     title: str = "",
     height: int | None = None,
     x_range: list = None,

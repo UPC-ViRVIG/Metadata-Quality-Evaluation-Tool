@@ -17,3 +17,16 @@ def load_metrics_config():
     """
     with open(CONFIG_PATH) as f:
         return json.load(f)["metrics"]
+    
+
+def load_dimensions_config():
+    """
+    Load dimensions from the JSON configuration file
+
+    Returns
+    -------
+    dict
+        Dictionary mapping metric IDs to configuration objects.
+    """
+    with open(CONFIG_PATH) as f:
+        return json.load(f)["dimensions"]

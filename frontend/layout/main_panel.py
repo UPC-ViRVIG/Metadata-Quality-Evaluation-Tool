@@ -9,6 +9,14 @@ from layout.components.metric_card import build_metric_cards
 
 
 def build_guide() -> html.Div:
+    """
+    Build the initial onboarding/guide panel
+
+    Returns
+    -------
+    html.Div
+        Guide/onboarding layout.
+    """
     return html.Div(
         dbc.Row(
             dbc.Col(
@@ -37,6 +45,19 @@ def build_guide() -> html.Div:
 
 
 def build_error(message: str) -> html.Div:
+    """
+    Build evaluation error display panel.
+
+    Parameters
+    ----------
+    message : str
+        Human-readable evaluation error message.
+
+    Returns
+    -------
+    html.Div
+        Error alert layout.
+    """
     return html.Div(
         dbc.Alert(
             [html.Strong("Evaluation error: "), message],
@@ -49,6 +70,22 @@ def build_analysis(
     datasets: list[dict],
     active_metric_id: str | None = None,
 ) -> html.Div:
+    """
+    Build single-dataset analysis layout.
+
+    Parameters
+    ----------
+    datasets : list[dict]
+        Evaluated dataset results.
+        Analysis mode expects exactly one dataset.
+    active_metric_id : str | None, optional
+        Currently selected metric identifier.
+
+    Returns
+    -------
+    html.Div
+        Analysis dashboard layout.
+    """
     dataset = datasets[0]
     label   = dataset.get("label", "Dataset")
     stats   = dataset.get("stats", {})
@@ -102,11 +139,24 @@ def build_comparison(
     datasets: list[dict],
     active_metric_id: str | None = None,
 ) -> html.Div:
+    """
+    Build multi-dataset comparison layout.
+
+    Parameters
+    ----------
+    datasets : list[dict]
+        Evaluated dataset results.
+    active_metric_id : str | None, optional
+        Currently selected metric identifier.
+
+    Returns
+    -------
+    html.Div
+        Comparison dashboard layout.
+    """
     labels         = [ds.get("label", f"Dataset {i+1}") for i, ds in enumerate(datasets)]
     overall_scores = [ds.get("overall_score", 0.0) for ds in datasets]
 
-    # Make x-labels unique — if two sources share the same name Plotly would
-    # stack their bars on top of each other instead of showing them side by side.
     seen: dict[str, int] = {}
     unique_labels = []
     for lbl in labels:

@@ -1,7 +1,9 @@
+# layout/components/metric_renderers/property_coverage.py
+
 from dash import html, dcc
 import dash_bootstrap_components as dbc
 
-import charts.property_completeness as charts
+import charts.property_coverage as charts
 from layout.components.common import panel_card, section_label
 from layout.components.detail_views_helpers import (
     collect_ds_details,
@@ -9,7 +11,7 @@ from layout.components.detail_views_helpers import (
     comparison_header,
 )
 
-METRIC_ID = "property_completeness"
+METRIC_ID = "property_coverage"
 
 
 def render(metric: dict, datasets: list[dict]) -> html.Div:
@@ -20,9 +22,9 @@ def render(metric: dict, datasets: list[dict]) -> html.Div:
         return html.Div()
 
     header = (
-        comparison_header("Property Completeness", ds_details)
+        comparison_header("Property Completeness", ds_details, metric=metric)
         if comparison else
-        analysis_header("Property Completeness", ds_details[0]["score"])
+        analysis_header("Property Completeness", ds_details[0]["score"], metric=metric)
     )
 
     if comparison:

@@ -342,15 +342,6 @@ def count_shape_properties(shapes_graph: Graph) -> int:
 class StructuralCompletenessMetric(MetricPlugin):
 
     id = "structural_completeness"
-    name = "Structural Completeness"
-    description = (
-        "Measures the proportion of required metadata fields present "
-        "in each record, as defined by the detected schema profile. "
-        "Score is the mean per-record completeness across the dataset."
-    )
-    dimension = "Contextual Quality"
-    subdimension = "Completeness"
-    weight = 1.0
 
     def evaluate(self, context: DatasetContext) -> MetricResult:
         """

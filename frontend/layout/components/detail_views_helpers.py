@@ -35,16 +35,55 @@ def collect_ds_details(
     return result
 
 
-def analysis_header(name: str, score: float) -> html.Div:
-    """Header row for single-dataset view: metric name + coloured % badge."""
-    return dbc.Row([
-        dbc.Col(html.H6(name, className="mb-0 fw-semibold"), width="auto"),
-        dbc.Col(score_badge(score), width="auto", className="ps-0"),
-    ], align="center", className="mb-3")
+def _description_subtitle(metric: dict) -> html.Div:
+    """
+    Muted description line shown below the metric name in the detail panel.
+    Shows the plain-language tooltip as the subtitle if available,
+    with the full technical description in a ℹ tooltip on hover.
+    """
+    tooltip_text = metric.get("tooltip", "")
+    description  = metric.get("description", "")
+    if not tooltip_text and not description:
+        return html.Div()
+
+    tip_id = f"tip-detail-{metric.get('metric_id', 'metric')}"
+    return html.Div([
+        html.Small([
+            html.Span(tooltip_text or description,
+                      className="text-muted",
+                      style={"fontSize": "0.82rem"}),
+            html.Span(
+                " ℹ",
+                id=tip_id,
+                style={"fontSize": "0.70rem", "color": "#adb5bd",
+                       "cursor": "help", "userSelect": "none"},
+            ) if description and tooltip_text else html.Span(),
+        ]),
+        dbc.Tooltip(
+            description,
+            target=tip_id,
+            placement="right",
+            style={"maxWidth": "320px"},
+        ) if description and tooltip_text else html.Span(),
+    ], className="mb-3")
 
 
-def comparison_header(name: str, ds_details: list[dict]) -> html.Div:
-    """Header row for comparison view: metric name + one badge per dataset."""
+def analysis_header(name: str, score: float, metric: dict | None = None) -> html.Div:
+    """Header row for single-dataset view: metric name + coloured % badge
+    + description subtitle below."""
+    return html.Div([
+        dbc.Row([
+            dbc.Col(html.H6(name, className="mb-0 fw-semibold"), width="auto"),
+            dbc.Col(score_badge(score), width="auto", className="ps-0"),
+        ], align="center", className="mb-1"),
+        _description_subtitle(metric or {}),
+    ])
+
+
+def comparison_header(name: str, ds_details: list[dict],
+                      metric: dict | None = None) -> html.Div:
+    """Header row for comparison view: metric name + one badge per dataset
+    + description subtitle below."""
     badges = [
         dbc.Badge(
             f"{d['label']}: {round(d['score'] * 100)}%",
@@ -54,9 +93,12 @@ def comparison_header(name: str, ds_details: list[dict]) -> html.Div:
         )
         for d in ds_details
     ]
-    return dbc.Row(
-        [dbc.Col(html.H6(name, className="mb-0 fw-semibold"), width="auto")]
-        + [dbc.Col(b, width="auto") for b in badges],
-        align="center",
-        className="mb-3 g-1",
-    )
+    return html.Div([
+        dbc.Row(
+            [dbc.Col(html.H6(name, className="mb-0 fw-semibold"), width="auto")]
+            + [dbc.Col(b, width="auto") for b in badges],
+            align="center",
+            className="mb-1 g-1",
+        ),
+        _description_subtitle(metric or {}),
+    ])

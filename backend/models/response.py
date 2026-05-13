@@ -5,6 +5,28 @@ from typing import Optional, List
 
 
 class MetricResultResponse(BaseModel):
+    """
+    API response model representing the result of a single metric
+    evaluation for a dataset.
+
+    Attributes
+    ----------
+    metric_id : str
+        Stable internal identifier of the metric.
+    name : str
+        Human-readable metric name displayed in the UI.
+    score : float | None
+        Computed metric score. None if the metric failed or 
+        could not be computed.
+    weight : float
+        Relative contribution of the metric to the overall dataset score.
+    status : str
+        Metric execution status.
+    details : dict | None
+        Metric-specific detailed output used for frontend visualisations 
+        and analysis. Structure depends on the metric implementation.
+        None if no detailed output is available.
+    """
     metric_id: str
     name: str
     score: float | None
@@ -14,6 +36,19 @@ class MetricResultResponse(BaseModel):
 
     @staticmethod
     def from_domain(metric) -> "MetricResultResponse":
+        """
+        Convert a domain MetricResult object into its API response model.
+
+        Parameters
+        ----------
+        metric
+            Domain-layer MetricResult instance.
+
+        Returns
+        -------
+        MetricResultResponse
+        Serialized API representation of the metric result.
+        """
         return MetricResultResponse(
             metric_id=metric.metric_id,
             name=metric.name,
@@ -23,15 +58,48 @@ class MetricResultResponse(BaseModel):
             details=metric.details,
         )
 
-
 class MetricConfigResponse(BaseModel):
-    metric_id: str
-    name: str
+    """
+    API response model describing a configurable evaluation metric.
+
+    Attributes
+    ----------
+    metric_id : str
+        Stable internal metric identifier.
+    name : str
+        Human-readable metric name.
+    description : str
+        Detailed explanation of what the metric evaluates.
+    tooltip : str
+        Short UI-friendly help text.
+    dimension : str
+        High-level quality dimension the metric belongs to.
+    weight : float
+        Default contribution weight used during score aggregation.
+    """
+    metric_id:   str
+    name:        str
     description: str
-    dimension: str
-    weight: float
+    tooltip:     str
+    dimension:   str
+    weight:      float
 
+class DimensionConfigResponse(BaseModel):
+    """
+    API response model describing a quality dimension category.
 
+    Attributes
+    ----------
+    name : str
+        Name of the quality dimension.
+    description : str
+        Detailed explanation of the dimension.
+    tooltip : str
+        Short UI-oriented explanatory text.
+    """
+    name:        str
+    description: str
+    tooltip:     str
 
 class PropertyInfoResponse(BaseModel):
     """
