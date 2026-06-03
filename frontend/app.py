@@ -37,9 +37,7 @@ import dash_bootstrap_components as dbc
 
 from layout.sidebar import build_sidebar, build_add_source_modal
 
-# ============================================================================
-# Dash application initialization
-# ============================================================================
+
 app = dash.Dash(
     __name__,
     external_stylesheets=[dbc.themes.BOOTSTRAP],
@@ -48,9 +46,6 @@ app = dash.Dash(
 
 server = app.server
 
-# ============================================================================
-# Global application layout
-# ============================================================================
 app.layout = dbc.Container(
     fluid=True,
     children=[

@@ -1,4 +1,5 @@
 from collections import defaultdict
+import re
 
 from rdflib import Graph, URIRef, Literal, BNode
 from rdflib.namespace import RDF
@@ -11,6 +12,11 @@ from metrics.metrics_exceptions import EmptyGraphError
 # Maximum number of distinct language columns before collapsing into "other"
 MAX_LANGUAGES = 10
 
+_BCP47_RE = re.compile(r"^[a-zA-Z]{2,8}(-[a-zA-Z0-9]{1,8})*$")
+
+def _is_valid_bcp47(tag: str) -> bool:
+    """Return True if tag conforms to BCP 47 (simplified check)."""
+    return bool(_BCP47_RE.match(tag))
 
 def _collect_resource_data(graph: Graph) -> dict:
     """
@@ -67,6 +73,9 @@ def _collect_resource_data(graph: Graph) -> dict:
 
         lang = obj.language 
         if lang:
+            if not _is_valid_bcp47(lang):          
+                resources[uri]["untagged_count"] += 1 
+                continue
             resources[uri]["tagged_count"] += 1
             resources[uri]["lang_literal_counts"][lang.lower()] += 1
         else:
@@ -270,11 +279,19 @@ def _compute_score(resources: dict) -> float:
     """
     Overall multilingual coverage score.
 
-    Defined as the proportion of resources that have at least one
-    language-tagged literal AND at least two distinct languages.
-    Resources with only one language tag are partially credited (0.5).
+    For each resource, score is the product of two factors:
 
-    This rewards genuine multilinguality over monolingual tagging.
+    Coverage ratio — the proportion of its literals that carry any
+    language tag (tagged_count / total_literals). This measures depth:
+    how much of the resource's content is actually tagged.
+
+    Language breadth multiplier — 0.0 for no language tags, 0.5 for
+    exactly one language, 1.0 for two or more languages. This measures
+    breadth: whether the resource is genuinely multilingual.
+
+    The overall score is the mean of per-resource scores. A resource
+    must have both substantial literal coverage and multiple languages
+    to score well.
     """
     if not resources:
         return 0.0
@@ -283,11 +300,21 @@ def _compute_score(resources: dict) -> float:
     score_sum = 0.0
 
     for data in resources.values():
+        total_literals = data["tagged_count"] + data["untagged_count"]
+        if total_literals == 0:
+            continue
+
+        coverage_ratio = data["tagged_count"] / total_literals
         n_langs = len(data["lang_literal_counts"])
+
         if n_langs >= 2:
-            score_sum += 1.0
+            multiplier = 1.0
         elif n_langs == 1:
-            score_sum += 0.5
+            multiplier = 0.5
+        else:
+            multiplier = 0.0
+
+        score_sum += coverage_ratio * multiplier
 
     return round(score_sum / total, 4)
 

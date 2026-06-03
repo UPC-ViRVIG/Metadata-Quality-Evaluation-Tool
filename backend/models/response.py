@@ -3,52 +3,40 @@ from __future__ import annotations
 from pydantic import BaseModel
 from typing import Optional, List
 
-
 class MetricResultResponse(BaseModel):
     """
-    API response model representing the result of a single metric
-    evaluation for a dataset.
+    API response model representing a single metric result.
 
     Attributes
     ----------
     metric_id : str
-        Stable internal identifier of the metric.
+        Identifier of the metric.
     name : str
-        Human-readable metric name displayed in the UI.
+        Human-readable metric name.
     score : float | None
-        Computed metric score. None if the metric failed or 
-        could not be computed.
+        Computed metric score.
     weight : float
-        Relative contribution of the metric to the overall dataset score.
+        Weight used during score aggregation.
     status : str
         Metric execution status.
     details : dict | None
-        Metric-specific detailed output used for frontend visualisations 
-        and analysis. Structure depends on the metric implementation.
-        None if no detailed output is available.
+        Optional dictionary containing metric-specific display data.
+        Includes capped sample lists for violation detail panels.
+    exports_available : list[str] | None
+        Export categories available for download via the export endpoint.
+        None if the metric does not support export.
     """
-    metric_id: str
-    name: str
-    score: float | None
-    weight: float
-    status: str
-    details: dict | None
+
+    metric_id:          str
+    name:               str
+    score:              float | None
+    weight:             float
+    status:             str
+    details:            dict | None
+    exports_available:  Optional[List[str]] = None
 
     @staticmethod
     def from_domain(metric) -> "MetricResultResponse":
-        """
-        Convert a domain MetricResult object into its API response model.
-
-        Parameters
-        ----------
-        metric
-            Domain-layer MetricResult instance.
-
-        Returns
-        -------
-        MetricResultResponse
-        Serialized API representation of the metric result.
-        """
         return MetricResultResponse(
             metric_id=metric.metric_id,
             name=metric.name,
@@ -56,50 +44,28 @@ class MetricResultResponse(BaseModel):
             weight=metric.weight,
             status=metric.status,
             details=metric.details,
+            exports_available=metric.exports_available,
         )
+
 
 class MetricConfigResponse(BaseModel):
     """
-    API response model describing a configurable evaluation metric.
+    API response for the metrics list.
 
     Attributes
     ----------
     metric_id : str
-        Stable internal metric identifier.
     name : str
-        Human-readable metric name.
     description : str
-        Detailed explanation of what the metric evaluates.
-    tooltip : str
-        Short UI-friendly help text.
     dimension : str
-        High-level quality dimension the metric belongs to.
     weight : float
-        Default contribution weight used during score aggregation.
     """
+
     metric_id:   str
     name:        str
     description: str
-    tooltip:     str
     dimension:   str
     weight:      float
-
-class DimensionConfigResponse(BaseModel):
-    """
-    API response model describing a quality dimension category.
-
-    Attributes
-    ----------
-    name : str
-        Name of the quality dimension.
-    description : str
-        Detailed explanation of the dimension.
-    tooltip : str
-        Short UI-oriented explanatory text.
-    """
-    name:        str
-    description: str
-    tooltip:     str
 
 class PropertyInfoResponse(BaseModel):
     """
@@ -110,12 +76,12 @@ class PropertyInfoResponse(BaseModel):
     uri : str
         Full property URI.
     label : str
-        Human-readable local name (fragment or last path segment).
+        Human-readable local name.
     count : int
         Number of class instances that use this property at least once.
     """
 
-    uri: str
+    uri:   str
     label: str
     count: int
 
@@ -127,25 +93,44 @@ class ClassNodeResponse(BaseModel):
     Attributes
     ----------
     uri : str
-        Full class URI.
     label : str
-        Human-readable local name.
     instance_count : int
-        Number of subjects typed as this class in the data.
-    properties : List[PropertyInfoResponse]
-        Properties actually used across instances, sorted by count desc.
-    children : List[ClassNodeResponse]
-        Subclasses (nested, recursive), sorted by instance_count desc.
+    properties : list of PropertyInfoResponse
+    children : list of ClassNodeResponse
     """
 
-    uri: str
-    label: str
+    uri:            str
+    label:          str
     instance_count: int
-    properties: List[PropertyInfoResponse] = []
-    children: List["ClassNodeResponse"] = []
+    properties:     List[PropertyInfoResponse] = []
+    children:       List["ClassNodeResponse"]  = []
 
     model_config = {"arbitrary_types_allowed": True}
 
+    @classmethod
+    def from_domain(cls, node) -> "ClassNodeResponse":
+        """
+        Recursively convert a domain ClassNode to its API response model.
+
+        Parameters
+        ----------
+        node : ClassNode
+            Domain object from the ontology extractor.
+
+        Returns
+        -------
+        ClassNodeResponse
+        """
+        return cls(
+            uri=node.uri,
+            label=node.label,
+            instance_count=node.instance_count,
+            properties=[
+                PropertyInfoResponse(uri=p.uri, label=p.label, count=p.count)
+                for p in node.properties
+            ],
+            children=[cls.from_domain(child) for child in node.children],
+        )
 
 ClassNodeResponse.model_rebuild()
 
@@ -156,26 +141,26 @@ class OntologyResponse(BaseModel):
     Attributes
     ----------
     dataset_id : str
-        Echoes the dataset_id from the request.
-    classes : List[ClassNodeResponse]
-        Top-level class nodes (roots of the hierarchy).
+    classes : list of ClassNodeResponse
     """
 
     dataset_id: str
-    classes: List[ClassNodeResponse]
-
+    classes:    List[ClassNodeResponse]
 
 class DatasetStatsResponse(BaseModel):
     """
     Basic graph statistics for a dataset.
 
-    Shown in the frontend sidebar as triple_count, entity_count,
-    class_count (displayed as "—" if absent).
+    Attributes
+    ----------
+    triple_count : int
+    entity_count : int
+    class_count : int
     """
 
     triple_count: int
     entity_count: int
-    class_count: int
+    class_count:  int
 
 
 class DatasetEvaluationResponse(BaseModel):
@@ -187,21 +172,40 @@ class DatasetEvaluationResponse(BaseModel):
     dataset_id : str
     label : str | None
     overall_score : float | None
-    metrics : List[MetricResultResponse]
+    metrics : list of MetricResultResponse
     stats : DatasetStatsResponse | None
-        Basic graph statistics; None if stats could not be computed.
     """
 
-    dataset_id: str
-    label: Optional[str]
+    dataset_id:    str
+    label:         Optional[str]
     overall_score: Optional[float]
-    metrics: List[MetricResultResponse]
-    stats: Optional[DatasetStatsResponse] = None
+    metrics:       List[MetricResultResponse]
+    stats:         Optional[DatasetStatsResponse] = None
 
 
 class EvaluationResponse(BaseModel):
     """
     API response containing evaluation results for all datasets.
+
+    Attributes
+    ----------
+    datasets : list of DatasetEvaluationResponse
     """
 
     datasets: List[DatasetEvaluationResponse]
+
+
+class DimensionConfigResponse(BaseModel):
+    """
+    API response for a quality dimension entry.
+
+    Attributes
+    ----------
+    name : str
+    description : str
+    tooltip : str
+    """
+
+    name:        str
+    description: str
+    tooltip:     str

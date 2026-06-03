@@ -1,56 +1,9 @@
-"""
-Frontend API client utilities for communicating with the evaluation backend.
-
-This module centralizes all HTTP communication between the Dash frontend
-and the FastAPI backend.
-
-Responsibilities
-----------------
-- Fetch metric and dimension configuration metadata
-- Trigger dataset evaluation requests
-- Retrieve ontology/class hierarchy data
-- Normalize backend communication errors into frontend-safe exceptions
-
-Backend Endpoints
------------------
-GET  /metrics
-    Fetch available evaluation metrics.
-GET  /dimensions
-    Fetch quality dimension metadata.
-POST /ontology
-    Extract ontology/class hierarchy information for a dataset.
-POST /evaluate
-    Run metric evaluation for one or more datasets.
-"""
-
 import requests
 
-# Base URL of the FastAPI backend service.
-#
-# During development the frontend and backend run independently:
-#
-#   Dash frontend  -> localhost:8050
-#   FastAPI backend -> localhost:8000
-#
-# All API requests are routed through this base URL.
 BACKEND_URL = "http://127.0.0.1:8000"
 
 
 class APIError(Exception):
-    """
-    Frontend-facing API communication error.
-
-    Attributes
-    ----------
-    message : str
-        Human-readable error description suitable for UI display.
-
-    status_code : int | None
-        HTTP status code returned by the backend.
-
-        None if the request failed before receiving a response
-        (e.g. connection failure or timeout).
-    """
     def __init__(self, message: str, status_code: int | None = None):
         super().__init__(message)
         self.message     = message
@@ -59,34 +12,8 @@ class APIError(Exception):
 
 def get_metrics() -> list[dict]:
     """
-    Retrieve available evaluation metrics from the backend.
-
-    Endpoint
-    --------
-    GET /metrics
-
-    Returns
-    -------
-    list[dict]
-        List of metric configuration objects.
-        Structure:
-            [
-                {
-                    "metric_id": str,
-                    "name": str,
-                    "description": str,
-                    "dimension": str,
-                    "weight": float
-                }
-            ]
-
-    Raises
-    ------
-    APIError
-        Raised when:
-        - the backend is unreachable
-        - the request times out
-        - the backend returns a non-200 response
+    GET /metrics — fetches available metrics on sidebar startup.
+    Returns list of {metric_id, name, description, dimension, weight}.
     """
     try:
         response = requests.get(f"{BACKEND_URL}/metrics", timeout=10)
@@ -103,32 +30,8 @@ def get_metrics() -> list[dict]:
 
 def get_dimensions() -> list[dict]:
     """
-    Retrieve quality dimension metadata from the backend.
-
-    Endpoint
-    --------
-    GET /dimensions
-
-    Returns
-    -------
-    list[dict]
-        List of dimension configuration objects.
-        Structure:
-            [
-                {
-                    "name": str,
-                    "description": str,
-                    "tooltip": str
-                }
-            ]
-
-    Raises
-    ------
-    APIError
-        Raised when:
-        - the backend is unreachable
-        - the request times out
-        - the backend returns a non-200 response
+    GET /dimensions — fetches quality dimension descriptions on startup.
+    Returns list of {name, description, tooltip}.
     """
     try:
         response = requests.get(f"{BACKEND_URL}/dimensions", timeout=10)
@@ -142,54 +45,71 @@ def get_dimensions() -> list[dict]:
     return response.json()
 
 
-def get_ontology(source: dict) -> dict:
+def get_export_csv(dataset_id: str, metric_id: str, category: str) -> bytes:
     """
-    Retrieve ontology hierarchy information for a dataset.
+    GET /export/{dataset_id}/{metric_id}/{category}
 
-    The ontology extraction endpoint returns a recursive RDF class
-    hierarchy together with property usage statistics.
-
-    Endpoint
-    --------
-    POST /ontology
+    Fetches a CSV export from the backend export cache for the given
+    dataset, metric, and category combination.
 
     Parameters
     ----------
-    source : dict
-        Frontend dataset source configuration.
-        Expected structure:
-
-            {
-                "id": str,
-                "label": str,
-                "source_config": dict
-            }
+    dataset_id : str
+        The dataset UUID sent in the evaluate payload.
+    metric_id : str
+        The metric identifier (e.g. 'foundational_format_consistency').
+    category : str
+        The export category (e.g. 'uri_validity', 'datatype_correctness').
 
     Returns
     -------
-    dict
-        Ontology response structure:
-            {
-                "dataset_id": str,
-                "classes": [
-                    {
-                        "uri": str,
-                        "label": str,
-                        "instance_count": int,
-                        "properties": [...],
-                        "children": [...]
-                    }
-                ]
-            }
+    bytes
+        Raw CSV content.
 
     Raises
     ------
     APIError
-        Raised when:
-        - the backend is unreachable
-        - ontology extraction times out
-        - the backend rejects the request
-        - ontology extraction fails server-side
+        If the endpoint returns a non-200 status or is unreachable.
+    """
+    try:
+        response = requests.get(
+            f"{BACKEND_URL}/export/{dataset_id}/{metric_id}/{category}",
+            timeout=30,
+        )
+    except requests.ConnectionError:
+        raise APIError("Cannot reach the backend.")
+    except requests.Timeout:
+        raise APIError("Export request timed out.")
+    if response.status_code == 404:
+        raise APIError(
+            f"No export available for {metric_id}/{category}.",
+            status_code=404,
+        )
+    if response.status_code != 200:
+        raise APIError(
+            f"Unexpected response from /export: {response.status_code}",
+            status_code=response.status_code,
+        )
+    return response.content
+
+
+def get_ontology(source: dict) -> dict:
+    """
+    POST /ontology — fetches the class/property tree for a single source.
+
+    Called lazily when the user expands a source card in the sidebar.
+    The backend caches the parsed graph so this is cheap if /evaluate
+    has already been called on the same source.
+
+    Parameters
+    ----------
+    source
+        A single store-sources entry with 'id', 'label', 'source_config'.
+
+    Returns
+    -------
+    dict
+        {dataset_id, classes: [{uri, label, instance_count, properties, children}]}
     """
     payload = {
         "dataset_id":   source["id"],
@@ -217,59 +137,15 @@ def get_ontology(source: dict) -> dict:
 
 def run_evaluation(sources: list[dict], metric_ids: list[str]) -> list[dict]:
     """
-    Execute dataset quality evaluation.
-
-    Sends the selected datasets and metric configuration to the backend
-    evaluation pipeline and returns computed metric results.
-
-    Endpoint
-    --------
-    POST /evaluate
+    POST /evaluate — runs evaluation and returns the raw datasets list.
 
     Parameters
     ----------
-    sources : list[dict]
-        Dataset source configurations selected in the frontend.
-        Each entry must contain:
-
-            {
-                "id": str,
-                "label": str,
-                "source_config": dict
-            }
-        Optional fields:
-            {
-                "scope": list[str]
-            }
-        where scope restricts evaluation to resources belonging
-        to selected RDF classes.
-
-    metric_ids : list[str]
-        List of metric identifiers to execute.
-
-    Returns
-    -------
-    list[dict]
-        List of evaluated dataset result objects.
-        Structure:
-
-            [
-                {
-                    "dataset_id": str,
-                    "overall_score": float | None,
-                    "metrics": [...],
-                    "stats": {...}
-                }
-            ]
-
-    Raises
-    ------
-    APIError
-        Raised when:
-        - the backend is unreachable
-        - evaluation exceeds timeout limits
-        - the request payload is invalid
-        - the backend returns an unexpected response
+    sources
+        Selected store-sources entries. Each must have 'id', 'label',
+        'source_config', and optionally 'scope' (list of class URIs or None).
+    metric_ids
+        List of metric_id strings.
     """
     payload = _build_evaluation_payload(sources, metric_ids)
 
@@ -297,35 +173,11 @@ def run_evaluation(sources: list[dict], metric_ids: list[str]) -> list[dict]:
 
 def _build_evaluation_payload(sources: list[dict], metric_ids: list[str]) -> dict:
     """
-    Build the request payload for POST /evaluate.
+    Builds the POST /evaluate request body.
 
-    Parameters
-    ----------
-    sources : list[dict]
-        Frontend dataset source configurations.
-    metric_ids : list[str]
-        Metric identifiers selected for execution.
-
-    Returns
-    -------
-    dict
-        Evaluation request payload.
-        Structure:
-            {
-                "datasets": [
-                    {
-                        "dataset_id": str,
-                        "label": str,
-                        "source_config": dict,
-                        "scope": list[str]   # optional
-                    }
-                ],
-                "metrics": [
-                    {
-                        "metric_id": str
-                    }
-                ]
-            }
+    Includes scope per dataset when set — the backend filters the graph
+    to only triples whose subject is an instance of the selected classes.
+    Omitting scope (or passing None / []) evaluates the full graph.
     """
     datasets = []
     for source in sources:
@@ -334,6 +186,7 @@ def _build_evaluation_payload(sources: list[dict], metric_ids: list[str]) -> dic
             "label":         source["label"],
             "source_config": source["source_config"],
         }
+        # Only include scope when the user has made a selection
         scope = source.get("scope")
         if scope:
             entry["scope"] = scope

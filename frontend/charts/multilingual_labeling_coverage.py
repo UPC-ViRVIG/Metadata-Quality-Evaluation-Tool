@@ -1,77 +1,96 @@
 import plotly.graph_objects as go
 from charts.palette import COLORS, base_layout
 
-# Density interpretation region boundaries
 _REGIONS = [
-    (0.00, 0.01, "#e9ecef", "No presence (0%)"),
-    (0.01, 0.25, "#F55B6E", "Sparse (1–25%)"),
+    (0.00, 0.25, "#F55B6E", "Sparse (0–25%)"),
     (0.25, 0.75, "#F5A05B", "Partial (25–75%)"),
     (0.75, 1.00, "#5B6EF5", "Dominant (75–100%)"),
 ]
 
 
-# ════════════════════════════════════════════════════════════════════════════
-# General information
-# ════════════════════════════════════════════════════════════════════════════
 def general_info_chart(ds_details: list[dict]) -> go.Figure:
     """
-    Two grouped bar charts in a 1×2 subplot layout:
-      Left:  Language tags per resource (0 tags / 1 tag / 2+ tags)
-      Right: Literal tagging status (tagged vs untagged)
+    Two 100%-stacked bar charts in a 1×2 subplot layout.
+
+    Left:  Language tags per resource (No tags / Monolingual / Multilingual).
+    Right: Literal tagging status (Tagged / Untagged).
+
+    Both use percentage on the y-axis so datasets of very different sizes
+    can be compared directly. Absolute counts appear in hover tooltips.
+    One bar per dataset per category; bars are grouped so each dataset
+    sits side-by-side within each category.
     """
     from plotly.subplots import make_subplots
+
+    tag_labels = ["No tags", "Monolingual (1 tag)", "Multilingual (2+ tags)"]
+    tag_keys   = ["0", "1", "2+"]
+    lit_labels = ["Tagged", "Untagged"]
 
     fig = make_subplots(
         rows=1, cols=2,
         subplot_titles=["Language tags per resource", "Literal tagging"],
-        horizontal_spacing=0.12,
+        horizontal_spacing=0.14,
     )
 
-    tag_labels = ["No tags", "Monolingual (1 tag)", "Multilingual (2+ tags)"]
-    tag_keys   = ["0", "1", "2+"]
-
     for i, d in enumerate(ds_details):
-        color   = COLORS[i % len(COLORS)]
-        label   = d["label"]
-        gi      = d["details"].get("general_info", {})
-        dist    = gi.get("resource_language_distribution", {})
-        tagged  = gi.get("tagged_literal_count", 0)
+        color    = COLORS[i % len(COLORS)]
+        label    = d["label"]
+        gi       = d["details"].get("general_info", {})
+        dist     = gi.get("resource_language_distribution", {})
+        tagged   = gi.get("tagged_literal_count", 0)
         untagged = gi.get("untagged_literal_count", 0)
 
-        tag_counts = [dist.get(k, 0) for k in tag_keys]
+        tag_counts      = [dist.get(k, 0) for k in tag_keys]
         total_resources = sum(tag_counts) or 1
+        tag_pcts        = [round(c / total_resources * 100, 1) for c in tag_counts]
+
+        total_lit  = tagged + untagged or 1
+        lit_counts = [tagged, untagged]
+        lit_pcts   = [round(c / total_lit * 100, 1) for c in lit_counts]
 
         fig.add_bar(
             row=1, col=1,
             name=label,
             legendgroup=label,
             x=tag_labels,
-            y=tag_counts,
+            y=tag_pcts,
             marker_color=color,
-            text=[f"{round(c/total_resources*100,1)}%" for c in tag_counts],
-            textposition="outside",
-            hovertemplate="%{x}<br>%{y:,} resources<extra></extra>",
+            text=[f"{p}%" for p in tag_pcts],
+            textposition="auto",
+            customdata=tag_counts,
+            hovertemplate=(
+                "<b>%{x}</b><br>"
+                f"{label}<br>"
+                "%{y:.1f}% of resources<br>"
+                "Count: %{customdata:,}"
+                "<extra></extra>"
+            ),
             showlegend=(i == 0 or len(ds_details) > 1),
         )
 
-        total_lit = tagged + untagged or 1
         fig.add_bar(
             row=1, col=2,
             name=label,
             legendgroup=label,
-            x=["Tagged", "Untagged"],
-            y=[tagged, untagged],
+            x=lit_labels,
+            y=lit_pcts,
             marker_color=color,
-            text=[f"{round(tagged/total_lit*100,1)}%",
-                  f"{round(untagged/total_lit*100,1)}%"],
-            textposition="outside",
-            hovertemplate="%{x}<br>%{y:,} literals<extra></extra>",
+            text=[f"{p}%" for p in lit_pcts],
+            textposition="auto",
+            customdata=lit_counts,
+            hovertemplate=(
+                "<b>%{x}</b><br>"
+                f"{label}<br>"
+                "%{y:.1f}% of literals<br>"
+                "Count: %{customdata:,}"
+                "<extra></extra>"
+            ),
             showlegend=False,
         )
 
     fig.update_layout(
         **base_layout(
-            height=320,
+            height=300,
             margin=dict(l=8, r=8, t=40, b=8),
             barmode="group",
         ),
@@ -79,16 +98,15 @@ def general_info_chart(ds_details: list[dict]) -> go.Figure:
         legend=dict(orientation="h", yanchor="bottom", y=1.08,
                     xanchor="right", x=1),
     )
-    fig.update_yaxes(title_text="Resources", row=1, col=1,
+    fig.update_yaxes(title_text="% of resources", row=1, col=1,
+                     range=[0, 110], ticksuffix="%",
                      gridcolor="rgba(0,0,0,0.05)")
-    fig.update_yaxes(title_text="Literals", row=1, col=2,
+    fig.update_yaxes(title_text="% of literals", row=1, col=2,
+                     range=[0, 110], ticksuffix="%",
                      gridcolor="rgba(0,0,0,0.05)")
     return fig
 
 
-# ════════════════════════════════════════════════════════════════════════════
-# Language distribution
-# ════════════════════════════════════════════════════════════════════════════
 def language_distribution_chart(ds_details: list[dict]) -> go.Figure:
     """
     Horizontal bar chart: one bar per language per dataset.
@@ -149,9 +167,6 @@ def language_distribution_chart(ds_details: list[dict]) -> go.Figure:
     return fig
 
 
-# ════════════════════════════════════════════════════════════════════════════
-# Class × language heatmap
-# ════════════════════════════════════════════════════════════════════════════
 def heatmap_chart(
     ds_details: list[dict],
     dataset_index: int = 0,
@@ -164,10 +179,10 @@ def heatmap_chart(
     Clicking a cell fires clickData with:
         customdata = [class_uri, language]
     """
-    d        = ds_details[dataset_index]
-    heatmap  = d["details"].get("heatmap", {})
+    d         = ds_details[dataset_index]
+    heatmap   = d["details"].get("heatmap", {})
     languages = heatmap.get("languages", [])
-    classes  = heatmap.get("classes", [])
+    classes   = heatmap.get("classes", [])
 
     if not languages or not classes:
         return go.Figure()
@@ -223,9 +238,6 @@ def heatmap_chart(
     return fig
 
 
-# ════════════════════════════════════════════════════════════════════════════
-# Density drilldown
-# ════════════════════════════════════════════════════════════════════════════
 def density_drilldown_chart(
     ds_details: list[dict],
     class_uri: str,
@@ -244,11 +256,29 @@ def density_drilldown_chart(
       Amber  25–75%    partial
       Blue   75–100%   dominant
 
-    Returns None if no density data is found for the class + language.
+    Inside each non-trivial zone (Sparse, Partial, Dominant) a text
+    annotation shows the percentage of resources per dataset that fall
+    in that zone, giving a plain-language reading of the distribution
+    without requiring the user to interpret the KDE shape directly.
+
+    Parameters
+    ----------
+    ds_details : list[dict]
+        Per-dataset detail dicts from collect_ds_details.
+    class_uri : str
+        URI of the class to visualise.
+    language : str
+        BCP-47 language tag (e.g. "en", "fr").
+
+    Returns
+    -------
+    go.Figure | None
+        Plotly figure, or None if no density data is found for the
+        given class and language combination.
     """
     traces = []
     for i, d in enumerate(ds_details):
-        classes = d["details"].get("heatmap", {}).get("classes", [])
+        classes   = d["details"].get("heatmap", {}).get("classes", [])
         cls_entry = next(
             (c for c in classes if c["class_uri"] == class_uri), None
         )
@@ -266,15 +296,18 @@ def density_drilldown_chart(
     if not traces:
         return None
 
-    n      = len(traces)
-    fig    = go.Figure()
+    n   = len(traces)
+    fig = go.Figure()
 
     for row_idx, t in enumerate(traces):
         yc = float(row_idx)
 
+        # Clamp to [0,1] so the KDE estimator has no data outside the
+        # valid range and cannot extend the curve beyond the boundaries.
+        clamped = [max(0.0, min(1.0, v)) for v in t["densities"]]
         fig.add_violin(
-            x=t["densities"],
-            y=[yc] * len(t["densities"]),
+            x=clamped,
+            y=[yc] * len(clamped),
             name=t["label"],
             orientation="h",
             side="positive",
@@ -285,14 +318,22 @@ def density_drilldown_chart(
             meanline=dict(visible=True, color="white", width=2),
             points=False,
             scalemode="width",
-            hoverinfo="none",         # suppress kde/q1/q3 default tooltip
+            hoverinfo="none",
             showlegend=True,
+            span=[-0.01, 1.01],
+            spanmode="hard",
         )
 
-        bucket_size = 0.05
-        n_buckets   = int(1 / bucket_size)
+        # Invisible bucket markers for plain-language hover
+        bucket_size   = 0.05
+        n_buckets     = int(1 / bucket_size)
         bucket_counts = [0] * (n_buckets + 1)
         for v in t["densities"]:
+            v = max(0.0, min(1.0, v))
+            # Skip exactly-zero values — they are covered by the dedicated
+            # 0% hover marker so they should not appear in the 0–5% bucket.
+            if v == 0.0:
+                continue
             idx = min(int(v / bucket_size), n_buckets)
             bucket_counts[idx] += 1
 
@@ -300,14 +341,15 @@ def density_drilldown_chart(
         for b, count in enumerate(bucket_counts):
             if count == 0:
                 continue
-            mid = b * bucket_size + bucket_size / 2
+            mid    = b * bucket_size + bucket_size / 2
+            pct_lo   = round(b * bucket_size * 100)
+            pct_hi   = min(round((b + 1) * bucket_size * 100), 100)
+            range_str = f"{pct_lo}%" if pct_lo == pct_hi else f"{pct_lo}%–{pct_hi}%"
             hover_x.append(min(mid, 1.0))
             hover_y.append(yc)
-            pct_lo = f"{round(b * bucket_size * 100)}%"
-            pct_hi = f"{round((b + 1) * bucket_size * 100)}%"
             hover_text.append(
                 f"<b>{t['label']}</b><br>"
-                f"Density range: {pct_lo}–{pct_hi}<br>"
+                f"Density range: {range_str}<br>"
                 f"Resources: {count:,}<br>"
                 f"<i>(% of text in {language.upper()})</i>"
             )
@@ -323,6 +365,28 @@ def density_drilldown_chart(
             name=t["label"],
         )
 
+        # Extra hover marker at exactly 0% so users can hover the left
+        # edge and see how many resources have zero presence in this language
+        zero_count = sum(1 for v in t["densities"] if v < 0.01)
+        if zero_count > 0:
+            fig.add_scatter(
+                x=[0.0],
+                y=[yc],
+                mode="markers",
+                marker=dict(size=18, opacity=0, color=t["color"]),
+                hovertemplate=(
+                    f"<b>{t['label']}</b><br>"
+                    f"Density: 0%<br>"
+                    f"Resources with no {language.upper()} content: "
+                    f"{zero_count:,}<br>"
+                    f"<i>(no text in {language.upper()})</i>"
+                    "<extra></extra>"
+                ),
+                showlegend=False,
+                name=t["label"],
+            )
+
+    # Background region shapes
     region_shapes = []
     for x0, x1, color, _ in _REGIONS:
         region_shapes.append(dict(
@@ -335,7 +399,8 @@ def density_drilldown_chart(
             line_width=0,
         ))
 
-    region_annotations = [
+    # Region name labels at the top of each band
+    region_name_annotations = [
         dict(
             x=(x0 + x1) / 2,
             y=1.02,
@@ -348,19 +413,75 @@ def density_drilldown_chart(
         for x0, x1, _, label in _REGIONS
     ]
 
+    # Per-zone resource count annotations — always shown for the three
+    # named zones even when 0, so the user sees "0 resources" rather than
+    # a blank which could be misread as missing data.
+    zone_summary_defs = [
+        (0.00, 0.25, "Sparse"),
+        (0.25, 0.75, "Partial"),
+        (0.75, 1.00, "Dominant"),
+    ]
+
+    zone_annotations = []
+    for z_lo, z_hi, z_name in zone_summary_defs:
+        lines = []
+        for t in traces:
+            total   = len(t["densities"]) or 1
+            hi = z_hi + 0.0001   # include exactly 1.0 in the Dominant zone
+            in_zone = sum(1 for v in t["densities"] if z_lo <= v < hi)
+            pct     = round(in_zone / total * 100)
+            prefix  = f"{t['label']}: " if len(traces) > 1 else ""
+            lines.append(f"{prefix}{in_zone:,} resources (~{pct}%)")
+
+        # Place annotation just below the zone title (y=1.0 → 0.97)
+        # so it never overlaps the violin shape.
+        zone_annotations.append(dict(
+            x=(z_lo + z_hi) / 2,
+            y=0.97,
+            xref="x", yref="paper",
+            text="<br>".join(lines),
+            showarrow=False,
+            font=dict(size=9, color="#495057"),
+            bgcolor="rgba(255,255,255,0.85)",
+            borderpad=3,
+            yanchor="top",
+            xanchor="center",
+            align="center",
+        ))
+
+    # Mask the region left of 0% with a white rectangle so the violin
+    # KDE tail (which can extend slightly below 0) is clipped visually.
+    # Data is already clamped to [0,1] so the KDE never extends beyond
+    # the axis boundaries — no masking rectangles needed.
+    mask_shapes = region_shapes
+
+    # White clip shapes hide the KDE tails that bleed past 0 and 1.
+    # x1=0.0 (not -0.001) so the left clip butts exactly against the 0% line.
+    # The right clip starts at 1.0 for the same reason.
+    clip_shapes = list(mask_shapes) + [
+        dict(type="rect", xref="x", yref="paper",
+             x0=-0.05, x1=0.0, y0=0, y1=1,
+             fillcolor="white", opacity=1, layer="above", line_width=0),
+        dict(type="rect", xref="x", yref="paper",
+             x0=1.0, x1=1.05, y0=0, y1=1,
+             fillcolor="white", opacity=1, layer="above", line_width=0),
+    ]
+
     fig.update_layout(base_layout(
-        height=max(200, n * 100 + 80),
+        height=max(200, n * 110 + 80),
         margin=dict(l=8, r=8, t=48, b=48),
         violinmode="overlay",
         violingap=0,
         violingroupgap=0,
-        shapes=region_shapes,
-        annotations=region_annotations,
+        shapes=clip_shapes,
+        annotations=region_name_annotations + zone_annotations,
         xaxis=dict(
-            range=[-0.02, 1.02],
-            tickformat=".0%",
+            range=[-0.05, 1.05],   # slightly extended so 100% tick shows
+            tickvals=[0, 0.2, 0.4, 0.6, 0.8, 1.0],
+            ticktext=["0%", "20%", "40%", "60%", "80%", "100%"],
             title="Density (literals in language / all literals in resource)",
             gridcolor="rgba(0,0,0,0.05)",
+            fixedrange=True,
         ),
         yaxis=dict(
             tickmode="array",
@@ -370,6 +491,6 @@ def density_drilldown_chart(
             range=[-0.5, n - 0.2],
             gridcolor="rgba(0,0,0,0.04)",
         ),
-        showlegend=False,   # dataset names shown on y-axis instead
+        showlegend=False,
     ))
     return fig

@@ -38,6 +38,13 @@
       "tooltip": "Does the metadata support multiple languages and use language tags consistently?",
       "dimension": "Contextual",
       "weight": 1.0
+    },
+    "foundational_format_consistency": {
+    "name": "Foundational and Format Consistency",
+    "description": "Measures URI validity, datatype correctness, language tag format, and structural issues.",
+    "tooltip": "Are the URIs, datatypes, and language tags in the metadata correctly formed?",
+    "dimension": "Representational",
+    "weight": 1.0
     }
   }
 }

@@ -1,0 +1,125 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc:   <http://purl.org/dc/elements/1.1/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex:   <http://example.org/> .
+@prefix edm:  <http://www.europeana.eu/schemas/edm/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+# ── Valid baseline resources ──────────────────────────────────────────────
+
+ex:painting001
+    rdf:type       edm:ProvidedCHO ;
+    dc:title       "The Night Watch"@en ;
+    dc:creator     "Rembrandt van Rijn"@en ;
+    dc:description "A large oil on canvas painting"@en ;
+    dc:date        "1642"^^xsd:gYear ;
+    dc:subject     "Dutch Golden Age"@en , "Baroque"@en .
+
+ex:painting002
+    rdf:type       edm:ProvidedCHO ;
+    dc:title       "Girl with a Pearl Earring"@en ;
+    dc:creator     "Johannes Vermeer"@nl ;
+    dc:description "Oil on canvas, c. 1665"@en ;
+    dc:date        "1665"^^xsd:gYear .
+
+ex:agent001
+    rdf:type       foaf:Person ;
+    skos:prefLabel "Rembrandt van Rijn"@en ;
+    skos:prefLabel "Rembrandt van Rijn"@nl ;
+    dc:description "Dutch painter, 1606-1669"@en .
+
+ex:concept001
+    rdf:type       skos:Concept ;
+    skos:prefLabel "Baroque"@en ;
+    skos:prefLabel "Barock"@de ;
+    skos:prefLabel "Baroque"@fr .
+
+# ── URI validity failures ─────────────────────────────────────────────────
+# rdflib accepts these as valid URIRef nodes, but the backend _is_valid_uri
+# rejects them:
+#
+#   <http://example.org/path#>   — empty fragment (ends with bare #)
+#   <1invalid://host>            — scheme starting with digit
+#   <http://example.org/bad#>   — another empty fragment
+#   <2data://host/path>          — scheme starting with digit
+
+# Subjects with bad URIs
+<http://example.org/path#>
+    rdf:type       edm:ProvidedCHO ;
+    dc:title       "Resource with empty URI fragment as subject"@en ;
+    dc:description "The URI of this resource ends with a bare # fragment"@en .
+
+<1invalid://host/resource1>
+    rdf:type       edm:ProvidedCHO ;
+    dc:title       "Resource with digit-leading scheme as subject"@en ;
+    dc:description "URI scheme starts with a digit, violating RFC 3986"@en .
+
+<2data://host/resource2>
+    rdf:type       edm:ProvidedCHO ;
+    dc:title       "Another digit-leading scheme resource"@en .
+
+# Valid subject, but bad URI in object position
+ex:painting003
+    rdf:type       edm:ProvidedCHO ;
+    dc:title       "Resource linking to bad URIs as objects"@en ;
+    dc:relation    <http://example.org/ref#> ;
+    dc:source      <3rdparty://archive/item> ;
+    dc:isPartOf    <http://example.org/collection#> .
+
+ex:painting004
+    rdf:type       edm:ProvidedCHO ;
+    dc:title       "Resource with more bad object URIs"@en ;
+    dc:relation    <4digit://host/path> ;
+    dc:source      <http://example.org/another#> .
+
+# ── Language tag format failures ──────────────────────────────────────────
+# Accepted by rdflib Turtle parser, rejected by backend BCP 47 check.
+# Oversized subtags (> 8 chars) fail _BCP47_PATTERN.
+
+ex:painting005
+    rdf:type       edm:ProvidedCHO ;
+    dc:title       "Painting with oversized primary tag"@toolongprimarytag ;
+    dc:description "Description with oversized extension subtag"@de-toolongsubtag ;
+    dc:subject     "Subject with long private-use subtag"@x-verylongprivateuse .
+
+ex:painting006
+    rdf:type       edm:ProvidedCHO ;
+    dc:title       "Another invalid tag resource"@xx-toolongsubtag ;
+    dc:description "Description"@en ;
+    dc:subject     "Subject with bad tag"@zz-extralongsubtag .
+
+ex:agent002
+    rdf:type       foaf:Person ;
+    skos:prefLabel "An artist"@nl-NL ;
+    skos:prefLabel "Ein Kunstler"@de ;
+    skos:altLabel  "Artist alias"@xx-toolongsubtag .
+
+ex:concept002
+    rdf:type       skos:Concept ;
+    skos:prefLabel "Photography"@en ;
+    skos:note      "Notes with oversized tag"@toolongprimarytag .
+
+# ── Datatype failures ─────────────────────────────────────────────────────
+
+ex:painting007
+    rdf:type       edm:ProvidedCHO ;
+    dc:title       "Resource with datatype errors"@en ;
+    dc:date        "not-a-year"^^xsd:gYear ;
+    dc:date        "31-12-2020"^^xsd:date ;
+    ex:count       "three"^^xsd:integer .
+
+# ── Structural issues ─────────────────────────────────────────────────────
+
+ex:painting008
+    rdf:type       edm:ProvidedCHO ;
+    dc:title       "Duplicate values resource"@en ;
+    dc:subject     "Landscape"@en ;
+    dc:subject     "Landscape"@en ;
+    dc:subject     "Landscape"@en .
+
+ex:painting009
+    rdf:type       edm:ProvidedCHO ;
+    dc:title       ""@en ;
+    dc:description "" .

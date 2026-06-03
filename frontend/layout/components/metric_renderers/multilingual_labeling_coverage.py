@@ -27,7 +27,6 @@ def render(metric: dict, datasets: list[dict],
                         ds_details[0]["score"], metric=metric)
     )
 
-    # Drilldown rendered inline — driven by click_data from store-ui
     drilldown = build_density_drilldown(click_data, {"datasets": datasets})
 
     return html.Div([
@@ -40,8 +39,6 @@ def render(metric: dict, datasets: list[dict],
     ])
 
 
-# ── Section builders ──────────────────────────────────────────────────────
-
 def _general_info_section(ds_details: list[dict]) -> html.Div:
     """
     Chart 1: tag distribution + literal tagging overview.
@@ -51,8 +48,8 @@ def _general_info_section(ds_details: list[dict]) -> html.Div:
 
     dominant_rows = []
     for d in ds_details:
-        gi   = d["details"].get("general_info", {})
-        lang = gi.get("dominant_language")
+        gi    = d["details"].get("general_info", {})
+        lang  = gi.get("dominant_language")
         ratio = gi.get("dominant_language_ratio", 0)
         if lang:
             prefix = f"{d['label']}: " if len(ds_details) > 1 else ""
@@ -65,7 +62,6 @@ def _general_info_section(ds_details: list[dict]) -> html.Div:
                 )
             )
 
-    # Tooltip explaining what a literal is
     literal_tip_id = "tip-literal-definition"
     literal_hint = html.Span([
         html.Span(" What is a literal?", id=literal_tip_id,
@@ -128,7 +124,6 @@ def _heatmap_section(ds_details: list[dict], comparison: bool) -> html.Div:
             ),
         ])
 
-    # Comparison: side-by-side heatmaps
     heatmap_cols = []
     last_idx = len(ds_details) - 1
     for idx, d in enumerate(ds_details):
@@ -156,35 +151,41 @@ def _heatmap_section(ds_details: list[dict], comparison: bool) -> html.Div:
     ])
 
 
-# ════════════════════════════════════════════════════════════════════════════
-# Drilldown builder — called by callbacks/ui.py on heatmap click
-# ════════════════════════════════════════════════════════════════════════════
-
 def build_density_drilldown(
     click_data: dict | None,
     results: dict,
 ) -> html.Div:
     """
-    Renders the density histogram for a clicked class + language cell.
+    Renders the zone breakdown bar for a clicked class + language cell.
+
+    Resolves the class URI from the clicked cell's y-label, computes
+    zone counts (No presence / Sparse / Partial / Dominant), and renders
+    a stacked horizontal bar with a plain-language summary above it.
 
     Parameters
     ----------
-    click_data : dict from dcc.Graph clickData
-    results    : store-results dict
+    click_data : dict | None
+        Plotly clickData dict from a heatmap graph, or None when no
+        cell has been clicked yet.
+    results : dict
+        The store-results dict containing the full datasets list.
+
+    Returns
+    -------
+    html.Div
+        Either the drilldown panel or a hint prompting the user to
+        click a heatmap cell.
     """
     if not click_data or not results:
         return _drilldown_hint()
 
     try:
-        point = click_data["points"][0]
-        # Plotly heatmap clickData does NOT include customdata in the point —
-        # only x (language tag) and y (class label) are reliable.
-        language          = point["x"]
+        point               = click_data["points"][0]
+        language            = point["x"]
         class_label_clicked = point["y"]
     except (KeyError, IndexError, TypeError):
         return _drilldown_hint()
 
-    # Resolve class_uri from the class label
     datasets_tmp = results.get("datasets", [])
     ds_tmp       = collect_ds_details(datasets_tmp, METRIC_ID)
     class_uri    = None
@@ -202,7 +203,6 @@ def build_density_drilldown(
     datasets   = results.get("datasets", [])
     ds_details = collect_ds_details(datasets, METRIC_ID)
 
-    # Find class label for display
     class_label = class_uri.split("#")[-1].split("/")[-1]
     for d in ds_details:
         for cls in d["details"].get("heatmap", {}).get("classes", []):
@@ -217,21 +217,49 @@ def build_density_drilldown(
                    className="text-muted", style={"fontSize": "0.85rem"}),
         ])
 
-    # Legend for interpretation regions
+    import statistics as _st
+    summary_rows = []
+    for d in ds_details:
+        classes   = d["details"].get("heatmap", {}).get("classes", [])
+        cls_entry = next(
+            (c for c in classes if c["class_uri"] == class_uri), None
+        )
+        if not cls_entry:
+            continue
+        dens  = cls_entry.get("density_data", {}).get(language, [])
+        if not dens:
+            continue
+        total    = len(dens)
+        dominant = sum(1 for v in dens if v >= 0.75)
+        partial  = sum(1 for v in dens if 0.25 <= v < 0.75)
+        sparse   = sum(1 for v in dens if 0.01 <= v < 0.25)
+        none_    = sum(1 for v in dens if v < 0.01)
+        median_pct = round(_st.median(dens) * 100, 1)
+
+        zones = [
+            (dominant, "dominant"),
+            (partial,  "partial"),
+            (sparse,   "sparse"),
+            (none_,    "absent"),
+        ]
+        largest_count, largest_label = max(zones, key=lambda x: x[0])
+        prefix = f"{d['label']}: " if len(ds_details) > 1 else ""
+
+
+    summary = html.Ul(summary_rows, className="mb-2 ps-3") if summary_rows else html.Div()
+
     region_legend = dbc.Row([
         dbc.Col(
             html.Span([
                 html.Span("■ ", style={"color": color, "fontSize": "1rem"}),
-                html.Span(label, style={"fontSize": "0.78rem",
-                                        "color": "#6c757d"}),
+                html.Span(label, style={"fontSize": "0.78rem", "color": "#6c757d"}),
             ]),
             xs="auto",
         )
-        for _, _, color, label in [
-            (None, None, "#e9ecef", "No presence (0%)"),
-            (None, None, "#F55B6E", "Sparse (1–25%)"),
-            (None, None, "#F5A05B", "Partial (25–75%)"),
-            (None, None, "#5B6EF5", "Dominant (75–100%)"),
+        for color, label in [
+            ("#F55B6E", "Sparse (0–25%)"),
+            ("#F5A05B", "Partial (25–75%)"),
+            ("#5B6EF5", "Dominant (75–100%)"),
         ]
     ], className="g-2 mb-2")
 
@@ -239,7 +267,7 @@ def build_density_drilldown(
         dbc.Row([
             dbc.Col(
                 section_label(
-                    f"Density distribution — {class_label} · {language.upper()}"
+                    f"Language presence — {class_label} · {language.upper()}"
                 ),
                 width="auto",
             ),
@@ -253,6 +281,7 @@ def build_density_drilldown(
             ),
         ], className="g-2 mb-1"),
         region_legend,
+        summary,
         dcc.Graph(figure=fig, config={"displayModeBar": False}),
     ])
 

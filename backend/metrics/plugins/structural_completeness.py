@@ -18,20 +18,24 @@ from metrics.metrics_exceptions import (
 
 SHAPES_DIR = Path(__file__).parent.parent / "shapes"
 
-TYPE_SIGNATURES = {
-    "http://www.europeana.eu/schemas/edm/ProvidedCHO": ("edm", SHAPES_DIR / "edm_profile.ttl"),
-    "http://www.openarchives.org/ore/terms/Proxy":     ("edm", SHAPES_DIR / "edm_profile.ttl"),
+NAMESPACE_SIGNATURES = {
+    "http://www.europeana.eu/schemas/edm/":       ("edm", SHAPES_DIR / "edm_profile.ttl"),
+    "http://www.openarchives.org/ore/terms/":      ("edm", SHAPES_DIR / "edm_profile.ttl"),
 }
 CORE_PROFILE = ("core", SHAPES_DIR / "core_profile.ttl")
 
 
 def detect_profile(graph: Graph) -> tuple[str, Path]:
     """
-    Detects the appropriate SHACL shape profile by inspecting
-    rdf:type values present in the graph.
-    Returns the profile whose target type appears most frequently,
-    ensuring correct detection even in mixed or partially-conforming
-    datasets.
+    Detects the appropriate SHACL shape profile by counting how many
+    URIs in the graph belong to each known vocabulary namespace.
+
+    Unlike instance-count-based detection, this approach inspects all
+    URI positions — subjects, predicates, and objects — and selects
+    the profile whose namespace appears most frequently. This makes
+    detection robust to scoped subgraphs that may not contain any
+    instances of specific target classes but still use predicates or
+    object URIs from a known vocabulary.
 
     Parameters
     ----------
@@ -48,18 +52,26 @@ def detect_profile(graph: Graph) -> tuple[str, Path]:
     Raises
     ------
     ProfileDetectionError
-        If type counting fails due to an unexpected graph error.
+        If URI counting fails due to an unexpected graph error.
     """
     try:
-        type_counts = {}
-        for type_uri, profile in TYPE_SIGNATURES.items():
-            count = len(set(graph.subjects(RDF.type, URIRef(type_uri))))
-            if count > 0:
-                type_counts[type_uri] = (count, profile)
+        namespace_counts: dict[str, int] = {ns: 0 for ns in NAMESPACE_SIGNATURES}
 
-        if type_counts:
-            dominant = max(type_counts.items(), key=lambda x: x[1][0])
-            return dominant[1][1]
+        for subject, predicate, obj in graph:
+            for uri_term in (subject, predicate, obj):
+                if not isinstance(uri_term, URIRef):
+                    continue
+                uri_str = str(uri_term)
+                for namespace in namespace_counts:
+                    if uri_str.startswith(namespace):
+                        namespace_counts[namespace] += 1
+
+        # Only consider namespaces that actually appear in the graph
+        active = {ns: count for ns, count in namespace_counts.items() if count > 0}
+
+        if active:
+            dominant_ns = max(active, key=lambda ns: active[ns])
+            return NAMESPACE_SIGNATURES[dominant_ns]  
 
         return CORE_PROFILE
 
@@ -418,26 +430,26 @@ class StructuralCompletenessMetric(MetricPlugin):
         except NoTargetRecordsError as e:
             return self.error_result(str(e))
 
-        total_records   = len(all_records)
-        num_properties  = count_shape_properties(shapes_graph)
-        violations      = extract_violations(results_graph)
+        total_records  = len(all_records)
+        num_properties = count_shape_properties(shapes_graph)
+        violations     = extract_violations(results_graph)
 
         per_record_scores = compute_per_record_scores(
             all_records, violations, num_properties
         )
 
-        score_values  = list(per_record_scores.values())
-        final_score   = round(statistics.mean(score_values), 4)
+        score_values = list(per_record_scores.values())
+        final_score  = round(statistics.mean(score_values), 4)
 
         details = {
-            "profile":                   profile_name,
-            "low_confidence":            low_confidence,
-            "total_records":             total_records,
+            "profile":                    profile_name,
+            "low_confidence":             low_confidence,
+            "total_records":              total_records,
             "median_record_completeness": round(statistics.median(score_values), 4),
             "min_record_completeness":    round(min(score_values), 4),
             "max_record_completeness":    round(max(score_values), 4),
-            "score_distribution":        compute_score_distribution(per_record_scores),
-            "class_statistics":          compute_class_statistics(per_record_scores, graph),
+            "score_distribution":         compute_score_distribution(per_record_scores),
+            "class_statistics":           compute_class_statistics(per_record_scores, graph),
         }
 
         if low_confidence:

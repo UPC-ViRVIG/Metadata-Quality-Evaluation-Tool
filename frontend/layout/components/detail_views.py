@@ -13,8 +13,10 @@ from layout.components.detail_views_helpers import collect_ds_details
 from layout.components.metric_renderers import structural_completeness
 from layout.components.metric_renderers import property_coverage
 from layout.components.metric_renderers import multilingual_labeling_coverage
+from layout.components.metric_renderers import foundational_format_consistency
 
 _REGISTRY: dict[str, callable] = {
+    foundational_format_consistency.METRIC_ID: foundational_format_consistency.render,
     multilingual_labeling_coverage.METRIC_ID: multilingual_labeling_coverage.render,
     structural_completeness.METRIC_ID: structural_completeness.render,
     property_coverage.METRIC_ID:   property_coverage.render,
@@ -22,8 +24,9 @@ _REGISTRY: dict[str, callable] = {
 
 
 # ════════════════════════════════════════════════════════════════════════════
-# Overview panel 
+# Overview panel  (active_metric is None or "__overview__")
 # ════════════════════════════════════════════════════════════════════════════
+
 def _render_overview(results: dict) -> html.Div:
     datasets = results.get("datasets", [])
     if not datasets:
@@ -47,6 +50,7 @@ def _render_overview(results: dict) -> html.Div:
     comparison = len(datasets) > 1
 
     # Use spider only when comparison mode AND enough metrics to be meaningful.
+    # With <2 metrics a spider degenerates to a line; use grouped bar instead.
     use_spider = comparison and len(shared) >= 3
 
     if use_spider:
@@ -58,6 +62,7 @@ def _render_overview(results: dict) -> html.Div:
         )
         label = "Overview — all metrics"
     elif comparison:
+        # Multiple datasets but too few metrics for spider — grouped bar
         from charts.overview import grouped_metric_bar
         fig = grouped_metric_bar(
             shared,
@@ -86,6 +91,7 @@ def _render_overview(results: dict) -> html.Div:
 # ════════════════════════════════════════════════════════════════════════════
 # Generic fallback renderer
 # ════════════════════════════════════════════════════════════════════════════
+
 def _render_generic(metric: dict, datasets: list[dict]) -> html.Div:
     """
     Used when no specific renderer is registered for a metric_id.
@@ -128,8 +134,9 @@ def _render_generic(metric: dict, datasets: list[dict]) -> html.Div:
 
 
 # ════════════════════════════════════════════════════════════════════════════
-# Property drilldown  
+# Property drilldown  (called directly by callbacks/ui.py)
 # ════════════════════════════════════════════════════════════════════════════
+
 def build_property_drilldown(active_class: str | None, results: dict) -> html.Div:
     def _short(uri: str) -> str:
         return uri.split("#")[-1].split("/")[-1]
@@ -164,6 +171,7 @@ def build_property_drilldown(active_class: str | None, results: dict) -> html.Di
 # ════════════════════════════════════════════════════════════════════════════
 # Public entry point
 # ════════════════════════════════════════════════════════════════════════════
+
 def render_detail_panel(
     active_metric_id: str | None,
     results: dict,
@@ -189,6 +197,7 @@ def render_detail_panel(
 
     renderer = _REGISTRY.get(active_metric_id, _render_generic)
 
+    # Pass ui_state to multilingual renderer for heatmap click drilldown
     if active_metric_id == multilingual_labeling_coverage.METRIC_ID:
         click_data = (ui_state or {}).get("multilingual_click")
         content = multilingual_labeling_coverage.render(
