@@ -85,5 +85,5 @@ class SPARQLEndpointSource(DataSource):
                 f"Failed to query SPARQL endpoint: {self.endpoint_url}"
             ) from e
 
-        _cache.store(self._source_config, graph)
+        _cache.store(self._source_config, loaded_graph)
         return loaded_graph

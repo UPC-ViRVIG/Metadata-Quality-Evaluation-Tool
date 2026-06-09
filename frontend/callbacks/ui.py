@@ -339,3 +339,37 @@ def render_ffc_drilldown(click_data, results):
         html.Hr(className="mt-2 mb-3"),
         builder(),
     ])
+
+
+# ── Structural Completeness — class bar click → violin drilldown ────────────
+
+@callback(
+    Output("sc-class-drilldown", "children"),
+    Input("sc-class-bar",        "clickData"),
+    State("store-results",       "data"),
+    prevent_initial_call=True,
+)
+def render_sc_class_drilldown(click_data, results):
+    """
+    Fires when the user clicks a bar in the class completeness bar chart.
+    Renders a violin distribution for the clicked class below the bar chart.
+    """
+    if not click_data or not results:
+        return no_update
+
+    try:
+        class_label = click_data["points"][0]["y"]
+    except (KeyError, IndexError, TypeError):
+        return no_update
+
+    from layout.components.detail_views_helpers import collect_ds_details
+    from layout.components.metric_renderers.structural_completeness import (
+        render_class_drilldown,
+    )
+
+    datasets   = results.get("datasets", [])
+    ds_details = collect_ds_details(datasets, "structural_completeness")
+    if not ds_details:
+        return no_update
+
+    return render_class_drilldown(class_label, ds_details)
