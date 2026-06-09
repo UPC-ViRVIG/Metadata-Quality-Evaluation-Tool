@@ -1,5 +1,3 @@
-# layout/components/metric_renderers/property_coverage.py
-
 from dash import html, dcc
 import dash_bootstrap_components as dbc
 
@@ -22,9 +20,9 @@ def render(metric: dict, datasets: list[dict]) -> html.Div:
         return html.Div()
 
     header = (
-        comparison_header("Property Completeness", ds_details, metric=metric)
+        comparison_header("Property Coverage", ds_details, metric=metric)
         if comparison else
-        analysis_header("Property Completeness", ds_details[0]["score"], metric=metric)
+        analysis_header("Property Coverage", ds_details[0]["score"], metric=metric)
     )
 
     if comparison:
@@ -56,7 +54,7 @@ def _analysis_view(header: html.Div, ds_details: list[dict]) -> html.Div:
 
     bubble_section = panel_card([
         section_label(
-            "Class property completeness — bubble size = instance count · "
+            "Class property coverage — bubble size = instance count · "
             "click a bubble to explore properties"
         ),
         dcc.Graph(
@@ -101,7 +99,7 @@ def _comparison_view(header: html.Div, ds_details: list[dict]) -> html.Div:
 
     bubble_section = panel_card([
         section_label(
-            "Class property completeness — bubble size = instance count · "
+            "Class property coverage — bubble size = instance count · "
             "click a bubble to explore properties"
         ),
         dcc.Graph(
@@ -143,7 +141,7 @@ def build_analysis_drilldown(
 
     return panel_card([
         dbc.Row([
-            dbc.Col(section_label(f"Properties — {short}"), width="auto"),
+            dbc.Col(section_label(f"Properties for the {short} class"), width="auto"),
             dbc.Col(
                 html.Small(active_class, className="text-muted",
                            style={"fontSize": "0.72rem", "wordBreak": "break-all"}),
@@ -175,7 +173,7 @@ def build_comparison_drilldown(
 
     return panel_card([
         dbc.Row([
-            dbc.Col(section_label(f"Property fill rates — {short}"), width="auto"),
+            dbc.Col(section_label(f"Property fill rates for the {short} class"), width="auto"),
             dbc.Col(
                 html.Small(active_class, className="text-muted",
                            style={"fontSize": "0.72rem", "wordBreak": "break-all"}),

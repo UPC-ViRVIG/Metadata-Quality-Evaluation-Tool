@@ -2,9 +2,6 @@ import plotly.graph_objects as go
 from charts.palette import COLORS, base_layout
 
 
-# ════════════════════════════════════════════════════════════════════════════
-# URI helpers
-# ════════════════════════════════════════════════════════════════════════════
 def _short(uri: str) -> str:
     """Last fragment of a URI (after # or last /)."""
     return uri.split("#")[-1].split("/")[-1]
@@ -116,8 +113,26 @@ def _bubble_figure(ds_details: list[dict]) -> tuple:
                 scores[uri],
             ))
 
+        # Small vertical offset per dataset so bubbles sharing a class
+        # row don't sit on top of each other in comparison mode.
+        # We use numeric y (row index + offset) instead of category strings
+        # so Plotly renders offset positions. Tick labels are set explicitly.
+        n_ds   = len(ds_details)
+        ds_idx = list(ds_details).index(d)
+        if n_ds > 1:
+            span   = 0.28
+            offset = -span / 2 + ds_idx * span / (n_ds - 1)
+        else:
+            offset = 0.0
+
+        # Map each class label to its row index (0 = bottom in reversed order)
+        # y_labels is already ordered top-to-bottom; row 0 = last item displayed
+        label_to_row = {lbl: i for i, lbl in enumerate(reversed(y_labels))}
+        y_numeric = [label_to_row[lbl] + offset for lbl in y_vals]
+
         fig.add_trace(go.Scatter(
-            x=x_vals, y=y_vals,
+            x=x_vals,
+            y=y_numeric if n_ds > 1 else y_vals,
             mode="markers",
             name=d["label"],
             marker=dict(
@@ -138,14 +153,23 @@ def _bubble_figure(ds_details: list[dict]) -> tuple:
     n = len(all_class_uris)
     fig.update_layout(base_layout(
         height=max(300, n * 40 + 100),
-        margin=dict(l=8, r=8, t=48, b=8),
+        margin=dict(l=160, r=8, t=48, b=8),
         xaxis=dict(range=[-0.05, 1.1], tickformat=".0%",
-                   title="Property completeness score",
+                   title="Property coverage score",
                    gridcolor="rgba(0,0,0,0.05)"),
         yaxis=dict(
             automargin=True,
+            tickmode="array",
+            # row 0 = bottom label = last item in y_labels (top of list)
+            tickvals=list(range(len(y_labels))),
+            ticktext=list(reversed(y_labels)),
+        ) if len(ds_details) > 1 else dict(
+            automargin=True,
             categoryorder="array",
-            categoryarray=list(reversed(y_labels)),  # Plotly bottom-up
+            categoryarray=list(reversed(y_labels)),
+            tickmode="array",
+            tickvals=y_labels,
+            ticktext=y_labels,
         ),
         showlegend=len(ds_details) > 1,
         legend=dict(orientation="h", yanchor="bottom", y=1.04,
