@@ -4,7 +4,7 @@ from charts.palette import COLORS, base_layout
 _REGIONS = [
     (0.00, 0.25, "#F55B6E", "Sparse (0–25%)"),
     (0.25, 0.75, "#F5A05B", "Partial (25–75%)"),
-    (0.75, 1.00, "#5B6EF5", "Dominant (75–100%)"),
+    (0.75, 1.00, "#5BF58E", "Dominant (75–100%)"),
 ]
 
 
@@ -151,14 +151,18 @@ def language_distribution_chart(ds_details: list[dict]) -> go.Figure:
 
     fig.update_layout(base_layout(
         height=max(260, len(all_langs) * 32 + 80),
-        margin=dict(l=8, r=48, t=8, b=8),
+        margin=dict(l=60, r=48, t=8, b=8),
         barmode="group",
         xaxis=dict(title="Resources with ≥1 literal in language",
                    gridcolor="rgba(0,0,0,0.05)"),
         yaxis=dict(
+            title="Language",
             automargin=True,
             categoryorder="array",
             categoryarray=list(reversed(all_langs)),
+            tickmode="array",
+            tickvals=all_langs,
+            ticktext=all_langs,
         ),
         showlegend=len(ds_details) > 1,
         legend=dict(orientation="h", yanchor="bottom", y=1.02,
@@ -229,11 +233,18 @@ def heatmap_chart(
         ygap=2,
     ))
 
+    max_label_len = max((len(c["class_label"]) for c in classes), default=8)
+    left_margin   = max(100, max_label_len * 7)
     fig.update_layout(base_layout(
         height=max(280, len(classes) * 36 + 80),
-        margin=dict(l=8, r=80, t=8, b=8),
+        margin=dict(l=left_margin, r=80, t=8, b=8),
         xaxis=dict(side="top", tickangle=-30),
-        yaxis=dict(automargin=True),
+        yaxis=dict(
+            automargin=True,
+            tickmode="array",
+            tickvals=class_labels,
+            ticktext=class_labels,
+        ),
     ))
     return fig
 
@@ -425,7 +436,10 @@ def density_drilldown_chart(
     zone_annotations = []
     for z_lo, z_hi, z_name in zone_summary_defs:
         lines = []
-        for t in traces:
+        # Reverse traces so annotation order matches visual top-to-bottom:
+        # Plotly places row_idx=0 at the bottom and row_idx=n-1 at the top,
+        # so the last dataset in traces appears highest on the y-axis.
+        for t in reversed(traces):
             total   = len(t["densities"]) or 1
             hi = z_hi + 0.0001   # include exactly 1.0 in the Dominant zone
             in_zone = sum(1 for v in t["densities"] if z_lo <= v < hi)
@@ -433,8 +447,6 @@ def density_drilldown_chart(
             prefix  = f"{t['label']}: " if len(traces) > 1 else ""
             lines.append(f"{prefix}{in_zone:,} resources (~{pct}%)")
 
-        # Place annotation just below the zone title (y=1.0 → 0.97)
-        # so it never overlaps the violin shape.
         zone_annotations.append(dict(
             x=(z_lo + z_hi) / 2,
             y=0.97,

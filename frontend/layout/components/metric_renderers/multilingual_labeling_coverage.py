@@ -114,8 +114,7 @@ def _heatmap_section(ds_details: list[dict], comparison: bool) -> html.Div:
         fig = charts.heatmap_chart(ds_details, dataset_index=0)
         return panel_card([
             section_label(
-                "Class × language coverage — % of class instances with "
-                "≥1 literal in each language · click a cell to explore density"
+                "Class × language coverage — click a cell to explore language coverage across one class"
             ),
             dcc.Graph(
                 id={"type": "multilingual-heatmap", "index": 0},
@@ -145,7 +144,7 @@ def _heatmap_section(ds_details: list[dict], comparison: bool) -> html.Div:
 
     return panel_card([
         section_label(
-            "Class × language coverage — click a cell to explore density"
+            "Class × language coverage — click a cell to explore language coverage across one class"
         ),
         dbc.Row(heatmap_cols, className="g-2"),
     ])
@@ -229,22 +228,6 @@ def build_density_drilldown(
         dens  = cls_entry.get("density_data", {}).get(language, [])
         if not dens:
             continue
-        total    = len(dens)
-        dominant = sum(1 for v in dens if v >= 0.75)
-        partial  = sum(1 for v in dens if 0.25 <= v < 0.75)
-        sparse   = sum(1 for v in dens if 0.01 <= v < 0.25)
-        none_    = sum(1 for v in dens if v < 0.01)
-        median_pct = round(_st.median(dens) * 100, 1)
-
-        zones = [
-            (dominant, "dominant"),
-            (partial,  "partial"),
-            (sparse,   "sparse"),
-            (none_,    "absent"),
-        ]
-        largest_count, largest_label = max(zones, key=lambda x: x[0])
-        prefix = f"{d['label']}: " if len(ds_details) > 1 else ""
-
 
     summary = html.Ul(summary_rows, className="mb-2 ps-3") if summary_rows else html.Div()
 
@@ -259,7 +242,7 @@ def build_density_drilldown(
         for color, label in [
             ("#F55B6E", "Sparse (0–25%)"),
             ("#F5A05B", "Partial (25–75%)"),
-            ("#5B6EF5", "Dominant (75–100%)"),
+            ("#5BF58E", "Dominant (75–100%)"),
         ]
     ], className="g-2 mb-2")
 
@@ -267,7 +250,7 @@ def build_density_drilldown(
         dbc.Row([
             dbc.Col(
                 section_label(
-                    f"Language presence — {class_label} · {language.upper()}"
+                    f"Distribution of {language.upper()} content within {class_label} resources"
                 ),
                 width="auto",
             ),
