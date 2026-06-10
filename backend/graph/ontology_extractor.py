@@ -72,6 +72,11 @@ def _collect_instances(graph: Graph) -> dict[str, set[str]]:
     class_instances: dict[str, set[str]] = defaultdict(set)
 
     for subject, _, obj in graph.triples((None, RDF.type, None)):
+        # TODO: Consider tracking non-URIRef subjects/objects as quality issues
+        # instead of silently skipping them. Literals used as rdf:type values
+        # (e.g. rdf:type "painting") and BNode subjects represent malformed
+        # triples that could be reported as validity/consistency violations.
+        # See: https://github.com/AlexandraSicobean/Metadata-Quality-Evaluation-Tool/issues
         if not isinstance(subject, URIRef):
             continue
         if not isinstance(obj, URIRef):

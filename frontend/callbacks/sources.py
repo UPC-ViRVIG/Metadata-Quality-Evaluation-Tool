@@ -139,6 +139,8 @@ def populate_metrics(_):
     accordion = dbc.Accordion(
         items,
         start_collapsed=False,
+        # TODO I have added this line,so the sidbars remain open if i dont close them , rather than self-close when open another
+        always_open=True,
         flush=True,
         className="mb-1",
         style={"fontSize": "0.875rem"},
@@ -232,19 +234,43 @@ def open_or_close_modal(
         )
 
     # Add
+    # if trigger == "btn-add-source":
+    #     return (
+    #         True,
+    #         "Add Data Source",
+    #         None,          # no source being edited
+    #         "",            # label
+    #         "rdf_file",    # type
+    #         "",            # file path
+    #         "turtle",      # format
+    #         "",            # endpoint url
+    #         "",            # sparql query
+    #         "",            # feedback
+    #     )
+    # TODO I have replaced the defaults
     if trigger == "btn-add-source":
         return (
             True,
             "Add Data Source",
-            None,          # no source being edited
-            "",            # label
-            "rdf_file",    # type
-            "",            # file path
-            "turtle",      # format
-            "",            # endpoint url
-            "",            # sparql query
-            "",            # feedback
+            None,
+            "Artworks",  # label
+            "sparql_endpoint",  # type → default to SPARQL
+            "",  # file path
+            "turtle",  # format
+            "https://dbpedia.org/sparql",  # endpoint url ← default
+            """CONSTRUCT {                         # sparql query ← default
+      ?artwork a <http://dbpedia.org/ontology/Artwork> .
+      ?artwork ?property ?value .
+    }
+    WHERE {
+      ?artwork a <http://dbpedia.org/ontology/Artwork> .
+      ?artwork ?property ?value .
+    }
+    LIMIT 10000""",
+            "",  # feedback
         )
+
+
 
     # Edit
     if isinstance(trigger, dict) and trigger.get("type") == "btn-edit-source":
@@ -766,3 +792,53 @@ def update_scope(checkbox_values, sources, ontology_store):
         updated.append(s)
 
     return updated
+
+
+@callback(
+    Output("input-file-path", "value", allow_duplicate=True),
+    Input("upload-rdf-file", "filename"),
+    prevent_initial_call=True,
+)
+def fill_path_from_upload(filename):
+    """
+    When a file is dropped, fill the file path input with the filename.
+    """
+    if not filename:
+        return no_update
+
+    import os
+    upload_dir = os.path.abspath(
+        os.path.join(os.path.dirname(__file__), '..', 'uploads')
+    )
+    os.makedirs(upload_dir, exist_ok=True)
+    return os.path.join(upload_dir, filename)
+
+@callback(
+    Output("upload-rdf-file", "children"),
+    Input("upload-rdf-file", "filename"),
+    Input("upload-rdf-file", "contents"),
+    prevent_initial_call=True,
+)
+def save_uploaded_file(filename, contents):
+    """
+    Save the uploaded file to the uploads folder.
+    """
+    if not filename or not contents:
+        return no_update
+
+    import base64, os
+    content_type, content_string = contents.split(',')
+    decoded = base64.b64decode(content_string)
+
+    upload_dir = os.path.abspath(
+        os.path.join(os.path.dirname(__file__), '..', 'uploads')
+    )
+    os.makedirs(upload_dir, exist_ok=True)
+
+    with open(os.path.join(upload_dir, filename), 'wb') as f:
+        f.write(decoded)
+
+    return html.Div([
+        "✓ ", html.Strong(filename),
+        html.A(" Change", style={"color": "#6c8ebf", "cursor": "pointer"})
+    ])

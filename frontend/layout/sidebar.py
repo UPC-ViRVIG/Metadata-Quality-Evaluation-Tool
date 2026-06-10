@@ -342,12 +342,33 @@ def build_add_source_modal() -> dbc.Modal:
             html.Div(
                 id="source-fields-rdf",
                 children=[
-                    dbc.Label("File path", html_for="input-file-path"),
+                    dbc.Label("File path", html_for="input-file-path"),  # TODO change it to be able to drag and drop
+                    dcc.Upload(
+                        id="upload-rdf-file",
+                        children=html.Div([
+                            "Drag and Drop or ",
+                            html.A("Select File", style={"color": "#6c8ebf", "cursor": "pointer"}),
+                        ]),
+                        style={
+                            "borderWidth": "1px",
+                            "borderStyle": "dashed",
+                            "borderColor": "#adb5bd",
+                            "borderRadius": "6px",
+                            "textAlign": "center",
+                            "padding": "20px",
+                            "cursor": "pointer",
+                            "backgroundColor": "#f8f9fa",
+                            "marginBottom": "8px",
+                        },
+                    ),
+                    html.Small("or enter path manually", className="text-muted my-1 d-block"),
                     dbc.Input(
                         id="input-file-path",
-                        placeholder="e.g. data/my_dataset.ttl",
+                        placeholder="e.g. C:\\Users\\victo\\data\\file.ttl",
                         className="mb-2",
                     ),
+                    html.Div(id="upload-filename-display", className="text-muted mb-2",
+                             style={"fontSize": "0.8rem"}),
                     dbc.Label("Format", html_for="input-file-format"),
                     dbc.Select(
                         id="input-file-format",

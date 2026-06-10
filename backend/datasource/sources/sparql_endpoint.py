@@ -84,6 +84,30 @@ class SPARQLEndpointSource(DataSource):
             raise DataSourceLoadError(
                 f"Failed to query SPARQL endpoint: {self.endpoint_url}"
             ) from e
-
+        # FIXME: Bug - caching the wrong object.
+        # 'graph' is the SPARQLStore wrapper, not the actual RDF data.
+        # 'loaded_graph' contains the real results and should be cached instead.
+        # This causes the second call (evaluation) to retrieve a SPARQLStore
+        # object from cache instead of the RDF graph, leading to a 422 error.
+        # Fix: change _cache.store(self._source_config, graph)
+        #      to    _cache.store(self._source_config, loaded_graph)
         _cache.store(self._source_config, loaded_graph)
+
+<<<<<<< Updated upstream
+        _cache.store(self._source_config, loaded_graph)
+=======
+        from pathlib import Path
+
+        folder = Path(
+            r"C:\Users\victo\PycharmProjects\Metadata-Quality-Evaluation-Tool\DataToTest"
+        )
+
+        filename = f"endpoint_data.ttl"
+
+        output_path = folder / filename
+        loaded_graph.serialize(
+            destination=str(output_path),
+            format="turtle"
+        )
+>>>>>>> Stashed changes
         return loaded_graph

@@ -86,6 +86,7 @@ def _card_style(is_active: bool) -> dict:
     return {
         "cursor":     "pointer",
         "borderLeft": f"3px solid {ACCENT}" if is_active else "1px solid #dee2e6",
+        # TODO I would try highlight better the active card, maybe changing the bg colour if possible
         "transition": "border 0.15s",
     }
 
