@@ -61,22 +61,52 @@ class SPARQLEndpointSource(DataSource):
             return cached
 
         try:
-            store = SPARQLStore(
-                self.endpoint_url,
-                headers={
-                    "User-Agent": "MetadataQualityTool/1.0",
-                    "Accept": "text/turtle, application/rdf+xml"
-                }
-            )
-            graph = Graph(store=store)
-            results = graph.query(self.query)
-
-            if not hasattr(results, "graph"):
-                raise DataSourceLoadError(
-                    "SPARQL query could not return a CONSTRUCT graph."
+            try:
+                store = SPARQLStore(
+                    self.endpoint_url,
+                    headers={
+                        "User-Agent": "MetadataQualityTool/1.0",
+                        "Accept": "text/turtle, application/rdf+xml"
+                    }
                 )
 
-            loaded_graph = results.graph
+                graph = Graph(store=store)
+                results = graph.query(self.query)
+
+                if not hasattr(results, "graph"):
+                    raise DataSourceLoadError(
+                        "SPARQL query could not return a CONSTRUCT graph."
+                    )
+
+                loaded_graph = results.graph
+
+            except Exception:
+                # ---- FALLBACK: direct HTTP request ----
+                import requests
+                from rdflib import Graph
+
+                response = requests.post(
+                    self.endpoint_url,
+                    data={
+                        "query": self.query
+                    },
+                    headers={
+                        "User-Agent": "MetadataQualityTool/1.0",
+                        "Accept": "text/turtle",
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    timeout=90
+                )
+
+                response.raise_for_status()
+
+                loaded_graph = Graph()
+
+                loaded_graph.parse(
+                    data=response.text,
+                    format="turtle"
+                )
+                # ---- END FALLBACK ----
 
         except DataSourceLoadError:
             raise
@@ -93,9 +123,7 @@ class SPARQLEndpointSource(DataSource):
         #      to    _cache.store(self._source_config, loaded_graph)
         _cache.store(self._source_config, loaded_graph)
 
-<<<<<<< Updated upstream
-        _cache.store(self._source_config, loaded_graph)
-=======
+
         from pathlib import Path
 
         folder = Path(
@@ -109,5 +137,5 @@ class SPARQLEndpointSource(DataSource):
             destination=str(output_path),
             format="turtle"
         )
->>>>>>> Stashed changes
+
         return loaded_graph

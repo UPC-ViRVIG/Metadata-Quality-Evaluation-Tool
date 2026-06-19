@@ -172,9 +172,18 @@ def sync_metric_selection(checklist_values):
     list[str]
         Flattened list of selected metric identifiers.
     """
+    from api_client import get_metrics, APIError
+
     flat = []
     for vals in (checklist_values or []):
         flat.extend(vals or [])
+    try:
+        metrics = get_metrics()
+        metric_order = [m["metric_id"] for m in metrics]
+        flat.sort(key=lambda m: metric_order.index(m) if m in metric_order else 999)
+    except APIError:
+        pass  # if API fails, return unsorted
+
     return flat
 
 @callback(

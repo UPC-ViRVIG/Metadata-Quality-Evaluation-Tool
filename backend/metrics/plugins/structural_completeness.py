@@ -21,6 +21,8 @@ SHAPES_DIR = Path(__file__).parent.parent / "shapes"
 NAMESPACE_SIGNATURES = {
     "http://www.europeana.eu/schemas/edm/":       ("edm", SHAPES_DIR / "edm_profile.ttl"),
     "http://www.openarchives.org/ore/terms/":      ("edm", SHAPES_DIR / "edm_profile.ttl"),
+    "http://purl.org/dc/elements/1.1/":        ("dublin_core", SHAPES_DIR / "dublin_core_profile.ttl"),
+    "http://dbpedia.org/ontology/":        ("dbpedia", SHAPES_DIR / "dbpedia_profile.ttl"),
 }
 CORE_PROFILE = ("core", SHAPES_DIR / "core_profile.ttl")
 

@@ -1,0 +1,52 @@
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dbo:     <http://dbpedia.org/ontology/> .
+@prefix ex:      <http://example.org/shapes/> .
+
+
+ex:DBpediaShape
+    a sh:NodeShape ;
+
+    # Apply to every resource having rdf:type
+    sh:targetSubjectsOf rdf:type ;
+
+
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:message "Missing rdfs:label" ;
+        sh:severity sh:Violation ;
+    ] ;
+
+
+    sh:property [
+        sh:path dbo:abstract ;
+        sh:minCount 1 ;
+        sh:message "Missing dbo:abstract" ;
+        sh:severity sh:Warning ;
+    ] ;
+
+
+    sh:property [
+        sh:path dbo:wikiPageID ;
+        sh:minCount 1 ;
+        sh:message "Missing dbo:wikiPageID" ;
+        sh:severity sh:Warning ;
+    ] ;
+
+
+    sh:property [
+        sh:path dbo:thumbnail ;
+        sh:minCount 1 ;
+        sh:message "Missing dbo:thumbnail" ;
+        sh:severity sh:Warning ;
+    ] ;
+
+
+    sh:property [
+        sh:path dbo:wikiPageExternalLink ;
+        sh:minCount 1 ;
+        sh:message "Missing dbo:wikiPageExternalLink" ;
+        sh:severity sh:Warning ;
+    ] .
