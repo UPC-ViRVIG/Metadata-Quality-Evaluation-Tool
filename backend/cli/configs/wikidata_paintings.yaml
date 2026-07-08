@@ -16,8 +16,7 @@ datasets:
     scope: null
 
 metrics:
-  - property_coverage
-  - multilingual_labeling_coverage
+  - structural_completeness
 
 output:
   path: results/wikidata_paintings.json

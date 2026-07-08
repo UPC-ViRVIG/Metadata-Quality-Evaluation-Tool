@@ -1,0 +1,64 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix ex:    <http://example.org/> .
+
+# =============================================================================
+# MLC-04: Resources With No Literals — Zero-Weight Drag
+#
+# Purpose: verify that resources with total_literals=0 (only rdf:type and
+# URIRef-valued properties, no Literal objects) are skipped in the score_sum
+# loop but still counted in the denominator (total = len(resources)).
+# This "dead weight" effect lowers the overall mean score.
+#
+# In _compute_score:
+#   for data in resources.values():
+#       total_literals = data["tagged_count"] + data["untagged_count"]
+#       if total_literals == 0:
+#           continue                  ← score_sum unchanged (+=0)
+#   return round(score_sum / total, 4)  ← total = len(resources), includes no-literal resources
+#
+# Resources:
+#   ex:res001  2 languages (en, fr), all tagged → score 1.0 (counted in sum)
+#   ex:res002  2 languages (en, nl), all tagged → score 1.0 (counted in sum)
+#   ex:res003  NO literals — rdf:type + URIRef objects only → skipped, contributes 0
+#   ex:res004  NO literals — same                           → skipped, contributes 0
+#
+# score_sum = 1.0 + 1.0 = 2.0
+# total = 4  (all four resources enter the resources dict via rdf:type triples)
+# Overall score = 2.0 / 4 = 0.5000
+#
+# Key assertion: overall score (0.5) is lower than the score of literal-bearing
+# resources alone (which would be 1.0). The no-literal resources act as a drag.
+#
+# General info:
+#   resource_language_distribution: {"0": 2, "1": 0, "2+": 2}
+#   tagged_literal_count:   4
+#   untagged_literal_count: 0
+# =============================================================================
+
+# res001 — fully multilingual, all literals tagged in 2 languages
+ex:res001
+    rdf:type    ex:Artwork ;
+    dc:title    "Mona Lisa"@en ;
+    dc:title    "La Joconde"@fr ;
+    ex:creator  ex:davinci .        # URIRef object → not a Literal, skipped
+
+# res002 — fully multilingual, all literals tagged in 2 languages
+ex:res002
+    rdf:type    ex:Artwork ;
+    dc:title    "The Night Watch"@en ;
+    dc:title    "De Nachtwacht"@nl ;
+    ex:location ex:amsterdam .      # URIRef object → not a Literal, skipped
+
+# res003 — NO literals at all: only rdf:type + URIRef-valued properties
+# total_literals = 0 → skipped in score loop, still in len(resources) denominator
+ex:res003
+    rdf:type    ex:Artwork ;
+    ex:creator  ex:picasso ;
+    ex:location ex:paris .
+
+# res004 — NO literals: same pattern
+ex:res004
+    rdf:type    ex:Artwork ;
+    ex:creator  ex:monet ;
+    ex:location ex:giverny .

@@ -108,7 +108,20 @@ def _language_dist_section(ds_details: list[dict]) -> html.Div:
 def _heatmap_section(ds_details: list[dict], comparison: bool) -> html.Div:
     """
     Chart 3: class × language coverage heatmap.
-    In comparison mode, one heatmap per dataset side by side.
+
+    Analysis mode: single heatmap spanning full width.
+
+    Comparison mode: heatmaps arranged in a grid with at most two per
+    row. Each heatmap gets md=6 (half-width) so two fit side by side.
+    With an odd number of datasets the last one spans the full row.
+    The colorbar is shown only on the last heatmap to avoid duplication.
+
+    Parameters
+    ----------
+    ds_details : list[dict]
+        Per-dataset detail dicts from collect_ds_details.
+    comparison : bool
+        True when more than one dataset is present.
     """
     if not comparison:
         fig = charts.heatmap_chart(ds_details, dataset_index=0)
@@ -123,30 +136,39 @@ def _heatmap_section(ds_details: list[dict], comparison: bool) -> html.Div:
             ),
         ])
 
-    heatmap_cols = []
-    last_idx = len(ds_details) - 1
+    n_ds     = len(ds_details)
+    last_idx = n_ds - 1
+
+    # Build individual heatmap items, then chunk into rows of 2.
+    # This guarantees exactly two heatmaps per row regardless of how
+    # Bootstrap handles column wrapping.
+    items = []
     for idx, d in enumerate(ds_details):
         fig = charts.heatmap_chart(
             ds_details, dataset_index=idx,
             show_colorbar=(idx == last_idx),
         )
-        heatmap_cols.append(
-            dbc.Col([
-                html.P(d["label"], className="text-muted fw-semibold mb-1",
-                       style={"fontSize": "0.8rem"}),
-                dcc.Graph(
-                    id={"type": "multilingual-heatmap", "index": idx},
-                    figure=fig,
-                    config={"displayModeBar": False},
-                ),
-            ], md=12 // len(ds_details))
-        )
+        items.append(dbc.Col([
+            html.P(d["label"], className="text-muted fw-semibold mb-1",
+                   style={"fontSize": "0.8rem"}),
+            dcc.Graph(
+                id={"type": "multilingual-heatmap", "index": idx},
+                figure=fig,
+                config={"displayModeBar": False},
+            ),
+        ], md=6))
+
+    # Group items into explicit rows of 2 so the layout is deterministic
+    rows = []
+    for i in range(0, len(items), 2):
+        pair = items[i:i + 2]
+        rows.append(dbc.Row(pair, className="g-3 mb-3"))
 
     return panel_card([
         section_label(
             "Class × language coverage — click a cell to explore language coverage across one class"
         ),
-        dbc.Row(heatmap_cols, className="g-2"),
+        html.Div(rows),
     ])
 
 
@@ -228,6 +250,28 @@ def build_density_drilldown(
         dens  = cls_entry.get("density_data", {}).get(language, [])
         if not dens:
             continue
+        total    = len(dens)
+        dominant = sum(1 for v in dens if v >= 0.75)
+        partial  = sum(1 for v in dens if 0.25 <= v < 0.75)
+        sparse   = sum(1 for v in dens if 0.01 <= v < 0.25)
+        none_    = sum(1 for v in dens if v < 0.01)
+        median_pct = round(_st.median(dens) * 100, 1)
+
+        zones = [
+            (dominant, "dominant"),
+            (partial,  "partial"),
+            (sparse,   "sparse"),
+            (none_,    "absent"),
+        ]
+        largest_count, largest_label = max(zones, key=lambda x: x[0])
+        prefix = f"{d['label']}: " if len(ds_details) > 1 else ""
+
+        summary_rows.append(html.Li([
+            html.Strong(f"{prefix}{language.upper()} in {class_label} — "),
+            f"typical coverage {median_pct}% per resource · ",
+            html.Strong(f"{round(largest_count/total*100)}% of resources"),
+            f" have {language.upper()} as a {largest_label} language",
+        ], style={"fontSize": "0.82rem", "marginBottom": "4px"}))
 
     summary = html.Ul(summary_rows, className="mb-2 ps-3") if summary_rows else html.Div()
 
@@ -242,7 +286,7 @@ def build_density_drilldown(
         for color, label in [
             ("#F55B6E", "Sparse (0–25%)"),
             ("#F5A05B", "Partial (25–75%)"),
-            ("#5BF58E", "Dominant (75–100%)"),
+            ("#5B6EF5", "Dominant (75–100%)"),
         ]
     ], className="g-2 mb-2")
 

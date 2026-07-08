@@ -1,0 +1,47 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix ex:    <http://example.org/> .
+
+# =============================================================================
+# FFC-06: Class Violation Rates — Resource-Level Not Triple-Level
+#
+# Purpose: verify that _build_class_violation_rates() counts each violating
+# resource ONCE per class, regardless of how many violations it has. A
+# resource with three bad URIs contributes rate 1 (present in violating_subjects
+# set), not 3.
+#
+# Resources:
+#   ex:res001 — typed ex:ClassA — 3 URI violations (object position)
+#               → appears ONCE in violating_subjects set
+#   ex:res002 — typed ex:ClassA — 0 violations
+#   ex:res003 — typed ex:ClassB — 1 URI violation (object position)
+#
+# Expected class_violation_rates for URI validity:
+#   ex:ClassA: 1 violating / 2 total = 0.5000
+#              (res001 has 3 bad URIs but counts once; res002 is clean)
+#   ex:ClassB: 1 violating / 1 total = 1.0000
+#              (res003 has 1 bad URI)
+#
+# Key assertion: ClassA rate is 0.5, NOT 0.75 (3 violations / 4 positions)
+# — the denominator for class_violation_rates is resource count, not violation count.
+# =============================================================================
+
+# res001 — 3 URI violations in object position (all different reasons)
+ex:res001
+    rdf:type    ex:ClassA ;
+    dc:title    "Resource with three URI violations"@en ;
+    dc:source   <http://example.org/path with space> ;
+    dc:relation <http://example.org/ref#> ;
+    dc:hasRef   <//host/path> .
+
+# res002 — no violations
+ex:res002
+    rdf:type    ex:ClassA ;
+    dc:title    "Clean resource"@en ;
+    dc:source   <https://example.org/valid> .
+
+# res003 — 1 URI violation
+ex:res003
+    rdf:type    ex:ClassB ;
+    dc:title    "Resource with one URI violation"@en ;
+    dc:source   <http://example.org/also with space> .

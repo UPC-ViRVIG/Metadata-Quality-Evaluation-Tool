@@ -1,0 +1,62 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix ex:    <http://example.org/> .
+
+# =============================================================================
+# FFC-03: URI Validity — Reachable Failure Reasons via Turtle Files
+#
+# Purpose: dedicated test for URI failure reason coverage and position
+# analysis. Documents which failure reasons are exercisable via .ttl files
+# and which are not.
+#
+# Reachable via Turtle (.ttl) files:
+#   "URI contains spaces"  — URI contains a space character in the path
+#   "Empty URI fragment"   — URI ends with a bare # (empty fragment)
+#
+# NOT reachable via Turtle files:
+#   "Missing URI scheme"   — the Turtle parser prepends file:// to URIs
+#                            without a scheme (e.g. //host/path becomes
+#                            file://host/path, which is valid)
+#   "Invalid URI scheme"   — dead branch: urlparse only extracts a scheme
+#                            when it conforms to RFC 3986, which already
+#                            satisfies our regex, so the two never diverge
+#
+# Position coverage:
+#   Object position is the only position where invalid URIs can be injected
+#   via Turtle files. Subject and predicate URIs are validated by the Turtle
+#   parser against IRI syntax, which accepts spaces and empty fragments (the
+#   Turtle IRI rule is permissive), but these positions have valid URIs here.
+#
+# Resources:
+#   ex:res001 — clean, no violations (provides URI positions for denominator)
+#   ex:res002 — object URI with space → "URI contains spaces"
+#   ex:res003 — object URI with empty fragment → "Empty URI fragment"
+#   ex:res004 — clean, provides additional URI count
+#
+# Expected:
+#   uri_invalid = 2, all_uris = 32
+#   uri_score = 1 - 2/32 = 0.9375
+#   by_reason: {"URI contains spaces": 1, "Empty URI fragment": 1}
+#   by_position: {"object": 2}
+#   uri_class_rates: {"ex:Item": 0.5}  (2 of 4 resources violate)
+# =============================================================================
+
+ex:res001
+    rdf:type    ex:Item ;
+    dc:title    "Clean Resource" ;
+    dc:source   <https://example.org/clean> .
+
+ex:res002
+    rdf:type    ex:Item ;
+    dc:title    "Resource with spaced object URI" ;
+    dc:source   <http://example.org/path with space> .
+
+ex:res003
+    rdf:type    ex:Item ;
+    dc:title    "Resource with empty-fragment object URI" ;
+    dc:source   <http://example.org/collection#> .
+
+ex:res004
+    rdf:type    ex:Item ;
+    dc:title    "Another clean resource" ;
+    dc:source   <https://example.org/also-clean> .

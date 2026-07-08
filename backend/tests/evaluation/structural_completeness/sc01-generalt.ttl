@@ -1,0 +1,204 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ore:     <http://www.openarchives.org/ore/terms/> .
+@prefix edm:     <http://www.europeana.eu/schemas/edm/> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix ex:      <http://example.org/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+# =============================================================================
+# Structural Completeness — Test Dataset
+#
+# Designed to exercise the EDM SHACL profile (edm_profile.ttl).
+# Profile detection is triggered by the presence of EDM/ORE namespace URIs.
+#
+# The profile defines 18 distinct sh:property constraints across 7 classes:
+#   ore:Proxy         → 5 constraints (2 Violation, 3 Warning)
+#   ore:Aggregation   → 6 constraints (4 Violation, 2 Warning)
+#   edm:WebResource   → 2 constraints (2 Warning)
+#   edm:Agent         → 1 constraint  (1 Violation)
+#   edm:Place         → 1 constraint  (1 Violation)
+#   skos:Concept      → 1 constraint  (1 Violation)
+#   edm:TimeSpan      → 2 constraints (2 Warning)
+#   Total             → 18
+#
+# Score formula per record: score = 1 - (violations_triggered / 18)
+# A record only triggers violations for constraints belonging to its rdf:type(s).
+#
+# Records are grouped into five sections:
+#   1. ore:Proxy records         (5 records)
+#   2. ore:Aggregation records   (4 records)
+#   3. edm:Agent records         (3 records)
+#   4. edm:Place records         (2 records)
+#   5. edm:WebResource records   (2 records)
+#   6. Multi-typed records       (2 records) — enables Low completeness zone
+# =============================================================================
+
+
+# =============================================================================
+# Section 1 — ore:Proxy records
+# Proxy shape: 5 constraints
+#   ore:proxyFor  (Violation)
+#   ore:proxyIn   (Violation)
+#   dc:title      (Warning)
+#   edm:type      (Warning)
+#   dc:date       (Warning)
+# =============================================================================
+
+# proxy001 — Perfect: all 5 Proxy constraints satisfied → 0 violations → score 1.0000
+ex:proxy001
+    rdf:type        ore:Proxy ;
+    ore:proxyFor    ex:cho001 ;
+    ore:proxyIn     ex:aggregation001 ;
+    dc:title        "The Night Watch"@en ;
+    edm:type        "IMAGE" ;
+    dc:date         "1642" .
+
+# proxy002 — Perfect: all 5 Proxy constraints satisfied → 0 violations → score 1.0000
+ex:proxy002
+    rdf:type        ore:Proxy ;
+    ore:proxyFor    ex:cho002 ;
+    ore:proxyIn     ex:aggregation002 ;
+    dc:title        "Girl with a Pearl Earring"@en ;
+    edm:type        "IMAGE" ;
+    dc:date         "1665" .
+
+# proxy003 — Missing dc:date and edm:type → 2 violations → score 0.8889
+ex:proxy003
+    rdf:type        ore:Proxy ;
+    ore:proxyFor    ex:cho003 ;
+    ore:proxyIn     ex:aggregation003 ;
+    dc:title        "The Milkmaid"@en .
+
+# proxy004 — Missing dc:title, dc:date, and edm:type → 3 violations → score 0.8333
+ex:proxy004
+    rdf:type        ore:Proxy ;
+    ore:proxyFor    ex:cho004 ;
+    ore:proxyIn     ex:aggregation004 .
+
+# proxy005 — Only rdf:type present, all 5 Proxy constraints violated → score 0.7222
+ex:proxy005
+    rdf:type        ore:Proxy .
+
+
+# =============================================================================
+# Section 2 — ore:Aggregation records
+# Aggregation shape: 6 constraints
+#   edm:aggregatedCHO  (Violation)
+#   edm:provider       (Violation)
+#   edm:dataProvider   (Violation)
+#   edm:rights         (Violation)
+#   edm:isShownAt      (Warning)
+#   edm:isShownBy      (Warning)
+# =============================================================================
+
+# agg001 — Perfect: all 6 Aggregation constraints satisfied → 0 violations → score 1.0000
+ex:agg001
+    rdf:type            ore:Aggregation ;
+    edm:aggregatedCHO   ex:cho001 ;
+    edm:provider        "Rijksmuseum"@en ;
+    edm:dataProvider    "Rijksmuseum Digital Collection"@en ;
+    edm:rights          <http://creativecommons.org/publicdomain/zero/1.0/> ;
+    edm:isShownAt       <https://www.rijksmuseum.nl/en/collection/SK-C-5> ;
+    edm:isShownBy       <https://lh3.googleusercontent.com/proxy001.jpg> .
+
+# agg002 — Missing edm:isShownAt and edm:isShownBy → 2 violations → score 0.8889
+ex:agg002
+    rdf:type            ore:Aggregation ;
+    edm:aggregatedCHO   ex:cho002 ;
+    edm:provider        "Mauritshuis"@en ;
+    edm:dataProvider    "Mauritshuis Collection"@en ;
+    edm:rights          <http://creativecommons.org/publicdomain/zero/1.0/> .
+
+# agg003 — Only edm:aggregatedCHO and edm:provider present → 4 violations → score 0.7778
+ex:agg003
+    rdf:type            ore:Aggregation ;
+    edm:aggregatedCHO   ex:cho003 ;
+    edm:provider        "Unknown Museum"@en .
+
+# agg004 — Only rdf:type, all 6 Aggregation constraints violated → score 0.6667
+ex:agg004
+    rdf:type            ore:Aggregation .
+
+
+# =============================================================================
+# Section 3 — edm:Agent records
+# Agent shape: 1 constraint
+#   skos:prefLabel  (Violation)
+# =============================================================================
+
+# agent001 — Has skos:prefLabel → 0 violations → score 1.0000
+ex:agent001
+    rdf:type        edm:Agent ;
+    skos:prefLabel  "Rembrandt van Rijn"@en .
+
+# agent002 — Has skos:prefLabel (multilingual) → 0 violations → score 1.0000
+ex:agent002
+    rdf:type        edm:Agent ;
+    skos:prefLabel  "Johannes Vermeer"@en ,
+                    "Johannes Vermeer"@nl .
+
+# agent003 — No skos:prefLabel → 1 violation → score 0.9444
+ex:agent003
+    rdf:type        edm:Agent .
+
+
+# =============================================================================
+# Section 4 — edm:Place records
+# Place shape: 1 constraint
+#   skos:prefLabel  (Violation)
+# =============================================================================
+
+# place001 — Has skos:prefLabel → 0 violations → score 1.0000
+ex:place001
+    rdf:type        edm:Place ;
+    skos:prefLabel  "Amsterdam"@en .
+
+# place002 — No skos:prefLabel → 1 violation → score 0.9444
+ex:place002
+    rdf:type        edm:Place .
+
+
+# =============================================================================
+# Section 5 — edm:WebResource records
+# WebResource shape: 2 constraints
+#   edm:rights   (Warning)
+#   dc:format    (Warning)
+# =============================================================================
+
+# wr001 — Perfect: both constraints satisfied → 0 violations → score 1.0000
+ex:wr001
+    rdf:type        edm:WebResource ;
+    edm:rights      <http://creativecommons.org/publicdomain/zero/1.0/> ;
+    dc:format       "image/jpeg" .
+
+# wr002 — Missing edm:rights and dc:format → 2 violations → score 0.8889
+ex:wr002
+    rdf:type        edm:WebResource .
+
+
+# =============================================================================
+# Section 6 — Multi-typed records (ore:Proxy + ore:Aggregation)
+# Combined shape: 11 constraints (5 Proxy + 6 Aggregation)
+# Enables the Low completeness zone (score < 0.40), which cannot be reached
+# by single-typed records given the 18-constraint denominator.
+# =============================================================================
+
+# multi001 — Typed as both Proxy and Aggregation, no properties at all
+#            → 11 violations (all Proxy + all Aggregation) → score 0.3889 (Low zone)
+ex:multi001
+    rdf:type        ore:Proxy ,
+                    ore:Aggregation .
+
+# multi002 — Typed as both Proxy and Aggregation, some properties present
+#            Missing: ore:proxyFor, ore:proxyIn, edm:aggregatedCHO, edm:provider,
+#                     edm:dataProvider, edm:isShownBy → 6 violations → score 0.6667
+ex:multi002
+    rdf:type        ore:Proxy ,
+                    ore:Aggregation ;
+    dc:title        "Fragment — Provenance Unknown"@en ;
+    edm:type        "IMAGE" ;
+    dc:date         "19th century" ;
+    edm:rights      <http://creativecommons.org/licenses/by/4.0/> ;
+    edm:isShownAt   <https://example.org/collection/fragment> .

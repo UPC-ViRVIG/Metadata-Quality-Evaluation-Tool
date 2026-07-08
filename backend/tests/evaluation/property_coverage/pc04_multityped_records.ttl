@@ -1,0 +1,58 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix ex:      <http://example.org/> .
+
+# =============================================================================
+# PC-04: Multi-Typed Records
+#
+# Purpose: verify that a resource typed as multiple classes is included in
+# get_records_by_class for each of its types independently, contributing
+# its properties to the fill_rate calculation of every class it belongs to.
+# In compute_overall_score, it is counted once per class in the denominator,
+# so it inflates the weight proportionally to the number of its types.
+#
+# Records:
+#   ex:res001  typed as ex:ClassA + ex:ClassB  (the multi-typed record)
+#   ex:res002  typed as ex:ClassA only
+#   ex:res003  typed as ex:ClassB only
+#
+# ex:ClassA records: {res001, res002}  → 2 records
+# ex:ClassB records: {res001, res003}  → 2 records
+#
+# res001 properties: dc:title, dc:subject
+# res002 properties: dc:title
+# res003 properties: dc:title, dc:description
+#
+# ex:ClassA fill rates:
+#   dc:title   → present in res001 + res002 → 2/2 → 1.0000
+#   dc:subject → present in res001 only     → 1/2 → 0.5000
+# ex:ClassA score = mean(1.0, 0.5) = 0.7500
+#
+# ex:ClassB fill rates:
+#   dc:title       → present in res001 + res003 → 2/2 → 1.0000
+#   dc:subject     → present in res001 only     → 1/2 → 0.5000
+#   dc:description → present in res003 only     → 1/2 → 0.5000
+# ex:ClassB score = mean(1.0, 0.5, 0.5) = 0.6667
+#
+# Overall = (0.75×2 + 0.6667×2) / (2+2) = 2.8334 / 4 = 0.7084
+# Note: res001 is counted in ClassA (weight 2) AND ClassB (weight 2),
+# so the denominator is 4, not 3.
+# =============================================================================
+
+# res001 — typed as BOTH ex:ClassA and ex:ClassB
+ex:res001
+    rdf:type     ex:ClassA ,
+                 ex:ClassB ;
+    dc:title     "Shared Resource"@en ;
+    dc:subject   "Interdisciplinary" .
+
+# res002 — ex:ClassA only
+ex:res002
+    rdf:type     ex:ClassA ;
+    dc:title     "Class A Only Resource"@en .
+
+# res003 — ex:ClassB only
+ex:res003
+    rdf:type     ex:ClassB ;
+    dc:title     "Class B Only Resource"@en ;
+    dc:description "A resource belonging exclusively to Class B." .

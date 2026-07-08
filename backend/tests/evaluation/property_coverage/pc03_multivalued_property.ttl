@@ -1,0 +1,47 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix ex:      <http://example.org/> .
+
+# =============================================================================
+# PC-03: Multi-Valued Property — Binary Presence
+#
+# Purpose: verify that a record with multiple values for the same property is
+# counted as "present" exactly once. Property presence is binary: the
+# implementation tracks which record URIs have the property (via a set), so
+# multiple values on the same record do not inflate fill_rate.
+#
+# Class: ex:Document — 3 records
+#
+# doc001 has dc:title × 3 values  → counted as present=1 (not 3)
+# doc001 has dc:creator × 1 value → present=1
+# doc002 has dc:title × 1 value, dc:creator × 1 value
+# doc003 has dc:title × 1 value, no dc:creator
+#
+# Expected fill rates:
+#   dc:title   → 3 records contain it / 3 total → fill_rate 1.0000
+#   dc:creator → 2 records contain it / 3 total → fill_rate 0.6667
+#
+# ex:Document score = mean(1.0, 0.6667) = 0.8334
+# Overall score = 0.8334
+#
+# Key assertion: doc001's 3 dc:title values produce present=1, NOT 3.
+# =============================================================================
+
+# doc001 — dc:title with 3 values, dc:creator with 1 value
+ex:doc001
+    rdf:type    ex:Document ;
+    dc:title    "Annual Report 2020"@en ,
+                "Rapport Annuel 2020"@fr ,
+                "Jahresbericht 2020"@de ;
+    dc:creator  "Archive Committee" .
+
+# doc002 — dc:title × 1, dc:creator × 1
+ex:doc002
+    rdf:type    ex:Document ;
+    dc:title    "Annual Report 2021"@en ;
+    dc:creator  "Archive Committee" .
+
+# doc003 — dc:title × 1, no dc:creator
+ex:doc003
+    rdf:type    ex:Document ;
+    dc:title    "Annual Report 2022"@en .

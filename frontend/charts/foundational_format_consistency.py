@@ -146,7 +146,7 @@ def sub_scores_chart(ds_details: list[dict]) -> go.Figure:
         showlegend=comparison,
         legend=dict(
             orientation="h",
-            yanchor="top", y=1.0,
+            yanchor="bottom", y=1.02,
             xanchor="right", x=1,
         ),
     ))
@@ -236,7 +236,7 @@ def uri_reason_chart(ds_details: list[dict]) -> go.Figure | None:
             ticktext=all_reasons,
         ),
         showlegend=comparison,
-        legend=dict(orientation="h", yanchor="top", y=1.0,
+        legend=dict(orientation="h", yanchor="bottom", y=1.02,
                     xanchor="right", x=1),
     ))
     return fig
@@ -309,7 +309,7 @@ def uri_position_chart(ds_details: list[dict]) -> go.Figure | None:
             ticktext=position_order,
         ),
         showlegend=comparison,
-        legend=dict(orientation="h", yanchor="top", y=1.0,
+        legend=dict(orientation="h", yanchor="bottom", y=1.02,
                     xanchor="right", x=1),
     ))
     return fig
@@ -822,7 +822,7 @@ def structural_issues_bar(ds_details: list[dict]) -> go.Figure:
             ticktext=categories,
         ),
         showlegend=comparison,
-        legend=dict(orientation="h", yanchor="top", y=1.0,
+        legend=dict(orientation="h", yanchor="bottom", y=1.02,
                     xanchor="left", x=0),
     ))
     return fig

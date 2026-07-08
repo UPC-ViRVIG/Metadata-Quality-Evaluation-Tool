@@ -1,0 +1,51 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix ex:      <http://example.org/> .
+
+# =============================================================================
+# PC-05: Unknown Class — Resources Without rdf:type
+#
+# Purpose: verify that named resources with no rdf:type (or with only BNode
+# rdf:type values) are grouped under the synthetic "Unknown" class, while
+# BNode subjects are excluded entirely from evaluation.
+#
+# Resources:
+#   ex:unkn001  — named URI, no rdf:type          → Unknown class
+#   ex:unkn002  — named URI, no rdf:type          → Unknown class
+#   ex:unkn003  — named URI, BNode-only rdf:type  → Unknown class
+#   _:bnode001  — BNode subject                   → excluded entirely
+#
+# Unknown class: 3 records {unkn001, unkn002, unkn003}
+#
+# Properties across Unknown records:
+#   dc:title       → present in unkn001, unkn002, unkn003 → 3/3 → fill_rate 1.0000
+#   dc:description → present in unkn001 only              → 1/3 → fill_rate 0.3333
+#   dc:subject     → present in unkn003 only              → 1/3 → fill_rate 0.3333
+#
+# Unknown score = mean(1.0, 0.3333, 0.3333) = 0.5555
+# Overall score = 0.5555  (only one class)
+#
+# Key assertions:
+#   - "Unknown" key present in classes_found, class_scores, class_property_fill_rates
+#   - total_records = 3 (bnode001 not counted)
+#   - bnode001's dc:title does NOT appear in any class fill_rate calculation
+# =============================================================================
+
+# unkn001 — named URI, no rdf:type, has dc:title and dc:description
+ex:unkn001
+    dc:title       "Untyped Resource A"@en ;
+    dc:description "A resource without an explicit RDF type." .
+
+# unkn002 — named URI, no rdf:type, has dc:title only
+ex:unkn002
+    dc:title       "Untyped Resource B"@en .
+
+# unkn003 — named URI, rdf:type points to a BNode (treated as no typed class)
+ex:unkn003
+    rdf:type       [ a ex:AnonymousClass ] ;
+    dc:title       "BNode-typed Resource"@en ;
+    dc:subject     "Experimental" .
+
+# _:bnode001 — BNode subject, must be skipped entirely by get_records_by_class
+_:bnode001
+    dc:title       "I am a blank node — I should not appear in any class" .

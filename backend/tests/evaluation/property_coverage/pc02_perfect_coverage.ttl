@@ -1,0 +1,64 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ex:      <http://example.org/> .
+
+# =============================================================================
+# PC-02: Perfect Coverage
+#
+# Purpose: every record in every class has every property that appears in that
+# class, producing fill_rate = 1.0 for all properties, class_score = 1.0 for
+# all classes, and an overall score of exactly 1.0.
+#
+# Classes and records:
+#   ex:Book   — 3 records (book001–book003)
+#   ex:Person — 2 records (person001–person002)
+#
+# ex:Book properties:
+#   dc:title    → 3/3 → fill_rate 1.0
+#   dc:creator  → 3/3 → fill_rate 1.0
+#   dc:date     → 3/3 → fill_rate 1.0
+# ex:Book score = 1.0
+#
+# ex:Person properties:
+#   dc:title       → 2/2 → fill_rate 1.0
+#   dcterms:born   → 2/2 → fill_rate 1.0
+#   dcterms:died   → 2/2 → fill_rate 1.0
+# ex:Person score = 1.0
+#
+# Overall score = (1.0×3 + 1.0×2) / 5 = 1.0
+# =============================================================================
+
+# ── ex:Book records ───────────────────────────────────────────────────────────
+
+ex:book001
+    rdf:type    ex:Book ;
+    dc:title    "Don Quixote"@en ;
+    dc:creator  "Miguel de Cervantes" ;
+    dc:date     "1605" .
+
+ex:book002
+    rdf:type    ex:Book ;
+    dc:title    "Hamlet"@en ;
+    dc:creator  "William Shakespeare" ;
+    dc:date     "1603" .
+
+ex:book003
+    rdf:type    ex:Book ;
+    dc:title    "Paradise Lost"@en ;
+    dc:creator  "John Milton" ;
+    dc:date     "1667" .
+
+# ── ex:Person records ─────────────────────────────────────────────────────────
+
+ex:person001
+    rdf:type        ex:Person ;
+    dc:title        "Miguel de Cervantes" ;
+    dcterms:born    "1547" ;
+    dcterms:died    "1616" .
+
+ex:person002
+    rdf:type        ex:Person ;
+    dc:title        "William Shakespeare" ;
+    dcterms:born    "1564" ;
+    dcterms:died    "1616" .

@@ -1,0 +1,57 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix ex:      <http://example.org/> .
+
+# =============================================================================
+# FFC-04: Datatype Correctness — Multiple XSD Types
+#
+# Purpose: verify validation of several distinct XSD datatypes (valid and
+# invalid values), aggregation by_datatype and by_property, and that
+# unknown/custom datatypes are treated as valid (no validator registered).
+#
+# Typed literals:
+#   ex:res001 ex:date    "not-a-year"^^xsd:gYear        → INVALID
+#   ex:res001 ex:date    "31-12-2020"^^xsd:date         → INVALID (wrong format)
+#   ex:res001 ex:count   "three"^^xsd:integer           → INVALID
+#   ex:res002 ex:active  "yes"^^xsd:boolean             → INVALID ("yes" not in {true,false,1,0})
+#   ex:res002 ex:count   "42"^^xsd:integer              → VALID
+#   ex:res002 ex:date    "1642"^^xsd:gYear              → VALID
+#   ex:res003 ex:date    "2023-06-15"^^xsd:date         → VALID
+#   ex:res003 ex:active  "true"^^xsd:boolean            → VALID
+#   ex:res003 ex:custom  "anything"^^ex:myCustomType    → VALID (no validator for ex:myCustomType)
+#
+# Expected:
+#   all_typed = 9
+#   invalid_count = 4
+#   dtype_score = 1 - 4/9 = 0.5556
+#
+#   invalid_by_datatype (sorted desc by count):
+#     xsd:gYear   → 1  (res001 "not-a-year")
+#     xsd:date    → 1  (res001 "31-12-2020")
+#     xsd:integer → 1  (res001 "three")
+#     xsd:boolean → 1  (res002 "yes")
+#
+#   invalid_by_property (sorted desc by count):
+#     ex:date  → 2  (res001: gYear + date both invalid)
+#     ex:count → 1  (res001: integer invalid)
+#     ex:active → 1 (res002: boolean invalid)
+# =============================================================================
+
+ex:res001
+    rdf:type    ex:Record ;
+    ex:date     "not-a-year"^^xsd:gYear ;
+    ex:date     "31-12-2020"^^xsd:date ;
+    ex:count    "three"^^xsd:integer .
+
+ex:res002
+    rdf:type    ex:Record ;
+    ex:active   "yes"^^xsd:boolean ;
+    ex:count    "42"^^xsd:integer ;
+    ex:date     "1642"^^xsd:gYear .
+
+ex:res003
+    rdf:type    ex:Record ;
+    ex:date     "2023-06-15"^^xsd:date ;
+    ex:active   "true"^^xsd:boolean ;
+    ex:custom   "anything"^^ex:myCustomType .

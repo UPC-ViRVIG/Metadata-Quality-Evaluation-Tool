@@ -1,0 +1,60 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix ex:      <http://example.org/> .
+
+# =============================================================================
+# PC-06: Single-Record Class
+#
+# Purpose: verify behavior when a class contains exactly one record. Because
+# fill_rate = present / total and total = 1, any property present on the
+# record scores fill_rate = 1.0. Absent properties never enter prop_counts
+# and are not counted. The class score is therefore always 1.0 regardless of
+# how many properties are missing, as long as at least one property exists.
+#
+# A second class with multiple records is included to produce a non-trivial
+# weighted overall score.
+#
+# Classes:
+#   ex:Solo  — 1 record  (solo001)
+#   ex:Group — 3 records (grp001–grp003)
+#
+# ex:Solo fill rates:
+#   dc:title   → 1/1 → fill_rate 1.0000
+#   dc:creator → 1/1 → fill_rate 1.0000
+#   (dc:date intentionally absent → never counted)
+# ex:Solo score = mean(1.0, 1.0) = 1.0000
+#
+# ex:Group fill rates:
+#   dc:title → 3/3 → fill_rate 1.0000
+#   dc:date  → 2/3 → fill_rate 0.6667
+# ex:Group score = mean(1.0, 0.6667) = 0.8334
+#
+# Overall = (1.0×1 + 0.8334×3) / (1+3) = 3.5002 / 4 = 0.8750
+# =============================================================================
+
+# ── ex:Solo — single record ───────────────────────────────────────────────────
+
+ex:solo001
+    rdf:type    ex:Solo ;
+    dc:title    "The Only One"@en ;
+    dc:creator  "Singular Author" .
+    # dc:date intentionally absent — not counted, does not lower score
+
+# ── ex:Group — three records ──────────────────────────────────────────────────
+
+# grp001 — dc:title + dc:date
+ex:grp001
+    rdf:type    ex:Group ;
+    dc:title    "Group Record Alpha"@en ;
+    dc:date     "1901" .
+
+# grp002 — dc:title + dc:date
+ex:grp002
+    rdf:type    ex:Group ;
+    dc:title    "Group Record Beta"@en ;
+    dc:date     "1902" .
+
+# grp003 — dc:title only
+ex:grp003
+    rdf:type    ex:Group ;
+    dc:title    "Group Record Gamma"@en .

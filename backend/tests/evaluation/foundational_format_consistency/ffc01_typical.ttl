@@ -1,0 +1,75 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ex:      <http://example.org/> .
+
+# =============================================================================
+# FFC-01: Typical Dataset — Violations Across All Four Areas
+#
+# Purpose: happy path for FoundationalFormatConsistencyMetric. Each of the
+# four concern areas has some violations, producing four sub-scores between
+# 0 and 1 and a meaningful overall score.
+#
+# Resources: ex:res001, ex:res002, ex:res003 — all typed as ex:Painting
+#
+# URI VALIDITY
+#   all_uris counted per triple: subject(if URIRef) + predicate + object(if URIRef)
+#   Intentional URI violations (object position):
+#     ex:res001 dc:source <http://example.org/path with space> → "URI contains spaces"
+#     ex:res002 dc:source <http://example.org/ref#>           → "Empty URI fragment"
+#     ex:res003 dc:source <//host/resource>                   → "Missing URI scheme"
+#
+# DATATYPE CORRECTNESS
+#   ex:res001 dcterms:date "not-a-date"^^xsd:date     → invalid (not YYYY-MM-DD)
+#   ex:res002 ex:count     "three"^^xsd:integer       → invalid (non-numeric)
+#   ex:res001 dcterms:date "1642"^^xsd:gYear          → valid
+#   ex:res002 ex:count     "42"^^xsd:integer          → valid
+#
+# LANGUAGE TAG FORMAT
+#   ex:res001 dc:title "Title"@en                     → valid
+#   ex:res002 dc:title "Titre"@fr                     → valid
+#   ex:res003 dc:title "Bad tag"@x                    → invalid (1 char, < 2 min)
+#   ex:res001 dc:title "Autre"@toolongtag             → invalid (10 chars, > 8 max)
+#
+# STRUCTURAL ISSUES
+#   _:bnode  dc:description "I am a blank node subject"  → blank_node_subject
+#   ex:res003 dc:description ""                           → empty_literal
+#
+# === EXPECTED SCORES ===
+# These will be confirmed precisely by the validation script.
+# Rough estimates:
+#   URI:      1 - 3/N_uris
+#   Datatype: 1 - 2/4   = 0.5
+#   Language: 1 - 2/4   = 0.5
+#   Struct:   1 - 2/(3+2) = 0.6
+#   Overall:  mean of four
+# =============================================================================
+
+# ── Typed resources ───────────────────────────────────────────────────────────
+
+ex:res001
+    rdf:type            ex:Painting ;
+    dc:title            "The Night Watch"@en ;
+    dc:title            "Autre titre"@toolongtag ;
+    dcterms:date        "not-a-date"^^xsd:date ;
+    dcterms:date        "1642"^^xsd:gYear ;
+    dc:source           <http://example.org/path with space> .
+
+ex:res002
+    rdf:type            ex:Painting ;
+    dc:title            "Girl with a Pearl Earring"@fr ;
+    ex:count            "three"^^xsd:integer ;
+    ex:count            "42"^^xsd:integer ;
+    dc:source           <http://example.org/ref#> .
+
+ex:res003
+    rdf:type            ex:Painting ;
+    dc:title            "Bad tag"@x ;
+    dc:description      "" ;
+    dc:source           <//host/resource> .
+
+# ── Blank node subject ────────────────────────────────────────────────────────
+
+_:bnode
+    dc:description      "I am a blank node subject" .

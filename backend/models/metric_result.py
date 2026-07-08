@@ -37,6 +37,7 @@ class MetricResult:
             details: dict | None = None,
             guidelines: dict | None = None,
             exports_available: list[str] | None = None,
+            runtime_seconds: float | None = None,
     ):
         self.metric_id         = metric_id
         self.name              = name
@@ -46,3 +47,4 @@ class MetricResult:
         self.details           = details
         self.guidelines        = guidelines
         self.exports_available = exports_available
+        self.runtime_seconds   = runtime_seconds

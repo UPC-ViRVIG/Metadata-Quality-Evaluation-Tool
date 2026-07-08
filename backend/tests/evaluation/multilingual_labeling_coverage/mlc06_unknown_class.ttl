@@ -1,0 +1,48 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix ex:    <http://example.org/> .
+
+# =============================================================================
+# MLC-06: Unknown Class — Resources Without rdf:type
+#
+# Purpose: verify that named resources with no rdf:type appear under the
+# synthetic class "Unknown" in the class heatmap. BNode subjects are excluded
+# from the resources dict entirely (isinstance(subject, URIRef) check).
+#
+# Resources:
+#   ex:unkn001  no rdf:type, @en + @fr → multilingual → score 1.0×1.0 = 1.0
+#   ex:unkn002  no rdf:type, @en only  → monolingual  → score 1.0×0.5 = 0.5
+#   _:bnode001  BNode subject           → excluded entirely from resources dict
+#
+# Overall score = mean(1.0, 0.5) = 0.7500
+#
+# Class heatmap:
+#   class_uri   = "Unknown"
+#   class_label = "Unknown"
+#   total       = 2
+#   coverage:
+#     "en" → 2/2 = 1.0000  (both resources have @en)
+#     "fr" → 1/2 = 0.5000  (only unkn001 has @fr)
+#   density_data:
+#     "en" → [1.0, 1.0]  (unkn001: 2 tagged / 2 total = 1.0; unkn002: 1/1 = 1.0)
+#     "fr" → [1.0]       (unkn001: 2 tagged / 2 total = 1.0)
+#
+# Key assertions:
+#   - "Unknown" key present in heatmap classes
+#   - BNode subject (_:bnode001) absent from resources dict
+#   - total_resources = 2 (not 3)
+# =============================================================================
+
+# unkn001 — named URI, NO rdf:type, 2 languages (en + fr)
+ex:unkn001
+    dc:title    "Untyped Resource English"@en ;
+    dc:title    "Ressource sans type"@fr .
+
+# unkn002 — named URI, NO rdf:type, 1 language (en)
+ex:unkn002
+    dc:title    "Another Untyped Resource"@en .
+
+# _:bnode001 — BNode subject: must be excluded entirely
+# Its dc:title literal must NOT contribute to any resource or class counts
+_:bnode001
+    dc:title    "I am a blank node — exclude me entirely"@en .

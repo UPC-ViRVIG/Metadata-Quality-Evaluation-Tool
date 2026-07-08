@@ -1,0 +1,83 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ore:     <http://www.openarchives.org/ore/terms/> .
+@prefix edm:     <http://www.europeana.eu/schemas/edm/> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix ex:      <http://example.org/> .
+
+# =============================================================================
+# SC-02: Perfect Dataset
+#
+# Purpose: verify that a dataset where every record satisfies all constraints
+# for its class produces an overall score of exactly 1.0, with all per-record
+# scores equal to 1.0 and a score_distribution containing only the "1.0" bin.
+#
+# Profile: edm (detected via EDM/ORE namespace dominance)
+# num_properties: 15
+# Expected overall score: 1.0000
+# =============================================================================
+
+# ore:Proxy records — all 5 constraints satisfied
+ex:proxy001
+    rdf:type        ore:Proxy ;
+    ore:proxyFor    ex:cho001 ;
+    ore:proxyIn     ex:agg001 ;
+    dc:title        "The Night Watch"@en ;
+    edm:type        "IMAGE" ;
+    dc:date         "1642" .
+
+ex:proxy002
+    rdf:type        ore:Proxy ;
+    ore:proxyFor    ex:cho002 ;
+    ore:proxyIn     ex:agg002 ;
+    dc:title        "Girl with a Pearl Earring"@en ;
+    edm:type        "IMAGE" ;
+    dc:date         "1665" .
+
+ex:proxy003
+    rdf:type        ore:Proxy ;
+    ore:proxyFor    ex:cho003 ;
+    ore:proxyIn     ex:agg003 ;
+    dc:title        "The Milkmaid"@en ;
+    edm:type        "IMAGE" ;
+    dc:date         "1657" .
+
+# ore:Aggregation records — all 6 constraints satisfied
+ex:agg001
+    rdf:type            ore:Aggregation ;
+    edm:aggregatedCHO   ex:cho001 ;
+    edm:provider        "Rijksmuseum"@en ;
+    edm:dataProvider    "Rijksmuseum Digital Collection"@en ;
+    edm:rights          <http://creativecommons.org/publicdomain/zero/1.0/> ;
+    edm:isShownAt       <https://www.rijksmuseum.nl/en/collection/SK-C-5> ;
+    edm:isShownBy       <https://lh3.googleusercontent.com/proxy001.jpg> .
+
+ex:agg002
+    rdf:type            ore:Aggregation ;
+    edm:aggregatedCHO   ex:cho002 ;
+    edm:provider        "Mauritshuis"@en ;
+    edm:dataProvider    "Mauritshuis Collection"@en ;
+    edm:rights          <http://creativecommons.org/publicdomain/zero/1.0/> ;
+    edm:isShownAt       <https://www.mauritshuis.nl/en/our-collection/artworks/92> ;
+    edm:isShownBy       <https://lh3.googleusercontent.com/proxy002.jpg> .
+
+# edm:Agent records — skos:prefLabel present
+ex:agent001
+    rdf:type        edm:Agent ;
+    skos:prefLabel  "Rembrandt van Rijn"@en .
+
+ex:agent002
+    rdf:type        edm:Agent ;
+    skos:prefLabel  "Johannes Vermeer"@en .
+
+# edm:Place record — skos:prefLabel present
+ex:place001
+    rdf:type        edm:Place ;
+    skos:prefLabel  "Amsterdam"@en .
+
+# edm:WebResource record — both constraints satisfied
+ex:wr001
+    rdf:type        edm:WebResource ;
+    edm:rights      <http://creativecommons.org/publicdomain/zero/1.0/> ;
+    dc:format       "image/jpeg" .

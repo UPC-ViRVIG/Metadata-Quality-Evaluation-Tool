@@ -1,3 +1,12 @@
+# charts/overview.py
+#
+# High-level summary charts used in the overview panel and comparison view.
+#
+# Public API:
+#   donut(value, height)               — single-value donut
+#   spider(metric_names, datasets)     — radar / spider for comparison overview
+#   metric_score_bar(names, datasets)  — horizontal bar for single-dataset overview
+
 import plotly.graph_objects as go
 from charts.palette import ACCENT, GREY, COLORS, hex_to_rgba, base_layout
 
@@ -55,13 +64,19 @@ def spider(
         ))
     fig.update_layout(base_layout(
         height=height,
-        margin=dict(l=8, r=8, t=8, b=40),
-        polar=dict(radialaxis=dict(
-            visible=True, range=[0, 1], tickformat=".0%",
-            gridcolor="rgba(0,0,0,0.08)",
-        )),
+        # Small uniform margins — label spacing is controlled via
+        # polar.domain, not margins, for radar charts.
+        margin=dict(l=20, r=20, t=40, b=60),
+        polar=dict(
+            # Shrink the radar circle so axis labels have room on all sides
+            domain=dict(x=[0.1, 0.9], y=[0.12, 0.95]),
+            radialaxis=dict(
+                visible=True, range=[0, 1], tickformat=".0%",
+                gridcolor="rgba(0,0,0,0.08)",
+            ),
+        ),
         showlegend=True,
-        legend=dict(orientation="h", yanchor="bottom", y=-0.18,
+        legend=dict(orientation="h", yanchor="top", y=-0.02,
                     xanchor="center", x=0.5),
     ))
     return fig
@@ -77,6 +92,7 @@ def metric_score_bar(
     highest to lowest.
     Used in the overview panel (analysis mode).
     """
+    # Sort highest → lowest
     paired = sorted(zip(scores, metric_names), reverse=True)
     sorted_scores = [p[0] for p in paired]
     sorted_names  = [p[1] for p in paired]
@@ -102,7 +118,7 @@ def metric_score_bar(
 
 def grouped_metric_bar(
     metric_names: list[str],
-    datasets: list[dict],    
+    datasets: list[dict],    # [{"label": str, "values": [float]}]
     height: int | None = None,
 ) -> go.Figure:
     """

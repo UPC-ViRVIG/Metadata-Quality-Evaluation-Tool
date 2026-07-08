@@ -1,0 +1,55 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ore:     <http://www.openarchives.org/ore/terms/> .
+@prefix edm:     <http://www.europeana.eu/schemas/edm/> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix ex:      <http://example.org/> .
+
+# =============================================================================
+# SC-03: Single Class, Uniform Completeness
+#
+# Purpose: verify behavior when all records belong to one class and each
+# record scores identically. The density drilldown degenerates to a vertical
+# line (min == max == mean == median). Confirms that compute_class_statistics
+# produces identical aggregate values and that score_distribution contains
+# only one non-zero bin.
+#
+# Profile: edm (triggered by EDM/ORE namespace presence)
+# num_properties: 15
+# Class: ore:Proxy only
+# Violation per record: 2 (missing dc:date and edm:type on every record)
+# Expected per-record score: 1 - 2/15 = 0.8667
+# Expected overall score: 0.8667
+# =============================================================================
+
+# All 5 records are ore:Proxy with ore:proxyFor, ore:proxyIn, dc:title
+# present but dc:date and edm:type consistently absent.
+
+ex:proxy001
+    rdf:type        ore:Proxy ;
+    ore:proxyFor    ex:cho001 ;
+    ore:proxyIn     ex:agg001 ;
+    dc:title        "The Night Watch"@en .
+
+ex:proxy002
+    rdf:type        ore:Proxy ;
+    ore:proxyFor    ex:cho002 ;
+    ore:proxyIn     ex:agg002 ;
+    dc:title        "Girl with a Pearl Earring"@en .
+
+ex:proxy003
+    rdf:type        ore:Proxy ;
+    ore:proxyFor    ex:cho003 ;
+    ore:proxyIn     ex:agg003 ;
+    dc:title        "The Milkmaid"@en .
+
+ex:proxy004
+    rdf:type        ore:Proxy ;
+    ore:proxyFor    ex:cho004 ;
+    ore:proxyIn     ex:agg004 ;
+    dc:title        "The Anatomy Lesson"@en .
+
+ex:proxy005
+    rdf:type        ore:Proxy ;
+    ore:proxyFor    ex:cho005 ;
+    ore:proxyIn     ex:agg005 ;
+    dc:title        "Self-Portrait with Two Circles"@en .

@@ -27,8 +27,10 @@ datasets:
     scope: null
 
 metrics:
+  - structural_completeness
   - property_coverage
   - multilingual_labeling_coverage
+  - foundational_format_consistency
 
 output:
   path: results/dbpedia_artworks.json

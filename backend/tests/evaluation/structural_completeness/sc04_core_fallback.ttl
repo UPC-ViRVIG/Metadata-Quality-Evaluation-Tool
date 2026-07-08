@@ -1,0 +1,55 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ex:      <http://example.org/> .
+@prefix mus:     <http://example.org/music-ontology/> .
+
+# =============================================================================
+# SC-04: Core Fallback Profile
+#
+# Purpose: verify that a dataset using an unknown vocabulary (no EDM/ORE URIs)
+# falls back to core_profile.ttl, sets low_confidence=True, and attaches a
+# warning to the result details. The metric must still produce a valid score
+# rather than an error.
+#
+# Profile: core (fallback — no known namespace URIs present)
+# num_properties: 2
+#   "Missing rdf:type"            — never fires (sh:targetSubjectsOf rdf:type
+#                                   selects only resources that already have it)
+#   "Missing label or title (...)"— fires when dc:title, dcterms:title,
+#                                   and rdfs:label are all absent
+#
+# Possible per-record scores: 1.0 (has any label) or 0.5 (no label)
+# =============================================================================
+
+# Records with a label — score 1.0 each
+ex:track001
+    rdf:type        mus:Track ;
+    dc:title        "Moonlight Sonata"@en ;
+    dcterms:creator ex:beethoven .
+
+ex:track002
+    rdf:type        mus:Track ;
+    dcterms:title   "Symphony No. 9"@en ;
+    dcterms:creator ex:beethoven .
+
+ex:track003
+    rdf:type        mus:Track ;
+    rdfs:label      "The Four Seasons"@en ;
+    dcterms:creator ex:vivaldi .
+
+ex:album001
+    rdf:type        mus:Album ;
+    dc:title        "Complete Piano Sonatas"@en .
+
+# Records without any label — score 0.5 each
+ex:track004
+    rdf:type        mus:Track ;
+    dcterms:creator ex:bach ;
+    dcterms:date    "1722" .
+
+ex:track005
+    rdf:type        mus:Track ;
+    dcterms:creator ex:mozart ;
+    dcterms:date    "1791" .

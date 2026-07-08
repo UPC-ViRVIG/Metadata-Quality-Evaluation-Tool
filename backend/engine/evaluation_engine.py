@@ -6,6 +6,9 @@ from models.dataset_context import DatasetContext
 from models.dataset_evaluation_result import DatasetEvaluationResult
 from results_aggregator.result_aggregator import ResultAggregator
 
+import time
+
+
 
 class EvaluationEngine:
     """
@@ -57,7 +60,9 @@ class EvaluationEngine:
             # Step 4: Run metrics
             metric_results = []
             for metric in metrics:
+                t0 = time.perf_counter()
                 result = metric.evaluate(dataset_context)
+                result.runtime_seconds = round(time.perf_counter() - t0, 4)
                 metric_results.append(result)
 
             # Step 5: Aggregate

@@ -1,0 +1,46 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix ex:    <http://example.org/> .
+
+# =============================================================================
+# MLC-05: More Than MAX_LANGUAGES (10) Distinct Languages — has_other=True
+#
+# Purpose: verify that _select_top_languages returns has_other=True when the
+# dataset contains more than 10 distinct valid language tags. The heatmap
+# "languages" list includes "other" as the final entry.
+#
+# Language counts (resource_count descending — determines top-10 selection):
+#   en: 11 resources  ← rank 1
+#   fr:  3 resources  ← rank 2
+#   de:  3 resources  ← rank 3
+#   nl:  2 resources  ← rank 4
+#   es:  2 resources  ← rank 5
+#   it:  2 resources  ← rank 6
+#   pt:  2 resources  ← rank 7
+#   pl:  2 resources  ← rank 8
+#   cs:  2 resources  ← rank 9
+#   sv:  2 resources  ← rank 10  ← last in top-10
+#   da:  1 resource   ← rank 11  ← collapsed into "other"
+#
+# Top 10 languages selected: [en, fr, de, nl, es, it, pt, pl, cs, sv]
+# has_other = True
+# heatmap "languages" list: [en, fr, de, nl, es, it, pt, pl, cs, sv, "other"]
+#
+# All 11 resources have @en, giving en a resource_count equal to total_resources.
+# The 11th distinct language (da) appears in exactly 1 resource → "other".
+# =============================================================================
+
+# All resources carry @en (ensuring en is ranked first with resource_count=11).
+# Each resource adds one or more additional language tags.
+
+ex:res001  rdf:type ex:Item ; dc:title "Title"@en ; dc:title "Titre"@fr ; dc:title "Titel"@de .
+ex:res002  rdf:type ex:Item ; dc:title "Title"@en ; dc:title "Titre"@fr ; dc:title "Titel"@de .
+ex:res003  rdf:type ex:Item ; dc:title "Title"@en ; dc:title "Titre"@fr .
+ex:res004  rdf:type ex:Item ; dc:title "Title"@en ; dc:title "Titel"@nl ; dc:title "Título"@es .
+ex:res005  rdf:type ex:Item ; dc:title "Title"@en ; dc:title "Titel"@nl ; dc:title "Titolo"@it .
+ex:res006  rdf:type ex:Item ; dc:title "Title"@en ; dc:title "Título"@es ; dc:title "Título"@pt .
+ex:res007  rdf:type ex:Item ; dc:title "Title"@en ; dc:title "Titolo"@it ; dc:title "Título"@pt .
+ex:res008  rdf:type ex:Item ; dc:title "Title"@en ; dc:title "Tytuł"@pl ; dc:title "Název"@cs .
+ex:res009  rdf:type ex:Item ; dc:title "Title"@en ; dc:title "Tytuł"@pl ; dc:title "Titel"@sv .
+ex:res010  rdf:type ex:Item ; dc:title "Title"@en ; dc:title "Název"@cs ; dc:title "Titel"@sv .
+ex:res011  rdf:type ex:Item ; dc:title "Title"@en ; dc:title "Titel"@da .

@@ -1,0 +1,65 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix ex:    <http://example.org/> .
+
+# =============================================================================
+# MLC-03: Invalid BCP 47 Tags Treated as Untagged
+#
+# Purpose: verify that _collect_resource_data routes literals with
+# syntactically invalid language tags through the untagged path
+# (untagged_count++), not the tagged path. The _is_valid_bcp47 regex is:
+#   ^[a-zA-Z]{2,8}(-[a-zA-Z0-9]{1,8})*$
+#
+# Important: invalid tags must also be valid Turtle language tag syntax
+# (^[a-zA-Z]+(-[a-zA-Z0-9]+)*$), since the Turtle parser validates tags
+# at parse time. Tags like @123 or @en_US are rejected by the parser itself.
+#
+# Invalid tags used and why they fail BCP 47:
+#   @x          — primary subtag too short (1 char < 2 minimum)
+#   @i          — primary subtag too short (1 char < 2 minimum)
+#   @toolongtag — primary subtag too long (10 chars > 8 maximum)
+#   @abcdefghi  — primary subtag too long (9 chars > 8 maximum)
+#
+# Valid tags used:
+#   @en, @fr    — standard two-letter ISO 639-1 codes
+#
+# Resources and expected per-resource scores:
+#   ex:res001  literals: @en(valid), @i(invalid), @fr(valid)
+#              → tagged=2 untagged=1 langs=2 (en, fr)
+#              → cov=0.6667 × mult=1.0 = 0.6667
+#
+#   ex:res002  literals: @x(invalid), @i(invalid), @toolongtag(invalid)
+#              → tagged=0 untagged=3 langs=0
+#              → cov=0.0 × mult=0.0 = 0.0000
+#
+#   ex:res003  literals: @en(valid), @abcdefghi(invalid)
+#              → tagged=1 untagged=1 langs=1 (en)
+#              → cov=0.5 × mult=0.5 = 0.2500
+#
+# Overall score = mean(0.6667, 0.0, 0.25) = 0.3056
+#
+# General info:
+#   untagged_literal_count: 5  (includes all invalid-tag literals)
+#   tagged_literal_count:   3
+#   resource_language_distribution: {"0": 1, "1": 1, "2+": 1}
+# =============================================================================
+
+# res001 — 2 valid tags (@en, @fr), 1 invalid tag (@i — 1 char, too short)
+ex:res001
+    rdf:type    ex:Record ;
+    dc:title    "Valid English Title"@en ;
+    dc:title    "Valid French Title"@fr ;
+    dc:subject  "invalid single-char tag"@i .
+
+# res002 — all invalid tags: @x (1 char), @i (1 char), @toolongtag (10 chars)
+ex:res002
+    rdf:type    ex:Record ;
+    dc:title    "Title with single-char tag"@x ;
+    dc:title    "Another single-char tag"@i ;
+    dc:subject  "Too-long primary subtag"@toolongtag .
+
+# res003 — 1 valid tag (@en), 1 invalid tag (@abcdefghi — 9 chars, too long)
+ex:res003
+    rdf:type    ex:Record ;
+    dc:title    "Partial English Title"@en ;
+    dc:subject  "invalid long-subtag"@abcdefghi .

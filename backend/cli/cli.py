@@ -2,6 +2,7 @@ import argparse
 import json
 import sys
 import textwrap
+import time
 from pathlib import Path
 import yaml
 
@@ -10,15 +11,12 @@ BACKEND_DIR = CLI_DIR.parent
 sys.path.insert(0, str(BACKEND_DIR))
 
 
-# ---------------------------------------------------------------------------
-# Config template
-# ---------------------------------------------------------------------------
-
 TEMPLATE = textwrap.dedent("""\
 # Metadata Quality Evaluation — configuration file
 # ─────────────────────────────────────────────────
 # Run:      python cli.py --config this_file.yaml
 # Inspect:  python cli.py --inspect this_file.yaml
+# Benchmark: python cli.py --benchmark this_file.yaml
 # Template: python cli.py --template > this_file.yaml
 
 # ── Datasets ──────────────────────────────────────────────────────────────
@@ -258,6 +256,7 @@ def _to_csv(results: list) -> str:
             ]))
     return "\n".join(lines)
 
+
 def list_metrics() -> None:
     """
     Print all available metric IDs and their descriptions to stdout.
@@ -316,7 +315,6 @@ def _render_tree(nodes: list, prefix: str = "", is_last_list: list = None) -> No
         print(f"{prefix}{connector}{node.label}  ({node.instance_count} instances)")
         print(f"{prefix}{'    ' if is_last else '│   '}  {node.uri}")
 
-        # Print top properties (up to 5)
         if node.properties:
             child_prefix = prefix + ("    " if is_last else "│   ") + "  "
             top_props = node.properties[:5]
@@ -338,6 +336,11 @@ def _render_tree(nodes: list, prefix: str = "", is_last_list: list = None) -> No
 def inspect(config: dict) -> None:
     """
     Extract and display the class hierarchy for all datasets in a config.
+
+    For each dataset, loads the graph via the data source layer (which
+    uses the shared cache internally), runs the ontology extractor, and
+    prints the resulting class tree to stdout. The metrics and output
+    sections of the config are ignored.
 
     Parameters
     ----------
@@ -481,12 +484,13 @@ def run(config: dict) -> list:
             "stats":         dr.stats,
             "metrics": [
                 {
-                    "metric_id": m.metric_id,
-                    "name":      m.name,
-                    "score":     m.score,
-                    "weight":    m.weight,
-                    "status":    m.status,
-                    "details":   m.details,
+                    "metric_id":       m.metric_id,
+                    "name":            m.name,
+                    "score":           m.score,
+                    "weight":          m.weight,
+                    "status":          m.status,
+                    "details":         m.details,
+                    "runtime_seconds": m.runtime_seconds,   # add this
                 }
                 for m in dr.metrics
             ],
@@ -506,6 +510,93 @@ def run(config: dict) -> list:
 
     return results
 
+def benchmark(config: dict) -> None:
+    """
+    Measure and compare cold-cache versus warm-cache evaluation time.
+
+    Runs the evaluation twice using the same configuration:
+
+    Cold run: the graph cache is cleared before running so the dataset
+    must be loaded from disk or fetched from the network. This measures
+    the full cost including file I/O, RDF parsing, and metric computation.
+
+    Warm run: the cache is populated from the cold run so the dataset
+    is served from memory. This measures only metric computation cost,
+    with no I/O or parsing overhead.
+
+    The difference between the two times represents the parsing cost
+    eliminated by the cache on subsequent evaluations of the same dataset.
+    This is the primary performance benefit of the shared graph cache.
+
+    A summary table is printed to stderr with cold time, warm time,
+    time saved, and speedup factor per dataset. Results from the warm
+    run are written to the configured output path if one is set.
+
+    Parameters
+    ----------
+    config : dict
+        Parsed configuration as returned by load_config.
+
+    Returns
+    -------
+    None
+    """
+    from graph.graph_cache import clear as clear_cache
+
+    print("\nClearing cache — cold run starting...\n", file=sys.stderr)
+    clear_cache()
+
+    t0 = time.perf_counter()
+    results = run(config)
+    cold_time = time.perf_counter() - t0
+
+    print("Warm run starting (cache populated)...\n", file=sys.stderr)
+
+    t1 = time.perf_counter()
+    results = run(config)
+    warm_time = time.perf_counter() - t1
+
+    dataset_stats = {
+        dr["dataset_id"]: dr.get("stats") or {}
+        for dr in results
+    }
+
+    speedup = cold_time / warm_time if warm_time > 0 else float("inf")
+    saved   = cold_time - warm_time
+
+    print("", file=sys.stderr)
+    print("─" * 60, file=sys.stderr)
+    print("  Benchmark results", file=sys.stderr)
+    print("─" * 60, file=sys.stderr)
+    print(f"  Cold run (parse + evaluate):  {cold_time:.3f}s", file=sys.stderr)
+    print(f"  Warm run (evaluate only):     {warm_time:.3f}s", file=sys.stderr)
+    print(f"  Parsing cost eliminated:      {saved:.3f}s", file=sys.stderr)
+    print(f"  Speedup factor:               {speedup:.1f}x", file=sys.stderr)
+    print("", file=sys.stderr)
+
+    # Per-dataset breakdown
+    print("  Per-dataset breakdown:", file=sys.stderr)
+    for dr in results:
+        stats       = dataset_stats.get(dr["dataset_id"], {})
+        triple_count = stats.get("triple_count", "N/A")
+        print(
+            f"    {dr['label']}: {triple_count} triples",
+            file=sys.stderr,
+        )
+    print("─" * 60, file=sys.stderr)
+    print("", file=sys.stderr)
+
+    print("  Per-metric runtime (warm run):", file=sys.stderr)
+    for dr in results:
+        print(f"    {dr['label']}:", file=sys.stderr)
+        for m in dr["metrics"]:
+            rt = m.get("runtime_seconds")
+            rt_str = f"{rt:.3f}s" if rt is not None else "N/A"
+            print(f"      {m['name']:<45} {rt_str}", file=sys.stderr)
+    print("─" * 60, file=sys.stderr)
+    print("", file=sys.stderr)
+
+    return results
 
 
 def write_output(results: list, output_config: dict | None) -> None:
@@ -569,6 +660,11 @@ def main() -> None:
         without running any metrics. Useful for exploring a dataset
         before writing a scoped evaluation config.
 
+    --benchmark FILE
+        Run the evaluation twice — cold cache then warm cache — and
+        report the time difference. Demonstrates the parsing cost
+        eliminated by the shared graph cache on repeated evaluations.
+
     --template
         Print a filled example config to stdout and exit. Redirect to
         a file to create a new config:
@@ -599,6 +695,7 @@ def main() -> None:
             Examples:
               python cli/cli.py --config cli/configs/my_evaluation.yaml
               python cli/cli.py --inspect cli/configs/my_evaluation.yaml
+              python cli/cli.py --benchmark cli/configs/my_evaluation.yaml
               python cli/cli.py --template > cli/configs/my_evaluation.yaml
               python cli/cli.py --list-metrics
         """),
@@ -610,6 +707,10 @@ def main() -> None:
     parser.add_argument(
         "--inspect", "-i", metavar="FILE",
         help="Display the class hierarchy for all datasets in a config file.",
+    )
+    parser.add_argument(
+        "--benchmark", "-b", metavar="FILE",
+        help="Run cold then warm evaluation and report cache speedup.",
     )
     parser.add_argument(
         "--template", "-t", action="store_true",
@@ -644,6 +745,23 @@ def main() -> None:
         except Exception as e:
             print(f"ERROR during inspection: {e}", file=sys.stderr)
             sys.exit(1)
+        sys.exit(0)
+
+    if args.benchmark:
+        if not Path(args.benchmark).exists():
+            print(f"ERROR: Config file not found: {args.benchmark}", file=sys.stderr)
+            sys.exit(1)
+        try:
+            config = load_config(args.benchmark)
+        except Exception as e:
+            print(f"ERROR loading config: {e}", file=sys.stderr)
+            sys.exit(1)
+        try:
+            results = benchmark(config)
+        except Exception as e:
+            print(f"ERROR during benchmark: {e}", file=sys.stderr)
+            sys.exit(1)
+        write_output(results, config.get("output"))
         sys.exit(0)
 
     if args.config:

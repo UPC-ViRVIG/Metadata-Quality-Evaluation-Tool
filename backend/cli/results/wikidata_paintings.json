@@ -1,0 +1,24 @@
+[
+  {
+    "dataset_id": "wikidata_paintings",
+    "label": "Wikidata Paintings",
+    "overall_score": null,
+    "stats": {
+      "triple_count": 100,
+      "entity_count": 0,
+      "class_count": 0
+    },
+    "metrics": [
+      {
+        "metric_id": "structural_completeness",
+        "name": "Structural Completeness",
+        "score": null,
+        "weight": 1.0,
+        "status": "error",
+        "details": {
+          "error": "No records matching the 'core' profile were found in dataset 'wikidata_paintings'."
+        }
+      }
+    ]
+  }
+]

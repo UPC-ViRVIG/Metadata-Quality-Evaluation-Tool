@@ -222,7 +222,7 @@ def heatmap_chart(
         ),
         text=[[f"{round(v*100)}%" for v in row] for row in z],
         texttemplate="%{text}",
-        textfont=dict(size=10),
+        textfont=dict(size=max(7, min(10, 80 // max(len(languages), 1)))),
         colorbar=dict(
             tickformat=".0%",
             thickness=12,

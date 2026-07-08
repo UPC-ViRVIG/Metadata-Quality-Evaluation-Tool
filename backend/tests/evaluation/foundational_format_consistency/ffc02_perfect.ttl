@@ -1,0 +1,54 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ex:      <http://example.org/> .
+
+# =============================================================================
+# FFC-02: Perfect Dataset — All Four Area Scores = 1.0
+#
+# Purpose: no violations in any of the four concern areas → all sub-scores
+# = 1.0 → overall score = 1.0000.
+#
+# URI VALIDITY
+#   All URIs (subjects, predicates, objects) are well-formed.
+#   all_uris > 0, invalid_count = 0 → score = 1.0
+#
+# DATATYPE CORRECTNESS
+#   All typed literals carry values valid for their declared XSD datatype.
+#   all_typed > 0, invalid_count = 0 → score = 1.0
+#
+# LANGUAGE TAG FORMAT
+#   All language-tagged literals use valid BCP 47 tags.
+#   all_lang > 0, invalid_count = 0 → score = 1.0
+#
+# STRUCTURAL ISSUES
+#   No blank node subjects. No empty or whitespace-only literals.
+#   blank_count = 0, empty_count = 0
+#   score = 1 - 0 / (total_items + 0) = 1.0
+#
+# Overall score = mean(1.0, 1.0, 1.0, 1.0) = 1.0000
+# =============================================================================
+
+ex:res001
+    rdf:type            ex:Artwork ;
+    dc:title            "The Night Watch"@en ;
+    dc:title            "De Nachtwacht"@nl ;
+    dcterms:created     "1642-01-01"^^xsd:date ;
+    ex:dimensions       "363"^^xsd:integer ;
+    dc:description      "Oil on canvas, Dutch Golden Age." .
+
+ex:res002
+    rdf:type            ex:Artwork ;
+    dc:title            "Girl with a Pearl Earring"@en ;
+    dc:title            "Meisje met de parel"@nl ;
+    dcterms:created     "1665-01-01"^^xsd:date ;
+    ex:dimensions       "44"^^xsd:integer ;
+    dc:source           <https://www.mauritshuis.nl/collection/92> .
+
+ex:res003
+    rdf:type            ex:Artwork ;
+    dc:title            "Las Meninas"@en ;
+    dc:title            "Las Meninas"@es ;
+    dcterms:created     "1656-01-01"^^xsd:date ;
+    dc:description      "Oil on canvas, Spanish Baroque." .

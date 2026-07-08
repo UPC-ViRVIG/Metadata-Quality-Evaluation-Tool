@@ -1,0 +1,74 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex:    <http://example.org/> .
+
+# =============================================================================
+# MLC-01: Typical Multilingual Dataset — All Three Score Zones
+#
+# Purpose: happy path for MultilingualLabelingCoverageMetric. A mix of
+# resources demonstrates all three scoring outcomes: multilingual (multiplier
+# 1.0), monolingual (multiplier 0.5), and untagged (multiplier 0.0).
+#
+# Score formula per resource: coverage_ratio × multiplier
+#   coverage_ratio = tagged_count / (tagged_count + untagged_count)
+#   multiplier: 0 languages→0.0,  1 language→0.5,  2+ languages→1.0
+#
+# Resources and expected per-resource scores:
+#   ex:res001  tagged=3 untagged=1 langs=3 (en,fr,de) → 0.75×1.0 = 0.7500
+#   ex:res002  tagged=2 untagged=0 langs=2 (en,nl)    → 1.0 ×1.0 = 1.0000
+#   ex:res003  tagged=1 untagged=0 langs=1 (en)       → 1.0 ×0.5 = 0.5000
+#   ex:res004  tagged=1 untagged=1 langs=1 (en)       → 0.5 ×0.5 = 0.2500
+#   ex:res005  tagged=0 untagged=2 langs=0            → 0.0 ×0.0 = 0.0000
+#   ex:res006  tagged=0 untagged=1 langs=0            → 0.0 ×0.0 = 0.0000
+#
+# Overall score = mean(0.75, 1.0, 0.5, 0.25, 0.0, 0.0) = 0.4167
+#
+# General info:
+#   resource_language_distribution: {"0": 2, "1": 2, "2+": 2}
+#   tagged_literal_count:   7
+#   untagged_literal_count: 5
+#   dominant_language: "en" (appears in 4/6 resources → ratio 0.6667)
+#
+# Language distribution (sorted by resource_count desc):
+#   en: resource_count=4, literal_count=5
+#   fr: resource_count=1, literal_count=1
+#   de: resource_count=1, literal_count=1
+#   nl: resource_count=1, literal_count=1
+# =============================================================================
+
+# res001 — 2+ languages: tagged=3 (en,fr,de), untagged=1 → zone High/multilingual
+ex:res001
+    rdf:type      ex:Painting ;
+    dc:title      "The Night Watch"@en ;
+    dc:title      "La Ronde de Nuit"@fr ;
+    dc:title      "Die Nachtwache"@de ;
+    dc:description "Oil on canvas." .
+
+# res002 — 2+ languages: tagged=2 (en,nl), untagged=0 → score 1.0
+ex:res002
+    rdf:type      ex:Painting ;
+    dc:title      "Girl with a Pearl Earring"@en ;
+    dc:title      "Meisje met de parel"@nl .
+
+# res003 — 1 language: tagged=1 (en), untagged=0 → score 0.5
+ex:res003
+    rdf:type      ex:Sculpture ;
+    dc:title      "The Thinker"@en .
+
+# res004 — 1 language: tagged=1 (en), untagged=1 → score 0.25
+ex:res004
+    rdf:type      ex:Sculpture ;
+    dc:title      "David"@en ;
+    dc:description "Marble sculpture." .
+
+# res005 — 0 languages: 2 plain literals, no lang tags → score 0.0
+ex:res005
+    rdf:type      ex:Manuscript ;
+    dc:title      "Unknown Title" ;
+    dc:description "No language annotation provided." .
+
+# res006 — 0 languages: 1 plain literal, no lang tag → score 0.0
+ex:res006
+    rdf:type      ex:Manuscript ;
+    dc:title      "Another Untitled Work" .

@@ -1,0 +1,311 @@
+[
+  {
+    "dataset_id": "dbpedia_artworks",
+    "label": "DBpedia Artworks",
+    "overall_score": 0.915,
+    "stats": {
+      "triple_count": 387,
+      "entity_count": 10,
+      "class_count": 1
+    },
+    "metrics": [
+      {
+        "metric_id": "structural_completeness",
+        "name": "Structural Completeness",
+        "score": 1.0,
+        "weight": 1.0,
+        "status": "computed",
+        "details": {
+          "profile": "core",
+          "low_confidence": true,
+          "total_records": 10,
+          "median_record_completeness": 1.0,
+          "min_record_completeness": 1.0,
+          "max_record_completeness": 1.0,
+          "score_distribution": {
+            "0.0": 0,
+            "0.1": 0,
+            "0.2": 0,
+            "0.3": 0,
+            "0.4": 0,
+            "0.5": 0,
+            "0.6": 0,
+            "0.7": 0,
+            "0.8": 0,
+            "0.9": 0,
+            "1.0": 10
+          },
+          "class_statistics": {
+            "http://dbpedia.org/ontology/Artwork": {
+              "count": 10,
+              "mean": 1.0,
+              "median": 1.0,
+              "min": 1.0,
+              "max": 1.0,
+              "scores": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "warning": "No standard schema profile was detected. Evaluation used the core fallback profile. Results may not reflect domain-specific requirements."
+        },
+        "runtime_seconds": 0.0218
+      },
+      {
+        "metric_id": "property_coverage",
+        "name": "Property Coverage",
+        "score": 0.76,
+        "weight": 1.0,
+        "status": "computed",
+        "details": {
+          "total_records": 10,
+          "classes_found": {
+            "http://dbpedia.org/ontology/Artwork": 10
+          },
+          "class_scores": {
+            "http://dbpedia.org/ontology/Artwork": 0.76
+          },
+          "class_property_fill_rates": {
+            "http://dbpedia.org/ontology/Artwork": {
+              "http://purl.org/linguistics/gold/hypernym": {
+                "present": 2,
+                "missing": 8,
+                "fill_rate": 0.2
+              },
+              "http://dbpedia.org/ontology/wikiPageExternalLink": {
+                "present": 6,
+                "missing": 4,
+                "fill_rate": 0.6
+              },
+              "http://www.w3.org/2002/07/owl#sameAs": {
+                "present": 10,
+                "missing": 0,
+                "fill_rate": 1.0
+              },
+              "http://www.w3.org/2000/01/rdf-schema#label": {
+                "present": 10,
+                "missing": 0,
+                "fill_rate": 1.0
+              },
+              "http://dbpedia.org/ontology/wikiPageWikiLink": {
+                "present": 10,
+                "missing": 0,
+                "fill_rate": 1.0
+              }
+            }
+          }
+        },
+        "runtime_seconds": 0.0055
+      },
+      {
+        "metric_id": "multilingual_labeling_coverage",
+        "name": "Multilingual Labeling Coverage",
+        "score": 0.9,
+        "weight": 1.0,
+        "status": "computed",
+        "details": {
+          "total_resources": 10,
+          "general_info": {
+            "resource_language_distribution": {
+              "0": 0,
+              "1": 2,
+              "2+": 8
+            },
+            "tagged_literal_count": 24,
+            "untagged_literal_count": 0,
+            "dominant_language": "it",
+            "dominant_language_ratio": 0.5
+          },
+          "language_distribution": [
+            {
+              "language": "it",
+              "resource_count": 5,
+              "literal_count": 5
+            },
+            {
+              "language": "es",
+              "resource_count": 5,
+              "literal_count": 5
+            },
+            {
+              "language": "fr",
+              "resource_count": 5,
+              "literal_count": 5
+            },
+            {
+              "language": "ru",
+              "resource_count": 3,
+              "literal_count": 3
+            },
+            {
+              "language": "uk",
+              "resource_count": 3,
+              "literal_count": 3
+            },
+            {
+              "language": "pt",
+              "resource_count": 1,
+              "literal_count": 1
+            },
+            {
+              "language": "sv",
+              "resource_count": 1,
+              "literal_count": 1
+            },
+            {
+              "language": "zh",
+              "resource_count": 1,
+              "literal_count": 1
+            }
+          ],
+          "heatmap": {
+            "languages": [
+              "it",
+              "es",
+              "fr",
+              "ru",
+              "uk",
+              "pt",
+              "sv",
+              "zh"
+            ],
+            "classes": [
+              {
+                "class_uri": "http://dbpedia.org/ontology/Artwork",
+                "class_label": "Artwork",
+                "total": 10,
+                "coverage": {
+                  "it": 0.5,
+                  "es": 0.5,
+                  "fr": 0.5,
+                  "ru": 0.3,
+                  "uk": 0.3,
+                  "pt": 0.1,
+                  "sv": 0.1,
+                  "zh": 0.1
+                },
+                "density_data": {
+                  "it": [
+                    0.3333,
+                    0.5,
+                    0.5,
+                    0.2,
+                    0.5
+                  ],
+                  "es": [
+                    0.3333,
+                    0.3333,
+                    0.3333,
+                    1.0,
+                    0.5
+                  ],
+                  "fr": [
+                    0.3333,
+                    0.2,
+                    1.0,
+                    0.3333,
+                    0.5
+                  ],
+                  "ru": [
+                    0.5,
+                    0.2,
+                    0.3333
+                  ],
+                  "uk": [
+                    0.2,
+                    0.3333,
+                    0.5
+                  ],
+                  "pt": [
+                    0.5
+                  ],
+                  "sv": [
+                    0.2
+                  ],
+                  "zh": [
+                    0.3333
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "runtime_seconds": 0.0019
+      },
+      {
+        "metric_id": "foundational_format_consistency",
+        "name": "Foundational and Format Consistency",
+        "score": 1.0,
+        "weight": 1.0,
+        "status": "computed",
+        "details": {
+          "scores": {
+            "uri_validity": 1.0,
+            "datatype_correctness": 1.0,
+            "language_tag_format": 1.0,
+            "structural_issues": 1.0
+          },
+          "uri_validity": {
+            "total_uri_count": 1137,
+            "invalid_count": 0,
+            "invalid_by_property": [],
+            "invalid_by_reason": [],
+            "invalid_by_position": [],
+            "class_violation_rates": {
+              "http://dbpedia.org/ontology/Artwork": 0.0
+            },
+            "samples": []
+          },
+          "datatype_correctness": {
+            "total_typed_literals": 0,
+            "invalid_count": 0,
+            "invalid_by_datatype": [],
+            "invalid_by_property": [],
+            "class_violation_rates": {
+              "http://dbpedia.org/ontology/Artwork": 0.0
+            },
+            "samples": []
+          },
+          "language_tag_format": {
+            "total_lang_literals": 24,
+            "invalid_count": 0,
+            "invalid_tags": [],
+            "invalid_by_property": [],
+            "class_violation_rates": {
+              "http://dbpedia.org/ontology/Artwork": 0.0
+            },
+            "samples": []
+          },
+          "structural_issues": {
+            "blank_node_subjects": {
+              "count": 0,
+              "class_violation_rates": {},
+              "samples": []
+            },
+            "empty_literals": {
+              "count": 0,
+              "by_property": [],
+              "class_violation_rates": {
+                "http://dbpedia.org/ontology/Artwork": 0.0
+              },
+              "samples": []
+            },
+            "class_violation_rates": {
+              "http://dbpedia.org/ontology/Artwork": 0.0
+            }
+          }
+        },
+        "runtime_seconds": 0.0129
+      }
+    ]
+  }
+]

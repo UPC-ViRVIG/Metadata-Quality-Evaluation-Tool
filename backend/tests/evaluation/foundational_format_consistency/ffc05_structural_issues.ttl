@@ -1,0 +1,67 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix ex:    <http://example.org/> .
+
+# =============================================================================
+# FFC-05: Structural Issues — Blank Nodes and Empty Literals
+#
+# Purpose: dedicated test for the structural_issues score formula and the
+# distinction between blank_class_rates ({}) and empty_class_rates.
+#
+# Score formula:
+#   total_violations = blank_count + empty_count
+#   total_items = len(subject_types)  ← only typed resources count
+#   score = max(0.0, 1 - total_violations / (total_items + total_violations))
+#
+# Resources:
+#   ex:res001 (typed ex:Artwork) — clean, no violations
+#   ex:res002 (typed ex:Artwork) — 1 empty literal → empty_count += 1
+#   ex:res003 (typed ex:Document) — 1 whitespace-only literal → empty_count += 1
+#   _:bn001   (BNode subject) → blank_count += 1
+#   _:bn002   (BNode subject) → blank_count += 1
+#
+# total_items      = 3  (res001, res002, res003 have rdf:type → in subject_types)
+# blank_count      = 2  (_:bn001, _:bn002)
+# empty_count      = 2  (res002, res003)
+# total_violations = 4
+# score = 1 - 4 / (3 + 4) = 1 - 4/7 = 0.4286
+#
+# blank_class_rates = {}
+#   BNode subjects have no rdf:type → nothing to look up in subject_types
+#   _build_class_violation_rates receives empty violating_subjects for blanks
+#   (blank_class_rates is hard-coded {} in _compute_structural_issues)
+#
+# empty_class_rates:
+#   violating_subjects = {ex:res002, ex:res003}
+#   ex:Artwork:  res002 violates / 2 total → 0.5
+#   ex:Document: res003 violates / 1 total → 1.0
+# =============================================================================
+
+# ── Typed resources ───────────────────────────────────────────────────────────
+
+# res001 — clean (no violations)
+ex:res001
+    rdf:type        ex:Artwork ;
+    dc:title        "The Night Watch"@en .
+
+# res002 — empty literal (empty string)
+ex:res002
+    rdf:type        ex:Artwork ;
+    dc:title        "Girl with a Pearl Earring"@en ;
+    dc:description  "" .
+
+# res003 — whitespace-only literal (also caught as empty by .strip() == "")
+ex:res003
+    rdf:type        ex:Document ;
+    dc:title        "Manuscript Fragment"@en ;
+    dc:description  "   " .
+
+# ── Blank node subjects ───────────────────────────────────────────────────────
+
+# bn001 — blank node subject (no type possible)
+_:bn001
+    dc:title        "Blank node one" .
+
+# bn002 — blank node subject
+_:bn002
+    dc:description  "Blank node two" .

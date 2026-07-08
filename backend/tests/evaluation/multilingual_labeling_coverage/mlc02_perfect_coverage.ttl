@@ -1,0 +1,53 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix ex:    <http://example.org/> .
+
+# =============================================================================
+# MLC-02: Perfect Multilingual Coverage
+#
+# Purpose: every resource has ≥2 valid BCP 47 language tags and zero untagged
+# literals. coverage_ratio = 1.0 and multiplier = 1.0 for every resource,
+# producing an overall score of exactly 1.0000.
+#
+# Resources and expected per-resource scores:
+#   ex:res001  tagged=3 untagged=0 langs=3 (en,fr,de) → 1.0×1.0 = 1.0000
+#   ex:res002  tagged=2 untagged=0 langs=2 (en,nl)    → 1.0×1.0 = 1.0000
+#   ex:res003  tagged=2 untagged=0 langs=2 (en,es)    → 1.0×1.0 = 1.0000
+#   ex:res004  tagged=4 untagged=0 langs=2 (en×2,fr×2)→ 1.0×1.0 = 1.0000
+#
+# Overall score = mean(1.0, 1.0, 1.0, 1.0) = 1.0000
+#
+# General info:
+#   resource_language_distribution: {"0": 0, "1": 0, "2+": 4}
+#   tagged_literal_count:   11
+#   untagged_literal_count: 0
+#   dominant_language: "en" (4/4 resources → ratio 1.0)
+# =============================================================================
+
+# res001 — 3 languages: en, fr, de (all tagged)
+ex:res001
+    rdf:type          ex:CHObject ;
+    dc:title          "The Night Watch"@en ;
+    dc:title          "La Ronde de Nuit"@fr ;
+    dc:title          "Die Nachtwache"@de .
+
+# res002 — 2 languages: en, nl (all tagged)
+ex:res002
+    rdf:type          ex:CHObject ;
+    dc:title          "Girl with a Pearl Earring"@en ;
+    skos:prefLabel    "Meisje met de parel"@nl .
+
+# res003 — 2 languages: en, es (all tagged)
+ex:res003
+    rdf:type          ex:CHObject ;
+    dc:title          "Las Meninas"@en ;
+    dc:title          "Las Meninas"@es .
+
+# res004 — 2 languages: en×2 and fr×2 (all tagged, multi-value per lang)
+ex:res004
+    rdf:type          ex:CHObject ;
+    dc:title          "The Louvre"@en ;
+    dc:description    "A major art museum in Paris."@en ;
+    dc:title          "Le Louvre"@fr ;
+    dc:description    "Un grand musée d'art à Paris."@fr .

@@ -1,0 +1,41 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix edm:     <http://www.europeana.eu/schemas/edm/> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix ex:      <http://example.org/> .
+
+# =============================================================================
+# SC-05: No Target Records
+#
+# Purpose: verify that when the EDM profile is detected but no resource is
+# typed as any of the profile's sh:targetClass values, the metric raises
+# NoTargetRecordsError and returns an error result (status="error") rather
+# than crashing or producing a score of 0.
+#
+# Profile: edm (detected via edm: namespace URI dominance — edm:rights and
+# edm:type predicates appear in the graph, triggering the EDM signature)
+#
+# Target classes in edm_profile.ttl:
+#   ore:Proxy, ore:Aggregation, edm:WebResource,
+#   edm:Agent, edm:Place, skos:Concept, edm:TimeSpan
+#
+# The resources below are typed as ex:UnknownClass only, which is not a
+# target class in any shape. get_target_records therefore returns an empty
+# set, and NoTargetRecordsError is raised.
+# =============================================================================
+
+# Resources use edm: predicates (ensuring EDM profile detection) but are
+# typed only as ex:UnknownClass, which matches no sh:targetClass.
+
+ex:resource001
+    rdf:type        ex:UnknownClass ;
+    edm:rights      <http://creativecommons.org/publicdomain/zero/1.0/> ;
+    dc:title        "Artifact A"@en .
+
+ex:resource002
+    rdf:type        ex:UnknownClass ;
+    edm:type        "IMAGE" ;
+    dc:title        "Artifact B"@en .
+
+ex:resource003
+    rdf:type        ex:UnknownClass ;
+    edm:rights      <http://rightsstatements.org/vocab/InC/1.0/> .
