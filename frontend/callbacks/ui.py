@@ -388,6 +388,58 @@ def download_connectivity_csv(n_clicks_list, results):
     )
 
 
+# ── Licensing (Rights) — CSV export ─────────────────────────────────────────
+
+@callback(
+    Output("download-licensing-csv", "data"),
+    Input({"type": "btn-licensing-export", "index": ALL}, "n_clicks"),
+    State("store-results", "data"),
+    prevent_initial_call=True,
+)
+def download_licensing_rights_csv(n_clicks_list, results):
+    """
+    Handles CSV export for the licensing_rights metric.
+
+    Three export categories (missing_rights, non_machine_readable,
+    unrecognized_vocabulary). Calls
+    GET /export/{dataset_id}/{metric_id}/{category} and streams the CSV
+    directly from the backend export cache.
+    """
+    if not results or not any(n for n in (n_clicks_list or []) if n):
+        return no_update
+
+    triggered = ctx.triggered_id
+    if not triggered or not isinstance(triggered, dict):
+        return no_update
+
+    index = triggered.get("index", "")
+    if "|" not in index:
+        return no_update
+    dataset_id, category = index.split("|", 1)
+    if not dataset_id:
+        return no_update
+
+    from api_client import get_export_csv, APIError
+
+    datasets = results.get("datasets", [])
+    label = next(
+        (ds.get("label", dataset_id)
+         for ds in datasets if ds.get("dataset_id") == dataset_id),
+        dataset_id,
+    )
+
+    try:
+        csv_bytes = get_export_csv(dataset_id, "licensing_rights", category)
+    except APIError:
+        return no_update
+
+    return dict(
+        content  = csv_bytes.decode("utf-8"),
+        filename = f"licensing_rights_{label}_{category}.csv",
+        type     = "text/csv",
+    )
+
+
 # ── 9. FFC overview bar click → drilldown section ──────────────────────────
 
 @callback(
