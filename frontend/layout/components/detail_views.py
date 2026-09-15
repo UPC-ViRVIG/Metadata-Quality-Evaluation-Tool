@@ -25,6 +25,7 @@ from layout.components.metric_renderers import property_coverage
 from layout.components.metric_renderers import multilingual_labeling_coverage
 from layout.components.metric_renderers import foundational_format_consistency
 from layout.components.metric_renderers import connectivity
+from layout.components.metric_renderers import licensing_rights
 
 _REGISTRY: dict[str, callable] = {
     foundational_format_consistency.METRIC_ID: foundational_format_consistency.render,
@@ -32,6 +33,7 @@ _REGISTRY: dict[str, callable] = {
     structural_completeness.METRIC_ID: structural_completeness.render,
     property_coverage.METRIC_ID:   property_coverage.render,
     connectivity.METRIC_ID:        connectivity.render,
+    licensing_rights.METRIC_ID:    licensing_rights.render,
 }
 
 

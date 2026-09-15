@@ -14,6 +14,7 @@ from metrics.plugins.property_coverage import PropertyCoverageMetric
 from metrics.plugins.multilingual_labeling_coverage import MultilingualLabelingCoverageMetric
 from metrics.plugins.foundational_format_consistency import FoundationalFormatConsistencyMetric
 from metrics.plugins.connectivity import ConnectivityMetric
+from metrics.plugins.licensing_rights import LicensingRightsMetric
 
 METRIC_REGISTRY = {
     "structural_completeness": StructuralCompletenessMetric,
@@ -21,4 +22,5 @@ METRIC_REGISTRY = {
     "multilingual_labeling_coverage": MultilingualLabelingCoverageMetric,
     "foundational_format_consistency": FoundationalFormatConsistencyMetric,
     "connectivity": ConnectivityMetric,
+    "licensing_rights": LicensingRightsMetric,
 }

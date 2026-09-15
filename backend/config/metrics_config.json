@@ -52,6 +52,13 @@
       "tooltip": "Do the URIs in the metadata actually resolve to something on the web?",
       "dimension": "Accessibility",
       "weight": 1.0
+    },
+    "licensing_rights": {
+      "name": "Licensing (Rights)",
+      "description": "Measures whether resources carry rights/licensing information, whether that information is expressed as a machine-actionable URI rather than free text, and whether it conforms to a recognized rights vocabulary such as RightsStatements.org or Creative Commons.",
+      "tooltip": "Is it clear whether and how this metadata and the resources it describes can be reused?",
+      "dimension": "Accessibility",
+      "weight": 1.0
     }
   }
 }
