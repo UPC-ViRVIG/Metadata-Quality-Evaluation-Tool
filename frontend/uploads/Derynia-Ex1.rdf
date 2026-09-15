@@ -1,0 +1,42 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:crmsci="http://www.cidoc-crm.org/extensions/crmsci/"
+    xmlns:crm="http://www.cidoc-crm.org/cidoc-crm/"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:crminf="http://www.cidoc-crm.org/extensions/crminf/"
+    xmlns:hdtex="http://heritage-digital-twin-ontology/"
+    xmlns:hdto="http://isl.ics.forth.gr/ontology/echoes/"
+    xmlns:crmdig="http://www.cidoc-crm.org/extensions/crmdig/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <hdto:HC3_Tangible_Heritage_Entity rdf:about="http://heritage-digital-twin-ontology/Object/7B8D5A21-A8D0-34E4-9FE7-E27F4D1C39A0">
+    <crmsci:O8i_was_observed_by>
+      <crmsci:S4_Single_Observation rdf:about="http://heritage-digital-twin-ontology/Event/Derynia-Examination/3">
+        <crm:P16_used_specific_object>
+          <crm:E29_Design_or_Procedure rdf:about="urn:uuid:f764b594-1051-4189-a3d5-d2d55ec8bddc">
+            <crm:P3_has_note>
+              <rdfs:Literal rdf:about="urn:uuid:a574e7ba-84ad-4798-90ca-047070c85a1d">
+                <rdfs:label>40 kV, 500µA, air, no filter, 0.5 mm spot size; resolution  500 µm and 80 ms dwell time, 4 h scan, three datasets of 500 x 340 points (XRF, RIS, LIS)</rdfs:label>
+              </rdfs:Literal>
+            </crm:P3_has_note>
+            <rdfs:label>setting</rdfs:label>
+          </crm:E29_Design_or_Procedure>
+        </crm:P16_used_specific_object>
+        <crm:P32_used_general_technique>
+          <crm:E55_Type rdf:about="http://heritage-digital-twin-ontology/Concept/2/Method.xml">
+            <rdfs:label>MA-XRF</rdfs:label>
+          </crm:E55_Type>
+        </crm:P32_used_general_technique>
+        <crm:P1_is_identified_by>
+          <crm:E41_Appellation rdf:about="urn:uuid:98aa5747-64a3-4769-9d8a-0070a0574883">
+            <rdfs:label>MA-XRF</rdfs:label>
+          </crm:E41_Appellation>
+        </crm:P1_is_identified_by>
+        <rdfs:label>MA-XRF</rdfs:label>
+      </crmsci:S4_Single_Observation>
+    </crmsci:O8i_was_observed_by>
+    <rdfs:label xml:lang="en">Icon of Nativity of Church of Virgin Mary, Derynia, Cyprus</rdfs:label>
+    <rdf:type rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E22_Human-Made_Object"/>
+  </hdto:HC3_Tangible_Heritage_Entity>
+</rdf:RDF>

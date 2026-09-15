@@ -1,0 +1,856 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ns1: <http://www.europeana.eu/schemas/edm/> .
+@prefix ns2: <http://www.w3.org/ns/oa#> .
+@prefix ns3: <http://www.w3.org/ns/dqv#> .
+@prefix ns4: <http://www.openarchives.org/ore/terms/> .
+@prefix ns5: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
+@prefix ns6: <http://rdvocab.info/ElementsGr2/> .
+@prefix ns7: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix ns8: <http://rdfs.org/sioc/services#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://abm.arbejdermuseet.dk/ABAV/background/bgImg.php?Thumb=0&Alias=alias:FotoWeb1&Img=F20131124048.jpg> a ns1:WebResource .
+
+<http://abm.arbejdermuseet.dk/ABAV/main/Hits.php?tgtId=10006&qe=id=F20131124048> a ns1:WebResource .
+
+<http://bdh-rd.bne.es/viewer.vm?id=0000029239> a ns1:WebResource ;
+    ns1:rights <http://creativecommons.org/licenses/by-nc-sa/4.0/> .
+
+<http://bdh-rd.bne.es/viewer.vm?id=0000055145> a ns1:WebResource ;
+    ns1:rights <http://creativecommons.org/licenses/by-nc-sa/4.0/> .
+
+<http://bdh-rd.bne.es/viewer.vm?id=0000071215> a ns1:WebResource ;
+    ns1:rights <http://creativecommons.org/licenses/by-nc-sa/4.0/> .
+
+<http://bdh-rd.bne.es/viewer.vm?id=0000108335> a ns1:WebResource ;
+    ns1:rights <http://creativecommons.org/licenses/by-nc-sa/4.0/> .
+
+<http://bdh-rd.bne.es/viewer.vm?id=0000108866> a ns1:WebResource ;
+    ns1:rights <http://creativecommons.org/licenses/by-nc-sa/4.0/> .
+
+<http://bdh-rd.bne.es/viewer.vm?id=0000139536> a ns1:WebResource ;
+    ns1:rights <http://creativecommons.org/licenses/by-nc-sa/4.0/> .
+
+<http://bdh-rd.bne.es/viewer.vm?id=0000148064> a ns1:WebResource ;
+    ns1:rights <http://creativecommons.org/licenses/by-nc-sa/4.0/> .
+
+<http://bdh-rd.bne.es/viewer.vm?id=0000175654> a ns1:WebResource ;
+    ns1:rights <http://creativecommons.org/licenses/by-nc-sa/4.0/> .
+
+<http://bdh-rd.bne.es/viewer.vm?id=0000199041> a ns1:WebResource ;
+    ns1:rights <http://creativecommons.org/licenses/by-nc-sa/4.0/> .
+
+<http://bdh-rd.bne.es/viewer.vm?id=0000199042> a ns1:WebResource ;
+    ns1:rights <http://creativecommons.org/licenses/by-nc-sa/4.0/> .
+
+<http://data.europeana.eu/organization/1482250000004500668> a foaf:Organization ;
+    skos:prefLabel "Virtual Library Miguel de Cervantes"@en .
+
+<http://data.europeana.eu/organization/1482250000004671127> a foaf:Organization ;
+    skos:prefLabel "The International Association of Labour History Institutions"@en .
+
+<http://data.europeana.eu/proxy/europeana/03915/public_mistral_memoire_fr_ACTION_CHERCHER_FIELD_1_REF_VALUE_1_AP71L13560> a ns4:Proxy ;
+    dc:rights "Donation François Kollar, Ministry of Culture (France), Library of Architecture and Heritage, RMN broadcast"@en ;
+    dc:title "Guernica de Pablo Picasso"@en,
+        "Pavilion of the Spanish Republic"@en ;
+    dc:type "Report"@en ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "IMAGE" ;
+    ns4:proxyFor <http://data.europeana.eu/item/03915/public_mistral_memoire_fr_ACTION_CHERCHER_FIELD_1_REF_VALUE_1_AP71L13560> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/03915/public_mistral_memoire_fr_ACTION_CHERCHER_FIELD_1_REF_VALUE_1_AP71L13560> .
+
+<http://data.europeana.eu/proxy/europeana/03915/public_mistral_memoire_fr_ACTION_CHERCHER_FIELD_1_REF_VALUE_1_AP71L13575> a ns4:Proxy ;
+    dc:rights "Donation François Kollar, Ministry of Culture (France), Library of Architecture and Heritage, RMN broadcast"@en ;
+    dc:title "Exhibition: panel on the Guernica massacre"@en,
+        "Pavilion of the Spanish Republic"@en ;
+    dc:type "Report"@en ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "IMAGE" ;
+    ns4:proxyFor <http://data.europeana.eu/item/03915/public_mistral_memoire_fr_ACTION_CHERCHER_FIELD_1_REF_VALUE_1_AP71L13575> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/03915/public_mistral_memoire_fr_ACTION_CHERCHER_FIELD_1_REF_VALUE_1_AP71L13575> .
+
+<http://data.europeana.eu/proxy/europeana/180/10622_7AF0F22A_D227_4719_9799_0BE6D45586AB_cho> a ns4:Proxy ;
+    dc:identifier "http://hdl.handle.net/10622/7AF0F22A-D227-4719-9799-0BE6D45586AB#cho" ;
+    dc:language "nld" ;
+    dc:type <http://data.europeana.eu/concept/48> ;
+    dcterms:temporal <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/180_10622_7AF0F22A_D227_4719_9799_0BE6D45586AB_cho.rdf#1937%2F1937> ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "IMAGE" ;
+    ns4:proxyFor <http://data.europeana.eu/item/180/10622_7AF0F22A_D227_4719_9799_0BE6D45586AB_cho> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/180/10622_7AF0F22A_D227_4719_9799_0BE6D45586AB_cho> .
+
+<http://data.europeana.eu/proxy/europeana/180/10622_90008522_4DBE_4951_B74D_7D4E07573EE7_cho> a ns4:Proxy ;
+    dc:identifier "http://hdl.handle.net/10622/90008522-4DBE-4951-B74D-7D4E07573EE7#cho" ;
+    dc:language "nld" ;
+    dc:type <http://data.europeana.eu/concept/2538>,
+        <http://data.europeana.eu/concept/35> ;
+    dcterms:spatial <http://data.europeana.eu/place/80>,
+        <http://data.europeana.eu/place/83> ;
+    dcterms:temporal <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/180_10622_90008522_4DBE_4951_B74D_7D4E07573EE7_cho.rdf#1951%2F1951> ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "IMAGE" ;
+    ns4:proxyFor <http://data.europeana.eu/item/180/10622_90008522_4DBE_4951_B74D_7D4E07573EE7_cho> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/180/10622_90008522_4DBE_4951_B74D_7D4E07573EE7_cho> .
+
+<http://data.europeana.eu/proxy/europeana/180/10622_F7ADAB97_F6C1_42C2_9E77_9405484E8C90_cho> a ns4:Proxy ;
+    dc:identifier "http://hdl.handle.net/10622/F7ADAB97-F6C1-42C2-9E77-9405484E8C90#cho" ;
+    dc:language "nld" ;
+    dc:type <http://data.europeana.eu/concept/49> ;
+    dcterms:issued <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/180_10622_F7ADAB97_F6C1_42C2_9E77_9405484E8C90_cho.rdf#1972%7E> ;
+    dcterms:temporal <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/180_10622_F7ADAB97_F6C1_42C2_9E77_9405484E8C90_cho.rdf#1972%2F1973> ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "IMAGE" ;
+    ns4:proxyFor <http://data.europeana.eu/item/180/10622_F7ADAB97_F6C1_42C2_9E77_9405484E8C90_cho> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/180/10622_F7ADAB97_F6C1_42C2_9E77_9405484E8C90_cho> .
+
+<http://data.europeana.eu/proxy/europeana/2022717/bnesearch_detalle_bdh0000029239> a ns4:Proxy ;
+    dc:creator "Arteta, Aurelius, 1879-1940"@en,
+        "Arteta, Aurelio, 1879-1940"@es ;
+    dc:date <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2022717_bnesearch_detalle_bdh0000029239.rdf#1937%2F1938>,
+        "1937-1938"@en,
+        "1937-1938"@es ;
+    dc:subject "Gernika-Lumo-Historia-1937 (Bombardment)"@en,
+        "Gernika-Lumo-Historia-1937 (Bombardeo)"@es ;
+    dc:title "The invaders passed through Guernica [Material Pas]"@en,
+        "Pasaron por Guernica los invasores [Material gráfico]"@es ;
+    dc:type "Illustrations and Photos"@en,
+        "Ilustraciones y Fotos"@es ;
+    dcterms:isReferencedBy "References: Catalogue Posters Republic and Civil War, no. 219"@en,
+        "Referencias: Catálogo Carteles República y Guerra Civil, nº 219"@es ;
+    dcterms:spatial <http://data.europeana.eu/place/83>,
+        "Gernika-Lumo"@en,
+        "Spain"@en,
+        "España"@es,
+        "Gernika-Lumo"@es ;
+    dcterms:temporal <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2022717_bnesearch_detalle_bdh0000029239.rdf#1936%2F1939>,
+        <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2022717_bnesearch_detalle_bdh0000029239.rdf#1937>,
+        <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2022717_bnesearch_detalle_bdh0000029239.rdf#19XX>,
+        "1936-1939 (Civil War)"@en,
+        "1936-1939 (Guerra civil)"@es,
+        "S.XX"@it ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "IMAGE" ;
+    ns4:proxyFor <http://data.europeana.eu/item/2022717/bnesearch_detalle_bdh0000029239> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/2022717/bnesearch_detalle_bdh0000029239> .
+
+<http://data.europeana.eu/proxy/europeana/2022717/bnesearch_detalle_bdh0000055145> a ns4:Proxy ;
+    dc:creator "Hauser and Menet (Madrid)"@en,
+        "Hauser y Menet (Madrid)"@es ;
+    dc:date <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2022717_bnesearch_detalle_bdh0000055145.rdf#1893>,
+        "1893"@zxx ;
+    dc:description "Tit. printed and mention of responsibility at the foot of the photograph: “GUERNICA (VIZCAYA)/GUERNICACO ARBOLA/Hauser y Menet. Travesia de la Ballesta 11, Madrid.”"@en,
+        "Tít. impreso y mención de responsabilidad al pie de la fotografía: \"GUERNICA (VIZCAYA)/GUERNICACO ARBOLA /Hauser y Menet. Travesia de la Ballesta 11, Madrid.\""@es ;
+    dc:publisher "Hauser and Menet"@en,
+        "Hauser y Menet"@es ;
+    dc:subject <http://data.europeana.eu/concept/1683>,
+        <http://data.europeana.eu/concept/190>,
+        <http://data.europeana.eu/concept/80>,
+        <http://data.europeana.eu/place/204489>,
+        "Fotografía de arquitectura-España-S.XIX"@es,
+        "Fotografías de monumentos-España-S.XIX"@es,
+        "Gernika-Lumo"@es,
+        "Imágenes impresas fototipias-España-S.XIX"@es,
+        "País Vasco"@es ;
+    dc:title "Guernica, Guernicaco Arbola [Material gráfico]"@es ;
+    dc:type "Illustrations and Photos"@en,
+        "Ilustraciones y Fotos"@es ;
+    dcterms:isPartOf "The Enlightened Spain (Series)"@en,
+        "a4745269"@en,
+        "La España ilustrada (Serie)"@es,
+        "a4745269"@es ;
+    dcterms:spatial <http://data.europeana.eu/place/204489>,
+        <http://data.europeana.eu/place/83>,
+        "Gernika-Lumo"@en,
+        "Spain"@en,
+        "España"@es,
+        "Gernika-Lumo"@es,
+        "País Vasco"@es ;
+    dcterms:temporal <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2022717_bnesearch_detalle_bdh0000055145.rdf#18XX>,
+        "S.XIX"@en,
+        "S.XIX"@es ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "IMAGE" ;
+    ns1:year "1893" ;
+    ns4:proxyFor <http://data.europeana.eu/item/2022717/bnesearch_detalle_bdh0000055145> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/2022717/bnesearch_detalle_bdh0000055145> .
+
+<http://data.europeana.eu/proxy/europeana/2022717/bnesearch_detalle_bdh0000071215> a ns4:Proxy ;
+    dc:creator "Spain. State delegation for Press and Propaganda"@en,
+        "Cifra Gráfica"@es,
+        "España. Delegación del Estado para Prensa y Propaganda"@es ;
+    dc:date <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2022717_bnesearch_detalle_bdh0000071215.rdf#1937>,
+        "1937"@zxx ;
+    dc:description "Fund moved in 1980 from the Ministry of Culture to the National Library"@en,
+        "In the lower left corner of the plane, load with the authorship data: The preliminary reconstruction project was realized by the “National Delegation of Technical Services of F. and JONS, Section of Architecture.”"@en,
+        "Ministry of Information and Tourism. Civil War Section"@en,
+        "Photographers, agencies and agencies (ink stamp to verse): “PHOTO DELESPRO”; “ACTUALITIES/GRAPHICS/C I F R A/Avenida del Generalísimo Franco, 5/BURGOS”"@en,
+        "Photographs of the same event in GC-CASE/113C/26"@en,
+        "Saved in Box No. 74bis"@en,
+        "Some of the photographs are reproductions"@en,
+        "Summary: Photographic report of the Exhibition on the “Project of reconstruction of Guernica” with abundant urban plans, architecture, general plans, before and after the bombing, the new plan, plants, elevations, sections of buildings, photographs and a model of the Plaza del Imperio and the building and tree of Guernica"@en,
+        "There are several copies of some photographs, being the total of the envelope 25 copies."@en,
+        "To the verse of some photographs handwritten or typed annotations"@en,
+        "28 Diciembre de 1937 / Burgos"@es,
+        "Al verso de algunas fotografías anotaciones manuscritas o mecanografiadas"@es,
+        "Algunas de las fotografías son reproducciones"@es,
+        "En el ángulo inferior izquierdo del plano, cartela con los datos de la autoría: El anteproyecto de reconstrucción fue realizado por la \"Delegación Nacional de Servicios Técnicos de F.E.T. y de las JONS, Sección de Arquitectura\""@es,
+        "Fondo trasladado en 1980 desde el Ministerio de Cultura a la Biblioteca Nacional"@es,
+        "Fotografías del mismo acontecimiento en GC-CAJA/113C/26"@es,
+        "Fotógrafos, agencias y organismos (sello en tinta al verso): “FOTO DELESPRO”; “ACTUALIDADES / GRÁFICAS / C I F R A / Avenida del Generalísimo Franco, 5 / BURGOS”"@es,
+        "Guardado en Caja nº 74bis"@es,
+        "Hay varios ejemplares de algunas fotografías, siendo el total del sobre 25 copias"@es,
+        "Ministerio de Información y Turismo. Sección Guerra Civil"@es,
+        "Resumen: Reportaje fotográfico de la Exposición sobre el \"Anteproyecto de reconstrucción de Guernica\" con  abundantes planos urbanísticos, arquitectura, planos generales, de antes y después del bombardeo, el plan nuevo, plantas, alzados, secciones de edificaciones, fotografías y una maqueta de la Plaza del Imperio y del edificio y árbol de Guernica"@es ;
+    dc:subject <http://data.europeana.eu/concept/1683>,
+        <http://data.europeana.eu/concept/190>,
+        <http://data.europeana.eu/concept/80>,
+        "Edificios-Rehabilitación"@es,
+        "España-Historia-1936-1939 (Guerra civil)-Arte y guerra-Exposiciones"@es,
+        "España. Dirección General de Regiones Devastadas y Reparaciones"@es,
+        "Exposiciones-Historia-País Vasco"@es,
+        "Falange Española Tradicionalista y de las J.O.N.S."@es,
+        "Falange Española Tradicionalista y de las J.O.N.S.. Delegación Nacional de Servicios Técnicos, Sección de Arquitectura"@es,
+        "Fotografía de guerra-España-S.XX"@es,
+        "Fotoperiodismo-España-S.XX"@es,
+        "Gernika-Lumo-Historia-1936-1939"@es,
+        "Rehabilitación urbana-Guipúzcoa"@es ;
+    dc:title "Exhibition in Burgos of the preliminary project for the reconstruction of Guernica [Graphic Material]"@en,
+        "Exposición en Burgos del anteproyecto para la reconstrucción de Guernica [Material gráfico]"@es ;
+    dc:type "Illustrations and Photos"@en,
+        "Ilustraciones y Fotos"@es ;
+    dcterms:isPartOf "Fondo fotográfico de la Guerra Civil Española.. Burgos"@es ;
+    dcterms:isReferencedBy "References: 150 years of photography in the National Library, p. 274"@en,
+        "References: Reconstruction, April 1940 no. 1, Direction General of Devastated Regions, p. 22-27"@en,
+        "Referencias: 150 años de fotografía en la Biblioteca Nacional, p. 274"@es,
+        "Referencias: Reconstrucción, abril de 1940 nº 1, Dirección General de Regiones Devastadas, p. 22-27"@es ;
+    dcterms:spatial <http://data.europeana.eu/place/204265>,
+        <http://data.europeana.eu/place/204489>,
+        <http://data.europeana.eu/place/83>,
+        "Gernika-Lumo"@en,
+        "Guipuzcoa"@en,
+        "Spain"@en,
+        "España"@es,
+        "Gernika-Lumo"@es,
+        "Guipúzcoa"@es,
+        "País Vasco"@es ;
+    dcterms:temporal <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2022717_bnesearch_detalle_bdh0000071215.rdf#1936%2F1939>,
+        <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2022717_bnesearch_detalle_bdh0000071215.rdf#19XX>,
+        "1936-1939"@en,
+        "1936-1939 (Civil War)"@en,
+        "1936-1939"@es,
+        "1936-1939 (Guerra civil)"@es,
+        "S.XX"@it ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "IMAGE" ;
+    ns1:year "1937" ;
+    ns4:proxyFor <http://data.europeana.eu/item/2022717/bnesearch_detalle_bdh0000071215> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/2022717/bnesearch_detalle_bdh0000071215> .
+
+<http://data.europeana.eu/proxy/europeana/2022717/bnesearch_detalle_bdh0000139536> a ns4:Proxy ;
+    dc:creator "Spain. State delegation for Press and Propaganda"@en,
+        "España. Delegación del Estado para Prensa y Propaganda"@es ;
+    dc:date <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2022717_bnesearch_detalle_bdh0000139536.rdf#1936%2F1939>,
+        "1936-1939"@en,
+        "1936-1939"@es ;
+    dc:description "Fund moved in 1980 from the Ministry of Culture to the National Library"@en,
+        "Manuscript to the verse of some photographs: “Causeway/views taken cinematographically hours before the entry of Franco’s troops into Guernika”; “These views are included in the film Elai-Alai.”"@en,
+        "Ministry of Information and Tourism. Civil War Section"@en,
+        "Photographs of the same event in GC-CASE/113A/21 and GC-CARP/84/1"@en,
+        "Saved in Box No. 113A"@en,
+        "Stamps to the verse: “INNER’ S MINISTER/TECHNICAL SECTION”"@en,
+        "To the verse of some photographs handwritten or typed annotations"@en,
+        "To the verse of some photographs stamped numbering"@en,
+        "Al verso de algunas fotografías anotaciones manuscritas o mecanografiadas"@es,
+        "Al verso de algunas fotografías numeración estampada"@es,
+        "Al verso de algunas fotografías, mecanografiado: “Frente de Vizcaya (Guernica)/Escena mora”"@es,
+        "En algunas fotografías manuscrito o en etiqueta pegada al verso el nº de serie (3/; 4/; 30A/; --/C) y nº de orden dentro de ella"@es,
+        "Fondo trasladado en 1980 desde el Ministerio de Cultura a la Biblioteca Nacional"@es,
+        "Fotografías del mismo acontecimiento en GC-CAJA/113A/21 y GC-CARP/84/1"@es,
+        "Fotógrafos, agencias y organismos (sello en tinta al verso): \"Foto Campua (Manuscrito a tinta)\"; \"FOTO DELESPRO\" (sello en seco)"@es,
+        "Guardado en Caja nº 113A"@es,
+        "Hay varios ejemplares de algunas fotografías, siendo el total del sobre 85 copias"@es,
+        "Manuscrito al verso de algunas fotografías: \"Asilo Calzada/ vistas tomadas cinematográficamente horas antes de la entrada de las tropas de Franco en Guernika\"; \"Estas vistas están incluídas en el film Elai-Alai\""@es,
+        "Ministerio de Información y Turismo. Sección Guerra Civil"@es,
+        "Sellos al verso: \"MINISTERIO DEL INTERIOR/ SECCIÓN TÉCNICA\""@es ;
+    dc:subject <http://data.europeana.eu/concept/1683>,
+        <http://data.europeana.eu/concept/80>,
+        "Calles-Gernika-Lumo-Historia"@es,
+        "Edificios-Efectos de la guerra-Vizcaya-1936-1939"@es,
+        "España. Ejército Nacional"@es,
+        "España. Ejército de Marruecos. Fuerzas Regulares Indígenas"@es,
+        "Fotografía de guerra-España-S.XX"@es,
+        "Fotografías panorámicas-España-S.XX"@es,
+        "Fotoperiodismo-España-S.XX"@es,
+        "Gernika-Lumo-Historia-1937 (Bombardeo)"@es ;
+    dc:title "Guernica (Vizcaya).. Ruinas.. Entrada de los nacionales [Material gráfico]"@es ;
+    dc:type "Illustrations and Photos"@en,
+        "Ilustraciones y Fotos"@es ;
+    dcterms:isPartOf "Fondo fotográfico de la Guerra Civil Española.. Vizcaya"@es ;
+    dcterms:isReferencedBy "References: 150 years of photography in the National Library, p. 270-285"@en,
+        "References: The Spanish Civil War month by month, no. 12. The bombing of Guernica"@en,
+        "Referencias: 150 años de fotografía en la Biblioteca Nacional, p. 270-285"@es,
+        "Referencias: Arde Guernica, 1973, Vicente Talón"@es,
+        "Referencias: La Guerra Civil Española mes a mes, nº 12. El bombardeo de Guernica"@es ;
+    dcterms:spatial <http://data.europeana.eu/place/203911>,
+        <http://data.europeana.eu/place/83>,
+        "Biscay"@en,
+        "Gernika-Lumo"@en,
+        "Spain"@en,
+        "España"@es,
+        "Gernika-Lumo"@es,
+        "Vizcaya"@es ;
+    dcterms:temporal <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2022717_bnesearch_detalle_bdh0000139536.rdf#1936%2F1939>,
+        <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2022717_bnesearch_detalle_bdh0000139536.rdf#1937>,
+        <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2022717_bnesearch_detalle_bdh0000139536.rdf#19XX>,
+        "1936-1939"@en,
+        "1936-1939 (Civil War)"@en,
+        "1936-1939"@es,
+        "1936-1939 (Guerra civil)"@es,
+        "S.XX"@it ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "IMAGE" ;
+    ns4:proxyFor <http://data.europeana.eu/item/2022717/bnesearch_detalle_bdh0000139536> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/2022717/bnesearch_detalle_bdh0000139536> .
+
+<http://data.europeana.eu/proxy/europeana/2022717/bnesearch_detalle_bdh0000148064> a ns4:Proxy ;
+    dc:creator "Spain. State delegation for Press and Propaganda"@en,
+        "Cifra Gráfica"@es,
+        "España. Delegación del Estado para Prensa y Propaganda"@es ;
+    dc:date <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2022717_bnesearch_detalle_bdh0000148064.rdf#1937>,
+        "1937"@zxx ;
+    dc:description "December 1937"@en,
+        "Fund moved in 1980 from the Ministry of Culture to the National Library"@en,
+        "Ministry of Information and Tourism. Civil War Section"@en,
+        "Photographs of drawings and drawings of the exhibition in GC-Caja/74bis/17"@en,
+        "Saved in Box No. 113C"@en,
+        "Summary: Photo report of the Exhibition on the “Project of reconstruction of Guernica” with the details of urban planning, architecture, general plans, plants, elevations and sections of the buildings"@en,
+        "To the verse of some photographs handwritten or typed annotations"@en,
+        "Al verso de algunas fotografías anotaciones manuscritas o mecanografiadas"@es,
+        "Diciembre de 1937"@es,
+        "Fondo trasladado en 1980 desde el Ministerio de Cultura a la Biblioteca Nacional"@es,
+        "Fotografías de los dibujos y planos de la exposición en GC-Caja/74bis/17"@es,
+        "Guardado en Caja nº 113C"@es,
+        "Hay varios ejemplares de algunas fotografías, siendo el total del sobre 12 copias"@es,
+        "Ministerio de Información y Turismo. Sección Guerra Civil"@es,
+        "Sellos en algunas de las fotografías: MINISTERIO DEL INTERIOR / SECCION TECNICA"@es,
+        "Sumario: Reportaje fotográfico de la Exposición sobre el \"Anteproyecto de reconstrucción de Guernica\" con los detalles de planos urbanísticos, de arquitectura, planos generales, plantas, alzados y secciones de las edificaciones"@es ;
+    dc:subject <http://data.europeana.eu/concept/1683>,
+        <http://data.europeana.eu/concept/190>,
+        "España-Historia-1936-1939 (Guerra civil)-Exposiciones"@es,
+        "Fotografía de guerra-España-S.XX"@es,
+        "Fotoperiodismo-España-S.XX"@es ;
+    dc:title "Exhibition in Burgos of reconstruction projects of Guernica [Graphic Material]"@en,
+        "Exposición en Burgos de proyectos de reconstrucción de Guernica [Material gráfico]"@es ;
+    dc:type "Illustrations and Photos"@en,
+        "Ilustraciones y Fotos"@es ;
+    dcterms:isPartOf "Fondo fotográfico de la Guerra Civil Española.. Vizcaya"@es ;
+    dcterms:isReferencedBy "References: 150 years of photography in the National Library, p. 270-285"@en,
+        "Referencias: 150 años de fotografía en la Biblioteca Nacional, p. 270-285"@es ;
+    dcterms:spatial <http://data.europeana.eu/place/203911>,
+        <http://data.europeana.eu/place/83>,
+        "Biscay"@en,
+        "Spain"@en,
+        "España"@es,
+        "Vizcaya"@es ;
+    dcterms:temporal <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2022717_bnesearch_detalle_bdh0000148064.rdf#1936%2F1939>,
+        <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2022717_bnesearch_detalle_bdh0000148064.rdf#19XX>,
+        "1936-1939"@en,
+        "1936-1939 (Civil War)"@en,
+        "1936-1939"@es,
+        "1936-1939 (Guerra civil)"@es,
+        "S.XX"@it ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "IMAGE" ;
+    ns1:year "1937" ;
+    ns4:proxyFor <http://data.europeana.eu/item/2022717/bnesearch_detalle_bdh0000148064> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/2022717/bnesearch_detalle_bdh0000148064> .
+
+<http://data.europeana.eu/proxy/europeana/2022717/bnesearch_detalle_bdh0000175654> a ns4:Proxy ;
+    dc:creator "Agence Espagne (Paris)"@en,
+        "Agence Espagne (París)"@es,
+        "Cifra Gráfica"@es ;
+    dc:date <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2022717_bnesearch_detalle_bdh0000175654.rdf#1937>,
+        "1937"@zxx ;
+    dc:description "Fund moved in 1980 from the Ministry of Culture to the National Library"@en,
+        "Guernica bombed on April 26, 1937"@en,
+        "Ministry of Information and Tourism. Civil War Section"@en,
+        "Photographs of the same event in GC-CASE/113/A/20 and GC-CASE/113A/21"@en,
+        "Photographs of the same event in GC-CASE/113a/20-21"@en,
+        "Stamps to the verse of some photographs: “INTERIOR’ S MINISTER/TECHNICAL SECTION”; “SPANISH INFORMATION SERVICE”; “VALENCIA” N FTXAI DU DAGON EUZKADI KO/JAUNORDETASUN NAUSIA/DELEGACIÓ D 'EUZKADI \""@en,
+        "Summary: On 1: Effects of bombings on buildings, streets and squares of Guernica, caused by German aviation “La Legión Condor.” Civil population among the rubble after the bombings. The Arbor of Guernica intact. General view of how Guernica remained after the bombing. Photograph of a dated press cut “Degbladet 3 May 1937”"@en,
+        "To the verse of some photographs handwritten or typed annotations"@en,
+        "To the verse of some photographs strip of paper pasted with the description of the typed image"@en,
+        "Al verso de algunas fotografías anotaciones manuscritas o mecanografiadas"@es,
+        "Al verso de algunas fotografías mecanografiado: \"Aspecto desolador durante la destrucción por la aviación alemana\"; \"Algunas fachadas de Guernica se mantenían todavía en pie, después de la destrucción, como una acusación contra el invasor\"; \"El Árbol de Guernica\""@es,
+        "Al verso de algunas fotografías tira de papel pegada con la descripción de la imagen mecanografiada"@es,
+        "En algunas fotografías manuscrito o en etiqueta pegada al verso el nº de serie (-C/) y nº de orden dentro de ella"@es,
+        "Fondo trasladado en 1980 desde el Ministerio de Cultura a la Biblioteca Nacional"@es,
+        "Fotografías del mismo acontecimiento en GC-CAJA/113/A/20 y GC-CAJA/113A/21"@es,
+        "Fotografías del mismo acontecimiento en GC-CAJA/113a/20-21"@es,
+        "Guardado en Carp/84"@es,
+        "Guernica bombardeada el 26 de abril de 1937"@es,
+        "Hay varios ejemplares de algunas fotografías, siendo el total del sobre 66 copias"@es,
+        "Ministerio de Información y Turismo. Sección Guerra Civil"@es,
+        "Resumen: Sobre 1: Efectos de los bombardeos en los edificios, calles y plazas de Guernica, provocados por la aviación alemana \"La Legión Condor\". Población civil entre los escombros después de los bombardeos. El Árbol de Guernica intacto. Vista general de como quedó Guernica después del bombardeo. Fotografía de un recorte de prensa fechado \"Degbladet 3 mayo 1937\""@es,
+        "Resumen: Sobre 2: Vascongadas: Fotografías sin identificar el lugar de los edificios, calles o el cementerio destrozados por bombardeos o incendiados. Población civil y herido en las calles"@es,
+        "Sellos al verso de algunas fotografías: \"MINISTERIO DEL INTERIOR/ SECCIÓN TÉCNICA\"; \"SERVICIO ESPAÑOL DE INFORMACION\"; \"VALENCIA´N FTXAI DU DAGON EUZKADI KO/ JAUNORDETASUN NAUSIA/ DELEGACIÓ D´EUZKADI\""@es ;
+    dc:subject <http://data.europeana.eu/concept/1683>,
+        <http://data.europeana.eu/concept/80>,
+        "Calles-Gernika-Lumo-Historia"@es,
+        "Edificios-Efectos de la guerra-Vizcaya-1936-1939"@es,
+        "Fotografía de guerra-España-S.XX"@es,
+        "Fotoperiodismo-España-S.XX"@es,
+        "Gernika-Lumo-Historia-1937 (Bombardeo)"@es ;
+    dc:type "Illustrations and Photos"@en,
+        "Ilustraciones y Fotos"@es ;
+    dcterms:isPartOf "Fondo fotográfico de la Guerra Civil Española"@es,
+        "Fondo fotográfico de la Guerra Civil Española.. Vizcaya"@es ;
+    dcterms:isReferencedBy "References: 150 years of photography in the National Library, p.270-285"@en,
+        "Referencias: 150 años de fotografía en la Biblioteca Nacional, p.270-285"@es ;
+    dcterms:spatial <http://data.europeana.eu/place/203911>,
+        <http://data.europeana.eu/place/83>,
+        "Biscay"@en,
+        "Gernika-Lumo"@en,
+        "Spain"@en,
+        "España"@es,
+        "Gernika-Lumo"@es,
+        "Vizcaya"@es ;
+    dcterms:temporal <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2022717_bnesearch_detalle_bdh0000175654.rdf#1936%2F1939>,
+        <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2022717_bnesearch_detalle_bdh0000175654.rdf#1937>,
+        <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2022717_bnesearch_detalle_bdh0000175654.rdf#19XX>,
+        "1936-1939"@en,
+        "1936-1939 (Civil War)"@en,
+        "1936-1939"@es,
+        "1936-1939 (Guerra civil)"@es,
+        "S.XX"@it ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "IMAGE" ;
+    ns1:year "1937" ;
+    ns4:proxyFor <http://data.europeana.eu/item/2022717/bnesearch_detalle_bdh0000175654> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/2022717/bnesearch_detalle_bdh0000175654> .
+
+<http://data.europeana.eu/proxy/europeana/2051922/data_euscreenXL_4069670> a ns4:Proxy ;
+    dc:date <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2051922_data_euscreenXL_4069670.rdf#2012> ;
+    dc:identifier "http://mint-projects.image.ntua.gr/data/euscreenXL/4069670" ;
+    dcterms:issued <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2051922_data_euscreenXL_4069670.rdf#2012-04-26> ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "VIDEO" ;
+    ns1:year "2012" ;
+    ns4:lineage <http://data.europeana.eu/proxy/aggregator/2051922/data_euscreenXL_4069670>,
+        <http://data.europeana.eu/proxy/provider/2051922/data_euscreenXL_4069670> ;
+    ns4:proxyFor <http://data.europeana.eu/item/2051922/data_euscreenXL_4069670> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/2051922/data_euscreenXL_4069670> .
+
+<http://data.europeana.eu/proxy/europeana/2051922/data_euscreenXL_5043411> a ns4:Proxy ;
+    dc:identifier "http://mint-projects.image.ntua.gr/data/euscreenXL/5043411" ;
+    dcterms:issued <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2051922_data_euscreenXL_5043411.rdf#2014-04-26> ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "VIDEO" ;
+    ns4:lineage <http://data.europeana.eu/proxy/aggregator/2051922/data_euscreenXL_5043411>,
+        <http://data.europeana.eu/proxy/provider/2051922/data_euscreenXL_5043411> ;
+    ns4:proxyFor <http://data.europeana.eu/item/2051922/data_euscreenXL_5043411> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/2051922/data_euscreenXL_5043411> .
+
+<http://data.europeana.eu/proxy/europeana/2051922/data_euscreenXL_5043631> a ns4:Proxy ;
+    dc:identifier "http://mint-projects.image.ntua.gr/data/euscreenXL/5043631" ;
+    dcterms:issued <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2051922_data_euscreenXL_5043631.rdf#2014-04-26> ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "VIDEO" ;
+    ns4:lineage <http://data.europeana.eu/proxy/aggregator/2051922/data_euscreenXL_5043631>,
+        <http://data.europeana.eu/proxy/provider/2051922/data_euscreenXL_5043631> ;
+    ns4:proxyFor <http://data.europeana.eu/item/2051922/data_euscreenXL_5043631> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/2051922/data_euscreenXL_5043631> .
+
+<http://data.europeana.eu/proxy/europeana/2051937/data_euscreenXL_EUS_198E22BE5DAB886598F1085129AB0F0C> a ns4:Proxy ;
+    dc:identifier "http://mint-projects.image.ntua.gr/data/euscreenXL/EUS_198E22BE5DAB886598F1085129AB0F0C" ;
+    dc:language "cat" ;
+    dcterms:created <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2051937_data_euscreenXL_EUS_198E22BE5DAB886598F1085129AB0F0C.rdf#1998> ;
+    dcterms:issued <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2051937_data_euscreenXL_EUS_198E22BE5DAB886598F1085129AB0F0C.rdf#1998-10-18> ;
+    dcterms:spatial <http://data.europeana.eu/place/204489>,
+        <http://data.europeana.eu/place/83> ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "VIDEO" ;
+    ns1:year "1998" ;
+    ns4:lineage <http://data.europeana.eu/proxy/provider/2051937/data_euscreenXL_EUS_198E22BE5DAB886598F1085129AB0F0C> ;
+    ns4:proxyFor <http://data.europeana.eu/item/2051937/data_euscreenXL_EUS_198E22BE5DAB886598F1085129AB0F0C> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/2051937/data_euscreenXL_EUS_198E22BE5DAB886598F1085129AB0F0C> .
+
+<http://data.europeana.eu/proxy/europeana/2051943/data_euscreenXL_EUS_157B821F87684988B70D3679504FF25A> a ns4:Proxy ;
+    dc:identifier "http://mint-projects.image.ntua.gr/data/euscreenXL/EUS_157B821F87684988B70D3679504FF25A" ;
+    dc:language "deu" ;
+    dc:type <http://data.europeana.eu/concept/2255> ;
+    dcterms:created <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2051943_data_euscreenXL_EUS_157B821F87684988B70D3679504FF25A.rdf#1995> ;
+    dcterms:issued <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2051943_data_euscreenXL_EUS_157B821F87684988B70D3679504FF25A.rdf#1995-12-12> ;
+    dcterms:spatial <http://data.europeana.eu/place/83> ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "VIDEO" ;
+    ns1:year "1995" ;
+    ns4:lineage <http://data.europeana.eu/proxy/aggregator/2051943/data_euscreenXL_EUS_157B821F87684988B70D3679504FF25A>,
+        <http://data.europeana.eu/proxy/provider/2051943/data_euscreenXL_EUS_157B821F87684988B70D3679504FF25A> ;
+    ns4:proxyFor <http://data.europeana.eu/item/2051943/data_euscreenXL_EUS_157B821F87684988B70D3679504FF25A> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/2051943/data_euscreenXL_EUS_157B821F87684988B70D3679504FF25A> .
+
+<http://data.europeana.eu/proxy/europeana/2051943/data_euscreenXL_EUS_6FCF0C8AC9D34474853FDAF9522378C6> a ns4:Proxy ;
+    dc:identifier "http://mint-projects.image.ntua.gr/data/euscreenXL/EUS_6FCF0C8AC9D34474853FDAF9522378C6" ;
+    dc:language "cat" ;
+    dc:subject <http://data.europeana.eu/concept/69>,
+        <http://data.europeana.eu/concept/79> ;
+    dc:type <http://data.europeana.eu/concept/2255> ;
+    dcterms:created <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2051943_data_euscreenXL_EUS_6FCF0C8AC9D34474853FDAF9522378C6.rdf#2007> ;
+    dcterms:issued <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2051943_data_euscreenXL_EUS_6FCF0C8AC9D34474853FDAF9522378C6.rdf#2007-01-21> ;
+    dcterms:spatial <http://data.europeana.eu/place/83>,
+        <http://data.europeana.eu/place/85> ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "VIDEO" ;
+    ns1:year "2007" ;
+    ns4:lineage <http://data.europeana.eu/proxy/provider/2051943/data_euscreenXL_EUS_6FCF0C8AC9D34474853FDAF9522378C6> ;
+    ns4:proxyFor <http://data.europeana.eu/item/2051943/data_euscreenXL_EUS_6FCF0C8AC9D34474853FDAF9522378C6> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/2051943/data_euscreenXL_EUS_6FCF0C8AC9D34474853FDAF9522378C6> .
+
+<http://data.europeana.eu/proxy/europeana/2059210/data_sounds_http___imslp_org_wiki_Guernica__Vidal__Paul_> a ns4:Proxy ;
+    dc:identifier "http://mint-projects.image.ntua.gr/data/sounds/http://imslp.org/wiki/Guernica_(Vidal,_Paul)" ;
+    dc:language "fra" ;
+    dcterms:issued <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/2059210_data_sounds_http___imslp_org_wiki_Guernica__Vidal__Paul_.rdf#1895> ;
+    dcterms:medium <http://data.europeana.eu/concept/2090> ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "TEXT" ;
+    ns1:year "1895" ;
+    ns4:proxyFor <http://data.europeana.eu/item/2059210/data_sounds_http___imslp_org_wiki_Guernica__Vidal__Paul_> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/2059210/data_sounds_http___imslp_org_wiki_Guernica__Vidal__Paul_> .
+
+<http://data.europeana.eu/proxy/europeana/207/https___hispana_mcu_es_lod_oai_binadi_navarra_es_00006375_ent0> a ns4:Proxy ;
+    dc:date <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/207_https___hispana_mcu_es_lod_oai_binadi_navarra_es_00006375_ent0.rdf#1974> ;
+    dc:identifier "https://hispana.mcu.es/lod/oai:binadi.navarra.es:00006375#ent0" ;
+    dc:language "spa" ;
+    dcterms:created <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/207_https___hispana_mcu_es_lod_oai_binadi_navarra_es_00006375_ent0.rdf#1974> ;
+    dcterms:issued <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/207_https___hispana_mcu_es_lod_oai_binadi_navarra_es_00006375_ent0.rdf#1974> ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "TEXT" ;
+    ns1:year "1974" ;
+    ns4:lineage <http://data.europeana.eu/proxy/provider/207/https___hispana_mcu_es_lod_oai_binadi_navarra_es_00006375_ent0> ;
+    ns4:proxyFor <http://data.europeana.eu/item/207/https___hispana_mcu_es_lod_oai_binadi_navarra_es_00006375_ent0> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/207/https___hispana_mcu_es_lod_oai_binadi_navarra_es_00006375_ent0> .
+
+<http://data.europeana.eu/proxy/europeana/207/https___hispana_mcu_es_lod_oai_binadi_navarra_es_00006397_ent0> a ns4:Proxy ;
+    dc:date <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/207_https___hispana_mcu_es_lod_oai_binadi_navarra_es_00006397_ent0.rdf#1975> ;
+    dc:identifier "https://hispana.mcu.es/lod/oai:binadi.navarra.es:00006397#ent0" ;
+    dc:language "spa" ;
+    dcterms:created <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/207_https___hispana_mcu_es_lod_oai_binadi_navarra_es_00006397_ent0.rdf#1975> ;
+    dcterms:issued <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/207_https___hispana_mcu_es_lod_oai_binadi_navarra_es_00006397_ent0.rdf#1975> ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "TEXT" ;
+    ns1:year "1975" ;
+    ns4:lineage <http://data.europeana.eu/proxy/provider/207/https___hispana_mcu_es_lod_oai_binadi_navarra_es_00006397_ent0> ;
+    ns4:proxyFor <http://data.europeana.eu/item/207/https___hispana_mcu_es_lod_oai_binadi_navarra_es_00006397_ent0> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/207/https___hispana_mcu_es_lod_oai_binadi_navarra_es_00006397_ent0> .
+
+<http://data.europeana.eu/proxy/europeana/295/bld_handle_123456789_220> a ns4:Proxy ;
+    dc:coverage "Bizkaia. Batzar Nagusiak - Historia."@en,
+        "Bizkaia. Batzar Nagusiak - Historia."@es ;
+    dc:date <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/295_bld_handle_123456789_220.rdf#1897>,
+        "1897"@zxx ;
+    dc:identifier "http://www.bilbao.eus/bld/handle/123456789/220" ;
+    dc:language "spa" ;
+    dc:title "The tree of Guernica and the Casa Solar de la Antigua."@en,
+        "El árbol de Guernica y la Casa Solar de la Antigua."@es ;
+    dc:type <http://data.europeana.eu/concept/6> ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "TEXT" ;
+    ns1:year "1897" ;
+    ns4:proxyFor <http://data.europeana.eu/item/295/bld_handle_123456789_220> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/295/bld_handle_123456789_220> .
+
+<http://data.europeana.eu/proxy/europeana/295/bld_handle_123456789_37157> a ns4:Proxy ;
+    dc:creator "Zuricalday, Nicanor."@en ;
+    dc:date <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/295_bld_handle_123456789_37157.rdf#1886>,
+        "1886"@zxx ;
+    dc:description "Read at the Teatro Gayarre in Bilbao, the night of March 27, 1886, in the propaganda candle for the creation of the Basque Navarrese FOLK-LORE"@en,
+        "Leída en el Teatro Gayarre de Bilbao, la noche del 27 de marzo de 1886, en la vela de propaganda para la creación del FOLK-LORE vasco-navarro"@es ;
+    dc:identifier "http://www.bilbao.eus/bld/handle/123456789/37157" ;
+    dc:language "spa" ;
+    dc:publisher "Bilbao: Eduardo Delmas"@en,
+        "Bilbao : Eduardo Delmas"@es ;
+    dc:type <http://data.europeana.eu/concept/6> ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "TEXT" ;
+    ns1:year "1886" ;
+    ns4:proxyFor <http://data.europeana.eu/item/295/bld_handle_123456789_37157> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/295/bld_handle_123456789_37157> .
+
+<http://data.europeana.eu/proxy/europeana/92023/images_billed_2010_okt_billeder_object338605> a ns4:Proxy ;
+    dc:date <file:///C:/Users/victo/PycharmProjects/Shape-Constaint-Europeana-Metadata-Analysis/scripts/data/harvested/rdf/92023_images_billed_2010_okt_billeder_object338605.rdf#1962-12-26>,
+        "1962.12.26"@zxx ;
+    dc:description "Louis Miehe-Renard som en gammel mand Fanchou."@da,
+        "Tusch, pen  REX DB003369"@en ;
+    dc:rights "Billedet er beskyttet af loven om ophavsret"@da,
+        "Dette værk er beskyttet af lov om ophavsret. Det er ikke tilladt at reproducere eller  kopiere værket uden forudgående tilladelse fra rettighedshaverne."@da,
+        "The image is protected by the Copyright Act"@en ;
+    dc:subject "Miehe-Renard, Louis (1919-1997) actor"@en ;
+    dc:title "Guernica"@da,
+        "Guernica"@en ;
+    dc:type <http://data.europeana.eu/concept/35>,
+        "Billede, Todimensionalt billedmateriale"@da ;
+    ns1:europeanaProxy "true" ;
+    ns1:type "IMAGE" ;
+    ns4:proxyFor <http://data.europeana.eu/item/92023/images_billed_2010_okt_billeder_object338605> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/europeana/92023/images_billed_2010_okt_billeder_object338605> .
+
+<http://data.europeana.eu/proxy/provider/03915/public_mistral_memoire_fr_ACTION_CHERCHER_FIELD_1_REF_VALUE_1_AP71L13560> a ns4:Proxy ;
+    dc:identifier "oai:culture.gouv.fr:ark/67717/0006/AP71L13560" ;
+    dc:rights "Donation François Kollar, Ministère de la culture (France), Médiathèque de l'architecture et du patrimoine, diffusion RMN"@fr ;
+    dc:title "Guernica de Pablo Picasso"@fr,
+        "Pavillon de la république espagnole"@fr ;
+    dc:type "Reportage"@fr ;
+    ns1:europeanaProxy "false" ;
+    ns1:type "IMAGE" ;
+    ns4:proxyFor <http://data.europeana.eu/item/03915/public_mistral_memoire_fr_ACTION_CHERCHER_FIELD_1_REF_VALUE_1_AP71L13560> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/provider/03915/public_mistral_memoire_fr_ACTION_CHERCHER_FIELD_1_REF_VALUE_1_AP71L13560> .
+
+<http://data.europeana.eu/proxy/provider/03915/public_mistral_memoire_fr_ACTION_CHERCHER_FIELD_1_REF_VALUE_1_AP71L13575> a ns4:Proxy ;
+    dc:identifier "oai:culture.gouv.fr:ark/67717/0006/AP71L13575" ;
+    dc:rights "Donation François Kollar, Ministère de la culture (France), Médiathèque de l'architecture et du patrimoine, diffusion RMN"@fr ;
+    dc:title "Exposition : panneau sur le massacre de Guernica"@fr,
+        "Pavillon de la république espagnole"@fr ;
+    dc:type "Reportage"@fr ;
+    ns1:europeanaProxy "false" ;
+    ns1:type "IMAGE" ;
+    ns4:proxyFor <http://data.europeana.eu/item/03915/public_mistral_memoire_fr_ACTION_CHERCHER_FIELD_1_REF_VALUE_1_AP71L13575> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/provider/03915/public_mistral_memoire_fr_ACTION_CHERCHER_FIELD_1_REF_VALUE_1_AP71L13575> .
+
+<http://data.europeana.eu/proxy/provider/2022712/lod_oai_gredos_usal_es_10366____63825_ent0> a ns4:Proxy ;
+    dc:creator "Arrizabalaga, Bernardo de, 1923-" ;
+    dc:date "1976-02-21",
+        "2009-11-16T15:17:24Z" ;
+    dc:format "1 páginas",
+        "application/pdf" ;
+    dc:identifier "Triunfo. Año XXX, n. 682 (21 feb. 1976),p. 20",
+        "http://hdl.handle.net/10366/63825",
+        "oai:gredos.usal.es:10366/63825" ;
+    dc:language "Español",
+        "spa" ;
+    dc:relation "Adobe Acrobat" ;
+    dc:subject <http://id.sgcb.mcu.es/Autoridades/LEM201007466/concept>,
+        <http://id.sgcb.mcu.es/Autoridades/LEM201010710/concept>,
+        <http://id.sgcb.mcu.es/Autoridades/LEM201012318/concept>,
+        "Tellería, Nikola, ?-1976" ;
+    dc:title "Guernica: homenaje a Nikola Tellería" ;
+    dc:type "Article",
+        "Artículo" ;
+    dcterms:created "2009-11-16T15:17:24Z" ;
+    ns1:europeanaProxy "false" ;
+    ns1:type "TEXT" ;
+    ns4:proxyFor <http://data.europeana.eu/item/2022712/lod_oai_gredos_usal_es_10366____63825_ent0> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/provider/2022712/lod_oai_gredos_usal_es_10366____63825_ent0> .
+
+<http://data.europeana.eu/proxy/provider/2022712/lod_oai_gredos_usal_es_10366____65846_ent0> a ns4:Proxy ;
+    dc:creator "Erroteta, Peru, 1945-" ;
+    dc:date "1977-04-30",
+        "2009-11-16T16:51:47Z" ;
+    dc:format "2 páginas",
+        "application/pdf" ;
+    dc:identifier "Triunfo. Año XXXII, n. 744 (30 abr. 1977),p. 16-17",
+        "http://hdl.handle.net/10366/65846",
+        "oai:gredos.usal.es:10366/65846" ;
+    dc:language "Español",
+        "spa" ;
+    dc:relation "Adobe Acrobat" ;
+    dc:subject <http://id.sgcb.mcu.es/Autoridades/LEM201012106/concept>,
+        <http://id.sgcb.mcu.es/Autoridades/LEM201012318/concept>,
+        "País Vasco (España)",
+        "Violencia política" ;
+    dc:title "Euskadi, huérfana de negociación: las cenizas de Guernica" ;
+    dc:type "Article",
+        "Artículo" ;
+    dcterms:created "2009-11-16T16:51:47Z" ;
+    ns1:europeanaProxy "false" ;
+    ns1:type "TEXT" ;
+    ns4:proxyFor <http://data.europeana.eu/item/2022712/lod_oai_gredos_usal_es_10366____65846_ent0> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/provider/2022712/lod_oai_gredos_usal_es_10366____65846_ent0> .
+
+<http://data.europeana.eu/proxy/provider/2022712/lod_oai_gredos_usal_es_10366____83997_ent0> a ns4:Proxy ;
+    dc:creator "Unamuno, Miguel de, 1864-1936" ;
+    dc:date "1885-08-31",
+        "2011-07-15T11:39:59Z" ;
+    dc:description "Papel. - Artículo publicado en El Noticiero Bilbaíno (Bilbao). - Procedencia: fondo Miguel de Unamuno. - Conservación: Buena." ;
+    dc:format "application/pdf" ;
+    dc:identifier "http://hdl.handle.net/10366/83997",
+        "oai:gredos.usal.es:10366/83997" ;
+    dc:language "Español",
+        "spa" ;
+    dc:source "CMU,1-1" ;
+    dc:subject "Articles",
+        "Artículos (Publicaciones)",
+        "El Noticiero Bilbaíno (Bilbao, España)",
+        "Unamuno, Miguel de, 1864-1936" ;
+    dc:title "Guernica" ;
+    dc:type "Article",
+        "Artículo" ;
+    dcterms:created "2011-07-15T11:39:59Z" ;
+    ns1:europeanaProxy "false" ;
+    ns1:type "TEXT" ;
+    ns4:proxyFor <http://data.europeana.eu/item/2022712/lod_oai_gredos_usal_es_10366____83997_ent0> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/provider/2022712/lod_oai_gredos_usal_es_10366____83997_ent0> .
+
+<http://data.europeana.eu/proxy/provider/2022717/bnesearch_detalle_bdh0000029239> a ns4:Proxy ;
+    dc:creator "Arteta, Aurelio, 1879-1940" ;
+    dc:date "1937-1938" ;
+    dc:language "spa" ;
+    dc:subject "Carteles-España-S.XX",
+        "España-Historia-1936-1939 (Guerra civil)-Carteles",
+        "Gernika-Lumo-Historia-1937 (Bombardeo)" ;
+    dc:title "Pasaron por Guernica los invasores [Material gráfico]" ;
+    dc:type "Ilustraciones y Fotos" ;
+    dcterms:isReferencedBy "Referencias: Catálogo Carteles República y Guerra Civil, nº 219" ;
+    dcterms:spatial "España",
+        "Gernika-Lumo" ;
+    dcterms:temporal "1936-1939 (Guerra civil)",
+        "1937 (Bombardeo)",
+        "S.XX" ;
+    ns1:europeanaProxy "false" ;
+    ns1:type "IMAGE" ;
+    ns4:proxyFor <http://data.europeana.eu/item/2022717/bnesearch_detalle_bdh0000029239> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/provider/2022717/bnesearch_detalle_bdh0000029239> .
+
+<http://data.europeana.eu/proxy/provider/2022717/bnesearch_detalle_bdh0000055145> a ns4:Proxy ;
+    dc:creator "Hauser y Menet (Madrid)" ;
+    dc:date "1893" ;
+    dc:description "Tít. impreso y mención de responsabilidad al pie de la fotografía: \"GUERNICA (VIZCAYA)/GUERNICACO ARBOLA /Hauser y Menet. Travesia de la Ballesta 11, Madrid.\"" ;
+    dc:language "spa" ;
+    dc:publisher "Hauser y Menet" ;
+    dc:subject <http://vocab.getty.edu/aat/300008063>,
+        <http://vocab.getty.edu/aat/300054328>,
+        "Fotografía de arquitectura-España-S.XIX",
+        "Fotografías de monumentos-España-S.XIX",
+        "Gernika-Lumo",
+        "Imágenes impresas fototipias-España-S.XIX",
+        "País Vasco",
+        "Art"@en,
+        "Photography"@en ;
+    dc:title "Guernica, Guernicaco Arbola [Material gráfico]" ;
+    dc:type "Ilustraciones y Fotos" ;
+    dcterms:isPartOf "La España ilustrada (Serie)",
+        "a4745269" ;
+    dcterms:spatial "España",
+        "Gernika-Lumo",
+        "País Vasco" ;
+    dcterms:temporal "S.XIX" ;
+    ns1:europeanaProxy "false" ;
+    ns1:type "IMAGE" ;
+    ns4:proxyFor <http://data.europeana.eu/item/2022717/bnesearch_detalle_bdh0000055145> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/provider/2022717/bnesearch_detalle_bdh0000055145> .
+
+<http://data.europeana.eu/proxy/provider/2022717/bnesearch_detalle_bdh0000071215> a ns4:Proxy ;
+    dc:creator <http://datos.bne.es/resource/XX1229112>,
+        "Cifra Gráfica",
+        "España. Delegación del Estado para Prensa y Propaganda" ;
+    dc:date "1937" ;
+    dc:description "28 Diciembre de 1937 / Burgos",
+        "Al verso de algunas fotografías anotaciones manuscritas o mecanografiadas",
+        "Algunas de las fotografías son reproducciones",
+        "En el ángulo inferior izquierdo del plano, cartela con los datos de la autoría: El anteproyecto de reconstrucción fue realizado por la \"Delegación Nacional de Servicios Técnicos de F.E.T. y de las JONS, Sección de Arquitectura\"",
+        "Fondo trasladado en 1980 desde el Ministerio de Cultura a la Biblioteca Nacional",
+        "Fotografías del mismo acontecimiento en GC-CAJA/113C/26",
+        "Fotógrafos, agencias y organismos (sello en tinta al verso): “FOTO DELESPRO”; “ACTUALIDADES / GRÁFICAS / C I F R A / Avenida del Generalísimo Franco, 5 / BURGOS”",
+        "Guardado en Caja nº 74bis",
+        "Hay varios ejemplares de algunas fotografías, siendo el total del sobre 25 copias",
+        "Ministerio de Información y Turismo. Sección Guerra Civil",
+        "Resumen: Reportaje fotográfico de la Exposición sobre el \"Anteproyecto de reconstrucción de Guernica\" con  abundantes planos urbanísticos, arquitectura, planos generales, de antes y después del bombardeo, el plan nuevo, plantas, alzados, secciones de edificaciones, fotografías y una maqueta de la Plaza del Imperio y del edificio y árbol de Guernica" ;
+    dc:language "spa" ;
+    dc:subject <http://vocab.getty.edu/aat/300008063>,
+        <http://vocab.getty.edu/aat/300054328>,
+        "Burgos-Historia-1936-1939",
+        "Edificios-Rehabilitación",
+        "España-Historia-1936-1939 (Guerra civil)-Arte y guerra-Exposiciones",
+        "España. Dirección General de Regiones Devastadas y Reparaciones",
+        "Exposiciones-Historia-País Vasco",
+        "Falange Española Tradicionalista y de las J.O.N.S.",
+        "Falange Española Tradicionalista y de las J.O.N.S.. Delegación Nacional de Servicios Técnicos, Sección de Arquitectura",
+        "Fotografía de guerra-España-S.XX",
+        "Fotoperiodismo-España-S.XX",
+        "Gernika-Lumo-Historia-1936-1939",
+        "Positivos papel gelatina",
+        "Rehabilitación urbana-Guipúzcoa",
+        "Art"@en,
+        "Photography"@en,
+        "Press"@en ;
+    dc:title "Exposición en Burgos del anteproyecto para la reconstrucción de Guernica [Material gráfico]" ;
+    dc:type "Ilustraciones y Fotos" ;
+    dcterms:isPartOf "Fondo fotográfico de la Guerra Civil Española.. Burgos" ;
+    dcterms:isReferencedBy "Referencias: 150 años de fotografía en la Biblioteca Nacional, p. 274",
+        "Referencias: Reconstrucción, abril de 1940 nº 1, Dirección General de Regiones Devastadas, p. 22-27" ;
+    dcterms:spatial "Burgos",
+        "España",
+        "Gernika-Lumo",
+        "Guipúzcoa",
+        "País Vasco" ;
+    dcterms:temporal "1936-1939",
+        "1936-1939 (Guerra civil)",
+        "S.XX" ;
+    ns1:europeanaProxy "false" ;
+    ns1:type "IMAGE" ;
+    ns4:proxyFor <http://data.europeana.eu/item/2022717/bnesearch_detalle_bdh0000071215> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/provider/2022717/bnesearch_detalle_bdh0000071215> .
+
+<http://data.europeana.eu/proxy/provider/2024917/photography_ProvidedCHO_Arbejdermuseet___ABA_F20131124048> a ns4:Proxy ;
+    dc:creator "ADN/Zentralbild"@da ;
+    dc:description "Der var ikke mange militære mål i byen, men Legion Condor fik testet sine fly"@da ;
+    dc:format <http://bib.arts.kuleuven.be/photoVocabulary/13001>,
+        "sort-hvide fotografier"@da ;
+    dc:identifier "F20131124048" ;
+    dc:rights "The photographer" ;
+    dc:subject <http://bib.arts.kuleuven.be/photoVocabulary/30208>,
+        "Borgerkrig"@da,
+        "Den spanske borgerkrig"@da,
+        "Historie, Spanien"@da,
+        "Spanien"@da,
+        "Terror"@da,
+        "borgerkrige"@da ;
+    dc:title "De sørgelige rester af Guernica efter det tyske terrorbombardement i april 1937"@da ;
+    dc:type "Photography"@en ;
+    dcterms:alternative "The sad remains of Guernica after the German terror bombardment in April 1937"@en ;
+    dcterms:created "1937" ;
+    dcterms:extent "17,5x11,5 cm" ;
+    dcterms:medium "sort-hvid"@da ;
+    dcterms:spatial "Spanien" ;
+    ns1:europeanaProxy "false" ;
+    ns1:type "IMAGE" ;
+    ns4:proxyFor <http://data.europeana.eu/item/2024917/photography_ProvidedCHO_Arbejdermuseet___ABA_F20131124048> ;
+    ns4:proxyIn <http://data.europeana.eu/aggregation/provider/2024917/photography_ProvidedCHO_Arbejdermuseet___ABA_F20131124048> .
+
+<http://digiphil.hu/> a ns1:Agent ;
+    skos:note "Provider" ;
+    skos:prefLabel "DigiPhil" .
+
+<http://semium.org/time/19xx> a ns1:TimeSpan ;
+    dcterms:isPartOf <http://semium.org/time/AD2xxx> ;
+    ns1:begin "Tue Jan 01 00:19:32 CET 1901" ;
+    ns1:end "Sun Dec 31 01:00:00 CET 2000" ;
+    skos:prefLabel "20..",
+        "20??",
+        "20e",
+        "20-th"@en,
+        "20th"@en,
+        "20th century"@en,
+        "20e siècle"@fr,
+        "20de eeuw"@nl .
+
+<https://hispana.mcu.es/lod/oai:larramendi.es:25749#ent2> a <http://creativecommons.org/ns#License> ;
+    odrl:inheritFrom <http://creativecommons.org/licenses/by-sa/4.0/> .
+
+<https://hispana.mcu.es/lod/oai:prensahistorica.mcu.es:1026907#ent2> a <http://creativecommons.org/ns#License> ;
+    odrl:inheritFrom <http://creativecommons.org/licenses/by/4.0/> .
+
+<https://hispana.mcu.es/lod/oai:prensahistorica.mcu.es:1026979#ent2> a <http://creativecommons.org/ns#License> ;
+    odrl:inheritFrom <http://creativecommons.org/licenses/by/4.0/> .
+
+<https://hispana.mcu.es/lod/oai:prensahistorica.mcu.es:1028452#ent2> a <http://creativecommons.org/ns#License> ;
+    odrl:inheritFrom <http://creativecommons.org/licenses/by/4.0/> .
+
+<https://hispana.mcu.es/lod/oai:www.memoriadigitalvasca.eus:10357_--_3356#ent2> a ns1:Agent .

@@ -1,0 +1,318 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:crmsci="http://www.cidoc-crm.org/extensions/crmsci/"
+    xmlns:crm="http://www.cidoc-crm.org/cidoc-crm/"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:crminf="http://www.cidoc-crm.org/extensions/crminf/"
+    xmlns:hdtex="http://heritage-digital-twin-ontology/"
+    xmlns:hdto="http://isl.ics.forth.gr/ontology/echoes/"
+    xmlns:crmdig="http://www.cidoc-crm.org/extensions/crmdig/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <hdto:HC3_Tangible_Heritage_Entity rdf:about="http://heritage-digital-twin-ontology/Object/7B8D5A21-A8D0-34E4-9FE7-E27F4D1C39A0">
+    <crm:P44_has_condition>
+      <crm:E3_Condition_State rdf:about="http://heritage-digital-twin-ontology/Concept/2/GeneralCondition.xml">
+        <rdfs:label>Yellowish varnish aging</rdfs:label>
+      </crm:E3_Condition_State>
+    </crm:P44_has_condition>
+    <crm:P53_has_former_or_current_location>
+      <crm:E27_Site rdf:about="http://heritage-digital-twin-ontology/monument/Virgin%20Mary%20Church%2C%20Derynia">
+        <crm:P1_is_identified_by>
+          <crm:E41_Appellation rdf:about="urn:uuid:9a818a2c-0587-4b1c-a0d6-720ea6f6464e">
+            <rdfs:label>Virgin Mary Church, Derynia</rdfs:label>
+          </crm:E41_Appellation>
+        </crm:P1_is_identified_by>
+        <rdfs:label>Virgin Mary Church, Derynia</rdfs:label>
+      </crm:E27_Site>
+    </crm:P53_has_former_or_current_location>
+    <crm:P1_is_identified_by>
+      <crm:E42_Identifier rdf:about="urn:uuid:1302967b-b7c1-4dfa-b908-fda1f56173a6">
+        <crm:P2_has_type>
+          <crm:E55_Type rdf:about="http://heritage-digital-twin-ontology/Concept/identifiers/other%20id">
+            <rdfs:label>other id</rdfs:label>
+          </crm:E55_Type>
+        </crm:P2_has_type>
+        <rdfs:label>ГФ-93</rdfs:label>
+      </crm:E42_Identifier>
+    </crm:P1_is_identified_by>
+    <crm:P50_has_current_keeper>
+      <crm:E39_Actor rdf:about="http://heritage-digital-twin-ontology/Object/2/D6B25879-2FF0-3F82-933C-74EEB8AEF591">
+        <rdfs:label>Bishopric of Constantia and Ammochostos, Cyprus</rdfs:label>
+      </crm:E39_Actor>
+    </crm:P50_has_current_keeper>
+    <crm:P56_bears_feature>
+      <crm:E25_Human-Made_Feature rdf:about="urn:uuid:08d5db0a-1bbc-4c47-b1e5-9e61373bb97f">
+        <crm:P2_has_type>
+          <crm:E55_Type rdf:about="http://heritage-digital-twin-ontology/Concept/decorations/painted%20decoration">
+            <rdfs:label>painted decoration</rdfs:label>
+          </crm:E55_Type>
+        </crm:P2_has_type>
+        <rdfs:label>Decoration on Preparation - lower layer</rdfs:label>
+      </crm:E25_Human-Made_Feature>
+    </crm:P56_bears_feature>
+    <crm:P56_bears_feature>
+      <crm:E25_Human-Made_Feature rdf:about="urn:uuid:90fec694-6366-42f5-ba6c-50e1bcd7abc3">
+        <crm:P45_consists_of>
+          <crm:E57_Material rdf:about="http://heritage-digital-twin-ontology/Concept/9/Materials.xml">
+            <rdfs:label>Chromium brown</rdfs:label>
+          </crm:E57_Material>
+        </crm:P45_consists_of>
+        <crm:P45_consists_of>
+          <crm:E57_Material rdf:about="http://heritage-digital-twin-ontology/Concept/10/Materials.xml">
+            <rdfs:label>Chromium red</rdfs:label>
+          </crm:E57_Material>
+        </crm:P45_consists_of>
+        <crm:P108i_was_produced_by>
+          <crm:E12_Production rdf:about="urn:uuid:470fe213-3fd5-4582-8baa-045d2400978b">
+            <crm:P32_used_general_technique>
+              <crm:E55_Type rdf:about="http://heritage-digital-twin-ontology/Concept/2/DecorationTechnique.xml">
+                <rdfs:label>Tempera</rdfs:label>
+              </crm:E55_Type>
+            </crm:P32_used_general_technique>
+            <rdfs:label>Production of Painting</rdfs:label>
+          </crm:E12_Production>
+        </crm:P108i_was_produced_by>
+        <crm:P45_consists_of>
+          <crm:E57_Material rdf:about="http://heritage-digital-twin-ontology/Concept/8/Materials.xml">
+            <rdfs:label>Cadmium red</rdfs:label>
+          </crm:E57_Material>
+        </crm:P45_consists_of>
+        <crm:P2_has_type rdf:resource="http://heritage-digital-twin-ontology/Concept/decorations/painted%20decoration"/>
+        <crm:P59_has_section>
+          <crm:E53_Place rdf:about="http://heritage-digital-twin-ontology/Concept/3/DecorationPosition.xml">
+            <rdfs:label>Pictorial - inpaint layer</rdfs:label>
+          </crm:E53_Place>
+        </crm:P59_has_section>
+        <crm:P2_has_type>
+          <crm:E55_Type rdf:about="http://heritage-digital-twin-ontology/Concept/1/DecorationType.xml">
+            <rdfs:label>Painting</rdfs:label>
+          </crm:E55_Type>
+        </crm:P2_has_type>
+        <crm:P45_consists_of>
+          <crm:E57_Material rdf:about="http://heritage-digital-twin-ontology/Concept/7/Materials.xml">
+            <rdfs:label>Barium white</rdfs:label>
+          </crm:E57_Material>
+        </crm:P45_consists_of>
+        <rdfs:label>Decoration on Pictorial - inpaint layer</rdfs:label>
+      </crm:E25_Human-Made_Feature>
+    </crm:P56_bears_feature>
+    <crm:P39i_was_measured_by>
+      <crm:E16_Measurement rdf:about="urn:uuid:3e74baff-cdda-4ab0-8da4-b3a1294c771b">
+        <crm:P40_observed_dimension>
+          <crm:E54_Dimension rdf:about="http://heritage-digital-twin-ontology/Dimension/Derynia/Thickness">
+            <crm:P2_has_type>
+              <crm:E55_Type rdf:about="http://heritage-digital-twin-ontology/Concept/DimensionType/Thickness">
+                <skos:prefLabel xml:lang="en">Thickness</skos:prefLabel>
+              </crm:E55_Type>
+            </crm:P2_has_type>
+            <crm:P91_has_unit>
+              <crm:E58_Measurement_Unit rdf:about="http://heritage-digital-twin-ontology/Concept/MeasurementUnits/cm">
+                <skos:prefLabel xml:lang="en">cm</skos:prefLabel>
+              </crm:E58_Measurement_Unit>
+            </crm:P91_has_unit>
+            <crm:P90_has_value rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal"
+            >6</crm:P90_has_value>
+            <rdfs:label xml:lang="en">Thickness</rdfs:label>
+          </crm:E54_Dimension>
+        </crm:P40_observed_dimension>
+        <rdfs:label xml:lang="en">Measurement of  A.296</rdfs:label>
+      </crm:E16_Measurement>
+    </crm:P39i_was_measured_by>
+    <crm:P102_has_title>
+      <crm:E35_Title rdf:about="urn:uuid:ba4d943b-e582-45ca-839d-54b8abc4392c">
+        <rdfs:label>Icon of Nativity of Church of Virgin Mary, Derynia, Cyprus</rdfs:label>
+      </crm:E35_Title>
+    </crm:P102_has_title>
+    <crm:P56_bears_feature>
+      <crm:E25_Human-Made_Feature rdf:about="urn:uuid:40859d28-97ec-45df-923a-411347dfcd89">
+        <crm:P3_has_note>Gold leaves on red preparation layer - water gilding</crm:P3_has_note>
+        <crm:P45_consists_of>
+          <crm:E57_Material rdf:about="http://heritage-digital-twin-ontology/Concept/11/Materials.xml">
+            <rdfs:label>Gold leaves</rdfs:label>
+          </crm:E57_Material>
+        </crm:P45_consists_of>
+        <crm:P108i_was_produced_by>
+          <crm:E12_Production rdf:about="urn:uuid:7180bede-3e34-499c-ad76-481ffe6397aa">
+            <crm:P32_used_general_technique>
+              <crm:E55_Type rdf:about="http://heritage-digital-twin-ontology/Concept/1/DecorationTechnique.xml">
+                <rdfs:label>Water gilding</rdfs:label>
+              </crm:E55_Type>
+            </crm:P32_used_general_technique>
+            <rdfs:label>Production of Gilding</rdfs:label>
+          </crm:E12_Production>
+        </crm:P108i_was_produced_by>
+        <crm:P2_has_type>
+          <crm:E55_Type rdf:about="http://heritage-digital-twin-ontology/Concept/2/DecorationType.xml">
+            <rdfs:label>Gilding</rdfs:label>
+          </crm:E55_Type>
+        </crm:P2_has_type>
+        <crm:P59_has_section>
+          <crm:E53_Place rdf:about="http://heritage-digital-twin-ontology/Concept/7/DecorationPosition.xml">
+            <rdfs:label>Gilding</rdfs:label>
+          </crm:E53_Place>
+        </crm:P59_has_section>
+        <crm:P2_has_type rdf:resource="http://heritage-digital-twin-ontology/Concept/decorations/painted%20decoration"/>
+        <rdfs:label>Decoration on Gilding</rdfs:label>
+      </crm:E25_Human-Made_Feature>
+    </crm:P56_bears_feature>
+    <crm:P56_bears_feature>
+      <crm:E25_Human-Made_Feature rdf:about="urn:uuid:2b99c6ca-97fd-4e8f-be1d-80dd68896561">
+        <crm:P45_consists_of>
+          <crm:E57_Material rdf:about="http://heritage-digital-twin-ontology/Concept/2/Materials.xml">
+            <rdfs:label>Red ochre</rdfs:label>
+          </crm:E57_Material>
+        </crm:P45_consists_of>
+        <crm:P45_consists_of>
+          <crm:E57_Material rdf:about="http://heritage-digital-twin-ontology/Concept/1/Materials.xml">
+            <rdfs:label>Vermillion / cinnabar</rdfs:label>
+          </crm:E57_Material>
+        </crm:P45_consists_of>
+        <crm:P45_consists_of>
+          <crm:E57_Material rdf:about="http://heritage-digital-twin-ontology/Concept/6/Materials.xml">
+            <rdfs:label>Brown ochre</rdfs:label>
+          </crm:E57_Material>
+        </crm:P45_consists_of>
+        <rdfs:label>Decoration on Pictorial - original layer</rdfs:label>
+        <crm:P45_consists_of>
+          <crm:E57_Material rdf:about="http://heritage-digital-twin-ontology/Concept/5/Materials.xml">
+            <rdfs:label>Copper-based</rdfs:label>
+          </crm:E57_Material>
+        </crm:P45_consists_of>
+        <crm:P45_consists_of>
+          <crm:E57_Material rdf:about="http://heritage-digital-twin-ontology/Concept/3/Materials.xml">
+            <rdfs:label>Yellow ochre</rdfs:label>
+          </crm:E57_Material>
+        </crm:P45_consists_of>
+        <crm:P45_consists_of>
+          <crm:E57_Material rdf:about="http://heritage-digital-twin-ontology/Concept/4/Materials.xml">
+            <rdfs:label>Lead white</rdfs:label>
+          </crm:E57_Material>
+        </crm:P45_consists_of>
+        <crm:P2_has_type rdf:resource="http://heritage-digital-twin-ontology/Concept/1/DecorationType.xml"/>
+        <crm:P108i_was_produced_by>
+          <crm:E12_Production rdf:about="urn:uuid:9d055be1-e248-4aa2-b4a3-1a57bd2c46a1">
+            <crm:P32_used_general_technique rdf:resource="http://heritage-digital-twin-ontology/Concept/2/DecorationTechnique.xml"/>
+            <rdfs:label>Production of Painting</rdfs:label>
+          </crm:E12_Production>
+        </crm:P108i_was_produced_by>
+        <crm:P59_has_section>
+          <crm:E53_Place rdf:about="http://heritage-digital-twin-ontology/Concept/4/DecorationPosition.xml">
+            <rdfs:label>Pictorial - original layer</rdfs:label>
+          </crm:E53_Place>
+        </crm:P59_has_section>
+        <crm:P2_has_type rdf:resource="http://heritage-digital-twin-ontology/Concept/decorations/painted%20decoration"/>
+      </crm:E25_Human-Made_Feature>
+    </crm:P56_bears_feature>
+    <crm:P56_bears_feature>
+      <crm:E25_Human-Made_Feature rdf:about="urn:uuid:1482a178-5d35-4e6a-8d4e-a479e5f245ad">
+        <crm:P2_has_type>
+          <crm:E55_Type rdf:about="http://heritage-digital-twin-ontology/Concept/Markings/Marking">
+            <rdfs:label>Marking</rdfs:label>
+          </crm:E55_Type>
+        </crm:P2_has_type>
+        <rdfs:label>Inscription Cinnabar red</rdfs:label>
+      </crm:E25_Human-Made_Feature>
+    </crm:P56_bears_feature>
+    <crm:P39i_was_measured_by>
+      <crm:E16_Measurement rdf:about="urn:uuid:af626e29-bbb4-4f89-9f97-b523f42f0cb5">
+        <crm:P40_observed_dimension>
+          <crm:E54_Dimension rdf:about="http://heritage-digital-twin-ontology/Dimension/Derynia/Width">
+            <crm:P2_has_type>
+              <crm:E55_Type rdf:about="http://heritage-digital-twin-ontology/Concept/DimensionType/Width">
+                <skos:prefLabel xml:lang="en">Width</skos:prefLabel>
+              </crm:E55_Type>
+            </crm:P2_has_type>
+            <crm:P91_has_unit rdf:resource="http://heritage-digital-twin-ontology/Concept/MeasurementUnits/cm"/>
+            <crm:P90_has_value rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal"
+            >23</crm:P90_has_value>
+            <rdfs:label xml:lang="en">Width</rdfs:label>
+          </crm:E54_Dimension>
+        </crm:P40_observed_dimension>
+        <rdfs:label xml:lang="en">Measurement of  A.296</rdfs:label>
+      </crm:E16_Measurement>
+    </crm:P39i_was_measured_by>
+    <crm:P2_has_type>
+      <crm:E55_Type rdf:about="http://heritage-digital-twin-ontology/Concept/1/687484A7-75D6-3605-8884-C96CFAB2833E">
+        <rdfs:label>Religious icon</rdfs:label>
+      </crm:E55_Type>
+    </crm:P2_has_type>
+    <rdfs:label xml:lang="en">Icon of Nativity of Church of Virgin Mary, Derynia, Cyprus</rdfs:label>
+    <crm:P31i_was_modified_by>
+      <crm:E11_Modification rdf:about="http://heritage-digital-twin-ontology/Object/2/B9855217-ADBF-36C2-869F-A36959F7D291">
+        <crm:P2_has_type>
+          <crm:E55_Type rdf:about="urn:uuid:d74c374c-bad5-43be-bf0d-f33c1bf934ed"/>
+        </crm:P2_has_type>
+        <rdfs:label>conservation 2</rdfs:label>
+      </crm:E11_Modification>
+    </crm:P31i_was_modified_by>
+    <crm:P44_has_condition>
+      <crm:E3_Condition_State rdf:about="http://heritage-digital-twin-ontology/Concept/3/GeneralCondition.xml">
+        <rdfs:label>Deteriorated (mild)</rdfs:label>
+      </crm:E3_Condition_State>
+    </crm:P44_has_condition>
+    <crm:P138i_has_representation>
+      <crm:E36_Visual_Item rdf:about="urn:uuid:1e64b1cd-2c27-4512-b6d5-035be6b2ddaa">
+        <crm:P2_has_type>
+          <crm:E55_Type rdf:about="http://heritage-digital-twin-ontology/Concept/images/representative%20image"/>
+        </crm:P2_has_type>
+        <rdfs:label>Object__1__nativity___03-02-2025151949___1528.png</rdfs:label>
+      </crm:E36_Visual_Item>
+    </crm:P138i_has_representation>
+    <crm:P59_has_section>
+      <crm:E53_Place rdf:about="http://heritage-digital-twin-ontology/Concept/Iconostasis"/>
+    </crm:P59_has_section>
+    <crm:P1_is_identified_by>
+      <crm:E42_Identifier rdf:about="urn:uuid:9eca0b95-1327-483f-908c-5457060d39e4">
+        <rdfs:label>Object/1</rdfs:label>
+      </crm:E42_Identifier>
+    </crm:P1_is_identified_by>
+    <rdf:type rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E22_Human-Made_Object"/>
+    <crm:P56_bears_feature>
+      <crm:E25_Human-Made_Feature rdf:about="urn:uuid:1184ae38-b19c-4651-a222-47505b242f83">
+        <crm:P2_has_type rdf:resource="http://heritage-digital-twin-ontology/Concept/decorations/painted%20decoration"/>
+        <rdfs:label>Decoration on Preparation - upper layer</rdfs:label>
+      </crm:E25_Human-Made_Feature>
+    </crm:P56_bears_feature>
+    <crm:P44_has_condition>
+      <crm:E3_Condition_State rdf:about="http://heritage-digital-twin-ontology/Concept/1/GeneralCondition.xml">
+        <rdfs:label>Craqueleurs</rdfs:label>
+      </crm:E3_Condition_State>
+    </crm:P44_has_condition>
+    <crm:P39i_was_measured_by>
+      <crm:E16_Measurement rdf:about="urn:uuid:a93982fe-7ba3-42f4-9275-52844fe63dce">
+        <crm:P40_observed_dimension>
+          <crm:E54_Dimension rdf:about="http://heritage-digital-twin-ontology/Dimension/Derynia/Length">
+            <crm:P2_has_type>
+              <crm:E55_Type rdf:about="http://heritage-digital-twin-ontology/Concept/DimensionType/Length">
+                <skos:prefLabel xml:lang="en">Length</skos:prefLabel>
+              </crm:E55_Type>
+            </crm:P2_has_type>
+            <crm:P91_has_unit rdf:resource="http://heritage-digital-twin-ontology/Concept/MeasurementUnits/cm"/>
+            <crm:P90_has_value rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal"
+            >34</crm:P90_has_value>
+            <rdfs:label xml:lang="en">Length</rdfs:label>
+          </crm:E54_Dimension>
+        </crm:P40_observed_dimension>
+        <rdfs:label xml:lang="en">Measurement of  A.296</rdfs:label>
+      </crm:E16_Measurement>
+    </crm:P39i_was_measured_by>
+    <crm:P3_has_note>Tempera and gold on wooden panel</crm:P3_has_note>
+    <crm:P1_is_identified_by>
+      <crm:E42_Identifier rdf:about="urn:uuid:80cd559f-8529-477b-a6d5-421b5dfa23f3">
+        <rdfs:label>A.296</rdfs:label>
+      </crm:E42_Identifier>
+    </crm:P1_is_identified_by>
+    <crm:P56_bears_feature>
+      <crm:E25_Human-Made_Feature rdf:about="urn:uuid:2897ce66-63f8-4ca6-be5e-396d4ae2522d">
+        <crm:P2_has_type rdf:resource="http://heritage-digital-twin-ontology/Concept/Markings/Marking"/>
+        <rdfs:label>Inscription Illegible</rdfs:label>
+      </crm:E25_Human-Made_Feature>
+    </crm:P56_bears_feature>
+    <crm:P108i_was_produced_by>
+      <crm:E12_Production rdf:about="urn:uuid:0f982575-1abe-4db4-b5bb-a696719cfe6c">
+        <rdfs:label>Creation on 17th century</rdfs:label>
+      </crm:E12_Production>
+    </crm:P108i_was_produced_by>
+  </hdto:HC3_Tangible_Heritage_Entity>
+</rdf:RDF>

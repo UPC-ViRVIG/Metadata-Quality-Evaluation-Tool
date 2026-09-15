@@ -20,6 +20,7 @@ class EvaluationEngine:
         self,
         datasets: list[dict],
         metrics: list[MetricPlugin],
+        structural_shape: str | None = None,
     ) -> list[DatasetEvaluationResult]:
         """
         Parameters
@@ -52,6 +53,7 @@ class EvaluationEngine:
                 graph=active_graph,
                 scope=scope,
                 full_graph=full_graph,
+                config={"structural_shape": structural_shape},
             )
 
             # Step 4: Run metrics

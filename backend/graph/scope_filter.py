@@ -42,9 +42,17 @@ def apply(graph: Graph, scope: list[str] | None) -> Graph:
     for prefix, namespace in graph.namespaces():
         filtered.bind(prefix, namespace)
 
+    #for subject, predicate, obj in graph:
+    #    if isinstance(subject, URIRef) and subject in matching_subjects:
+    #        filtered.add((subject, predicate, obj))
+
     for subject, predicate, obj in graph:
-        if isinstance(subject, URIRef) and subject in matching_subjects:
-            filtered.add((subject, predicate, obj))
+        if subject not in matching_subjects:
+            continue
+        if predicate == RDF.type:
+            if obj not in scope_set:
+                continue
+        filtered.add((subject, predicate, obj))
 
     return filtered
 

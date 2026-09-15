@@ -1,0 +1,80 @@
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbp: <http://dbpedia.org/property/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo1: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix georss: <http://www.georss.org/georss/> .
+@prefix gold: <http://purl.org/linguistics/gold/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://dbpedia.org/resource/Brick_Factory_at_Tortosa> a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Brick Factory at Tortosa"@en,
+        "Fabbrica di mattoni a Tortosa"@it,
+        "Кирпичный завод в Тортосе"@ru ;
+    dbo:author <http://dbpedia.org/resource/Pablo_Picasso> ;
+    dbo:museum <http://dbpedia.org/resource/Hermitage_Museum> ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/Pablo_Picasso,_1909,_Brick_Factory_at_Tortosa,_oil_on_canvas,_50.7_x_60.2_cm,_The_State_Hermitage_Museum,_Saint_Petersburg.jpg?width=300> ;
+    dbo:wikiPageExternalLink <https://www.hermitagemuseum.org/wps/portal/hermitage/digital-collection/01.+Paintings/28613/%3Flng=en&%3Fp1=room:b30_f2_h207> ;
+    dbp:artist <http://dbpedia.org/resource/Pablo_Picasso> ;
+    dbp:city <http://dbpedia.org/resource/Russia>,
+        <http://dbpedia.org/resource/Saint_Petersburg> ;
+    dbp:heightMetric 5.07e+01 ;
+    dbp:imageFile "Pablo Picasso, 1909, Brick Factory at Tortosa, oil on canvas, 50.7 x 60.2 cm, The State Hermitage Museum, Saint Petersburg.jpg"@en ;
+    dbp:imageSize 300 ;
+    dbp:imperialUnit "in"@en ;
+    dbp:medium "Oil on canvas"@en ;
+    dbp:metricUnit "cm"@en ;
+    dbp:movement <http://dbpedia.org/resource/Proto-Cubism> ;
+    dbp:museum <http://dbpedia.org/resource/Hermitage_Museum> ;
+    dbp:title "Brick Factory at Tortosa"@en ;
+    dbp:widthMetric 6.02e+01 ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Pablo_Picasso>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Short_description> ;
+    dbp:year 1909 .
+
+<http://dbpedia.org/resource/Bust_of_Sylvette> a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Brick Factory at Tortosa"@en,
+        "Fabbrica di mattoni a Tortosa"@it,
+        "Кирпичный завод в Тортосе"@ru ;
+    dbo:author <http://dbpedia.org/resource/Pablo_Picasso> ;
+    dbo:museum <http://dbpedia.org/resource/Hermitage_Museum> ;
+    dbp:title  ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/Pablo_Picasso,_1909,_Brick_Factory_at_Tortosa,_oil_on_canvas,_50.7_x_60.2_cm,_The_State_Hermitage_Museum,_Saint_Petersburg.jpg?width=300> ;
+    dbo:wikiPageExternalLink <https://www.hermitagemuseum.org/wps/portal/hermitage/digital-collection/01.+Paintings/28613/%3Flng=en&%3Fp1=room:b30_f2_h207> ;
+    dbp:artist <http://dbpedia.org/resource/Pablo_Picasso> ;
+    dbp:city <http://dbpedia.org/resource/Russia>,
+        <http://dbpedia.org/resource/Saint_Petersburg> ;
+    dbp:heightMetric 5.07e+01 ;
+    dbp:imageFile "Pablo Picasso, 1909, Brick Factory at Tortosa, oil on canvas, 50.7 x 60.2 cm, The State Hermitage Museum, Saint Petersburg.jpg"@en ;
+    dbp:imageSize 300 ;
+    dbp:imperialUnit "in"@en ;
+    dbp:medium "Oil on canvas"@en ;
+    dbp:metricUnit "cm"@en ;
+    dbp:movement <http://dbpedia.org/resource/Proto-Cubism> ;
+    dbp:museum <http://dbpedia.org/resource/Hermitage_Museum> ;
+    dbp:widthMetric 6.02e+01 ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Pablo_Picasso>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Short_description> ;
+    dbp:year 1909 .
+
+
+

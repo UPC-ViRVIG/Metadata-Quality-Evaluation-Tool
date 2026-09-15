@@ -1,0 +1,41 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:crmsci="http://www.cidoc-crm.org/extensions/crmsci/"
+    xmlns:crm="http://www.cidoc-crm.org/cidoc-crm/"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:crminf="http://www.cidoc-crm.org/extensions/crminf/"
+    xmlns:hdto="http://heritage-digital-twin-ontology/"
+    xmlns:crmdig="http://www.cidoc-crm.org/extensions/crmdig/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <hdto:HC3_Tangible_Heritage_Entity rdf:about="http://heritage-digital-twin-ontology/Object/7B8D5A21-A8D0-34E4-9FE7-E27F4D1C39A0">
+    <crmsci:O8i_was_observed_by>
+      <crmsci:S4_Single_Observation rdf:about="http://heritage-digital-twin-ontology/Event/Derynia-Examination/2">
+        <crm:P16_used_specific_object>
+          <crm:E29_Design_or_Procedure rdf:about="urn:uuid:064c6fa5-61d6-420e-84f6-6a4593975aae">
+            <crm:P3_has_note>
+              <rdfs:Literal rdf:about="urn:uuid:dda1f1df-c832-4233-92be-2bf9c4f24591">
+                <rdfs:label>range 650-4000 cm-1, Diffuse Reflectance interface</rdfs:label>
+              </rdfs:Literal>
+            </crm:P3_has_note>
+            <rdfs:label>setting</rdfs:label>
+          </crm:E29_Design_or_Procedure>
+        </crm:P16_used_specific_object>
+        <crm:P32_used_general_technique>
+          <crm:E55_Type rdf:about="http://heritage-digital-twin-ontology/Concept/1/Method.xml">
+            <rdfs:label>FTIR</rdfs:label>
+          </crm:E55_Type>
+        </crm:P32_used_general_technique>
+        <crm:P1_is_identified_by>
+          <crm:E41_Appellation rdf:about="urn:uuid:b9c7625e-c193-4cf4-9163-d19d9d4c53b9">
+            <rdfs:label>FTIR</rdfs:label>
+          </crm:E41_Appellation>
+        </crm:P1_is_identified_by>
+        <rdfs:label>FTIR</rdfs:label>
+      </crmsci:S4_Single_Observation>
+    </crmsci:O8i_was_observed_by>
+    <rdfs:label xml:lang="en">Icon of Nativity of Church of Virgin Mary, Derynia, Cyprus</rdfs:label>
+    <rdf:type rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E22_Human-Made_Object"/>
+  </hdto:HC3_Tangible_Heritage_Entity>
+</rdf:RDF>

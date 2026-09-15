@@ -1,0 +1,925 @@
+@prefix aat: <http://vocab.getty.edu/aat/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gvp: <http://vocab.getty.edu/ontology#> .
+@prefix iso: <http://purl.org/iso25964/skos-thes#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+@prefix ulan: <http://vocab.getty.edu/ulan/> .
+@prefix ulan_contrib: <http://vocab.getty.edu/ulan/contrib/> .
+@prefix ulan_rev: <http://vocab.getty.edu/ulan/rev/> .
+@prefix ulan_scopeNote: <http://vocab.getty.edu/ulan/scopeNote/> .
+@prefix ulan_source: <http://vocab.getty.edu/ulan/source/> .
+@prefix ulan_term: <http://vocab.getty.edu/ulan/term/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ulan:500479692 a _:n267068f90709420686be81cf38dc3faeb1,
+        gvp:PersonConcept,
+        gvp:Subject,
+        skos:Concept ;
+    rdfs:label "Villars Picasso",
+        "Picasso, Villars"@en,
+        "פיקאסו, וילאר"@he ;
+    cc:license <http://opendatacommons.org/licenses/by/1.0/> ;
+    dc:identifier "500479692" ;
+    dct:contributor ulan_contrib:2500000298 ;
+    dct:created "2019-03-02T21:54:41"^^xsd:dateTime ;
+    dct:issued "2019-10-15T14:50:35"^^xsd:dateTime ;
+    dct:license <http://opendatacommons.org/licenses/by/1.0/> ;
+    dct:modified "2019-03-02T21:54:41"^^xsd:dateTime,
+        "2019-10-15T14:50:35"^^xsd:dateTime ;
+    dct:source ulan_source:2100181343 ;
+    void:inDataset <http://vocab.getty.edu/dataset/ulan> ;
+    gvp:agentType aat:300025103 ;
+    gvp:agentTypePreferred aat:300025103 ;
+    gvp:broader ulan:500355043 ;
+    gvp:broaderExtended ulan:500355043 ;
+    gvp:broaderInstantial ulan:500355043 ;
+    gvp:broaderInstantialExtended ulan:500355043 ;
+    gvp:broaderPreferred ulan:500355043 ;
+    gvp:broaderPreferredExtended ulan:500355043 ;
+    gvp:displayOrder "25286"^^xsd:positiveInteger ;
+    gvp:parentString "Unidentified Named People and Firms" ;
+    gvp:parentStringAbbrev "Unidentified Named People and Firms" ;
+    gvp:prefLabelGVP ulan_term:1501232031-en ;
+    rdfs:seeAlso <http://www.getty.edu/vow/ULANFullDisplay?find=&role=&nation=&subjectid=500479692> ;
+    skos:altLabel "Villars Picasso" ;
+    skos:changeNote ulan_rev:5509735342,
+        ulan_rev:5509735343,
+        ulan_rev:5509735344,
+        ulan_rev:5509735345,
+        ulan_rev:5509870513,
+        ulan_rev:5509870514 ;
+    skos:inScheme ulan: ;
+    skos:note ulan_rev:5509735342,
+        ulan_rev:5509735343,
+        ulan_rev:5509735344,
+        ulan_rev:5509735345,
+        ulan_rev:5509870513,
+        ulan_rev:5509870514 ;
+    skos:prefLabel "Picasso, Villars"@en,
+        "פיקאסו, וילאר"@he ;
+    skosxl:altLabel ulan_term:1501240583 ;
+    skosxl:prefLabel ulan_term:1501232031-en,
+        ulan_term:1501232032-he ;
+    prov:wasGeneratedBy ulan_rev:5509735345 ;
+    foaf:focus ulan:500479692-agent .
+
+ulan:500119666 a _:n267068f90709420686be81cf38dc3faeb1,
+        gvp:PersonConcept,
+        gvp:Subject,
+        skos:Concept ;
+    rdfs:label "Matteo Picasso",
+        "Picassi, Matteo",
+        "Picasso, Matteo"@nl ;
+    cc:license <http://opendatacommons.org/licenses/by/1.0/> ;
+    dc:identifier "500119666" ;
+    dct:contributor ulan_contrib:2500000001,
+        ulan_contrib:2500000003,
+        ulan_contrib:2500000013,
+        ulan_contrib:2500000130,
+        ulan_contrib:2500000202 ;
+    dct:license <http://opendatacommons.org/licenses/by/1.0/> ;
+    dct:modified "2004-02-24T14:30:53"^^xsd:dateTime,
+        "2004-02-24T14:30:55"^^xsd:dateTime,
+        "2004-02-24T14:32:42"^^xsd:dateTime,
+        "2008-08-16T20:18:10"^^xsd:dateTime,
+        "2021-08-09T04:01:08"^^xsd:dateTime ;
+    dct:replaces ulan:500080148 ;
+    dct:source ulan_source:2100039894,
+        ulan_source:2100041241,
+        ulan_source:2100045787,
+        ulan_source:2100046495,
+        ulan_source:2100182972-subject-500119666,
+        ulan_source:2100183444-subject-500119666,
+        ulan_source:2100185916 ;
+    iso:broaderInstantial ulan:500000002 ;
+    void:inDataset <http://vocab.getty.edu/dataset/ulan> ;
+    gvp:agentType aat:300025103,
+        aat:300025136 ;
+    gvp:agentTypeNonPreferred aat:300025136 ;
+    gvp:agentTypePreferred aat:300025103 ;
+    gvp:broader ulan:500000002 ;
+    gvp:broaderExtended ulan:500000002 ;
+    gvp:broaderInstantial ulan:500000002 ;
+    gvp:broaderInstantialExtended ulan:500000002 ;
+    gvp:broaderPreferred ulan:500000002 ;
+    gvp:broaderPreferredExtended ulan:500000002 ;
+    gvp:displayOrder "218539"^^xsd:positiveInteger ;
+    gvp:parentString "Persons, Artists" ;
+    gvp:parentStringAbbrev "Persons, Artists" ;
+    gvp:prefLabelGVP ulan_term:1500164851-nl ;
+    rdfs:seeAlso <http://www.getty.edu/vow/ULANFullDisplay?find=&role=&nation=&subjectid=500119666> ;
+    skos:altLabel "Matteo Picasso",
+        "Picassi, Matteo" ;
+    skos:broader ulan:500000002 ;
+    skos:broaderTransitive ulan:500000002 ;
+    skos:changeNote ulan_rev:5501757669,
+        ulan_rev:5501757670,
+        ulan_rev:5501757675,
+        ulan_rev:5501757677,
+        ulan_rev:5501757678,
+        ulan_rev:5503513617,
+        ulan_rev:5511355189 ;
+    skos:closeMatch ulan:500119666,
+        <https://wikidata.org/wiki/Q3299630> ;
+    skos:exactMatch ulan:500119666,
+        <https://wikidata.org/wiki/Q3299630> ;
+    skos:inScheme ulan: ;
+    skos:mappingRelation ulan:500119666,
+        <https://wikidata.org/wiki/Q3299630> ;
+    skos:note ulan_rev:5501757669,
+        ulan_rev:5501757670,
+        ulan_rev:5501757675,
+        ulan_rev:5501757677,
+        ulan_rev:5501757678,
+        ulan_rev:5503513617,
+        ulan_rev:5511355189 ;
+    skos:prefLabel "Picasso, Matteo"@nl ;
+    skosxl:altLabel ulan_term:1500209145,
+        ulan_term:1500265623 ;
+    skosxl:prefLabel ulan_term:1500164851-nl ;
+    foaf:focus ulan:500119666-agent .
+
+ulan:500457093 a _:n267068f90709420686be81cf38dc3faeb1,
+        gvp:PersonConcept,
+        gvp:Subject,
+        skos:Concept ;
+    rdfs:label "France) Musée Picasso (Paris",
+        "Musée national Picasso (Paris, France)",
+        "Paris (France). Musée Picasso",
+        "Picasso Museum (Paris, France)",
+        "Musée Picasso (Paris, France)"@en ;
+    cc:license <http://opendatacommons.org/licenses/by/1.0/> ;
+    dc:identifier "500457093" ;
+    dct:contributor ulan_contrib:2500000012 ;
+    dct:created "2018-05-11T11:55:15"^^xsd:dateTime ;
+    dct:issued "2019-10-31T17:29:07"^^xsd:dateTime ;
+    dct:license <http://opendatacommons.org/licenses/by/1.0/> ;
+    dct:modified "2018-05-11T11:55:15"^^xsd:dateTime,
+        "2019-10-31T17:29:07"^^xsd:dateTime ;
+    dct:source ulan_source:2100168024,
+        ulan_source:2100175203,
+        ulan_source:2100175204-subject-500457093,
+        ulan_source:2100175205-subject-500457093,
+        ulan_source:2100175206-subject-500457093,
+        ulan_source:2100181001-subject-500457093 ;
+    void:inDataset <http://vocab.getty.edu/dataset/ulan> ;
+    gvp:agentType aat:300386361 ;
+    gvp:agentTypePreferred aat:300386361 ;
+    gvp:broader ulan:500355043 ;
+    gvp:broaderExtended ulan:500355043 ;
+    gvp:broaderInstantial ulan:500355043 ;
+    gvp:broaderInstantialExtended ulan:500355043 ;
+    gvp:broaderPreferred ulan:500355043 ;
+    gvp:broaderPreferredExtended ulan:500355043 ;
+    gvp:displayOrder "23360"^^xsd:positiveInteger ;
+    gvp:parentString "Unidentified Named People and Firms" ;
+    gvp:parentStringAbbrev "Unidentified Named People and Firms" ;
+    gvp:prefLabelGVP ulan_term:1501157842-en ;
+    rdfs:seeAlso <http://www.getty.edu/vow/ULANFullDisplay?find=&role=&nation=&subjectid=500457093> ;
+    skos:altLabel "France) Musée Picasso (Paris",
+        "Musée national Picasso (Paris, France)",
+        "Paris (France). Musée Picasso",
+        "Picasso Museum (Paris, France)" ;
+    skos:changeNote ulan_rev:5509243326,
+        ulan_rev:5509243327,
+        ulan_rev:5509243328,
+        ulan_rev:5509243329,
+        ulan_rev:5509243330,
+        ulan_rev:5509243335,
+        ulan_rev:5509890827,
+        ulan_rev:5509890828 ;
+    skos:closeMatch <http://id.loc.gov/authorities/names/n80039965>,
+        ulan:500457093 ;
+    skos:exactMatch <http://id.loc.gov/authorities/names/n80039965>,
+        ulan:500457093 ;
+    skos:inScheme ulan: ;
+    skos:mappingRelation <http://id.loc.gov/authorities/names/n80039965>,
+        ulan:500457093 ;
+    skos:note ulan_rev:5509243326,
+        ulan_rev:5509243327,
+        ulan_rev:5509243328,
+        ulan_rev:5509243329,
+        ulan_rev:5509243330,
+        ulan_rev:5509243335,
+        ulan_rev:5509890827,
+        ulan_rev:5509890828 ;
+    skos:prefLabel "Musée Picasso (Paris, France)"@en ;
+    skosxl:altLabel ulan_term:1501157843,
+        ulan_term:1501157844,
+        ulan_term:1501157845,
+        ulan_term:1501179378 ;
+    skosxl:prefLabel ulan_term:1501157842-en ;
+    prov:wasGeneratedBy ulan_rev:5509243335 ;
+    foaf:focus ulan:500457093-agent .
+
+ulan:500009666 a _:n267068f90709420686be81cf38dc3faeb1,
+        gvp:PersonConcept,
+        gvp:Subject,
+        skos:Concept ;
+    rdfs:label "Pablo Picasso",
+        "Pablo Ruiz Picasso",
+        "Pablo Ruiz Y Picasso",
+        "Picasso",
+        "Picasso, Pablo Diego José Francisco de Paula Juan Nepomuceno Crispín Crispiniano de la Santissima Trinidad Ruiz Blasco",
+        "Picasso, Pablo Ruiz",
+        "Picasso, Pablo Ruiz Y",
+        "Picasso, Pablo Ruiz y",
+        "Ruiz Picasso, Pablo",
+        "Ruiz Y Picasso, Pablo",
+        "Ruiz y Picassdo, Pablo",
+        "Ruiz y Picasso, Pablo",
+        "Ruiz, Pablo",
+        "Ruys Picasso, Pablo",
+        "Ruys, Pablo",
+        "p. picasso",
+        "Picasso, Pablo"@en,
+        "פיקאסו, פבלו"@he,
+        "Picasso, Pablo"@nl ;
+    cc:license <http://opendatacommons.org/licenses/by/1.0/> ;
+    dc:identifier "500009666" ;
+    dct:contributor ulan_contrib:2500000001,
+        ulan_contrib:2500000003,
+        ulan_contrib:2500000005,
+        ulan_contrib:2500000008,
+        ulan_contrib:2500000011,
+        ulan_contrib:2500000012,
+        ulan_contrib:2500000013,
+        ulan_contrib:2500000015,
+        ulan_contrib:2500000016,
+        ulan_contrib:2500000124,
+        ulan_contrib:2500000130,
+        ulan_contrib:2500000189,
+        ulan_contrib:2500000202,
+        ulan_contrib:2500000256,
+        ulan_contrib:2500000287,
+        ulan_contrib:2500000288,
+        ulan_contrib:2500000298 ;
+    dct:created "1989-12-22T00:00:00"^^xsd:dateTime,
+        "1990-01-05T00:00:00"^^xsd:dateTime,
+        "1990-04-06T00:00:00"^^xsd:dateTime,
+        "1990-05-05T00:00:00"^^xsd:dateTime,
+        "1998-12-18T00:00:00"^^xsd:dateTime ;
+    dct:license <http://opendatacommons.org/licenses/by/1.0/> ;
+    dct:modified "1999-01-13T00:00:00"^^xsd:dateTime,
+        "2002-04-25T10:55:40"^^xsd:dateTime,
+        "2002-05-01T12:04:09"^^xsd:dateTime,
+        "2002-05-14T12:04:24"^^xsd:dateTime,
+        "2002-06-26T17:01:54"^^xsd:dateTime,
+        "2002-06-26T17:11:57"^^xsd:dateTime,
+        "2002-09-10T14:16:46"^^xsd:dateTime,
+        "2002-10-08T17:43:07"^^xsd:dateTime,
+        "2002-11-18T16:00:44"^^xsd:dateTime,
+        "2002-12-16T15:31:25"^^xsd:dateTime,
+        "2003-06-17T17:18:28"^^xsd:dateTime,
+        "2003-09-17T12:50:02"^^xsd:dateTime,
+        "2003-09-17T12:53:43"^^xsd:dateTime,
+        "2004-01-14T10:11:37"^^xsd:dateTime,
+        "2004-01-14T10:14:33"^^xsd:dateTime,
+        "2004-01-14T10:48:15"^^xsd:dateTime,
+        "2004-01-22T14:00:26"^^xsd:dateTime,
+        "2004-01-22T16:00:18"^^xsd:dateTime,
+        "2004-10-14T11:21:23"^^xsd:dateTime,
+        "2004-10-14T11:21:52"^^xsd:dateTime,
+        "2004-10-14T11:22:16"^^xsd:dateTime,
+        "2005-01-06T12:58:53"^^xsd:dateTime,
+        "2005-01-06T14:22:29"^^xsd:dateTime,
+        "2007-09-24T11:15:04"^^xsd:dateTime,
+        "2007-10-24T15:34:24"^^xsd:dateTime,
+        "2008-08-12T11:09:37"^^xsd:dateTime,
+        "2008-08-16T20:18:11"^^xsd:dateTime,
+        "2008-08-16T20:18:12"^^xsd:dateTime,
+        "2009-01-21T12:51:08"^^xsd:dateTime,
+        "2009-01-21T12:51:11"^^xsd:dateTime,
+        "2009-01-21T12:58:51"^^xsd:dateTime,
+        "2009-06-15T22:58:43"^^xsd:dateTime,
+        "2009-06-15T22:58:46"^^xsd:dateTime,
+        "2010-07-22T12:37:51"^^xsd:dateTime,
+        "2010-11-05T14:53:45"^^xsd:dateTime,
+        "2011-02-18T10:23:48"^^xsd:dateTime,
+        "2011-02-18T11:56:14"^^xsd:dateTime,
+        "2012-06-28T13:20:45"^^xsd:dateTime,
+        "2012-06-28T13:21:21"^^xsd:dateTime,
+        "2012-06-28T13:29:46"^^xsd:dateTime,
+        "2012-06-28T13:29:47"^^xsd:dateTime,
+        "2012-08-01T14:37:12"^^xsd:dateTime,
+        "2014-02-05T15:09:03"^^xsd:dateTime,
+        "2014-10-29T10:37:37"^^xsd:dateTime,
+        "2014-11-24T09:26:16"^^xsd:dateTime,
+        "2014-12-08T15:54:07"^^xsd:dateTime,
+        "2015-03-25T15:37:34"^^xsd:dateTime,
+        "2015-03-25T15:37:42"^^xsd:dateTime,
+        "2015-03-25T15:37:50"^^xsd:dateTime,
+        "2015-03-26T10:20:15"^^xsd:dateTime,
+        "2015-04-14T14:47:17"^^xsd:dateTime,
+        "2015-06-22T10:24:12"^^xsd:dateTime,
+        "2016-03-23T17:21:26"^^xsd:dateTime,
+        "2016-04-06T15:47:13"^^xsd:dateTime,
+        "2016-04-11T13:08:59"^^xsd:dateTime,
+        "2016-04-11T13:24:09"^^xsd:dateTime,
+        "2016-04-11T14:24:02"^^xsd:dateTime,
+        "2016-04-12T15:31:13"^^xsd:dateTime,
+        "2016-04-20T16:23:00"^^xsd:dateTime,
+        "2016-04-20T16:33:05"^^xsd:dateTime,
+        "2016-05-03T17:10:09"^^xsd:dateTime,
+        "2016-09-12T17:11:34"^^xsd:dateTime,
+        "2016-11-17T10:20:50"^^xsd:dateTime,
+        "2017-01-11T15:39:01"^^xsd:dateTime,
+        "2017-03-22T11:27:06"^^xsd:dateTime,
+        "2017-10-20T12:49:50"^^xsd:dateTime,
+        "2017-10-20T12:49:51"^^xsd:dateTime,
+        "2018-01-31T13:42:14"^^xsd:dateTime,
+        "2018-02-20T15:18:59"^^xsd:dateTime,
+        "2018-02-20T16:21:49"^^xsd:dateTime,
+        "2018-02-20T16:25:09"^^xsd:dateTime,
+        "2018-05-11T16:05:59"^^xsd:dateTime,
+        "2018-06-07T17:41:25"^^xsd:dateTime,
+        "2018-08-27T13:40:33"^^xsd:dateTime,
+        "2018-08-27T13:46:35"^^xsd:dateTime,
+        "2018-09-10T14:03:29"^^xsd:dateTime,
+        "2019-03-02T21:54:40"^^xsd:dateTime,
+        "2019-03-12T11:27:43"^^xsd:dateTime,
+        "2019-03-12T11:30:32"^^xsd:dateTime,
+        "2019-03-12T12:24:35"^^xsd:dateTime,
+        "2019-06-24T10:22:10"^^xsd:dateTime,
+        "2019-06-24T10:25:23"^^xsd:dateTime,
+        "2019-06-24T11:34:32"^^xsd:dateTime,
+        "2020-07-02T18:56:35"^^xsd:dateTime,
+        "2021-03-05T09:21:14"^^xsd:dateTime,
+        "2021-08-09T04:01:09"^^xsd:dateTime,
+        "2021-08-09T04:01:10"^^xsd:dateTime,
+        "2023-02-03T18:26:31"^^xsd:dateTime,
+        "2023-08-28T12:29:36"^^xsd:dateTime,
+        "2024-09-12T14:47:11"^^xsd:dateTime,
+        "2025-07-24T11:55:33"^^xsd:dateTime,
+        "2025-09-09T13:02:29"^^xsd:dateTime,
+        "2026-02-03T15:30:19"^^xsd:dateTime ;
+    dct:replaces ulan:500389065,
+        ulan:500403401 ;
+    dct:source ulan_source:2100039894,
+        ulan_source:2100041441,
+        ulan_source:2100042266,
+        ulan_source:2100043316,
+        ulan_source:2100045787,
+        ulan_source:2100046495,
+        ulan_source:2100047116-subject-500009666,
+        ulan_source:2100149039,
+        ulan_source:2100153925,
+        ulan_source:2100154640,
+        ulan_source:2100156593-subject-500009666,
+        ulan_source:2100156698-subject-500009666,
+        ulan_source:2100158442,
+        ulan_source:2100163303,
+        ulan_source:2100167867-subject-500009666,
+        ulan_source:2100181033,
+        ulan_source:2100181034,
+        ulan_source:2100181343,
+        ulan_source:2100181667,
+        ulan_source:2100182949,
+        ulan_source:2100182972-subject-500009666,
+        ulan_source:2100183444-subject-500009666,
+        ulan_source:2100186163-subject-500009666 ;
+    iso:broaderInstantial ulan:500000002 ;
+    void:inDataset <http://vocab.getty.edu/dataset/ulan> ;
+    gvp:agentType aat:300025103,
+        aat:300025113,
+        aat:300025123,
+        aat:300025136,
+        aat:300025153,
+        aat:300025157,
+        aat:300025163,
+        aat:300025164,
+        aat:300025174,
+        aat:300025175,
+        aat:300025181,
+        aat:300025190,
+        aat:300025230,
+        aat:300025388,
+        aat:300025513,
+        aat:300025681,
+        aat:300025687,
+        aat:300112172,
+        aat:300264850,
+        aat:300386189,
+        aat:300386217,
+        aat:300386233,
+        aat:300386267,
+        aat:300386629,
+        aat:300435131,
+        aat:300435219,
+        aat:300443884 ;
+    gvp:agentTypeNonPreferred aat:300025113,
+        aat:300025123,
+        aat:300025136,
+        aat:300025153,
+        aat:300025157,
+        aat:300025163,
+        aat:300025164,
+        aat:300025174,
+        aat:300025175,
+        aat:300025181,
+        aat:300025190,
+        aat:300025230,
+        aat:300025388,
+        aat:300025513,
+        aat:300025681,
+        aat:300025687,
+        aat:300112172,
+        aat:300264850,
+        aat:300386189,
+        aat:300386217,
+        aat:300386233,
+        aat:300386267,
+        aat:300386629,
+        aat:300435131,
+        aat:300435219,
+        aat:300443884 ;
+    gvp:agentTypePreferred aat:300025103 ;
+    gvp:broader ulan:500000002 ;
+    gvp:broaderExtended ulan:500000002 ;
+    gvp:broaderInstantial ulan:500000002 ;
+    gvp:broaderInstantialExtended ulan:500000002 ;
+    gvp:broaderPreferred ulan:500000002 ;
+    gvp:broaderPreferredExtended ulan:500000002 ;
+    gvp:displayOrder "218540"^^xsd:positiveInteger ;
+    gvp:parentString "Persons, Artists" ;
+    gvp:parentStringAbbrev "Persons, Artists" ;
+    gvp:prefLabelGVP ulan_term:1500026818-en ;
+    gvp:ulan1000_related_to ulan:500118122 ;
+    gvp:ulan1003_associated_with ulan:500007694 ;
+    gvp:ulan1101_teacher_of ulan:500022746,
+        ulan:500070320 ;
+    gvp:ulan1102_student_of ulan:500036218 ;
+    gvp:ulan1107_influenced ulan:500015587 ;
+    gvp:ulan1108_influenced_by ulan:500199881 ;
+    gvp:ulan1202_patron_was ulan:500273319 ;
+    gvp:ulan1301_colleague_of ulan:500002643,
+        ulan:500015030,
+        ulan:500016649,
+        ulan:500059798,
+        ulan:500246258,
+        ulan:500325386 ;
+    gvp:ulan1302_associate_of ulan:500030915 ;
+    gvp:ulan1303_collaborated_with ulan:500003025,
+        ulan:500024353,
+        ulan:500025200,
+        ulan:500078133,
+        ulan:500115463,
+        ulan:500338521 ;
+    gvp:ulan1305_worked_with ulan:500097902,
+        ulan:500347130 ;
+    gvp:ulan1308_assisted_by ulan:500129693 ;
+    gvp:ulan1511_child_of ulan:500036218 ;
+    gvp:ulan1512_parent_of ulan:500224283,
+        ulan:500779994 ;
+    gvp:ulan1514_gandparent_of ulan:500103849 ;
+    gvp:ulan1541_spouse_of ulan:500111029 ;
+    gvp:ulan1547_romantic_partner_of ulan:500011104,
+        ulan:500072532 ;
+    gvp:ulan2550_friend_of ulan:500010539,
+        ulan:500032597,
+        ulan:500057967,
+        ulan:500486500 ;
+    gvp:ulan2781_dedicatee_of ulan:500305497,
+        ulan:500310019,
+        ulan:500312203 ;
+    rdfs:seeAlso <http://www.getty.edu/vow/ULANFullDisplay?find=&role=&nation=&subjectid=500009666> ;
+    skos:altLabel "Pablo Picasso",
+        "Pablo Ruiz Picasso",
+        "Pablo Ruiz Y Picasso",
+        "Picasso",
+        "Picasso, Pablo Diego José Francisco de Paula Juan Nepomuceno Crispín Crispiniano de la Santissima Trinidad Ruiz Blasco",
+        "Picasso, Pablo Ruiz",
+        "Picasso, Pablo Ruiz Y",
+        "Picasso, Pablo Ruiz y",
+        "Ruiz Picasso, Pablo",
+        "Ruiz Y Picasso, Pablo",
+        "Ruiz y Picassdo, Pablo",
+        "Ruiz y Picasso, Pablo",
+        "Ruiz, Pablo",
+        "Ruys Picasso, Pablo",
+        "Ruys, Pablo",
+        "p. picasso" ;
+    skos:broader ulan:500000002 ;
+    skos:broaderTransitive ulan:500000002 ;
+    skos:changeNote ulan_rev:5500026742,
+        ulan_rev:5500026743,
+        ulan_rev:5500026744,
+        ulan_rev:5500026745,
+        ulan_rev:5500026746,
+        ulan_rev:5500026747,
+        ulan_rev:5501198255,
+        ulan_rev:5501198256,
+        ulan_rev:5501203875,
+        ulan_rev:5501211753,
+        ulan_rev:5501243259,
+        ulan_rev:5501243330,
+        ulan_rev:5501507597,
+        ulan_rev:5501507598,
+        ulan_rev:5501528474,
+        ulan_rev:5501555146,
+        ulan_rev:5501577486,
+        ulan_rev:5501657129,
+        ulan_rev:5501687544,
+        ulan_rev:5501687553,
+        ulan_rev:5501687554,
+        ulan_rev:5501687555,
+        ulan_rev:5501734594,
+        ulan_rev:5501734595,
+        ulan_rev:5501734596,
+        ulan_rev:5501734637,
+        ulan_rev:5501737324,
+        ulan_rev:5501737791,
+        ulan_rev:5502523015,
+        ulan_rev:5502523016,
+        ulan_rev:5502523017,
+        ulan_rev:5502543808,
+        ulan_rev:5502545160,
+        ulan_rev:5502545161,
+        ulan_rev:5502545162,
+        ulan_rev:5502545163,
+        ulan_rev:5502545164,
+        ulan_rev:5502545165,
+        ulan_rev:5502545166,
+        ulan_rev:5503026530,
+        ulan_rev:5503033655,
+        ulan_rev:5503199647,
+        ulan_rev:5503513620,
+        ulan_rev:5503513634,
+        ulan_rev:5503773658,
+        ulan_rev:5503773659,
+        ulan_rev:5503773675,
+        ulan_rev:5503773714,
+        ulan_rev:5504153421,
+        ulan_rev:5504153424,
+        ulan_rev:5505132750,
+        ulan_rev:5505327255,
+        ulan_rev:5505496205,
+        ulan_rev:5505516487,
+        ulan_rev:5506172294,
+        ulan_rev:5506172295,
+        ulan_rev:5506172301,
+        ulan_rev:5506172302,
+        ulan_rev:5506184481,
+        ulan_rev:5506516089,
+        ulan_rev:5506763533,
+        ulan_rev:5506769420,
+        ulan_rev:5506774938,
+        ulan_rev:5506789880,
+        ulan_rev:5506789883,
+        ulan_rev:5506789886,
+        ulan_rev:5506789968,
+        ulan_rev:5506796798,
+        ulan_rev:5507104235,
+        ulan_rev:5507214612,
+        ulan_rev:5507218575,
+        ulan_rev:5507219517,
+        ulan_rev:5507219551,
+        ulan_rev:5507219620,
+        ulan_rev:5507219857,
+        ulan_rev:5507222418,
+        ulan_rev:5507222440,
+        ulan_rev:5507223632,
+        ulan_rev:5507478896,
+        ulan_rev:5507595421,
+        ulan_rev:5507659192,
+        ulan_rev:5507706235,
+        ulan_rev:5508182079,
+        ulan_rev:5508182080,
+        ulan_rev:5508182081,
+        ulan_rev:5508182104,
+        ulan_rev:5509111989,
+        ulan_rev:5509139720,
+        ulan_rev:5509139758,
+        ulan_rev:5509139766,
+        ulan_rev:5509278407,
+        ulan_rev:5509619557,
+        ulan_rev:5509664126,
+        ulan_rev:5509664133,
+        ulan_rev:5509665092,
+        ulan_rev:5509735321,
+        ulan_rev:5509735341,
+        ulan_rev:5509792027,
+        ulan_rev:5509792042,
+        ulan_rev:5509792179,
+        ulan_rev:5509830385,
+        ulan_rev:5509830386,
+        ulan_rev:5509830390,
+        ulan_rev:5509830391,
+        ulan_rev:5509936818,
+        ulan_rev:5510049290,
+        ulan_rev:5511355205,
+        ulan_rev:5511355224,
+        ulan_rev:5511355238,
+        ulan_rev:5511902241,
+        ulan_rev:5511969512,
+        ulan_rev:5512062457,
+        ulan_rev:5512405880,
+        ulan_rev:5512409813,
+        ulan_rev:5512430933 ;
+    skos:closeMatch <http://id.loc.gov/authorities/names/n78086005>,
+        ulan:500009666,
+        <https://wikidata.org/wiki/Q5593> ;
+    skos:exactMatch <http://id.loc.gov/authorities/names/n78086005>,
+        ulan:500009666,
+        <https://wikidata.org/wiki/Q5593> ;
+    skos:inScheme ulan: ;
+    skos:mappingRelation <http://id.loc.gov/authorities/names/n78086005>,
+        ulan:500009666,
+        <https://wikidata.org/wiki/Q5593> ;
+    skos:note ulan_rev:5500026742,
+        ulan_rev:5500026743,
+        ulan_rev:5500026744,
+        ulan_rev:5500026745,
+        ulan_rev:5500026746,
+        ulan_rev:5500026747,
+        ulan_rev:5501198255,
+        ulan_rev:5501198256,
+        ulan_rev:5501203875,
+        ulan_rev:5501211753,
+        ulan_rev:5501243259,
+        ulan_rev:5501243330,
+        ulan_rev:5501507597,
+        ulan_rev:5501507598,
+        ulan_rev:5501528474,
+        ulan_rev:5501555146,
+        ulan_rev:5501577486,
+        ulan_rev:5501657129,
+        ulan_rev:5501687544,
+        ulan_rev:5501687553,
+        ulan_rev:5501687554,
+        ulan_rev:5501687555,
+        ulan_rev:5501734594,
+        ulan_rev:5501734595,
+        ulan_rev:5501734596,
+        ulan_rev:5501734637,
+        ulan_rev:5501737324,
+        ulan_rev:5501737791,
+        ulan_rev:5502523015,
+        ulan_rev:5502523016,
+        ulan_rev:5502523017,
+        ulan_rev:5502543808,
+        ulan_rev:5502545160,
+        ulan_rev:5502545161,
+        ulan_rev:5502545162,
+        ulan_rev:5502545163,
+        ulan_rev:5502545164,
+        ulan_rev:5502545165,
+        ulan_rev:5502545166,
+        ulan_rev:5503026530,
+        ulan_rev:5503033655,
+        ulan_rev:5503199647,
+        ulan_rev:5503513620,
+        ulan_rev:5503513634,
+        ulan_rev:5503773658,
+        ulan_rev:5503773659,
+        ulan_rev:5503773675,
+        ulan_rev:5503773714,
+        ulan_rev:5504153421,
+        ulan_rev:5504153424,
+        ulan_rev:5505132750,
+        ulan_rev:5505327255,
+        ulan_rev:5505496205,
+        ulan_rev:5505516487,
+        ulan_rev:5506172294,
+        ulan_rev:5506172295,
+        ulan_rev:5506172301,
+        ulan_rev:5506172302,
+        ulan_rev:5506184481,
+        ulan_rev:5506516089,
+        ulan_rev:5506763533,
+        ulan_rev:5506769420,
+        ulan_rev:5506774938,
+        ulan_rev:5506789880,
+        ulan_rev:5506789883,
+        ulan_rev:5506789886,
+        ulan_rev:5506789968,
+        ulan_rev:5506796798,
+        ulan_rev:5507104235,
+        ulan_rev:5507214612,
+        ulan_rev:5507218575,
+        ulan_rev:5507219517,
+        ulan_rev:5507219551,
+        ulan_rev:5507219620,
+        ulan_rev:5507219857,
+        ulan_rev:5507222418,
+        ulan_rev:5507222440,
+        ulan_rev:5507223632,
+        ulan_rev:5507478896,
+        ulan_rev:5507595421,
+        ulan_rev:5507659192,
+        ulan_rev:5507706235,
+        ulan_rev:5508182079,
+        ulan_rev:5508182080,
+        ulan_rev:5508182081,
+        ulan_rev:5508182104,
+        ulan_rev:5509111989,
+        ulan_rev:5509139720,
+        ulan_rev:5509139758,
+        ulan_rev:5509139766,
+        ulan_rev:5509278407,
+        ulan_rev:5509619557,
+        ulan_rev:5509664126,
+        ulan_rev:5509664133,
+        ulan_rev:5509665092,
+        ulan_rev:5509735321,
+        ulan_rev:5509735341,
+        ulan_rev:5509792027,
+        ulan_rev:5509792042,
+        ulan_rev:5509792179,
+        ulan_rev:5509830385,
+        ulan_rev:5509830386,
+        ulan_rev:5509830390,
+        ulan_rev:5509830391,
+        ulan_rev:5509936818,
+        ulan_rev:5510049290,
+        ulan_rev:5511355205,
+        ulan_rev:5511355224,
+        ulan_rev:5511355238,
+        ulan_rev:5511902241,
+        ulan_rev:5511969512,
+        ulan_rev:5512062457,
+        ulan_rev:5512405880,
+        ulan_rev:5512409813,
+        ulan_rev:5512430933,
+        ulan_scopeNote:53649 ;
+    skos:prefLabel "Picasso, Pablo"@en,
+        "פיקאסו, פבלו"@he,
+        "Picasso, Pablo"@nl ;
+    skos:related ulan:500002643,
+        ulan:500003025,
+        ulan:500007694,
+        ulan:500010539,
+        ulan:500011104,
+        ulan:500015030,
+        ulan:500015587,
+        ulan:500016649,
+        ulan:500022746,
+        ulan:500024353,
+        ulan:500025200,
+        ulan:500030915,
+        ulan:500032597,
+        ulan:500036218,
+        ulan:500057967,
+        ulan:500059798,
+        ulan:500070320,
+        ulan:500072532,
+        ulan:500078133,
+        ulan:500097902,
+        ulan:500103849,
+        ulan:500111029,
+        ulan:500115463,
+        ulan:500118122,
+        ulan:500129693,
+        ulan:500199881,
+        ulan:500224283,
+        ulan:500246258,
+        ulan:500273319,
+        ulan:500305497,
+        ulan:500310019,
+        ulan:500312203,
+        ulan:500325386,
+        ulan:500338521,
+        ulan:500347130,
+        ulan:500486500,
+        ulan:500779994 ;
+    skos:scopeNote ulan_scopeNote:53649 ;
+    skosxl:altLabel ulan_term:1500026815,
+        ulan_term:1500026819,
+        ulan_term:1500026820,
+        ulan_term:1500026821,
+        ulan_term:1500026822,
+        ulan_term:1500026823,
+        ulan_term:1500026824,
+        ulan_term:1500026825,
+        ulan_term:1500026826,
+        ulan_term:1500416171,
+        ulan_term:1500431674,
+        ulan_term:1500478061,
+        ulan_term:1500985879,
+        ulan_term:1500985880,
+        ulan_term:1500985882,
+        ulan_term:1501604478 ;
+    skosxl:prefLabel ulan_term:1500026818-en,
+        ulan_term:1500026818-nl,
+        ulan_term:1501232030-he ;
+    prov:wasGeneratedBy ulan_rev:5500026743,
+        ulan_rev:5500026744,
+        ulan_rev:5500026745,
+        ulan_rev:5500026746,
+        ulan_rev:5500026747 ;
+    foaf:focus ulan:500009666-agent .
+
+ulan:500224283 a _:n267068f90709420686be81cf38dc3faeb1,
+        gvp:PersonConcept,
+        gvp:Subject,
+        skos:Concept ;
+    rdfs:label "Paloma Picasso"@nl,
+        "Picasso, Paloma"@nl ;
+    cc:license <http://opendatacommons.org/licenses/by/1.0/> ;
+    dc:identifier "500224283" ;
+    dct:contributor ulan_contrib:2500000008,
+        ulan_contrib:2500000013,
+        ulan_contrib:2500000202,
+        ulan_contrib:2500000256 ;
+    dct:created "2009-06-15T22:41:39"^^xsd:dateTime ;
+    dct:issued "2010-07-22T15:49:58"^^xsd:dateTime ;
+    dct:license <http://opendatacommons.org/licenses/by/1.0/> ;
+    dct:modified "2009-06-15T22:41:38"^^xsd:dateTime,
+        "2010-07-22T12:36:01"^^xsd:dateTime,
+        "2010-07-22T12:37:51"^^xsd:dateTime,
+        "2010-07-22T15:49:58"^^xsd:dateTime,
+        "2011-05-03T10:28:19"^^xsd:dateTime,
+        "2018-08-27T13:40:34"^^xsd:dateTime,
+        "2019-06-24T10:22:10"^^xsd:dateTime,
+        "2019-06-24T10:25:23"^^xsd:dateTime,
+        "2019-07-09T08:36:52"^^xsd:dateTime,
+        "2021-09-16T08:57:26"^^xsd:dateTime,
+        "2023-08-28T14:06:32"^^xsd:dateTime ;
+    dct:source ulan_source:2100114062,
+        ulan_source:2100156593-subject-500224283,
+        ulan_source:2100182972-subject-500224283,
+        ulan_source:2100183444-subject-500224283,
+        ulan_source:2100186163-subject-500224283 ;
+    iso:broaderInstantial ulan:500000002 ;
+    void:inDataset <http://vocab.getty.edu/dataset/ulan> ;
+    gvp:agentType aat:300025103,
+        aat:300025190 ;
+    gvp:agentTypeNonPreferred aat:300025190 ;
+    gvp:agentTypePreferred aat:300025103 ;
+    gvp:broader ulan:500000002 ;
+    gvp:broaderExtended ulan:500000002 ;
+    gvp:broaderInstantial ulan:500000002 ;
+    gvp:broaderInstantialExtended ulan:500000002 ;
+    gvp:broaderPreferred ulan:500000002 ;
+    gvp:broaderPreferredExtended ulan:500000002 ;
+    gvp:displayOrder "218541"^^xsd:positiveInteger ;
+    gvp:parentString "Persons, Artists" ;
+    gvp:parentStringAbbrev "Persons, Artists" ;
+    gvp:prefLabelGVP ulan_term:1500532791-nl ;
+    gvp:ulan1501_sibling_of ulan:500779994 ;
+    gvp:ulan1511_child_of ulan:500009666,
+        ulan:500011104 ;
+    rdfs:seeAlso <http://www.getty.edu/vow/ULANFullDisplay?find=&role=&nation=&subjectid=500224283> ;
+    skos:altLabel "Paloma Picasso"@nl ;
+    skos:broader ulan:500000002 ;
+    skos:broaderTransitive ulan:500000002 ;
+    skos:changeNote ulan_rev:5504150517,
+        ulan_rev:5504150518,
+        ulan_rev:5504150521,
+        ulan_rev:5505132746,
+        ulan_rev:5505132748,
+        ulan_rev:5505132749,
+        ulan_rev:5505133230,
+        ulan_rev:5505133231,
+        ulan_rev:5505634248,
+        ulan_rev:5509664127,
+        ulan_rev:5509830387,
+        ulan_rev:5509830388,
+        ulan_rev:5509830389,
+        ulan_rev:5509833539,
+        ulan_rev:5511665494,
+        ulan_rev:5511969558 ;
+    skos:closeMatch <http://id.loc.gov/authorities/names/n99021839>,
+        ulan:500224283,
+        <https://wikidata.org/wiki/Q270356> ;
+    skos:exactMatch <http://id.loc.gov/authorities/names/n99021839>,
+        ulan:500224283,
+        <https://wikidata.org/wiki/Q270356> ;
+    skos:inScheme ulan: ;
+    skos:mappingRelation <http://id.loc.gov/authorities/names/n99021839>,
+        ulan:500224283,
+        <https://wikidata.org/wiki/Q270356> ;
+    skos:note ulan_rev:5504150517,
+        ulan_rev:5504150518,
+        ulan_rev:5504150521,
+        ulan_rev:5505132746,
+        ulan_rev:5505132748,
+        ulan_rev:5505132749,
+        ulan_rev:5505133230,
+        ulan_rev:5505133231,
+        ulan_rev:5505634248,
+        ulan_rev:5509664127,
+        ulan_rev:5509830387,
+        ulan_rev:5509830388,
+        ulan_rev:5509830389,
+        ulan_rev:5509833539,
+        ulan_rev:5511665494,
+        ulan_rev:5511969558,
+        ulan_scopeNote:60408 ;
+    skos:prefLabel "Picasso, Paloma"@nl ;
+    skos:related ulan:500009666,
+        ulan:500011104,
+        ulan:500779994 ;
+    skos:scopeNote ulan_scopeNote:60408 ;
+    skosxl:altLabel ulan_term:1500615362-nl ;
+    skosxl:prefLabel ulan_term:1500532791-nl ;
+    prov:wasGeneratedBy ulan_rev:5504150521 ;
+    foaf:focus ulan:500224283-agent .
+

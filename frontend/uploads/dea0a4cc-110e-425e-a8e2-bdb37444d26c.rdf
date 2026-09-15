@@ -1,0 +1,977 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:gnoss="http://gnoss.com/gnoss.owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:swrl="http://www.w3.org/2003/11/swrl#" xmlns:skos08="http://www.w3.org/2008/05/skos#" xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#" xmlns:swrlb="http://www.w3.org/2003/11/swrlb#" xmlns:sioc_t="http://rdfs.org/sioc/types#" xmlns:rdfg="http://www.w3.org/2004/03/trix/rdfg-1/" xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#" xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:wot="http://xmlns.com/wot/0.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:ibis="http://purl.org/ibis#" xmlns:atom="http://atomowl.org/ontologies/atomrdf#" xmlns:exif="http://www.w3.org/2003/12/exif/ns/" xmlns:annotea="http://www.w3.org/2002/01/bookmark#" xmlns:resume="http://captsolo.net/semweb/resume/cv.rdfs#" xmlns:review="http://www.isi.edu/webscripter/communityreview/abstract-review-o#" xmlns:calendar="http://www.w3.org/2002/12/cal/icaltzd#" xmlns:annotation="http://www.w3.org/2000/10/annotation-ns#" xmlns:doap="http://usefulinc.com/ns/doap#" xmlns:wikiont="http://sw.deri.org/2005/04/wikipedia/wikiont.owl" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:date="http://museodelprado.es/ontologia/edate.owl#" xmlns:cidoc="http://www.cidoc-crm.org/cidoc-crm#" xmlns:efrbrer="http://museodelprado.es/ontologia/efrbrer.owl#" xmlns:ecidoc="http://museodelprado.es/ontologia/ecidoc.owl#" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:muto="http://purl.org/muto/core#" xmlns:pm="http://museodelprado.es/ontologia/pradomuseum.owl#" xmlns:auxentity1="http://www.wikidata.org/entity/" xmlns:auxcore1="http://purl.org/vocab/frbr/core#" xmlns:auxv11="http://purl.org/goodrelations/v1#" xmlns:hr-xml="http://museodelprado.es/Ontologia/Curriculum.owl#" xmlns:pmartwork="http://museodelprado.es/Ontologia/pmartwork.owl#" xmlns:cc="http://creativecommons.org/ns#" xmlns:auxskos1="http://www.w3.org/2008/05/skos#">
+  <sioc:Item rdf:about="https://www.museodelprado.es/en/the-collection/art-work/saint-george-and-the-dragon/dea0a4cc-110e-425e-a8e2-bdb37444d26c">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://rdfs.org/sioc/ns#Item]]></rdfs:label>
+    <sioc:content rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xml:lang="es"><![CDATA[<p>La historia de San Jorge y el Dragón fue popularizada por el escritor Jacopo della Voragine en su <em>Leyenda Dorada</em>. Aquí se cuenta como San Jorge llegó a Silca, ciudad de Libia, donde había un gran lago habitado por un dragón. El pueblo, para aplacar la ira del monstruo, lanzaba dos ovejas diarias como alimento. Al acabarse las ovejas, comenzaron a sacrificar a los habitantes del pueblo, elegidos por sorteo. Así, le llegó el turno a la hija del rey quien, en su camino, se encontró con San Jorge que la salvó: "(...) enristró su lanza y, haciéndola vibrar en el aire y espoleando a su cabalgadura, dirigióse hacia la bestia (...)cuando la tuvo al alcance hundió en su cuerpo el arma y la hirió". Finalmente el pueblo se convirtió al cristianismo por la hazaña conseguida. </p><p>Rubens representa el momento en el que San Jorge amenaza con su espada al dragón, que aparece con la forma de un monstruo con los ojos desencajados, sujetando la lanza con la que el santo le ha atravesado la boca. Al fondo vemos a la princesa, ricamente vestida como la describe J. della Voragine, que sujeta la oveja con la que iba a ser sacrificada. Se conservan varios dibujos preparatorios para la composición, que podría estar basada, según el especialista H. Vlieghe, en un dibujo del artista copiando una obra de Tiziano y conservado en la Graphische Sammlung de Munich. El origen de la misma se desconoce. El historiador D. Jaffe piensa que pudo hacerse para la ciudad de Génova, cuyo patrón es San Jorge. </p><p>Fechada pues en sus años italianos, muestra el estudio de la estatuaria clásica y de las figuras miguelangelescas, con personajes rotundos, majestuosos y fuertes. San Jorge muestra estas características, representado casi como un general romano al mando de sus ejércitos. Uno de los elementos más destacados de la composición es el caballo, que ocupa gran parte de la composición y la articula generando una gran diagonal que da movimiento a la escena. Rubens pintó la baba de su boca, en referencia a los clásicos como Plinio el Viejo, que habla de cómo el pintor Zeuxis engañaba a los mismos animales con su pintura.</p><p>Es un ejemplo de la conexión entre Rubens y la antigüedad clásica, que veía como reflejo de los valores que debía tener la sociedad, así como la imagen hermosa de algo mejor. El concepto de la exaltación de la vida, que viene desde la antigüedad, se engrandece en esta imagen en la que ha usado una tipología proveniente del mundo clásico para representar un episodio religioso. Rubens siempre buscó la unión entre los dos mundos con un enriquecimiento recíproco. </p><p>Esta obra fue adquirida tras la muerte de Rubens, en junio de 1640, cuando su familia puso a la venta sus bienes y sus pinturas, acudiendo compradores de toda Europa. Felipe IV tuvo la ocasión perfecta no solo para acrecentar la colección española de pinturas de Rubens sino también para adquirir obras de otros artistas flamencos, como Van Dyck, que el artista atesoraba en su colección. El infante cardenal Don Fernando, hermano del rey y gobernador de los Países Bajos meridionales en ese momento, mantuvo una correspondencia con su hermano en la que nos habla de la intención del monarca de adquirir obras en esta almoneda. Así en septiembre de 1640 escribe: "(...)las que tiene Rubens en su casa son muchas y muy buenas, y por no errar y acertar mejor el gusto de V. M. le envio esta memoria de todas, para que me mande lo que fuere servido, que no hay peligro en esperar la respuesta de V.M. porque quieren imprimir esta memoria y enviarla por toda Europa". El ayuda de cámara Francisco de Rojas estuvo al cargo de la compra. </p><p>Esta, con el número 155 denominada "Un San Jorge sobre el caballo con capa" es considerada por J. M Muller como la pintura más temprana pintada por Rubens de su colección. </p>]]></sioc:content>
+    <sioc:content rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xml:lang="en"><![CDATA[<p>The tale of Saint George and the Dragon was popularised by the writer Jacopo della Voragine in his <em>Golden Legend</em>. It tells of the arrival of St. George ain Silca, a city of Libya, where there was a large lake inhabited by a dragon, to whom the people threw two sheep a day as food in order to appease the monster&acute;s wrath. When the sheep ran out, they began to sacrifice the inhabitants of the town, chosen by lot; eventually, it was the turn of the king&acute;s daughter. On her way, she met Saint George who saved her: ‘(...) he drew his lance and, making it vibrate in the air and spurring his horse, he went towards the beast (...) when he had it within reach, he plunged the weapon into its body and wounded it’. The people were converted to Christianity inspired by the feat of St George. </p><p>Rubens depicts the moment in which Saint George threatens the dragon with his sword. The beast appears in monstrous form, eyes wide open, it grasps the lance with which the saint has pierced its mouth. In the background is the princess, richly dressed as described by J. della Voragine, holding the sheep with which she was to be sacrificed. Several preparatory drawings have survived for the composition. According to the specialist H. Vlieghe, it may have been based on a sketched copy of Titian made by the artist himself, and now kept in the Graphische Sammlung in Munich. The works original purpose is unknown. The historian D. Jaffe thinks it may have been made for the city of Genoa, whose patron saint is Saint George. </p><p>Dating from his Italian years, it reveals the study of classical statues and Michelangelo&acute;s figures, with rotund, majestic and strong figures. Saint George embodies these characteristics, depicted almost like a Roman general in command of his armies. One of the most outstanding elements of the canvas is the horse, which occupies a large part of the composition, generating a wide diagonal that provides movement to the scene. Rubens painted the drool from the horses’ mouth, with a minute attention to detail in reference to the Classical Age in which Pliny the Elder, described the work of the painter Zeuxis as fooling birds into pecking at the grapes he had painted. </p><p>It is an example of the connection between Rubens and classical antiquity, in which he saw reflected the values of the ideal society, and ideal of beauty more perfectly realised. The exaltation of life, a concept of antiquity, is magnified in this image in which Rubens re-employs a template of the classical world to represent a religious episode. Rubens always sought to unite and mutually enrich the two worlds. This work was acquired after Rubens&acute;s death in June 1640, when the artist’s family put his possessions and paintings up for sale, attracting buyers from all over Europe who flocked to buy them. Philip IV had the perfect opportunity to not only augment Spain’s collection of Rubens&acute;s paintings, but also to acquire works by other Flemish artists, such as Van Dyck, which the artist treasured in his own collection. The Infante-Cardinal Don Fernando, the king&acute;s brother and governor of the southern Low Countries at the time, sent many letters to his brother. The monarch&acute;s intention to acquire works at this auction is revealed in said correspondence. Thus in September 1640 Don Fernando wrote: ‘(...) the works that Rubens has in his house are many and very good, and so as not to make mistakes and to better suit Your Majesty&acute;s taste, I send you this list of them all, so that you may order me whatever you wish, as there is no danger in waiting for Your Majesty&acute;s reply because they want to print this list and send it all over Europe’. The valet Francisco de Rojas was in charge of the purchase. </p><p>This one, numbered 155 and entitled ‘A Saint George on a Horse with a Cloak’ is considered by J. M. Muller to be the earliest painting by Rubens in his collection. </p>]]></sioc:content>
+    <gnoss:has_docSem rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_dea0a4cc-110e-425e-a8e2-bdb37444d26c_87b4065b-5270-4de9-9a13-3fda509b4300" />
+    <sioc:has_creator rdf:resource="https://www.museodelprado.es/en/organization/elprado-/" />
+    <sioc:related_to rdf:resource="https://www.museodelprado.es/en/activity/recuperacion-de-bahia-de-todos-los-santos/1b83f520-5a50-43a7-ae1f-5d47b535ebeb" />
+    <sioc:related_to rdf:resource="https://www.museodelprado.es/en/activity/el-espiritu-de-la-pintura-cai-guo-qiang-en-el/1c3f1683-8901-94be-a9c5-8f17367c8207" />
+    <sioc:related_to rdf:resource="https://www.museodelprado.es/en/activity/el-renacimiento-en-la-pintura-espaola/1c7a7672-33dc-b68c-9f00-ed6841aeea33" />
+    <sioc:related_to rdf:resource="https://www.museodelprado.es/en/activity/visitas-guiadas-a-la-boveda-de-luca-giordano-en/1d797e09-c3fb-4a06-a6f6-6f3b7657d3a9" />
+    <sioc:related_to rdf:resource="https://www.museodelprado.es/en/activity/la-coronacion-de-espinas/1dd39eb1-acfa-4857-8789-057970325af8" />
+    <sioc:related_to rdf:resource="https://www.museodelprado.es/en/activity/murillo-en-el-prado/1dd970bb-679f-489c-a1e1-410ab3bf90d5" />
+    <sioc:related_to rdf:resource="https://www.museodelprado.es/en/activity/murillo-en-el-prado/1e0e4192-9120-4f04-814a-6f309a4a9344" />
+    <sioc:related_to rdf:resource="https://www.museodelprado.es/en/activity/luca-giordano-en-el-cason-del-buen-retiro/1e62dea9-d620-440d-9b4a-63b2fd06b224" />
+    <sioc:related_to rdf:resource="https://www.museodelprado.es/en/activity/la-sagrada-familia-del-pajarito-de-murillo-una/2037be92-9750-44da-966a-34e3ebc8eb61" />
+    <sioc:related_to rdf:resource="https://www.museodelprado.es/en/activity/darlo-todo-y-no-dar-nada-de-pedro-calderon-de-la/207127ae-5a31-4926-8b04-401704ff341d" />
+  </sioc:Item>
+  <foaf:Group rdf:about="https://www.museodelprado.es/en/organization/elprado-/">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[Museo del Prado]]></rdfs:label>
+    <foaf:name rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal"><![CDATA[Museo del Prado]]></foaf:name>
+  </foaf:Group>
+<cidoc:E22_Man-Made_Object rdf:about="http://museodelprado.es/items/E22_Man-Made_Object_dea0a4cc-110e-425e-a8e2-bdb37444d26c_87b4065b-5270-4de9-9a13-3fda509b4300">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.cidoc-crm.org/cidoc-crm#E22_Man-Made_Object]]></rdfs:label>
+    <ecidoc:p55_has_current_location_exposed rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="en"><![CDATA[On display]]></ecidoc:p55_has_current_location_exposed>
+    <ecidoc:p55_has_current_location_exposed rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Expuesto]]></ecidoc:p55_has_current_location_exposed>
+    <pm:updateDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">20260602184957</pm:updateDate>
+    <ecidoc:p55_has_current_location_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Expuesto]]></ecidoc:p55_has_current_location_type>
+    <pm:nerRevisedEs rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</pm:nerRevisedEs>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[en]]></dc:language>
+    <dc:language rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[es]]></dc:language>
+    <pm:departmentName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Pintura flamenca y escuelas del norte hasta 1700]]></pm:departmentName>
+    <muto:tagLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="en"><![CDATA[1606]]></muto:tagLabel>
+    <muto:tagLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="en"><![CDATA[1608]]></muto:tagLabel>
+    <muto:tagLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="en"><![CDATA[Armor]]></muto:tagLabel>
+    <muto:tagLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="en"><![CDATA[Canvas]]></muto:tagLabel>
+    <muto:tagLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="en"><![CDATA[Oil]]></muto:tagLabel>
+    <muto:tagLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="en"><![CDATA[Painting]]></muto:tagLabel>
+    <muto:tagLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[1606]]></muto:tagLabel>
+    <muto:tagLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[1608]]></muto:tagLabel>
+    <muto:tagLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Armadura]]></muto:tagLabel>
+    <muto:tagLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Caballo (Equus ferus caballus)]]></muto:tagLabel>
+    <muto:tagLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Dragón]]></muto:tagLabel>
+    <muto:tagLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Lienzo]]></muto:tagLabel>
+    <muto:tagLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Oveja (Ovis aries)]]></muto:tagLabel>
+    <muto:tagLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Pedro Pablo Rubens]]></muto:tagLabel>
+    <muto:tagLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Pintura]]></muto:tagLabel>
+    <muto:tagLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Plantas / Hierbas]]></muto:tagLabel>
+    <muto:tagLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[San Jorge]]></muto:tagLabel>
+    <muto:tagLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Santos]]></muto:tagLabel>
+    <muto:tagLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Óleo]]></muto:tagLabel>
+    <pm:relevance rdf:datatype="http://www.w3.org/2001/XMLSchema#int">20</pm:relevance>
+    <ecidoc:p102_E35_p3_has_title_augmented rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Lucha de <a target="_blank" class="entity" about="http://wikidata.org/entity/Q48438" score="0.9283178" type="http://www.wikidata.org/entity/Q215627"  href="https://es.wikipedia.org/wiki/Jorge_de_Capadocia">san Jorge</a> y el dragón]]></ecidoc:p102_E35_p3_has_title_augmented>
+    <ecidoc:p62_E52_p79_has_time-span_beginning rdf:datatype="http://www.w3.org/2001/XMLSchema#date">16060000000000</ecidoc:p62_E52_p79_has_time-span_beginning>
+    <cidoc:p3_has_note rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="en"><![CDATA[<p>The tale of Saint George and the Dragon was popularised by the writer Jacopo della Voragine in his <em>Golden Legend</em>. It tells of the arrival of St. George ain Silca, a city of Libya, where there was a large lake inhabited by a dragon, to whom the people threw two sheep a day as food in order to appease the monster&acute;s wrath. When the sheep ran out, they began to sacrifice the inhabitants of the town, chosen by lot; eventually, it was the turn of the king&acute;s daughter. On her way, she met Saint George who saved her: ‘(...) he drew his lance and, making it vibrate in the air and spurring his horse, he went towards the beast (...) when he had it within reach, he plunged the weapon into its body and wounded it’. The people were converted to Christianity inspired by the feat of St George. </p><p>Rubens depicts the moment in which Saint George threatens the dragon with his sword. The beast appears in monstrous form, eyes wide open, it grasps the lance with which the saint has pierced its mouth. In the background is the princess, richly dressed as described by J. della Voragine, holding the sheep with which she was to be sacrificed. Several preparatory drawings have survived for the composition. According to the specialist H. Vlieghe, it may have been based on a sketched copy of Titian made by the artist himself, and now kept in the Graphische Sammlung in Munich. The works original purpose is unknown. The historian D. Jaffe thinks it may have been made for the city of Genoa, whose patron saint is Saint George. </p><p>Dating from his Italian years, it reveals the study of classical statues and Michelangelo&acute;s figures, with rotund, majestic and strong figures. Saint George embodies these characteristics, depicted almost like a Roman general in command of his armies. One of the most outstanding elements of the canvas is the horse, which occupies a large part of the composition, generating a wide diagonal that provides movement to the scene. Rubens painted the drool from the horses’ mouth, with a minute attention to detail in reference to the Classical Age in which Pliny the Elder, described the work of the painter Zeuxis as fooling birds into pecking at the grapes he had painted. </p><p>It is an example of the connection between Rubens and classical antiquity, in which he saw reflected the values of the ideal society, and ideal of beauty more perfectly realised. The exaltation of life, a concept of antiquity, is magnified in this image in which Rubens re-employs a template of the classical world to represent a religious episode. Rubens always sought to unite and mutually enrich the two worlds. This work was acquired after Rubens&acute;s death in June 1640, when the artist’s family put his possessions and paintings up for sale, attracting buyers from all over Europe who flocked to buy them. Philip IV had the perfect opportunity to not only augment Spain’s collection of Rubens&acute;s paintings, but also to acquire works by other Flemish artists, such as Van Dyck, which the artist treasured in his own collection. The Infante-Cardinal Don Fernando, the king&acute;s brother and governor of the southern Low Countries at the time, sent many letters to his brother. The monarch&acute;s intention to acquire works at this auction is revealed in said correspondence. Thus in September 1640 Don Fernando wrote: ‘(...) the works that Rubens has in his house are many and very good, and so as not to make mistakes and to better suit Your Majesty&acute;s taste, I send you this list of them all, so that you may order me whatever you wish, as there is no danger in waiting for Your Majesty&acute;s reply because they want to print this list and send it all over Europe’. The valet Francisco de Rojas was in charge of the purchase. </p><p>This one, numbered 155 and entitled ‘A Saint George on a Horse with a Cloak’ is considered by J. M. Muller to be the earliest painting by Rubens in his collection. </p>]]></cidoc:p3_has_note>
+    <cidoc:p3_has_note rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[<p>La historia de San Jorge y el Dragón fue popularizada por el escritor Jacopo della Voragine en su <em>Leyenda Dorada</em>. Aquí se cuenta como San Jorge llegó a Silca, ciudad de Libia, donde había un gran lago habitado por un dragón. El pueblo, para aplacar la ira del monstruo, lanzaba dos ovejas diarias como alimento. Al acabarse las ovejas, comenzaron a sacrificar a los habitantes del pueblo, elegidos por sorteo. Así, le llegó el turno a la hija del rey quien, en su camino, se encontró con San Jorge que la salvó: "(...) enristró su lanza y, haciéndola vibrar en el aire y espoleando a su cabalgadura, dirigióse hacia la bestia (...)cuando la tuvo al alcance hundió en su cuerpo el arma y la hirió". Finalmente el pueblo se convirtió al cristianismo por la hazaña conseguida. </p><p>Rubens representa el momento en el que San Jorge amenaza con su espada al dragón, que aparece con la forma de un monstruo con los ojos desencajados, sujetando la lanza con la que el santo le ha atravesado la boca. Al fondo vemos a la princesa, ricamente vestida como la describe J. della Voragine, que sujeta la oveja con la que iba a ser sacrificada. Se conservan varios dibujos preparatorios para la composición, que podría estar basada, según el especialista H. Vlieghe, en un dibujo del artista copiando una obra de Tiziano y conservado en la Graphische Sammlung de Munich. El origen de la misma se desconoce. El historiador D. Jaffe piensa que pudo hacerse para la ciudad de Génova, cuyo patrón es San Jorge. </p><p>Fechada pues en sus años italianos, muestra el estudio de la estatuaria clásica y de las figuras miguelangelescas, con personajes rotundos, majestuosos y fuertes. San Jorge muestra estas características, representado casi como un general romano al mando de sus ejércitos. Uno de los elementos más destacados de la composición es el caballo, que ocupa gran parte de la composición y la articula generando una gran diagonal que da movimiento a la escena. Rubens pintó la baba de su boca, en referencia a los clásicos como Plinio el Viejo, que habla de cómo el pintor Zeuxis engañaba a los mismos animales con su pintura.</p><p>Es un ejemplo de la conexión entre Rubens y la antigüedad clásica, que veía como reflejo de los valores que debía tener la sociedad, así como la imagen hermosa de algo mejor. El concepto de la exaltación de la vida, que viene desde la antigüedad, se engrandece en esta imagen en la que ha usado una tipología proveniente del mundo clásico para representar un episodio religioso. Rubens siempre buscó la unión entre los dos mundos con un enriquecimiento recíproco. </p><p>Esta obra fue adquirida tras la muerte de Rubens, en junio de 1640, cuando su familia puso a la venta sus bienes y sus pinturas, acudiendo compradores de toda Europa. Felipe IV tuvo la ocasión perfecta no solo para acrecentar la colección española de pinturas de Rubens sino también para adquirir obras de otros artistas flamencos, como Van Dyck, que el artista atesoraba en su colección. El infante cardenal Don Fernando, hermano del rey y gobernador de los Países Bajos meridionales en ese momento, mantuvo una correspondencia con su hermano en la que nos habla de la intención del monarca de adquirir obras en esta almoneda. Así en septiembre de 1640 escribe: "(...)las que tiene Rubens en su casa son muchas y muy buenas, y por no errar y acertar mejor el gusto de V. M. le envio esta memoria de todas, para que me mande lo que fuere servido, que no hay peligro en esperar la respuesta de V.M. porque quieren imprimir esta memoria y enviarla por toda Europa". El ayuda de cámara Francisco de Rojas estuvo al cargo de la compra. </p><p>Esta, con el número 155 denominada "Un San Jorge sobre el caballo con capa" es considerada por J. M Muller como la pintura más temprana pintada por Rubens de su colección. </p>]]></cidoc:p3_has_note>
+    <cidoc:p3_has_note_augmented rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[<p>La historia de San Jorge y el Dragón fue popularizada por el escritor <a target="_blank" class="entity" about="http://wikidata.org/entity/Q313460" score="0.34774506" type="http://www.wikidata.org/entity/Q215627"  href="https://es.wikipedia.org/wiki/Santiago_de_la_Vorágine">Jacopo della Voragine</a> en su <em><a target="_blank" class="entity" about="http://wikidata.org/entity/Q129493" score="0.18530713" type="http://www.wikidata.org/entity/Q151885"  href="https://es.wikipedia.org/wiki/La_leyenda_dorada">Leyenda Dorada</a></em>. Aquí se cuenta como <a target="_blank" class="entity" about="http://wikidata.org/entity/Q48438" score="0.9283178" type="http://www.wikidata.org/entity/Q215627"  href="https://es.wikipedia.org/wiki/Jorge_de_Capadocia">San Jorge</a> llegó a Silca, ciudad de <a target="_blank" class="entity" about="http://wikidata.org/entity/Q1016" score="0.14419255" type="http://www.wikidata.org/entity/Q17334923"  href="https://es.wikipedia.org/wiki/Libia">Libia</a>, donde había un gran lago habitado por un dragón. El pueblo, para aplacar la ira del monstruo, lanzaba dos ovejas diarias como alimento. Al acabarse las ovejas, comenzaron a sacrificar a los habitantes del pueblo, elegidos por sorteo. Así, le llegó el turno a la hija del rey quien, en su camino, se encontró con <a target="_blank" class="entity" about="http://wikidata.org/entity/Q48438" score="0.9283178" type="http://www.wikidata.org/entity/Q215627"  href="https://es.wikipedia.org/wiki/Jorge_de_Capadocia">San Jorge</a> que la salvó: "(...) enristró su lanza y, haciéndola vibrar en el aire y espoleando a su cabalgadura, dirigióse hacia la bestia (...)cuando la tuvo al alcance hundió en su cuerpo el arma y la hirió". Finalmente el pueblo se convirtió al cristianismo por la hazaña conseguida. </p><p><a target="_blank" class="entity" about="http://wikidata.org/entity/Q5599" score="0.77370745" type="http://www.wikidata.org/entity/Q215627"  href="https://es.wikipedia.org/wiki/Pedro_Pablo_Rubens">Rubens</a> representa el momento en el que <a target="_blank" class="entity" about="http://wikidata.org/entity/Q48438" score="0.9283178" type="http://www.wikidata.org/entity/Q215627"  href="https://es.wikipedia.org/wiki/Jorge_de_Capadocia">San Jorge</a> amenaza con su espada al dragón, que aparece con la forma de un monstruo con los ojos desencajados, sujetando la lanza con la que el santo le ha atravesado la boca. Al fondo vemos a la princesa, ricamente vestida como la describe J. della <a target="_blank" class="entity" about="http://wikidata.org/entity/Q313460" score="0.34774506" type="http://www.wikidata.org/entity/Q215627"  href="https://es.wikipedia.org/wiki/Santiago_de_la_Vorágine">Voragine</a>, que sujeta la oveja con la que iba a ser sacrificada. Se conservan varios dibujos preparatorios para la composición, que podría estar basada, según el especialista H. Vlieghe, en un dibujo del artista copiando una obra de <a target="_blank" class="entity" about="http://wikidata.org/entity/Q47551" score="0.05765514" type="http://www.wikidata.org/entity/Q215627"  href="https://es.wikipedia.org/wiki/Tiziano">Tiziano</a> y conservado en la Graphische Sammlung de <a target="_blank" class="entity" about="http://wikidata.org/entity/Q1726" score="0.05765514" type="http://www.wikidata.org/entity/Q17334923"  href="https://es.wikipedia.org/wiki/Múnich">Munich</a>. El origen de la misma se desconoce. El historiador D. Jaffe piensa que pudo hacerse para la ciudad de <a target="_blank" class="entity" about="http://wikidata.org/entity/Q1449" score="0.0347609" type="http://www.wikidata.org/entity/Q17334923"  href="https://es.wikipedia.org/wiki/Génova">Génova</a>, cuyo patrón es <a target="_blank" class="entity" about="http://wikidata.org/entity/Q48438" score="0.9283178" type="http://www.wikidata.org/entity/Q215627"  href="https://es.wikipedia.org/wiki/Jorge_de_Capadocia">San Jorge</a>. </p><p>Fechada pues en sus años italianos, muestra el estudio de la estatuaria clásica y de las figuras miguelangelescas, con personajes rotundos, majestuosos y fuertes. <a target="_blank" class="entity" about="http://wikidata.org/entity/Q48438" score="0.9283178" type="http://www.wikidata.org/entity/Q215627"  href="https://es.wikipedia.org/wiki/Jorge_de_Capadocia">San Jorge</a> muestra estas características, representado casi como un general romano al mando de sus ejércitos. Uno de los elementos más destacados de la composición es el caballo, que ocupa gran parte de la composición y la articula generando una gran diagonal que da movimiento a la escena. <a target="_blank" class="entity" about="http://wikidata.org/entity/Q5599" score="0.77370745" type="http://www.wikidata.org/entity/Q215627"  href="https://es.wikipedia.org/wiki/Pedro_Pablo_Rubens">Rubens</a> pintó la baba de su boca, en referencia a los clásicos como <a target="_blank" class="entity" about="http://wikidata.org/entity/Q82778" score="0.020948073" type="http://www.wikidata.org/entity/Q215627"  href="https://es.wikipedia.org/wiki/Plinio_el_Viejo">Plinio el Viejo</a>, que habla de cómo el pintor <a target="_blank" class="entity" about="http://wikidata.org/entity/Q197044" score="0.020948073" type="http://www.wikidata.org/entity/Q215627"  href="https://es.wikipedia.org/wiki/Zeuxis">Zeuxis</a> engañaba a los mismos animales con su pintura.</p><p>Es un ejemplo de la conexión entre <a target="_blank" class="entity" about="http://wikidata.org/entity/Q5599" score="0.77370745" type="http://www.wikidata.org/entity/Q215627"  href="https://es.wikipedia.org/wiki/Pedro_Pablo_Rubens">Rubens</a> y la antigüedad clásica, que veía como reflejo de los valores que debía tener la sociedad, así como la imagen hermosa de algo mejor. El concepto de la exaltación de la vida, que viene desde la antigüedad, se engrandece en esta imagen en la que ha usado una tipología proveniente del mundo clásico para representar un episodio religioso. <a target="_blank" class="entity" about="http://wikidata.org/entity/Q5599" score="0.77370745" type="http://www.wikidata.org/entity/Q215627"  href="https://es.wikipedia.org/wiki/Pedro_Pablo_Rubens">Rubens</a> siempre buscó la unión entre los dos mundos con un enriquecimiento recíproco. </p><p>Esta obra fue adquirida tras la muerte de <a target="_blank" class="entity" about="http://wikidata.org/entity/Q5599" score="0.77370745" type="http://www.wikidata.org/entity/Q215627"  href="https://es.wikipedia.org/wiki/Pedro_Pablo_Rubens">Rubens</a>, en junio de 1640, cuando su familia puso a la venta sus bienes y sus pinturas, acudiendo compradores de toda Europa. <a target="_blank" class="entity" about="http://wikidata.org/entity/Q691402" score="0.06661896" type="http://www.wikidata.org/entity/Q215627"  href="https://es.wikipedia.org/wiki/Felipe_IV_de_España">Felipe IV</a> tuvo la ocasión perfecta no solo para acrecentar la colección española de pinturas de <a target="_blank" class="entity" about="http://wikidata.org/entity/Q5599" score="0.77370745" type="http://www.wikidata.org/entity/Q215627"  href="https://es.wikipedia.org/wiki/Pedro_Pablo_Rubens">Rubens</a> sino también para adquirir obras de otros artistas flamencos, como <a target="_blank" class="entity" about="http://wikidata.org/entity/Q150679" score="0.06661896" type="http://www.wikidata.org/entity/Q215627"  href="https://es.wikipedia.org/wiki/Anton_van_Dyck">Van Dyck</a>, que el artista atesoraba en su colección. El infante cardenal Don Fernando, hermano del rey y gobernador de los <a target="_blank" class="entity" about="http://wikidata.org/entity/Q55" score="0.045753155" type="http://www.wikidata.org/entity/Q17334923"  href="https://es.wikipedia.org/wiki/Países_Bajos">Países Bajos</a> meridionales en ese momento, mantuvo una correspondencia con su hermano en la que nos habla de la intención del monarca de adquirir obras en esta almoneda. Así en septiembre de 1640 escribe: "(...)las que tiene <a target="_blank" class="entity" about="http://wikidata.org/entity/Q5599" score="0.77370745" type="http://www.wikidata.org/entity/Q215627"  href="https://es.wikipedia.org/wiki/Pedro_Pablo_Rubens">Rubens</a> en su casa son muchas y muy buenas, y por no errar y acertar mejor el gusto de V. M. le envio esta memoria de todas, para que me mande lo que fuere servido, que no hay peligro en esperar la respuesta de V.M. porque quieren imprimir esta memoria y enviarla por toda Europa". El ayuda de cámara <a target="_blank" class="entity" about="http://wikidata.org/entity/Q1442310" score="0.0028178813" type="http://www.wikidata.org/entity/Q215627"  href="https://es.wikipedia.org/wiki/Francisco_de_Rojas_Zorrilla">Francisco de Rojas</a> estuvo al cargo de la compra. </p><p>Esta, con el número 155 denominada "Un San Jorge sobre el caballo con capa" es considerada por J. M Muller como la pintura más temprana pintada por <a target="_blank" class="entity" about="http://wikidata.org/entity/Q5599" score="0.77370745" type="http://www.wikidata.org/entity/Q215627"  href="https://es.wikipedia.org/wiki/Pedro_Pablo_Rubens">Rubens</a> de su colección. </p>]]></cidoc:p3_has_note_augmented>
+    <date:textDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="en"><![CDATA[1606 - 1608]]></date:textDate>
+    <date:textDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[1606 - 1608]]></date:textDate>
+    <ecidoc:p62_E52_p80_has_time-span_end rdf:datatype="http://www.w3.org/2001/XMLSchema#date">16080000000000</ecidoc:p62_E52_p80_has_time-span_end>
+    <pm:publicationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">20150428000000</pm:publicationDate>
+    <pm:main_image rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[imagenes/Documentos/imgsem/de/dea0/dea0a4cc-110e-425e-a8e2-bdb37444d26c/39c9bdf2-6e38-4537-87b6-c0348528db4f.jpg]]></pm:main_image>
+    <cidoc:p27_moved_from rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="en"><![CDATA[Royal Collection (Palacio de El Pardo, Madrid, 1674, nº34; Palacio de El Pardo, Sala donde se abre para su Magestad., 1701, nº34.; Palacio de El Pardo, Pieza vigesima nona, 1747, nº34; Palacio Nuevo, Madrid, Antecámara del infante don Luis, 1772, nº915; Palacio Nuevo, Antecámara de las señoras infantas-pieza encarnada a la derecha, 1794, s.n.; Palacio Real, dormitorio de príncipes-pieza primera, 1814-1818, nº915, Museo Real de Pinturas a la muerte de Fernando VII, Madrid, Salón 1º Escuela Holandesa, 1834, nº52)]]></cidoc:p27_moved_from>
+    <cidoc:p27_moved_from rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Colección Real (Palacio de El Pardo, Madrid, 1674, nº34; Palacio de El Pardo, Sala donde se abre para su Magestad., 1701, nº34.; Palacio de El Pardo, Pieza vigesima nona, 1747, nº34; Palacio Nuevo, Madrid, Antecámara del infante don Luis, 1772, nº915; Palacio Nuevo, Antecámara de las señoras infantas-pieza encarnada a la derecha, 1794, s.n.; Palacio Real, dormitorio de príncipes-pieza primera, 1814-1818, nº915, Museo Real de Pinturas a la muerte de Fernando VII, Madrid, Salón 1º Escuela Holandesa, 1834, nº52)]]></cidoc:p27_moved_from>
+    <cidoc:p55_has_current_location rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Sala 028]]></cidoc:p55_has_current_location>
+    <ecidoc:p55_has_current_location_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[1/s_28]]></ecidoc:p55_has_current_location_id>
+    <pm:departmentId rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[85]]></pm:departmentId>
+    <pm:inventoryNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[P1644]]></pm:inventoryNumber>
+    <pm:nerProcessedEn rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</pm:nerProcessedEn>
+    <pm:nerProcessedEs rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</pm:nerProcessedEs>
+    <pm:prominent rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</pm:prominent>
+    <ecidoc:p102_E35_p3_has_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="en"><![CDATA[Saint George and the Dragon]]></ecidoc:p102_E35_p3_has_title>
+    <ecidoc:p102_E35_p3_has_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Lucha de san Jorge y el dragón]]></ecidoc:p102_E35_p3_has_title>
+    <ecidoc:p65_E36_p138_represents_flora rdf:resource="http://museodelprado.es/items/FloraPath_dea0a4cc-110e-425e-a8e2-bdb37444d26c_ec531347-31fa-45b0-b571-fb41e9c51c2f" />
+    <pm:aboutEntityThing rdf:resource="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_28f92d33-c2f9-4465-b01c-754c32cf0c8a" />
+    <ecidoc:p65_E34_has_inscription rdf:resource="http://museodelprado.es/items/E34_Inscription_dea0a4cc-110e-425e-a8e2-bdb37444d26c_3bcc5c5c-6980-4277-9f8b-1b697638e9ca" />
+    <ecidoc:p65_E34_has_inscription rdf:resource="http://museodelprado.es/items/E34_Inscription_dea0a4cc-110e-425e-a8e2-bdb37444d26c_d33aee5f-bdb4-44ce-970e-a6b55b3d63a4" />
+    <cidoc:p65_shows_visual_item rdf:resource="http://museodelprado.es/items/E36_Visual_Item_dea0a4cc-110e-425e-a8e2-bdb37444d26c_1a1dff1a-077a-4bfa-bf5e-ba482067046a" />
+    <cidoc:p65_shows_visual_item rdf:resource="http://museodelprado.es/items/E36_Visual_Item_dea0a4cc-110e-425e-a8e2-bdb37444d26c_3c614480-8873-4e01-99d8-5a58e5ccc63c" />
+    <ecidoc:p65_E36_p138_represents_wildlife rdf:resource="http://museodelprado.es/items/WildlifePath_dea0a4cc-110e-425e-a8e2-bdb37444d26c_45578f6f-05a0-4acf-bfb5-6c0dd054d61b" />
+    <ecidoc:p65_E36_p138_represents_wildlife rdf:resource="http://museodelprado.es/items/WildlifePath_dea0a4cc-110e-425e-a8e2-bdb37444d26c_49dfafaa-9647-4c51-836b-89cb54b99ace" />
+    <ecidoc:p65_E36_p138_represents_wildlife rdf:resource="http://museodelprado.es/items/WildlifePath_dea0a4cc-110e-425e-a8e2-bdb37444d26c_c2906bd1-1e28-4195-840c-4d904f41512f" />
+    <ecidoc:p108i_E12_p32_used_general_technique rdf:resource="http://museodelprado.es/items/TechniquePath_dea0a4cc-110e-425e-a8e2-bdb37444d26c_f195db1c-eda9-4405-a3b3-17c23ced1d2e" />
+    <cidoc:p12i_was_present_at_exhibition rdf:resource="http://museodelprado.es/items/E7_Activity_E22_Man-Made_Object_1027b51a-a7dc-4199-7ce6-5ff4a2710f74_3e367bd5-68e0-4acd-aa9b-f786b342deb0" />
+    <cidoc:p12i_was_present_at_exhibition rdf:resource="http://museodelprado.es/items/E7_Activity_E22_Man-Made_Object_8d3d655f-bbaf-48c1-90d3-98015487bfcb_d6a6b7ce-130c-4d5a-9a3c-d2e96aaeb9b8" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_434bfb1d-94ae-46b5-860e-2e76bef8bf6e_ffe6c805-f0b1-438d-80b4-346d326672de" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_390bcc3b-b263-473c-8254-14b4a19e5649_334e1054-910c-4207-a0ea-20406a25f655" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_79b35850-07a4-44f9-8522-393a2606644f_5c78dce9-2c7d-435c-8db3-0f50fba1dad4" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_ccdfde9e-f384-1cfb-ae1d-355e79a64c82_15bd1461-f2b8-45ea-9c8b-28df83845e28" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_a9f092d0-e531-4be5-abd9-0af89359cb40_7d543025-1609-471f-a801-d17e642a8ef0" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_513bd348-2e67-7f39-b7f5-f50578c8bb9f_0f4c1d5e-bd6f-4814-abe6-e2edecad5ec3" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_32c7758b-8b2c-19f8-8113-903a15f7b98f_94b5cb9f-aafd-452b-8ee3-c2b42c9aecbb" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_bb7c4f37-fe87-1de3-a05c-d25fb525ba14_1b60865d-b7ac-4fef-abd5-307e01a84c4e" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_2fc0456f-67af-b112-40f7-d22cea69c761_16f4fa08-e96a-4957-a21b-5bc6f29dc74b" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_dc06326d-10b2-454c-85ca-b48352f4e4f2_ad829257-f918-43bb-bcbf-e226eb8a8b50" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_7f7cb718-41d6-403c-b6f4-d416f7628911_7ce1e2e6-690b-4616-949a-f98c4f61c79e" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_6c8c2499-7339-4df0-b7d7-8b300656ec1c_bd6835ac-de1f-4dda-bd46-68aebd044689" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_6a426bb8-38d5-4abd-9fc8-80a489faf224_10178b43-df58-449f-a83e-14a44f3d9872" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_e530b629-e0f8-421c-b785-c8edcfd84c7e_663c0071-fe2f-42f2-9f93-6961ca241b58" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_6b85f618-9c39-4be0-b6d8-5118f177b23d_35e235be-707b-4111-b039-ce0b6f59e7f0" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_f1493306-a85d-4914-b6fb-a75d631a92e4_00ca4cf2-4bde-48c8-a697-b8d293eda1a0" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_d3a01d10-43e5-4f7d-8200-7843b6b371e2_91c0d770-44f8-44e5-a835-747adae162d9" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_b18ab2cb-7430-0b97-2994-edc005999c63_b0723409-4a54-4197-8637-12d617846ef9" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_95fac1a3-238d-4915-bfb9-d5976b707ae7_8b18469d-15f4-4437-acf6-1685f6deefa6" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_fe18b161-ac77-4a0f-a906-dff283d46334_945b5b7d-d6eb-49f3-9584-d765ff939bd4" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_76dc3eb4-9070-4770-9ddf-0a8c04be7d6d_64e29242-4184-475d-82f6-dd85ce963120" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_2860a737-6c93-4a1a-b9b6-b71540ad88d8_244d7c2b-f290-4162-b9ce-162038cbacbd" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_cab8ac3c-e68b-9f46-347e-b8f049a8552c_121d15a3-16be-44a8-a431-47229c25aba2" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_e635cba2-869f-47cb-904b-73627bf8f062_244a74b2-fb63-4dda-8576-c9ed68a31ea1" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_09f557f3-30cd-4eaa-b730-38636bf11b46_48a16d70-ae5c-444c-8fa9-d5bfc9fda6e9" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_daf8e1d3-ea24-4d5d-b403-f3057f386346_0001ea01-a2cd-4378-8ede-f19903ba9f65" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_416de5ca-b5a0-415d-8d4c-a5f7506ef829_f25baf76-2978-43e9-8d72-73d28aa3034a" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_2a94d872-9718-44f3-9d04-1416c4de3497_f2b915ce-3e90-4d21-98e9-9ff65e814fab" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_b7be6ede-e7d8-4560-af71-31fc95b50405_eb70ebd5-ced8-48f1-bed8-6ef696d35f54" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_91811212-89d2-4901-aab7-9089b2717f30_f6e8c537-28a0-4436-9a8b-3cfe0632bcec" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_7888d18d-ae89-42fc-9242-4b64507e4461_e8a922d2-54c2-4ed3-bf07-d66d0893aa3f" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_03dcb98d-cc2d-3c4b-3887-7da7d59429ba_fbbf5d5d-4ce9-4d4f-8f5b-fa0c6c620898" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_e1dcb5d7-fb2b-7823-b1ce-f856fa4fe2c3_98361297-5e03-4284-8d8a-8ca5ebfdd830" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_80eaecdd-557d-44c9-bcf6-ebdf6d24e062_b555da99-01c6-439f-844e-0f079a918ad0" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_53f6c7c9-36b5-48fd-e4ea-532704bf7568_9d178bb8-2eeb-4051-9459-e743ea25af65" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_bdd48a6d-192d-4a69-be14-f457c036174a_21c51468-86d7-4f1e-bcad-ca8be36d01d2" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_cb1b548c-f11d-4a95-8d0c-44a27c896714_ae1845a5-f93e-4034-9a56-782c5b6ee91b" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Interactive_895f0151-c2ee-c402-774b-289566fe7c17_0a80442a-c9af-4861-9396-848365d04897" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_68a75471-10df-4c82-bce6-2c1a40a66dad_e9705d65-49d3-4577-93fe-7be82915e1a5" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_b20c1a6b-2214-8d03-10c6-935b771da4cc_743a54ff-3700-4a17-aa36-d1939e5d98b8" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_ec21fc29-219b-41b3-a16a-f8082bb56a32_900d9da8-da9b-4123-84e9-53b3ce991419" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_c6ce7dc7-224f-c732-70f4-0476d257d73a_662d125f-f634-4cce-a4de-3ee0941bde91" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_1c21ecb5-d4fd-4b5e-3806-d4a19ff96990_94d23633-6ea2-4c5a-b909-f1315ebdd149" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_d5726073-9aab-c650-79d4-31fb5ce8c071_7151e9f9-3f70-4818-ac0e-35fefc121ebf" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_adfa73d9-f51a-f0bb-5fa2-c2b49613cc0a_086c3ba0-1f49-4fd0-abbf-b3e2999e00f7" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_d90e7596-f30c-188d-5409-436dac9b7da3_e720c3f1-f54b-4ad8-8327-c6d1291fb1ab" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_6f6fae5b-8bd8-9aec-1b5e-f8e4a1d49f0c_87d08fce-ebfc-40f7-85b3-99df6a8b7a66" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_4db5d3a0-5ede-8f95-7ab0-d2996e17c3e8_16ccd5b2-d2e8-450f-a5ed-6f2e1263b6d7" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_f9506751-3771-3de6-ba57-b660f2f420d2_1429de59-d6d3-4f90-acbe-bf7f63b9e68b" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_2f3c330c-4d70-5537-bc56-3b52c126af25_e278deba-8028-4d24-ac90-09db272418ec" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_44608b2f-86ca-12e1-1a23-84f599505829_34249380-dce4-4b18-b1c6-6e59e0c5f7ef" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_41b38db3-e089-9b5a-06a5-1c66fb077cc8_401e990a-472f-46a7-b077-f47ac2179785" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_75295176-6210-62ef-58ae-6976a37898c3_fecb95b2-a4f8-4064-88e6-74cc086fcd42" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_fe59e4ba-2cd7-340d-a259-ec605e0b996c_64a06858-ede1-42df-92fb-3842a88e2f79" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_5b8fee53-aac6-1f98-d89f-efc88ebd58e8_7904f3f6-2450-4e28-9512-d7aa39d6a4bb" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_760e945f-a7f2-6ef8-1de1-9cd469057b75_f80accb1-ec60-4921-8796-a74ab7b308d7" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_920989a0-9065-0027-26a9-68877312a5bb_60d03828-9a04-412d-9428-0f36dcf6b6c5" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_fec870e5-be3c-8164-3d8b-4fc42da2f776_c96924d3-1186-497d-ad86-504cd7d36c1d" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_eed3c145-793f-8aac-caa5-9d71584d4d75_938b8691-0f49-4fc4-b0fc-701ca5e6d698" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_10f7ef4c-5844-50c8-c90b-c5c01964eb50_81855445-b1f5-4530-96f6-a56014a375fb" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_f0dc4ce0-e51d-f53d-563f-316685db475d_d4d67656-6d2f-4678-99b6-ab0ee17a23e7" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_c05e3ff5-404f-7b46-b3ae-bb2c245d3c47_6594c019-626e-46e7-90bb-fc24e312047c" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_6dd01493-e4de-3070-af1b-05d7840447db_ccfbfd93-f238-40b7-865f-9530a74b056a" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_c2da4d95-f9a7-486d-a890-3131ede76b15_c2c3d8e0-705d-4bf8-ad50-e82c8f74c02a" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_d391355e-ea89-103a-cc40-1f8e7e138254_1aa160f9-9c91-4ee8-b542-0c6abb18ed32" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_334e6def-ecff-4196-b7f0-6eb0c8f6ffd2_e7e68eb5-281e-4d77-a17b-1430e0b21231" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_a92fabac-c6cb-4543-89c2-34c0c836286f_f6da8bfd-39e1-4428-b001-2ee84eb6ceb3" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Interactive_28d81c4d-247a-ad5e-8abe-f36e1f88ff0c_dbea0402-49b0-4ade-8ad3-c6d4dd57da98" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_dd29aeb7-ba62-483f-a20b-56ab50c75147_1ea23927-dce6-4e4d-912c-fe24b80058c9" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_7a06a699-734b-4159-a6a0-05019d678cbb_efa257c4-a7ae-4788-9c32-3f7fdee7e4d0" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_6edc3580-103c-4f87-8009-1f4845baa55d_d607c52b-d97e-4b43-acee-f1974817915d" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_399cf476-36c6-4b9c-af68-81fc159b954a_6becf03e-181d-463b-9ae1-6907ae3f5479" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_7a6198d6-8d34-4c89-7a7c-ca1f0263bfb1_4ad11acb-b026-49a0-bee1-e2e56574d26c" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_33fb4ae6-f7dc-41da-04d8-a2a9b65f4ef2_5e3a8a69-1bc6-49ad-80f6-5abf0c2518e9" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_ec97cb4a-b7b6-dc93-be7c-36b7be499fc3_bad3ac18-ba5f-44c0-b30b-ef17f675a601" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_ae32cdb8-b27a-d37e-3e0f-e8f0f8eddbf4_b4a30ed6-b350-4771-a419-c69a52b8951f" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_5effa14c-d690-b5a8-5d1e-ebd2690b67a6_991639d8-022d-45fb-a4ee-9ea9d4c1e172" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Interactive_18e6e71a-2ad2-efa6-bf35-962f5f0148b0_59d48170-d873-4a24-aee3-c74f2db89af3" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_f04f84a1-2a38-377b-cbce-def46c241f7e_864c97a2-ed72-43e2-b163-818080d9c7c3" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_f350c372-abec-94a0-c098-ca20daf6b3bf_449bbf82-ed98-43a7-8b99-1e2b9da15448" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_160edb8e-0595-4662-ba38-40d3c4bb42b7_c3e4ec64-d619-4db6-924a-c57ffbe70102" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_e5eb013c-5c8d-42cd-94c1-4e46c83336c1_936e1114-47d0-43ab-b2c9-e7100857765c" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_cfc974e8-6662-4fe8-9b90-948d42445c3c_c3cbbec7-035b-41ae-9feb-29052aece269" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_839655c4-6e98-4614-887e-647d905215ca_1cde70bc-48b5-4ff1-b801-ac2223e2acab" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_5dcd1a19-fa90-45c3-90f0-adac12226e8d_49e7856d-83a0-4333-b847-1445cb29bd7a" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_9f0d2a0f-7eb6-4253-b72c-9be6e33a8e44_2c45c841-a905-406c-9c85-b7582aaab014" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_da1ab3af-d5b6-4a2a-8bca-b0742289531f_ddb3557f-99ee-4061-8321-84c41fc8ed31" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_993c775d-3833-4a9e-a9e5-fbb0401d0fa5_a64a8343-88f8-475a-bddc-2d1be9197eb6" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_e00641c8-243b-4d91-9b24-0fb006fd62c2_c4e810bc-1060-4c95-9739-1e8dcd8a0fd2" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_cebd4ade-f7d7-4f96-a63b-62320ed5cf9a_6bf1b64d-e02d-4529-adf8-df18058178ba" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_24bd509b-5ba1-4d49-a77d-30414f4750fa_c2f928da-26aa-4e2a-a362-7266c86a31a6" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_e35e94d9-22a8-403b-80e2-06a52f1c8352_d136e49b-f542-40a7-b60d-0c6c639bb173" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_0fdd9dce-f4fd-4743-9470-136a59f850d4_c35ad199-f1df-48e2-9535-f82ab2492ba6" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_a4b77a64-c190-42ba-a419-84f0cb1bc23f_d5d183e0-ff25-4a0e-a13d-149ecca090e1" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_14c44124-2e2c-4109-8292-a8ba81a9d32c_5d0b9a9b-6869-4e09-9e02-734c9d0a683d" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_a8b6d763-3920-4be8-a4dc-a360be256bfa_c0b3b2ba-d05f-4e7a-bbe8-764cab932bd9" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_54a60a91-2bcc-4337-b2bc-744098b5c13c_0f694458-12e1-4743-a7dc-b69dd4dc2d24" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_6635c381-8e9c-4569-8f60-afaf4d498af0_058055a3-680f-43c2-a578-d623bf016e30" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_3bdcdf2e-81bd-44c2-9baf-131ec2bb00d4_12a98eb6-fdf1-40c2-9f0d-c60bc4a5fb17" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_f522ad89-2a55-4a3a-a7b1-6d3c3ea5d5f7_b3200115-c565-4d46-ab1f-3fd66961d719" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_b4fb7a1c-c482-420a-b96a-dfdb1d215b7b_6183488c-d477-440f-9ed2-03ba1d1df819" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_a2d06bc6-f77b-405b-9b8a-c89d9444d513_86f8d7d7-455c-4072-861b-7084376b7b11" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_700d36b0-43b3-436c-a28d-12a4e28f5c44_19a96bca-b0a9-4f72-8fc5-247d37b292d0" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_714bf1b9-4b13-49ab-9702-5f9ecc6cfc19_533e9329-edfc-4352-be2e-476103d7d4a9" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_031824b7-043a-47ee-bc46-9d33f143b948_7efe47af-363c-4ac0-b731-0fb25625d1b5" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_029906de-6455-4a3a-80b8-f5c84bd7750c_a289478b-90e7-4449-a2bb-beb6e040d0d2" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_f28697b2-9be6-4632-ae6c-ea0046d4470f_23fede4b-8f05-4b03-90e1-64cf77b159e8" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_f00fd911-cc38-4477-bb88-33918b23e8db_5188bbe1-6fd2-48b6-889c-c465de88c161" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_362a64be-b679-4cda-8529-a8c6486eba72_7baa7dfb-4525-4dd3-b4bc-480f8fab9a87" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_7f3a8fa2-2d35-4c97-98d3-bbe052e61373_f74b0296-0822-4b36-9ffa-c2d63dff5e06" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_734f7ad4-9af0-49ed-a366-b71c96f0c7f9_1b40171b-bd3a-497a-a7ef-372566743421" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_40d14725-3e9b-43df-8d60-c4fa70983be2_470b49ae-347b-4e48-86b3-b1dbd14ff5b8" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_7236f23e-e18c-4246-954d-f4b34f3a55fe_25d6c1de-99e9-406b-a29f-c83ebb7c4113" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_03ee91a3-f7b6-4bf3-baa4-f23aff4c48ae_64d1845e-0863-420c-9a57-f13073e98bf9" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_bb4130f0-da22-487c-b4e7-f86eb524c74d_47c994d3-336b-47d8-91f3-eafc25b3c877" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_ff0a273b-d3b9-4d6d-b1bb-178b80cd701b_11b43481-a2e5-4b33-b4e2-ca62b10d13d4" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_f43a319e-50ca-4a6e-bb60-e242a34cd77a_9d9f5853-b206-4332-8074-4701e544ade3" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_588d95ac-5172-497e-9a97-74392b05928a_78311fa7-f544-46dd-a51a-7819355e9e4f" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_77a00c3a-f31a-4592-b937-77e7515a3f4e_20a737dc-6c77-46d3-a326-528abd77bbac" />
+    <pm:i_artwork_multimediaresource rdf:resource="http://museodelprado.es/items/Video_fb8921c0-9c38-4276-8cb5-0f9c0b71a58f_b81ccbdb-0a3e-40e8-8946-20f2aea01d18" />
+    <pm:relatedFrame rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_357c9198-5088-4be0-92e1-44a47168d9b9_202b30cc-6df0-41bc-be37-4486efaffeb5" />
+    <ecidoc:p65_E36_p138_represents_person rdf:resource="http://museodelprado.es/items/E21_Person_828" />
+    <pm:relatedExhibition rdf:resource="http://museodelprado.es/items/InternalExhibition_ET2004_058_26_10_2005_londres" />
+    <cidoc:p1_is_identified_by rdf:resource="http://museodelprado.es/items/E42_Identifier_dea0a4cc-110e-425e-a8e2-bdb37444d26c_022f105a-3726-4258-9c5b-5a9bbfb94328" />
+    <cidoc:p1_is_identified_by rdf:resource="http://museodelprado.es/items/E42_Identifier_dea0a4cc-110e-425e-a8e2-bdb37444d26c_1bd1be8a-b8a8-4a20-bb4b-936abf4a599d" />
+    <cidoc:p1_is_identified_by rdf:resource="http://museodelprado.es/items/E42_Identifier_dea0a4cc-110e-425e-a8e2-bdb37444d26c_285a0dff-ea11-414c-a5e8-877d12cbc8e4" />
+    <cidoc:p1_is_identified_by rdf:resource="http://museodelprado.es/items/E42_Identifier_dea0a4cc-110e-425e-a8e2-bdb37444d26c_43e52deb-58fa-4d46-a149-a68e57825720" />
+    <cidoc:p1_is_identified_by rdf:resource="http://museodelprado.es/items/E42_Identifier_dea0a4cc-110e-425e-a8e2-bdb37444d26c_45c0177c-0a90-46f8-8589-06ad6d11c35f" />
+    <cidoc:p1_is_identified_by rdf:resource="http://museodelprado.es/items/E42_Identifier_dea0a4cc-110e-425e-a8e2-bdb37444d26c_50ae0ffd-b457-4b0d-a4dc-9dbd9b0f286e" />
+    <cidoc:p1_is_identified_by rdf:resource="http://museodelprado.es/items/E42_Identifier_dea0a4cc-110e-425e-a8e2-bdb37444d26c_cd178a39-03e2-49a3-b1af-75a8f702d4ab" />
+    <cidoc:p1_is_identified_by rdf:resource="http://museodelprado.es/items/E42_Identifier_dea0a4cc-110e-425e-a8e2-bdb37444d26c_d2bf7650-cacd-4857-a336-300529f7f7f0" />
+    <cidoc:p1_is_identified_by rdf:resource="http://museodelprado.es/items/E42_Identifier_dea0a4cc-110e-425e-a8e2-bdb37444d26c_e4f9c546-7405-4fd3-aa92-ff907dce8072" />
+    <cidoc:p14_carried_out_by rdf:resource="http://museodelprado.es/items/E22_E39_Man-Made_Object_Actor_dea0a4cc-110e-425e-a8e2-bdb37444d26c_8d75fd78-ef14-4124-b566-66c3cda3862e" />
+    <ecidoc:p4_has_time-span rdf:resource="http://museodelprado.es/items/E52_Time-Span_dea0a4cc-110e-425e-a8e2-bdb37444d26c_7fe0931a-5537-4594-8c97-6d292c162a70" />
+    <cidoc:p2_has_type rdf:resource="http://museodelprado.es/items/ObjectTypePath_dea0a4cc-110e-425e-a8e2-bdb37444d26c_f0c94756-5e01-4a18-9094-864a4922e901" />
+    <pm:aboutEntityPlace rdf:resource="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_a1b8b6d8-b598-471d-a02f-87ccfad4e344" />
+    <pm:aboutEntityPlace rdf:resource="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_a753613e-66d2-4115-b5bc-dc4962596210" />
+    <pm:aboutEntityPlace rdf:resource="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_bc0e3419-2e47-47fd-8d63-396485d459c3" />
+    <pm:aboutEntityPlace rdf:resource="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_e7d9e2be-d896-41b6-9a17-5cb57d600733" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_8be51e3d-9e1d-4ce0-b578-34622eb3419f_dbde4d24-87c2-493a-a241-d8fe56e6c110" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_9036d470-10cd-4cb8-9308-0aa66b846dbb_5779238f-0c8b-4afc-ba8c-8362e57ab2e1" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_ab345c31-a898-4e10-8127-7290273ddf27_c9d57677-ebde-4d81-9853-833bc284aaaa" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_e447dadb-b93f-4ce5-84e9-e6ae1d95c6cd_02b1493b-ce76-483d-9ae3-8944fca55e56" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_323c6f0b-8a88-4241-9499-d4e389d0de64_b84176f6-7990-46f3-a795-6b70c9c7b7ea" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_e746cfc8-6f54-4d71-bf93-f6cc40af2e6d_2951d9ad-fb46-4161-ab3d-86fb559af21e" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_191cc2c4-2562-47bd-89aa-97cbf65c6bd7_88b60b70-1b9f-4e9f-9c21-6935b0ee99b8" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_918bc2de-00a9-480d-87ba-96ac25f22bf4_c06142fb-8704-436b-a62a-17a2063df6b7" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_02ef9e0d-b544-48cb-bcd0-89611b37f55b_b19ae4e0-4959-44ef-a2e4-63c2c01a6bf9" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_0679cee8-ea16-47dc-81f8-179530faaa68_7fae1b2c-a675-4eb7-862a-29d67bead57b" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_191fcaa5-1841-41dd-bcae-939be2f88437_978b2798-3e87-4e46-be5a-d7713c57a3bf" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_29bfd358-bfd3-43b4-a894-b57f6eb2d81f_9bf01c9e-9685-41e5-a4ca-e55b28b3bbb3" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_31893b2a-7ccb-411d-9ad1-de7360e81dd3_41bd966c-fe16-4bd9-bc0c-8c4291360a6c" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_36dba607-3137-455f-9d0d-2b7d3b3a1c1b_1582eafb-f27d-451e-a6cd-abd20f792843" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_3b512d00-0e07-47f9-944e-159058552dbf_9efc8f6a-bf4a-44fd-ac52-b9a69b94346b" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_629fe4f7-9fdd-4b8f-af15-653882a62493_3c00de6e-c639-4b4b-94f6-09896ef2569b" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_7266e04d-6251-4769-a1c1-7d2711eceb3b_89a412c0-d970-4d6b-8001-47291eaf706b" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_72f76d59-fab7-4cea-8214-af0fb98fc293_4c2b32a3-4786-48a1-9832-a077a987f57c" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_a0e78920-8f28-47f5-8cd5-f50ba1dfa8c5_9602d876-337a-40f8-96f9-fb76e442756b" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_beff0a27-a731-47d8-b48e-144f8f98de8c_153f4508-65d3-422c-ac27-d83cacc44da6" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_d9ce01ba-2d87-4bb2-adc1-266482f24875_b1b3c1e1-0dfa-41b6-ab24-38c5bd275d15" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_e52ae737-7a03-4690-9709-4eb5eec3fa98_4c524490-fbbe-45af-8eab-4ef8810cf43d" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_f49d896e-547c-40bd-ac5d-4cb537e429d8_eaf92470-ccf1-4706-97a8-f1d9a51d342d" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_2c837c1b-880c-485b-b04c-184b1c9bd5d6_e5aac135-3c99-46c9-b674-37b6e9dc2f78" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_b067f605-a563-483b-8efe-4058a8338ea3_1e7f3166-c4e7-4f8a-9c23-1d037c85e11c" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_4f70412a-111f-4887-811d-1510c473d9ce_c5ec3d5f-0c21-4c7c-9e32-7f4b26198047" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_71f4756b-2c04-47e1-88af-14467ddccdc5_e22ba415-21af-4534-8bfe-e352e78a1a18" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_75faa7e5-f985-43f8-bf56-0be9e07952bd_90ddaa5c-a1af-4793-a69f-de421a7d931c" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_e51e9672-a6ad-4b43-bb00-5f6062bd545f_27e1b6d0-79cd-4155-99f9-6c7638f99d5a" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_1347e977-219d-44b0-83c3-2fb9ce5565c2_09561864-2084-4983-a768-03aecf940f09" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_074adedf-40f0-476f-b132-fe450e71e0f3_82a29eaf-5c7d-4715-8aa0-7119d66b0673" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_4f44351b-0f3c-4deb-90cb-3f2d85f2b092_d204384d-5781-478e-b4de-2a766b1c3d17" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_5c57772a-c0dd-4842-b66e-0f3955374f6c_287b0bf6-08be-47c9-beaf-a473a3d1e897" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_79d8949b-15e5-4de2-8aad-6b9e2bdaf95f_f465a797-5abc-423e-b371-37e06dd189dd" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_adff981e-a317-4152-9e04-05ada13be226_789e6916-51bd-4e5e-985d-659edd9ea967" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_b64404fa-31dc-43ec-80af-54f3af7230d3_74595bfe-d244-446d-95a6-a27f579af774" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_df2381a5-3622-400a-b64c-19276013c2a7_370883ce-3155-4d76-8c4a-d84df5c6b44a" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_2a722256-2d07-4082-8a32-7caee0a04b95_f8237696-fca4-4c39-9c2f-49b17e7bae88" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_c100fb8e-0855-4387-b6a7-6e39707eec30_7a74d432-5fdf-46ee-ad1a-f4d84acaabd1" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_c7b96909-44f6-4e3c-9e29-7d1ef33e23ad_a8daeafd-c9d6-46fc-9755-a4f05a457e67" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_0c02b2a6-1562-45b0-b921-428a1a9941c0_0fc86044-86e6-43ce-9894-a245fbac4765" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_2dfc9ba3-6873-45af-a2a6-aa8d14b6fea4_5fbfa1c5-796d-472b-8bc7-bf39b59f5735" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_34e44f15-389e-4782-9538-092b3e08a44a_660ab6b3-510e-4906-9319-22673c5a78e6" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_a07ba8b0-f1db-4d9a-a7cd-c103422d8f16_6d97b6bd-fb6e-46d3-b1a5-4cad6d55ef65" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_c6a0ed37-f1ba-4781-9258-8eabd87ff1c2_3d32fb52-d672-4407-88e3-3a2f76954bcd" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_c83a26fc-68b4-4d84-b397-00c1b4401b95_27890f10-0659-42c3-ae69-b414f729d59d" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_d82ff75e-6c3a-40e5-96c6-83f67cc88c2f_95f44cdd-3271-424a-9bed-8ae1281ca94f" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_d901aff9-6f7f-427c-8654-c7186ea80cce_70d4665a-635a-48db-b5c3-aacbeaf7de2d" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_46d80512-addb-4ecd-8a71-f9333e048ad0_0b1121d2-7a3b-44d0-b8c7-e00f89a4e268" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_558f46a9-8874-4e8e-91ba-ea13c42dd2bd_80b9424c-e876-41d2-8b69-7db31f41da9e" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_b8d2f1b1-e0e4-4f3c-931e-5ca70207751c_71ba7922-f88e-4b07-bce1-7af8ffdce56e" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_a136a9c4-3a2f-44bd-ab8a-97fd47c30d7e_44fcd5dc-ce72-4a70-aaac-6aa8f27295d4" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_abea9a48-3712-4068-a0dd-c669005430d5_8d88d4f4-2a92-484a-820f-92f44dabbd91" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_de0047db-6f8b-4761-a55b-ad41e959cca2_1b791e80-04de-43e2-a431-245985070e3b" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_3d8e9266-14b6-4d66-ac5e-9ded947911cf_b887eaa4-1c06-4ea6-87f3-173f69bdd03f" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_45acdb8d-bb84-480b-9db3-5a96c29c3096_70173271-edc3-409d-8465-9fe9e284ce43" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_4feb537d-e140-4580-8b32-f3e95e73a09d_09e25875-8567-40f3-8b07-3fa78be0b461" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_7111c9f1-375e-4873-90c9-08679f1ab2ce_04186310-2f5a-442f-bba7-2f0d28c5fa8c" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_75491513-370c-45db-ad48-86b10e1a59f5_f692bc47-51ac-437c-8bd6-1db8f102d706" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_e6e93efc-e851-41d9-bf9d-50e147babb30_6f76d1e1-9987-4c36-9f05-5f514d6c84d7" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_f9bedfdf-384f-4061-89e7-0d18cf240f49_5c92f1a4-4bdd-4e78-9301-9f4f80d5efdb" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_1086e8ad-8cda-424d-860c-3d147545ae48_ed3c84ca-0075-496d-96a2-122a4c0aad29" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_f8b061e1-8248-42ae-81f8-6acb5b1d5a0a_5c31292c-f80e-45c9-bdbf-0a3a055eb928" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_12b22e77-77f2-486c-84a3-692647f6b135_89c75f14-0067-4d02-9b6e-f7d7b2caec59" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_d177683f-1c3a-4bbc-a155-241638051f4e_9a0a6256-0c32-44f7-aabd-9448dc86f31d" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_f7d29fdd-42f3-47a8-84e8-305b71c399f8_9198b85b-b37d-47b6-b99b-0e92aeb11cce" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_00fe2ae4-c8c9-41d8-b27f-c79eba992e20_a1a3a867-9a7e-47f1-9e10-26121ffe0c3b" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_07c9d839-8284-44bd-9c37-79585a88770f_97e69589-3e57-4bd6-980f-95ef2859f3d6" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_0851e122-93c1-44b4-9e94-23fd1c4edae9_22f4e11b-3a46-40df-88f3-ef99e0e4a90d" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_100d0d40-36c5-498c-92ac-c7c6cdf76016_f1f2f9c7-5b23-4be9-8a2c-234f621164c0" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_3708ae88-0034-4cb9-8789-ae03e6dcb168_1de92f0b-c2e5-4deb-9fa0-7b5494489965" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_3944cfa1-9e36-4005-908c-7409c916141a_510b8d24-505a-4daf-8741-cc7d9e2eb320" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_39af660c-ad0d-4da6-acbc-5e2a1741fb8d_390a0964-5f97-48bc-a3b0-9e5e924bccb4" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_3e22bd58-ab28-4601-9a60-aadba2276e86_51be35fc-620d-41e3-8955-071bbdec08b0" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_566ba3b9-5766-4e37-9fda-841340e5350d_bbabbd2e-2896-4bb2-87de-ed32abdecc54" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_569373ed-64af-4105-9a6c-86b50525ddfb_f7d8ffa3-f023-4823-8e1a-4fb8d68b9e62" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_59cfad4a-5890-4ca0-861c-1330662894aa_07a05742-ea66-4ad4-a1db-acbd71d3f885" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_5ab6b910-4028-4939-9584-2ef1ab5ee7ee_b56ec4b1-94c8-4cac-b2e6-ea8c1e7a34da" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_6e81bf30-a422-4c69-88af-c0368c7bf17c_7e7a87bd-d5a0-4068-ae1e-1334031e6ad0" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_9e3cf680-d750-4fc0-b0ad-c1be197089ea_b9c17b66-9b87-4fc0-a10c-c7466d91a3b2" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_aceb2daf-7be9-42b2-b2c6-d89f60aea2ad_1081acdd-2eb5-4909-88f7-d5af5ea90748" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_b0b75068-6f48-4bad-b7e5-e13eff2a7502_4298d836-8963-4058-8837-14b7869dc4a6" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_b0edf098-9052-4442-92b0-2d4e095a6cef_4fea9979-8315-46d2-8eed-e5ac9aee74ae" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_c07de2de-666d-4a14-b8cd-56b353d24f06_d3ca06be-a80f-4de8-b40d-534b6f89f268" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_c6cc2852-72c4-435c-be4c-17fae314fa38_69fa3d07-4746-459c-9013-d5013d22431c" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_c7369ad2-f0ae-4d5d-bb23-21f51bd3283c_14f46bf7-bcde-488f-b2a9-595f8df540a9" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_d022fed3-6069-4786-b59f-4399a2d74e50_5f7ca957-06b7-474c-bd6a-39a2b1f7bb4a" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_d3120330-661f-4ac4-af00-0edaade10580_c2a3e776-7f4f-49c9-b437-92196b66a2b8" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_eec97f47-8497-43bf-b466-9d72c38087ad_398b2ff3-fdad-4bdc-ad3a-90d73f54577c" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_f7729f74-149c-405e-a241-7218d76138fc_9f93ece1-6cc6-4005-8c2a-c435306bed8d" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_030098df-2bf5-4e2b-a457-e214560af51c_9e112915-4cba-4b39-b68f-07bc649a7dab" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_7b862cf3-4835-4cdf-a322-375cc3ce7d81_806670df-eacd-44f2-9473-e8641bcb7325" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_b6440da1-0c0c-4ead-84b7-f5a017e2fd17_92f3281a-086b-4f01-8847-b57933914831" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_8c9e39be-c70c-403a-a386-e7609e7af236_60fd1aff-f122-4f27-9b22-564afc9d2e3a" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_4b2077e7-8278-42c3-87dc-25f15d080329_952a468e-dfdd-4d1f-b331-ecd94343a7f6" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_7a76b439-75c6-4066-a1ee-1bf515eccadb_934354cc-15b7-45c0-a4ef-38f14adb0d79" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_78f610a8-167b-4984-8df8-6f3b651d6e5b_e2393de4-cf1b-4884-a4ab-301b817203a4" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_ca232841-5e26-4181-8280-45f611675758_18a94850-e1bd-48eb-b7c3-8be4cfadac5d" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_3475d2eb-9358-4d55-98a8-29024723a9b8_03a9eeae-0469-4d3d-a68d-ee6ff60a49ff" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_3d398d9b-e080-4a5e-b068-ea2884c3c23e_466f3467-a3d2-4bcc-a4b6-5d58040cb066" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_552f7a4b-0194-4a4e-b372-f00956a9971f_eb2c593e-e5f6-43ff-a77b-40010fa842e6" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_c74bf3cf-b937-4bab-b0c8-388e4b3ac003_f687196c-f14a-4b51-830a-dc89bfcc3be7" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_183496cc-2bb4-4336-bd86-4450f9c769fe_9125ceea-4051-4f68-8e91-f71b9de3d47d" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_314b1999-cf51-4695-a72e-4b0ceaf13ce2_db25c16a-9333-44ac-8ea5-1e13df9ebc25" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_3b738a7c-3758-4302-9bf1-5c7fbac5689a_694ec27a-8e2d-47a6-915d-9a4a8f19b7da" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_4c6c52ca-4b88-4297-a2f3-4438a5cb6ecb_d8c45377-3a99-4241-a8a5-caab0e54aa00" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_67bfdc65-8cdb-47e2-9ff2-0c2f4248f420_0edccd4f-f9a4-4f3f-86c2-9f9f4616f476" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_89f23fdc-94cb-4f6a-8880-9c2634867b8f_b2c1ec4d-1443-4ce2-8110-72eae82a23ba" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_8d43e0ec-8c85-4d88-9530-1a099bf7ca6e_1ee01fcb-3121-4f04-8852-43e27a6fac3b" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_ee1c098c-3471-423c-b949-6672881c2bc9_fe58f345-4f91-4158-a50a-20b64855418f" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_5f7d8d3f-2dd1-4801-a0f3-f1b7aae63905_83190c36-dfb9-4032-9b6c-6026ffb8952e" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_2ab91448-5a41-436e-96b7-833fcc6d9f39_4d5a27a5-017d-4daa-8137-7f5f50fcd4a7" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_2d5ad02c-4eff-4a22-93ee-9066102810c6_f0384e9f-35a0-4736-b26c-e8e1bd189053" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_494fd4d5-16d2-4857-811b-e0b2a0eb7fc7_ae5e0a9f-975b-4453-a8ef-a381a01cadb9" />
+    <pm:i_author_artwork rdf:resource="http://museodelprado.es/items/E22_Man-Made_Object_145eadd9-0b54-4b2d-affe-09af370b6932_76fb8753-e224-40e0-a304-8343f335c72d" />
+    <ecidoc:p108i_E12_p126_employed_support rdf:resource="http://museodelprado.es/items/SupportPath_dea0a4cc-110e-425e-a8e2-bdb37444d26c_a688c98a-e922-4d99-b5a2-e78c140f5d3f" />
+    <ecidoc:has_school rdf:resource="http://museodelprado.es/items/SchoolPath_dea0a4cc-110e-425e-a8e2-bdb37444d26c_59ba7a2c-0767-49b9-95cd-fda4a0817fba" />
+    <ecidoc:p43_E54_has_dimension rdf:resource="http://museodelprado.es/items/E54_Dimension_dea0a4cc-110e-425e-a8e2-bdb37444d26c_4bc68060-cf00-4142-bd9e-7924a6b4c14d" />
+    <ecidoc:p43_E54_has_dimension rdf:resource="http://museodelprado.es/items/E54_Dimension_dea0a4cc-110e-425e-a8e2-bdb37444d26c_538ff3e8-a37d-4187-aecb-d5693ccb422f" />
+    <ecidoc:p65_E36_p138_represents_concept rdf:resource="http://museodelprado.es/items/ConceptPath_dea0a4cc-110e-425e-a8e2-bdb37444d26c_eaf4f881-71bd-4d83-9f40-25ecd49555a4" />
+    <ecidoc:p65_E36_p138_represents_object rdf:resource="http://museodelprado.es/items/ObjectPath_dea0a4cc-110e-425e-a8e2-bdb37444d26c_180d2de9-e771-4fd3-8d84-042998372ba1" />
+    <pm:aboutEntityPerson rdf:resource="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_33959d28-389c-40ee-a94a-c9a389a70b6b" />
+    <pm:aboutEntityPerson rdf:resource="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_39b69fc8-a836-4bf2-bb9c-90dd910fa2df" />
+    <pm:aboutEntityPerson rdf:resource="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_5eab9f62-8318-46d0-be2a-9639a0185f44" />
+    <pm:aboutEntityPerson rdf:resource="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_6d905a00-7b04-48f1-9fa5-81f59b8c55eb" />
+    <pm:aboutEntityPerson rdf:resource="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_80408409-2038-4979-a349-968e3b30a24b" />
+    <pm:aboutEntityPerson rdf:resource="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_a9cc7e6d-aabc-422b-bc25-2aa1f76623e6" />
+    <pm:aboutEntityPerson rdf:resource="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_aa9bfa27-66ab-4123-8e9a-e9365c27b37b" />
+    <pm:aboutEntityPerson rdf:resource="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_bc69d0b8-ceb7-4fef-98d5-5f09b8412206" />
+    <pm:aboutEntityPerson rdf:resource="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_d1ee4bcf-edbd-4f51-ad87-790dc671afbc" />
+    <cidoc:p70i_is_documented_in rdf:resource="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_0234c491-55bf-4269-be8d-bae9e3cdf009" />
+    <cidoc:p70i_is_documented_in rdf:resource="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_24cee419-2f99-45e5-afc8-f610444bac0c" />
+    <cidoc:p70i_is_documented_in rdf:resource="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_2a865273-4b26-427b-8b7c-8356c428e09e" />
+    <cidoc:p70i_is_documented_in rdf:resource="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_31716974-f739-4948-8f97-bee13a5e788a" />
+    <cidoc:p70i_is_documented_in rdf:resource="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_47cac566-1822-4fbc-adc1-517c42d4988a" />
+    <cidoc:p70i_is_documented_in rdf:resource="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_4c78bef7-77ec-439f-a14d-09fb64459f32" />
+    <cidoc:p70i_is_documented_in rdf:resource="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_7d51c4d3-9c7f-4a86-ac05-b29ee9f887c1" />
+    <cidoc:p70i_is_documented_in rdf:resource="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_85b7609c-5759-48c1-83e0-14fe7cc0b53f" />
+    <cidoc:p70i_is_documented_in rdf:resource="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_8e49e3d5-c2c6-489e-a278-1aa344491a9d" />
+    <cidoc:p70i_is_documented_in rdf:resource="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_a421ef56-9a81-41a8-9a3c-30673a29e4ad" />
+    <cidoc:p70i_is_documented_in rdf:resource="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_a86aa382-49d6-4c56-92af-62d777a52aa5" />
+    <cidoc:p70i_is_documented_in rdf:resource="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_c704840d-5a11-464b-8082-7504e6d1e772" />
+    <cidoc:p70i_is_documented_in rdf:resource="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_c7ab961f-cf22-4fd5-845c-98f136df4315" />
+    <cidoc:p70i_is_documented_in rdf:resource="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_e4f05674-63a0-4d4b-876e-00ee70b7a530" />
+    <cidoc:p70i_is_documented_in rdf:resource="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_ec1f9c57-984f-4f8e-bf77-e6c335b9e4df" />
+    <pm:i_artwork_exhibitionactivity rdf:resource="http://museodelprado.es/items/E7_Exhibition_Activity_8d3d655f-bbaf-48c1-90d3-98015487bfcb_1160ad6b-1ef8-40ff-82e7-608faa32224b" />
+    <pm:i_artwork_exhibitionactivity rdf:resource="http://museodelprado.es/items/E7_Exhibition_Activity_1027b51a-a7dc-4199-7ce6-5ff4a2710f74_630a85cd-5996-4f40-80f2-7b446a381f9f" />
+    <cidoc:p48_has_preferred_identifier rdf:resource="http://museodelprado.es/items/E42_Identifier_dea0a4cc-110e-425e-a8e2-bdb37444d26c_f01e7247-4aaf-446e-8e2c-ed6b339b91e2" />
+  </cidoc:E22_Man-Made_Object>
+  <pm:FloraPath rdf:about="http://museodelprado.es/items/FloraPath_dea0a4cc-110e-425e-a8e2-bdb37444d26c_ec531347-31fa-45b0-b571-fb41e9c51c2f">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#FloraPath]]></rdfs:label>
+    <pm:floraNode rdf:resource="http://museodelprado.es/items/biologicalobjectflora_2" />
+    <pm:floraNode rdf:resource="http://museodelprado.es/items/biologicalobjectflora_537" />
+  </pm:FloraPath>
+  <auxskos1:Concept rdf:about="http://museodelprado.es/items/biologicalobjectflora_2">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.w3.org/2008/05/skos#Concept]]></rdfs:label>
+  </auxskos1:Concept>
+  <auxskos1:Concept rdf:about="http://museodelprado.es/items/biologicalobjectflora_537">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.w3.org/2008/05/skos#Concept]]></rdfs:label>
+    <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[537]]></dc:identifier>
+    <auxskos1:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Plantas / Hierbas]]></auxskos1:prefLabel>
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_1025" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_1027" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_366" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_402" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_403" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_472" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_538" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_540" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_544" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_545" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_546" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_547" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_552" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_563" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_564" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_566" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_567" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_568" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_580" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_863" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_877" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_878" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_890" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_896" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_901" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_906" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_907" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_914" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_915" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_916" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_917" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_920" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_921" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_922" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_923" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_924" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_925" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_926" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_927" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_928" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_929" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_939" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_941" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_949" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_955" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_956" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_962" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_968" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_970" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_971" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_972" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_974" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_976" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_978" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_992" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_996" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectflora_1031" />
+    <auxskos1:symbol rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[1]]></auxskos1:symbol>
+  </auxskos1:Concept>
+  <pm:Entity rdf:about="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_28f92d33-c2f9-4465-b01c-754c32cf0c8a">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#Entity]]></rdfs:label>
+    <pm:score rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1,853071E+07</pm:score>
+    <pm:entity rdf:resource="http://museodelprado.es/items/Q151885_5abf70f4-1cbb-4f25-b3f5-82cc9d5dff51_5dab8692-51e7-4ff8-a99d-4d5c9199b09f" />
+  </pm:Entity>
+  <auxentity1:Q43229 rdf:about="http://museodelprado.es/items/Q151885_5abf70f4-1cbb-4f25-b3f5-82cc9d5dff51_5dab8692-51e7-4ff8-a99d-4d5c9199b09f">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.wikidata.org/entity/Q43229]]></rdfs:label>
+    <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="en"><![CDATA[Golden Legend]]></dc:title>
+    <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[La leyenda dorada]]></dc:title>
+    <rdf:type rdf:resource="http://www.wikidata.org/entity/Q151885" />
+  </auxentity1:Q43229>
+  <cidoc:E34_Inscription rdf:about="http://museodelprado.es/items/E34_Inscription_dea0a4cc-110e-425e-a8e2-bdb37444d26c_3bcc5c5c-6980-4277-9f8b-1b697638e9ca">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.cidoc-crm.org/cidoc-crm#E34_Inscription]]></rdfs:label>
+    <cidoc:p3_has_note rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[<p>915</p>]]></cidoc:p3_has_note>
+    <cidoc:p32_used_general_technique rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="en"><![CDATA[Inscribed in red color]]></cidoc:p32_used_general_technique>
+    <cidoc:p32_used_general_technique rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Manuscrito en color rojo]]></cidoc:p32_used_general_technique>
+    <cidoc:p54_has_current_permanent_location rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="en"><![CDATA[Front, lower left corner]]></cidoc:p54_has_current_permanent_location>
+    <cidoc:p54_has_current_permanent_location rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Anverso, ángulo inferior izquierdo]]></cidoc:p54_has_current_permanent_location>
+    <ecidoc:p48_E34_has_preferred_identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[6856]]></ecidoc:p48_E34_has_preferred_identifier>
+  </cidoc:E34_Inscription>
+  <cidoc:E34_Inscription rdf:about="http://museodelprado.es/items/E34_Inscription_dea0a4cc-110e-425e-a8e2-bdb37444d26c_d33aee5f-bdb4-44ce-970e-a6b55b3d63a4">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.cidoc-crm.org/cidoc-crm#E34_Inscription]]></rdfs:label>
+    <cidoc:p3_has_note rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[<p>1442</p>]]></cidoc:p3_has_note>
+    <cidoc:p32_used_general_technique rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="en"><![CDATA[Inscribed in orange]]></cidoc:p32_used_general_technique>
+    <cidoc:p32_used_general_technique rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Manuscrito en color anaranjado]]></cidoc:p32_used_general_technique>
+    <cidoc:p54_has_current_permanent_location rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="en"><![CDATA[Front, lower left corner]]></cidoc:p54_has_current_permanent_location>
+    <cidoc:p54_has_current_permanent_location rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Anverso, ángulo inferior izquierdo]]></cidoc:p54_has_current_permanent_location>
+    <ecidoc:p48_E34_has_preferred_identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[36615]]></ecidoc:p48_E34_has_preferred_identifier>
+  </cidoc:E34_Inscription>
+  <cidoc:E36_Visual_Item rdf:about="http://museodelprado.es/items/E36_Visual_Item_dea0a4cc-110e-425e-a8e2-bdb37444d26c_1a1dff1a-077a-4bfa-bf5e-ba482067046a">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.cidoc-crm.org/cidoc-crm#E36_Visual_Item]]></rdfs:label>
+    <ecidoc:p2_has_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Imagen de la obra completa]]></ecidoc:p2_has_type>
+    <pm:imageLightSource rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Normal]]></pm:imageLightSource>
+    <pm:imageWidth rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[2362]]></pm:imageWidth>
+    <ecidoc:p3_has_note rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[imagenes/Documentos/imgsem/de/dea0/dea0a4cc-110e-425e-a8e2-bdb37444d26c/70246e2e-3f04-4c7d-b532-ce7535e8d445.jpg]]></ecidoc:p3_has_note>
+    <pm:imageView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Frontal]]></pm:imageView>
+    <ecidoc:p1_is_identified_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[56876]]></ecidoc:p1_is_identified_by>
+    <pm:imageHeight rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[2777]]></pm:imageHeight>
+  </cidoc:E36_Visual_Item>
+  <cidoc:E36_Visual_Item rdf:about="http://museodelprado.es/items/E36_Visual_Item_dea0a4cc-110e-425e-a8e2-bdb37444d26c_3c614480-8873-4e01-99d8-5a58e5ccc63c">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.cidoc-crm.org/cidoc-crm#E36_Visual_Item]]></rdfs:label>
+    <ecidoc:p2_has_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Imagen de la obra completa]]></ecidoc:p2_has_type>
+    <pm:imageLightSource rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Normal]]></pm:imageLightSource>
+    <pm:imageWidth rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[2362]]></pm:imageWidth>
+    <ecidoc:p3_has_note rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[imagenes/Documentos/imgsem/de/dea0/dea0a4cc-110e-425e-a8e2-bdb37444d26c/39c9bdf2-6e38-4537-87b6-c0348528db4f.jpg]]></ecidoc:p3_has_note>
+    <pm:imageView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Frontal]]></pm:imageView>
+    <ecidoc:p1_is_identified_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[44729]]></ecidoc:p1_is_identified_by>
+    <pm:imageHeight rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[2789]]></pm:imageHeight>
+  </cidoc:E36_Visual_Item>
+  <pm:WildlifePath rdf:about="http://museodelprado.es/items/WildlifePath_dea0a4cc-110e-425e-a8e2-bdb37444d26c_45578f6f-05a0-4acf-bfb5-6c0dd054d61b">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#WildlifePath]]></rdfs:label>
+    <pm:wildLifeNode rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_1" />
+    <pm:wildLifeNode rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_6" />
+    <pm:wildLifeNode rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_9" />
+  </pm:WildlifePath>
+  <auxskos1:Concept rdf:about="http://museodelprado.es/items/biologicalobjectwildlife_1">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.w3.org/2008/05/skos#Concept]]></rdfs:label>
+  </auxskos1:Concept>
+  <auxskos1:Concept rdf:about="http://museodelprado.es/items/biologicalobjectwildlife_6">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.w3.org/2008/05/skos#Concept]]></rdfs:label>
+    <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[6]]></dc:identifier>
+    <auxskos1:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Mamíferos]]></auxskos1:prefLabel>
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_10" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_109" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_11" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_110" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_111" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_131" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_132" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_138" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_142" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_161" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_188" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_189" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_198" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_202" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_215" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_216" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_220" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_221" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_224" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_225" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_226" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_231" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_238" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_250" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_260" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_264" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_27" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_28" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_292" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_49" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_495" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_50" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_520" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_536" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_54" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_55" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_58" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_596" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_60" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_61" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_62" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_66" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_7" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_8" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_87" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_89" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_9" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_957" />
+    <auxskos1:symbol rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[1]]></auxskos1:symbol>
+  </auxskos1:Concept>
+  <auxskos1:Concept rdf:about="http://museodelprado.es/items/biologicalobjectwildlife_9">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.w3.org/2008/05/skos#Concept]]></rdfs:label>
+    <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[9]]></dc:identifier>
+    <auxskos1:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Oveja (Ovis aries)]]></auxskos1:prefLabel>
+    <auxskos1:broader rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_6" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_488" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_493" />
+    <auxskos1:symbol rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[2]]></auxskos1:symbol>
+  </auxskos1:Concept>
+  <pm:WildlifePath rdf:about="http://museodelprado.es/items/WildlifePath_dea0a4cc-110e-425e-a8e2-bdb37444d26c_49dfafaa-9647-4c51-836b-89cb54b99ace">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#WildlifePath]]></rdfs:label>
+    <pm:wildLifeNode rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_1" />
+    <pm:wildLifeNode rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_182" />
+    <pm:wildLifeNode rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_63" />
+  </pm:WildlifePath>
+  <auxskos1:Concept rdf:about="http://museodelprado.es/items/biologicalobjectwildlife_182">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.w3.org/2008/05/skos#Concept]]></rdfs:label>
+    <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[182]]></dc:identifier>
+    <auxskos1:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Dragón]]></auxskos1:prefLabel>
+    <auxskos1:broader rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_63" />
+    <auxskos1:symbol rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[2]]></auxskos1:symbol>
+  </auxskos1:Concept>
+  <auxskos1:Concept rdf:about="http://museodelprado.es/items/biologicalobjectwildlife_63">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.w3.org/2008/05/skos#Concept]]></rdfs:label>
+    <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[63]]></dc:identifier>
+    <auxskos1:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Animales fabulosos]]></auxskos1:prefLabel>
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_1035" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_1028" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_159" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_177" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_181" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_182" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_183" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_184" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_187" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_261" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_266" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_291" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_510" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_69" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_78" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_81" />
+    <auxskos1:symbol rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[1]]></auxskos1:symbol>
+  </auxskos1:Concept>
+  <pm:WildlifePath rdf:about="http://museodelprado.es/items/WildlifePath_dea0a4cc-110e-425e-a8e2-bdb37444d26c_c2906bd1-1e28-4195-840c-4d904f41512f">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#WildlifePath]]></rdfs:label>
+    <pm:wildLifeNode rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_1" />
+    <pm:wildLifeNode rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_28" />
+    <pm:wildLifeNode rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_6" />
+  </pm:WildlifePath>
+  <auxskos1:Concept rdf:about="http://museodelprado.es/items/biologicalobjectwildlife_28">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.w3.org/2008/05/skos#Concept]]></rdfs:label>
+    <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[28]]></dc:identifier>
+    <auxskos1:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Caballo (Equus ferus caballus)]]></auxskos1:prefLabel>
+    <auxskos1:broader rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_6" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/biologicalobjectwildlife_103" />
+    <auxskos1:symbol rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[2]]></auxskos1:symbol>
+  </auxskos1:Concept>
+  <pm:TechniquePath rdf:about="http://museodelprado.es/items/TechniquePath_dea0a4cc-110e-425e-a8e2-bdb37444d26c_f195db1c-eda9-4405-a3b3-17c23ced1d2e">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#TechniquePath]]></rdfs:label>
+    <pm:techniqueNode rdf:resource="http://museodelprado.es/items/technique_134" />
+    <pm:techniqueNode rdf:resource="http://museodelprado.es/items/technique_227" />
+  </pm:TechniquePath>
+  <auxskos1:Concept rdf:about="http://museodelprado.es/items/technique_134">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.w3.org/2008/05/skos#Concept]]></rdfs:label>
+    <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[134]]></dc:identifier>
+    <auxskos1:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="en"><![CDATA[Oil]]></auxskos1:prefLabel>
+    <auxskos1:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Óleo]]></auxskos1:prefLabel>
+    <auxskos1:broader rdf:resource="http://museodelprado.es/items/technique_227" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/technique_135" />
+    <auxskos1:symbol rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[2]]></auxskos1:symbol>
+  </auxskos1:Concept>
+  <auxskos1:Concept rdf:about="http://museodelprado.es/items/technique_227">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.w3.org/2008/05/skos#Concept]]></rdfs:label>
+    <dc:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[227]]></dc:identifier>
+    <auxskos1:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="en"><![CDATA[Painting techniques]]></auxskos1:prefLabel>
+    <auxskos1:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Técnicas pictóricas]]></auxskos1:prefLabel>
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/technique_105" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/technique_129" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/technique_134" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/technique_180" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/technique_271" />
+    <auxskos1:narrower rdf:resource="http://museodelprado.es/items/technique_341" />
+    <auxskos1:symbol rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[1]]></auxskos1:symbol>
+  </auxskos1:Concept>
+  <cidoc:E42_Identifier rdf:about="http://museodelprado.es/items/E42_Identifier_dea0a4cc-110e-425e-a8e2-bdb37444d26c_022f105a-3726-4258-9c5b-5a9bbfb94328">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.cidoc-crm.org/cidoc-crm#E42_Identifier]]></rdfs:label>
+    <cidoc:p102_has_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Inv. Real Museo, 1857]]></cidoc:p102_has_title>
+    <ecidoc:p3_has_note_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Rubens. / 1442. San Jorge. / Acomete a caballo al dragón, y libra a la doncella, la cual tiene asido con la mano izquierda un cordero. / Alto 10 pies, 11 pulg; ancho 9 pies, 2 pulg.]]></ecidoc:p3_has_note_id>
+    <cidoc:p4_has_time-span rdf:datatype="http://www.w3.org/2001/XMLSchema#date">18570000000000</cidoc:p4_has_time-span>
+    <cidoc:p139_has_alternative_form rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[1442]]></cidoc:p139_has_alternative_form>
+  </cidoc:E42_Identifier>
+  <cidoc:E42_Identifier rdf:about="http://museodelprado.es/items/E42_Identifier_dea0a4cc-110e-425e-a8e2-bdb37444d26c_1bd1be8a-b8a8-4a20-bb4b-936abf4a599d">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.cidoc-crm.org/cidoc-crm#E42_Identifier]]></rdfs:label>
+    <cidoc:p102_has_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Inv. Testamentaría Carlos II, El Pardo, 1701-1703]]></cidoc:p102_has_title>
+    <ecidoc:p3_has_note_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Sala donde se abre para su Magestad [...] [61] Ottro lienzo Grande de San Jorge mattando la serpientte Con Santta Margaritta a lado de un disçipulo de rubenes con marco negro tassado en trescienttos doblones que Ualen......18.000 Existe en la Pieza 29ª a los numeros 34 y 223.]]></ecidoc:p3_has_note_id>
+    <cidoc:p4_has_time-span rdf:datatype="http://www.w3.org/2001/XMLSchema#date">17010000000000</cidoc:p4_has_time-span>
+    <cidoc:p139_has_alternative_form rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[34]]></cidoc:p139_has_alternative_form>
+  </cidoc:E42_Identifier>
+  <cidoc:E42_Identifier rdf:about="http://museodelprado.es/items/E42_Identifier_dea0a4cc-110e-425e-a8e2-bdb37444d26c_285a0dff-ea11-414c-a5e8-877d12cbc8e4">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.cidoc-crm.org/cidoc-crm#E42_Identifier]]></rdfs:label>
+    <cidoc:p102_has_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Inv. Felipe V, El Pardo, 1747]]></cidoc:p102_has_title>
+    <ecidoc:p3_has_note_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Pieza vigesima nona [...] 34 y 223 / Ôtro lienzo grande de tres varas de áncho y cerca de cinco de alto su marco negro, que Repersenta san Jorge matando la Serpiente....18000]]></ecidoc:p3_has_note_id>
+    <cidoc:p4_has_time-span rdf:datatype="http://www.w3.org/2001/XMLSchema#date">17470000000000</cidoc:p4_has_time-span>
+    <cidoc:p139_has_alternative_form rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[34 y 223]]></cidoc:p139_has_alternative_form>
+  </cidoc:E42_Identifier>
+  <cidoc:E42_Identifier rdf:about="http://museodelprado.es/items/E42_Identifier_dea0a4cc-110e-425e-a8e2-bdb37444d26c_43e52deb-58fa-4d46-a149-a68e57825720">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.cidoc-crm.org/cidoc-crm#E42_Identifier]]></rdfs:label>
+    <cidoc:p102_has_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Catálogo Museo del Prado, 1873-1907]]></cidoc:p102_has_title>
+    <ecidoc:p3_has_note_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[1565.-(1442-H.)-San Jorge á caballo, fulminando el acero contra el dragon, atravesado á sus piés de una lanzada. A la espalda del insigne Perseo cristiano está Santa Inés con su cordero. Figura de tamaño semicolosal. / Col. de Felipe IV, R. Alc. y Pal. de Madrid. F.L. / Alto 3,04; ancho 2,56.-L.]]></ecidoc:p3_has_note_id>
+    <cidoc:p4_has_time-span rdf:datatype="http://www.w3.org/2001/XMLSchema#date">18730000000000</cidoc:p4_has_time-span>
+    <cidoc:p139_has_alternative_form rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[1565]]></cidoc:p139_has_alternative_form>
+  </cidoc:E42_Identifier>
+  <cidoc:E42_Identifier rdf:about="http://museodelprado.es/items/E42_Identifier_dea0a4cc-110e-425e-a8e2-bdb37444d26c_45c0177c-0a90-46f8-8589-06ad6d11c35f">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.cidoc-crm.org/cidoc-crm#E42_Identifier]]></rdfs:label>
+    <cidoc:p102_has_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Museo Real de Pinturas a la muerte de Fernando VII, 1834]]></cidoc:p102_has_title>
+    <ecidoc:p3_has_note_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[SALÓN 1º ESCUELA HOLANDESA[...] Cincuenta y dos. San Jorge acomete a Caballo al Dragón y libra a la doncella la cual tiene en la mano izquierda el cordero de Rubens Lº 36.200]]></ecidoc:p3_has_note_id>
+    <cidoc:p4_has_time-span rdf:datatype="http://www.w3.org/2001/XMLSchema#date">18340000000000</cidoc:p4_has_time-span>
+    <cidoc:p139_has_alternative_form rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[52]]></cidoc:p139_has_alternative_form>
+  </cidoc:E42_Identifier>
+  <cidoc:E42_Identifier rdf:about="http://museodelprado.es/items/E42_Identifier_dea0a4cc-110e-425e-a8e2-bdb37444d26c_50ae0ffd-b457-4b0d-a4dc-9dbd9b0f286e">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.cidoc-crm.org/cidoc-crm#E42_Identifier]]></rdfs:label>
+    <cidoc:p102_has_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Inv. Carlos III, Palacio Nuevo, 1772]]></cidoc:p102_has_title>
+    <ecidoc:p3_has_note_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Antecámara del señor Infante don Luis [...] 915 / Otro de san Jorge a caballo matando a la serpiente de quatro varas de caida y tres de ancho original al parecer de la primera manera de Rubenes]]></ecidoc:p3_has_note_id>
+    <cidoc:p4_has_time-span rdf:datatype="http://www.w3.org/2001/XMLSchema#date">17720000000000</cidoc:p4_has_time-span>
+    <cidoc:p139_has_alternative_form rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[915]]></cidoc:p139_has_alternative_form>
+  </cidoc:E42_Identifier>
+  <cidoc:E42_Identifier rdf:about="http://museodelprado.es/items/E42_Identifier_dea0a4cc-110e-425e-a8e2-bdb37444d26c_cd178a39-03e2-49a3-b1af-75a8f702d4ab">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.cidoc-crm.org/cidoc-crm#E42_Identifier]]></rdfs:label>
+    <cidoc:p102_has_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Inv. Testamentaría Carlos III, Palacio Nuevo, 1794]]></cidoc:p102_has_title>
+    <ecidoc:p3_has_note_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Antecamara de las Sªs. Ynfantas [...] Pieza de Tocador [...] Pieza encarnada á la Derecha / {452} Quatro varas de largo y tres de ancho: Sn. Jorge matando la Serpiente. Rubens ... 12.000]]></ecidoc:p3_has_note_id>
+    <cidoc:p4_has_time-span rdf:datatype="http://www.w3.org/2001/XMLSchema#date">17940000000000</cidoc:p4_has_time-span>
+    <cidoc:p139_has_alternative_form rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[s. n.]]></cidoc:p139_has_alternative_form>
+  </cidoc:E42_Identifier>
+  <cidoc:E42_Identifier rdf:about="http://museodelprado.es/items/E42_Identifier_dea0a4cc-110e-425e-a8e2-bdb37444d26c_d2bf7650-cacd-4857-a336-300529f7f7f0">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.cidoc-crm.org/cidoc-crm#E42_Identifier]]></rdfs:label>
+    <cidoc:p102_has_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Inv. Fernando VII, Palacio Nuevo, 1814-1818]]></cidoc:p102_has_title>
+    <ecidoc:p3_has_note_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Dormitorio de Principes [...] Pieza Primera [...] 915 / Cuatro varas de largo tres de ancho, San Jorge en un caballo blanco matando a la serpiente y detras una figura de muger con un cordero = Rubens]]></ecidoc:p3_has_note_id>
+    <cidoc:p4_has_time-span rdf:datatype="http://www.w3.org/2001/XMLSchema#date">18140000000000</cidoc:p4_has_time-span>
+    <cidoc:p139_has_alternative_form rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[915]]></cidoc:p139_has_alternative_form>
+  </cidoc:E42_Identifier>
+  <cidoc:E42_Identifier rdf:about="http://museodelprado.es/items/E42_Identifier_dea0a4cc-110e-425e-a8e2-bdb37444d26c_e4f9c546-7405-4fd3-aa92-ff907dce8072">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.cidoc-crm.org/cidoc-crm#E42_Identifier]]></rdfs:label>
+    <cidoc:p102_has_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Inv. Felipe IV, El Pardo, 1674]]></cidoc:p102_has_title>
+    <ecidoc:p3_has_note_id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[San Jorge de vn discipulo de Rubens]]></ecidoc:p3_has_note_id>
+    <cidoc:p4_has_time-span rdf:datatype="http://www.w3.org/2001/XMLSchema#date">16740000000000</cidoc:p4_has_time-span>
+    <cidoc:p139_has_alternative_form rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[34]]></cidoc:p139_has_alternative_form>
+  </cidoc:E42_Identifier>
+  <ecidoc:E22_E39_Man-Made_Object_Actor rdf:about="http://museodelprado.es/items/E22_E39_Man-Made_Object_Actor_dea0a4cc-110e-425e-a8e2-bdb37444d26c_8d75fd78-ef14-4124-b566-66c3cda3862e">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/ecidoc.owl#E22_E39_Man-Made_Object_Actor]]></rdfs:label>
+    <ecidoc:order rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[1]]></ecidoc:order>
+    <pm:author rdf:resource="http://museodelprado.es/items/E39_Actor_099c7adf-d261-4e54-8a3b-7807500ca539_4ad16908-0fcd-4c52-8449-7b607e8d7022" />
+  </ecidoc:E22_E39_Man-Made_Object_Actor>
+  <cidoc:E52_Time-Span rdf:about="http://museodelprado.es/items/E52_Time-Span_dea0a4cc-110e-425e-a8e2-bdb37444d26c_7fe0931a-5537-4594-8c97-6d292c162a70">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.cidoc-crm.org/cidoc-crm#E52_Time-Span]]></rdfs:label>
+    <ecidoc:p62_E52_p79_has_time-span_beginning rdf:datatype="http://www.w3.org/2001/XMLSchema#date">16060000000000</ecidoc:p62_E52_p79_has_time-span_beginning>
+    <date:textDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="en"><![CDATA[1606 - 1608]]></date:textDate>
+    <date:textDate rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[1606 - 1608]]></date:textDate>
+    <ecidoc:p62_E52_p80_has_time-span_end rdf:datatype="http://www.w3.org/2001/XMLSchema#date">16080000000000</ecidoc:p62_E52_p80_has_time-span_end>
+  </cidoc:E52_Time-Span>
+  <pm:ObjectTypePath rdf:about="http://museodelprado.es/items/ObjectTypePath_dea0a4cc-110e-425e-a8e2-bdb37444d26c_f0c94756-5e01-4a18-9094-864a4922e901">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#ObjectTypePath]]></rdfs:label>
+    <pm:objectTypeNode rdf:resource="http://museodelprado.es/items/objecttype_20" />
+  </pm:ObjectTypePath>
+  <pm:Entity rdf:about="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_a1b8b6d8-b598-471d-a02f-87ccfad4e344">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#Entity]]></rdfs:label>
+    <pm:score rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1,441926E+07</pm:score>
+    <pm:entity rdf:resource="http://museodelprado.es/items/Q17334923_d8a3d7f9-3def-40ab-8a20-4cd74d612c25_2c5f3992-b22e-405c-b65e-45aa6e51cd96" />
+  </pm:Entity>
+  <pm:Entity rdf:about="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_a753613e-66d2-4115-b5bc-dc4962596210">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#Entity]]></rdfs:label>
+    <pm:score rdf:datatype="http://www.w3.org/2001/XMLSchema#float">5765514</pm:score>
+    <pm:entity rdf:resource="http://museodelprado.es/items/Q17334923_3af1d7d1-8525-40fa-adc1-ad663c3a97ab_0bd2e2ee-2608-4319-a844-f68f83823ca5" />
+  </pm:Entity>
+  <pm:Entity rdf:about="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_bc0e3419-2e47-47fd-8d63-396485d459c3">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#Entity]]></rdfs:label>
+    <pm:score rdf:datatype="http://www.w3.org/2001/XMLSchema#float">347609</pm:score>
+    <pm:entity rdf:resource="http://museodelprado.es/items/Q17334923_cd46961b-01e7-483c-992b-5e4a2c17e9d1_d8daa606-01ac-4ac1-9bbe-aa2175745fd9" />
+  </pm:Entity>
+  <pm:Entity rdf:about="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_e7d9e2be-d896-41b6-9a17-5cb57d600733">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#Entity]]></rdfs:label>
+    <pm:score rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4,575316E+07</pm:score>
+    <pm:entity rdf:resource="http://museodelprado.es/items/Q17334923_9242d893-ea80-4cf8-b5c8-f74d5e615145_0a72b0c8-92e0-411b-8220-cb7cf05cd5eb" />
+  </pm:Entity>
+  <pm:SupportPath rdf:about="http://museodelprado.es/items/SupportPath_dea0a4cc-110e-425e-a8e2-bdb37444d26c_a688c98a-e922-4d99-b5a2-e78c140f5d3f">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#SupportPath]]></rdfs:label>
+    <pm:order rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</pm:order>
+    <pm:supportNode rdf:resource="http://museodelprado.es/items/support_78" />
+  </pm:SupportPath>
+  <pm:SchoolPath rdf:about="http://museodelprado.es/items/SchoolPath_dea0a4cc-110e-425e-a8e2-bdb37444d26c_59ba7a2c-0767-49b9-95cd-fda4a0817fba">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#SchoolPath]]></rdfs:label>
+    <pm:schoolNode rdf:resource="http://museodelprado.es/items/school_12" />
+  </pm:SchoolPath>
+  <cidoc:E54_Dimension rdf:about="http://museodelprado.es/items/E54_Dimension_dea0a4cc-110e-425e-a8e2-bdb37444d26c_4bc68060-cf00-4142-bd9e-7924a6b4c14d">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.cidoc-crm.org/cidoc-crm#E54_Dimension]]></rdfs:label>
+    <pm:conversion_factor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[10,000000]]></pm:conversion_factor>
+    <ecidoc:p91_E58_has_unit rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[cm]]></ecidoc:p91_E58_has_unit>
+    <ecidoc:p2_E55_has_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="en"><![CDATA[Width]]></ecidoc:p2_E55_has_type>
+    <ecidoc:p2_E55_has_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Ancho]]></ecidoc:p2_E55_has_type>
+    <ecidoc:p90_E60_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2570.000000</ecidoc:p90_E60_has_value>
+  </cidoc:E54_Dimension>
+  <cidoc:E54_Dimension rdf:about="http://museodelprado.es/items/E54_Dimension_dea0a4cc-110e-425e-a8e2-bdb37444d26c_538ff3e8-a37d-4187-aecb-d5693ccb422f">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.cidoc-crm.org/cidoc-crm#E54_Dimension]]></rdfs:label>
+    <pm:conversion_factor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[10,000000]]></pm:conversion_factor>
+    <ecidoc:p91_E58_has_unit rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[cm]]></ecidoc:p91_E58_has_unit>
+    <ecidoc:p2_E55_has_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="en"><![CDATA[Height]]></ecidoc:p2_E55_has_type>
+    <ecidoc:p2_E55_has_type rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xml:lang="es"><![CDATA[Alto]]></ecidoc:p2_E55_has_type>
+    <ecidoc:p90_E60_has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3090.000000</ecidoc:p90_E60_has_value>
+  </cidoc:E54_Dimension>
+  <pm:ConceptPath rdf:about="http://museodelprado.es/items/ConceptPath_dea0a4cc-110e-425e-a8e2-bdb37444d26c_eaf4f881-71bd-4d83-9f40-25ecd49555a4">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#ConceptPath]]></rdfs:label>
+    <pm:conceptNode rdf:resource="http://museodelprado.es/items/concept_15" />
+    <pm:conceptNode rdf:resource="http://museodelprado.es/items/concept_9" />
+  </pm:ConceptPath>
+  <pm:ObjectPath rdf:about="http://museodelprado.es/items/ObjectPath_dea0a4cc-110e-425e-a8e2-bdb37444d26c_180d2de9-e771-4fd3-8d84-042998372ba1">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#ObjectPath]]></rdfs:label>
+    <pm:objectNode rdf:resource="http://museodelprado.es/items/object_1" />
+    <pm:objectNode rdf:resource="http://museodelprado.es/items/object_57" />
+  </pm:ObjectPath>
+  <pm:Entity rdf:about="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_33959d28-389c-40ee-a94a-c9a389a70b6b">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#Entity]]></rdfs:label>
+    <pm:score rdf:datatype="http://www.w3.org/2001/XMLSchema#float">6661896</pm:score>
+    <pm:entity rdf:resource="http://museodelprado.es/items/Q215627_9ed4fe0f-7f91-4b3a-ae15-11e31e134a20_3efecfdb-9673-4fd3-9461-4883b681e7ad" />
+  </pm:Entity>
+  <pm:Entity rdf:about="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_39b69fc8-a836-4bf2-bb9c-90dd910fa2df">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#Entity]]></rdfs:label>
+    <pm:score rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2,817881E+07</pm:score>
+    <pm:entity rdf:resource="http://museodelprado.es/items/Q215627_d190a6e3-3b3f-46f8-b8e9-d9193c7346c5_a0d4339b-3685-4014-8fe7-42ac82d8cf2e" />
+  </pm:Entity>
+  <pm:Entity rdf:about="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_5eab9f62-8318-46d0-be2a-9639a0185f44">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#Entity]]></rdfs:label>
+    <pm:score rdf:datatype="http://www.w3.org/2001/XMLSchema#float">7,737074E+07</pm:score>
+    <pm:entity rdf:resource="http://museodelprado.es/items/Q215627_83d77474-0506-4fd4-8b4c-cd5cf164f558_ef7a243b-2e22-46c2-8252-447ddcdc463d" />
+  </pm:Entity>
+  <pm:Entity rdf:about="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_6d905a00-7b04-48f1-9fa5-81f59b8c55eb">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#Entity]]></rdfs:label>
+    <pm:score rdf:datatype="http://www.w3.org/2001/XMLSchema#float">5765514</pm:score>
+    <pm:entity rdf:resource="http://museodelprado.es/items/Q215627_42acc3e1-9e66-4768-8f39-a94440645e3e_dd76ffcd-240c-4a63-9f42-736977d4fd65" />
+  </pm:Entity>
+  <pm:Entity rdf:about="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_80408409-2038-4979-a349-968e3b30a24b">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#Entity]]></rdfs:label>
+    <pm:score rdf:datatype="http://www.w3.org/2001/XMLSchema#float">6661896</pm:score>
+    <pm:entity rdf:resource="http://museodelprado.es/items/Q215627_7e074968-e193-4a53-8b72-7c5efc313980_dc658bab-a295-407e-832f-d4e694eb3cf0" />
+  </pm:Entity>
+  <pm:Entity rdf:about="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_a9cc7e6d-aabc-422b-bc25-2aa1f76623e6">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#Entity]]></rdfs:label>
+    <pm:score rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3,47745E+07</pm:score>
+    <pm:entity rdf:resource="http://museodelprado.es/items/Q215627_d402faaf-e27d-4b67-829f-406fa95102e2_588c55c6-274c-4d03-ba47-91d5587e665c" />
+  </pm:Entity>
+  <pm:Entity rdf:about="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_aa9bfa27-66ab-4123-8e9a-e9365c27b37b">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#Entity]]></rdfs:label>
+    <pm:score rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2,094807E+07</pm:score>
+    <pm:entity rdf:resource="http://museodelprado.es/items/Q215627_a1d99064-e9e6-4606-82d5-01b03041803d_9282bb1b-7f80-44cc-9acb-28c903a7c000" />
+  </pm:Entity>
+  <pm:Entity rdf:about="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_bc69d0b8-ceb7-4fef-98d5-5f09b8412206">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#Entity]]></rdfs:label>
+    <pm:score rdf:datatype="http://www.w3.org/2001/XMLSchema#float">9283178</pm:score>
+    <pm:entity rdf:resource="http://museodelprado.es/items/Q215627_224481c0-11ee-4cac-9b35-86028a7fdfb0_a6090e59-1924-4ed7-901b-f386136005a2" />
+  </pm:Entity>
+  <pm:Entity rdf:about="http://museodelprado.es/items/Entity_dea0a4cc-110e-425e-a8e2-bdb37444d26c_d1ee4bcf-edbd-4f51-ad87-790dc671afbc">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/pradomuseum.owl#Entity]]></rdfs:label>
+    <pm:score rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2,094807E+07</pm:score>
+    <pm:entity rdf:resource="http://museodelprado.es/items/Q215627_5a3d0be7-d277-449b-9dab-9a5fabaae32c_a3c3fec1-43cd-4108-9f7b-86b53a0342aa" />
+  </pm:Entity>
+  <efrbrer:C1003_Manifestation rdf:about="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_0234c491-55bf-4269-be8d-bae9e3cdf009">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/efrbrer.owl#C1003_Manifestation]]></rdfs:label>
+    <efrbrer:p3057_has_place_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Madrid]]></efrbrer:p3057_has_place_of_publication_or_distribution>
+    <efrbrer:P3055_has_date_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[2004]]></efrbrer:P3055_has_date_of_publication_or_distribution>
+    <efrbrer:p2017_is_produced_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Aterido Fernández, Ángel]]></efrbrer:p2017_is_produced_by>
+    <efrbrer:P3002_has_form_of_work rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Libro]]></efrbrer:P3002_has_form_of_work>
+    <efrbrer:p3020_has_title_of_the_manifestation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Colecciones de pinturas de Felipe V e Isabel Farnesio: inventarios reales (procedencia/provenance)]]></efrbrer:p3020_has_title_of_the_manifestation>
+    <efrbrer:p3056_has_publisher_or_distributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Fundación de Apoyo de la Historia del Arte Hispánico]]></efrbrer:p3056_has_publisher_or_distributor>
+  </efrbrer:C1003_Manifestation>
+  <efrbrer:C1003_Manifestation rdf:about="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_24cee419-2f99-45e5-afc8-f610444bac0c">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/efrbrer.owl#C1003_Manifestation]]></rdfs:label>
+    <efrbrer:p3057_has_place_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Cambridge]]></efrbrer:p3057_has_place_of_publication_or_distribution>
+    <efrbrer:P3055_has_date_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[1999]]></efrbrer:P3055_has_date_of_publication_or_distribution>
+    <efrbrer:p2017_is_produced_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Vergara, Alejandro]]></efrbrer:p2017_is_produced_by>
+    <efrbrer:P3002_has_form_of_work rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Libro]]></efrbrer:P3002_has_form_of_work>
+    <pm:pages rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[151]]></pm:pages>
+    <efrbrer:p3020_has_title_of_the_manifestation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Rubens and his spanish patrons]]></efrbrer:p3020_has_title_of_the_manifestation>
+    <efrbrer:p3056_has_publisher_or_distributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Cambridge University Press]]></efrbrer:p3056_has_publisher_or_distributor>
+  </efrbrer:C1003_Manifestation>
+  <efrbrer:C1003_Manifestation rdf:about="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_2a865273-4b26-427b-8b7c-8356c428e09e">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/efrbrer.owl#C1003_Manifestation]]></rdfs:label>
+    <efrbrer:p3057_has_place_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Madrid]]></efrbrer:p3057_has_place_of_publication_or_distribution>
+    <efrbrer:P3055_has_date_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[1975]]></efrbrer:P3055_has_date_of_publication_or_distribution>
+    <efrbrer:p2017_is_produced_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Díaz Padrón, Matías]]></efrbrer:p2017_is_produced_by>
+    <efrbrer:P3002_has_form_of_work rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Libro]]></efrbrer:P3002_has_form_of_work>
+    <pm:pages rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[235]]></pm:pages>
+    <efrbrer:p3020_has_title_of_the_manifestation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Museo del Prado: catálogo de pintura: escuela flamenca]]></efrbrer:p3020_has_title_of_the_manifestation>
+    <efrbrer:p3056_has_publisher_or_distributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Museo del Prado. Patronato Nacional de Museos]]></efrbrer:p3056_has_publisher_or_distributor>
+  </efrbrer:C1003_Manifestation>
+  <efrbrer:C1003_Manifestation rdf:about="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_31716974-f739-4948-8f97-bee13a5e788a">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/efrbrer.owl#C1003_Manifestation]]></rdfs:label>
+    <efrbrer:p3057_has_place_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Madrid]]></efrbrer:p3057_has_place_of_publication_or_distribution>
+    <efrbrer:P3055_has_date_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[1996]]></efrbrer:P3055_has_date_of_publication_or_distribution>
+    <efrbrer:p2017_is_produced_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Anes, Gonzalo]]></efrbrer:p2017_is_produced_by>
+    <efrbrer:P3002_has_form_of_work rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Libro]]></efrbrer:P3002_has_form_of_work>
+    <pm:pages rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[171]]></pm:pages>
+    <efrbrer:p3020_has_title_of_the_manifestation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Las colecciones reales y la fundación del Museo del Prado]]></efrbrer:p3020_has_title_of_the_manifestation>
+    <efrbrer:p3056_has_publisher_or_distributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Amigos del Museo del Prado]]></efrbrer:p3056_has_publisher_or_distributor>
+  </efrbrer:C1003_Manifestation>
+  <efrbrer:C1003_Manifestation rdf:about="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_47cac566-1822-4fbc-adc1-517c42d4988a">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/efrbrer.owl#C1003_Manifestation]]></rdfs:label>
+    <efrbrer:p3057_has_place_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Barcelona]]></efrbrer:p3057_has_place_of_publication_or_distribution>
+    <efrbrer:P3055_has_date_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[1995]]></efrbrer:P3055_has_date_of_publication_or_distribution>
+    <efrbrer:p2017_is_produced_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Díaz Padrón, Matías]]></efrbrer:p2017_is_produced_by>
+    <efrbrer:P3002_has_form_of_work rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Libro]]></efrbrer:P3002_has_form_of_work>
+    <pm:pages rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[878]]></pm:pages>
+    <efrbrer:p3020_has_title_of_the_manifestation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[El siglo de Rubens en el Museo del Prado: catálogo razonado]]></efrbrer:p3020_has_title_of_the_manifestation>
+    <pm:volume rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[II]]></pm:volume>
+    <efrbrer:p3056_has_publisher_or_distributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Prensa Ibérica]]></efrbrer:p3056_has_publisher_or_distributor>
+  </efrbrer:C1003_Manifestation>
+  <efrbrer:C1003_Manifestation rdf:about="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_4c78bef7-77ec-439f-a14d-09fb64459f32">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/efrbrer.owl#C1003_Manifestation]]></rdfs:label>
+    <efrbrer:p3057_has_place_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Turnhout]]></efrbrer:p3057_has_place_of_publication_or_distribution>
+    <efrbrer:P3055_has_date_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[2021]]></efrbrer:P3055_has_date_of_publication_or_distribution>
+    <efrbrer:p2017_is_produced_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Logan, Anne Marie; Lohse Belkin, Kristin]]></efrbrer:p2017_is_produced_by>
+    <efrbrer:P3002_has_form_of_work rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Libro]]></efrbrer:P3002_has_form_of_work>
+    <pm:pages rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[T.I: 213-215 [o.r nº.159] T.2: fg. 212a]]></pm:pages>
+    <efrbrer:p3020_has_title_of_the_manifestation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[The drawings of Peter Paul Rubens: a critical catalogue. Volume II 1609-1620. T.1 Text.T.2 Plates]]></efrbrer:p3020_has_title_of_the_manifestation>
+    <efrbrer:p3056_has_publisher_or_distributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Brepols]]></efrbrer:p3056_has_publisher_or_distributor>
+  </efrbrer:C1003_Manifestation>
+  <efrbrer:C1003_Manifestation rdf:about="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_7d51c4d3-9c7f-4a86-ac05-b29ee9f887c1">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/efrbrer.owl#C1003_Manifestation]]></rdfs:label>
+    <efrbrer:P3055_has_date_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[1923]]></efrbrer:P3055_has_date_of_publication_or_distribution>
+    <efrbrer:p2017_is_produced_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Sánchez Cantón, Francisco Javier y Beroqui, Pedro]]></efrbrer:p2017_is_produced_by>
+    <efrbrer:P3002_has_form_of_work rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Libro]]></efrbrer:P3002_has_form_of_work>
+    <efrbrer:p3020_has_title_of_the_manifestation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Inventarios Reales en 12 Volúmenes (Fotocopias)]]></efrbrer:p3020_has_title_of_the_manifestation>
+  </efrbrer:C1003_Manifestation>
+  <efrbrer:C1003_Manifestation rdf:about="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_85b7609c-5759-48c1-83e0-14fe7cc0b53f">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/efrbrer.owl#C1003_Manifestation]]></rdfs:label>
+    <efrbrer:p3057_has_place_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Ann Arbor]]></efrbrer:p3057_has_place_of_publication_or_distribution>
+    <efrbrer:P3055_has_date_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[1999]]></efrbrer:P3055_has_date_of_publication_or_distribution>
+    <efrbrer:p2017_is_produced_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Vergara, Alejandro]]></efrbrer:p2017_is_produced_by>
+    <efrbrer:P3002_has_form_of_work rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Libro]]></efrbrer:P3002_has_form_of_work>
+    <pm:pages rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[113-117]]></pm:pages>
+    <efrbrer:p3020_has_title_of_the_manifestation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[The Presence of Rubens in Spain]]></efrbrer:p3020_has_title_of_the_manifestation>
+    <pm:volume rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[I-II]]></pm:volume>
+    <efrbrer:p3056_has_publisher_or_distributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[A Bell & Howell Company]]></efrbrer:p3056_has_publisher_or_distributor>
+  </efrbrer:C1003_Manifestation>
+  <efrbrer:C1003_Manifestation rdf:about="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_8e49e3d5-c2c6-489e-a278-1aa344491a9d">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/efrbrer.owl#C1003_Manifestation]]></rdfs:label>
+    <efrbrer:P3055_has_date_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[2015]]></efrbrer:P3055_has_date_of_publication_or_distribution>
+    <efrbrer:p2017_is_produced_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Büttner, Nils]]></efrbrer:p2017_is_produced_by>
+    <efrbrer:P3002_has_form_of_work rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Libro]]></efrbrer:P3002_has_form_of_work>
+    <pm:pages rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[45 f.15]]></pm:pages>
+    <efrbrer:p3020_has_title_of_the_manifestation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Rubens: Eine Biographie]]></efrbrer:p3020_has_title_of_the_manifestation>
+    <efrbrer:p3056_has_publisher_or_distributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Verlag Schnell & Steiner Gmbh]]></efrbrer:p3056_has_publisher_or_distributor>
+  </efrbrer:C1003_Manifestation>
+  <efrbrer:C1003_Manifestation rdf:about="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_a421ef56-9a81-41a8-9a3c-30673a29e4ad">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/efrbrer.owl#C1003_Manifestation]]></rdfs:label>
+    <efrbrer:p3057_has_place_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Princeton]]></efrbrer:p3057_has_place_of_publication_or_distribution>
+    <efrbrer:P3055_has_date_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[1989]]></efrbrer:P3055_has_date_of_publication_or_distribution>
+    <efrbrer:p2017_is_produced_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Muller, Jeffrey M.]]></efrbrer:p2017_is_produced_by>
+    <efrbrer:P3002_has_form_of_work rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Libro]]></efrbrer:P3002_has_form_of_work>
+    <pm:pages rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[122]]></pm:pages>
+    <efrbrer:p3020_has_title_of_the_manifestation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Rubens: the artist as collector (procedencia/provenance)]]></efrbrer:p3020_has_title_of_the_manifestation>
+    <efrbrer:p3056_has_publisher_or_distributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Princeton University Press]]></efrbrer:p3056_has_publisher_or_distributor>
+  </efrbrer:C1003_Manifestation>
+  <efrbrer:C1003_Manifestation rdf:about="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_a86aa382-49d6-4c56-92af-62d777a52aa5">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/efrbrer.owl#C1003_Manifestation]]></rdfs:label>
+    <efrbrer:P3055_has_date_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[1994]]></efrbrer:P3055_has_date_of_publication_or_distribution>
+    <efrbrer:p2017_is_produced_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Larsen, Erik]]></efrbrer:p2017_is_produced_by>
+    <efrbrer:P3002_has_form_of_work rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Revista]]></efrbrer:P3002_has_form_of_work>
+    <pm:collection rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Pantheon]]></pm:collection>
+    <pm:pages rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[83]]></pm:pages>
+    <efrbrer:p3020_has_title_of_the_manifestation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Ein unberkanntes Hanptwerk des Peter Paul Rubens ans seiner italianischen zeit]]></efrbrer:p3020_has_title_of_the_manifestation>
+    <pm:volume rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[52]]></pm:volume>
+  </efrbrer:C1003_Manifestation>
+  <efrbrer:C1003_Manifestation rdf:about="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_c704840d-5a11-464b-8082-7504e6d1e772">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/efrbrer.owl#C1003_Manifestation]]></rdfs:label>
+    <efrbrer:p3057_has_place_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Amberes]]></efrbrer:p3057_has_place_of_publication_or_distribution>
+    <efrbrer:P3055_has_date_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[1989]]></efrbrer:P3055_has_date_of_publication_or_distribution>
+    <efrbrer:p2017_is_produced_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Museo Nacional del Prado]]></efrbrer:p2017_is_produced_by>
+    <efrbrer:P3002_has_form_of_work rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Libro]]></efrbrer:P3002_has_form_of_work>
+    <pm:pages rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[148]]></pm:pages>
+    <efrbrer:p3020_has_title_of_the_manifestation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[La pintura flamenca en el Prado]]></efrbrer:p3020_has_title_of_the_manifestation>
+    <efrbrer:p3056_has_publisher_or_distributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Ibercaja Fonds Mercator]]></efrbrer:p3056_has_publisher_or_distributor>
+  </efrbrer:C1003_Manifestation>
+  <efrbrer:C1003_Manifestation rdf:about="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_c7ab961f-cf22-4fd5-845c-98f136df4315">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/efrbrer.owl#C1003_Manifestation]]></rdfs:label>
+    <efrbrer:p3057_has_place_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Bruselas]]></efrbrer:p3057_has_place_of_publication_or_distribution>
+    <efrbrer:P3055_has_date_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[1973]]></efrbrer:P3055_has_date_of_publication_or_distribution>
+    <efrbrer:p2017_is_produced_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Vlieghe, Hans]]></efrbrer:p2017_is_produced_by>
+    <efrbrer:P3002_has_form_of_work rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Ensayo]]></efrbrer:P3002_has_form_of_work>
+    <pm:collection rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Corpus rubenianum Ludwig Burchard: an illustrated catalogue<br />Tomo VIII]]></pm:collection>
+    <pm:pages rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[35-38 fg.17 nº.105]]></pm:pages>
+    <efrbrer:p3020_has_title_of_the_manifestation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Saints II]]></efrbrer:p3020_has_title_of_the_manifestation>
+    <efrbrer:p3056_has_publisher_or_distributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Arcade Press]]></efrbrer:p3056_has_publisher_or_distributor>
+  </efrbrer:C1003_Manifestation>
+  <efrbrer:C1003_Manifestation rdf:about="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_e4f05674-63a0-4d4b-876e-00ee70b7a530">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/efrbrer.owl#C1003_Manifestation]]></rdfs:label>
+    <efrbrer:p3057_has_place_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Madrid]]></efrbrer:p3057_has_place_of_publication_or_distribution>
+    <efrbrer:P3055_has_date_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[1975]]></efrbrer:P3055_has_date_of_publication_or_distribution>
+    <efrbrer:p2017_is_produced_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Fernández Bayton, Gloria]]></efrbrer:p2017_is_produced_by>
+    <efrbrer:P3002_has_form_of_work rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Libro]]></efrbrer:P3002_has_form_of_work>
+    <efrbrer:p3020_has_title_of_the_manifestation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Inventarios reales: testamentaria del Rey Carlos II : 1701-1703 (procedencia/provenance)]]></efrbrer:p3020_has_title_of_the_manifestation>
+    <efrbrer:p3056_has_publisher_or_distributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Museo del Prado. Patronato Nacional de Museos,]]></efrbrer:p3056_has_publisher_or_distributor>
+  </efrbrer:C1003_Manifestation>
+  <efrbrer:C1003_Manifestation rdf:about="http://museodelprado.es/items/C1003_Manifestation_dea0a4cc-110e-425e-a8e2-bdb37444d26c_ec1f9c57-984f-4f8e-bf77-e6c335b9e4df">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://museodelprado.es/ontologia/efrbrer.owl#C1003_Manifestation]]></rdfs:label>
+    <efrbrer:p3057_has_place_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Viena]]></efrbrer:p3057_has_place_of_publication_or_distribution>
+    <efrbrer:P3055_has_date_of_publication_or_distribution rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[2004]]></efrbrer:P3055_has_date_of_publication_or_distribution>
+    <efrbrer:p2017_is_produced_by rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Schröder, Klaus Albrecht]]></efrbrer:p2017_is_produced_by>
+    <efrbrer:P3002_has_form_of_work rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Catálogo de exposición]]></efrbrer:P3002_has_form_of_work>
+    <pm:pages rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[187-189]]></pm:pages>
+    <efrbrer:p3020_has_title_of_the_manifestation rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Peter Paul Rubens]]></efrbrer:p3020_has_title_of_the_manifestation>
+    <efrbrer:p3056_has_publisher_or_distributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[Hatje Cantz]]></efrbrer:p3056_has_publisher_or_distributor>
+  </efrbrer:C1003_Manifestation>
+  <cidoc:E42_Identifier rdf:about="http://museodelprado.es/items/E42_Identifier_dea0a4cc-110e-425e-a8e2-bdb37444d26c_f01e7247-4aaf-446e-8e2c-ed6b339b91e2">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.cidoc-crm.org/cidoc-crm#E42_Identifier]]></rdfs:label>
+    <cidoc:p102_has_title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"><![CDATA[P001644]]></cidoc:p102_has_title>
+  </cidoc:E42_Identifier>
+  <cidoc:E7_Activity rdf:about="http://museodelprado.es/items/E7_Activity_E22_Man-Made_Object_1027b51a-a7dc-4199-7ce6-5ff4a2710f74_3e367bd5-68e0-4acd-aa9b-f786b342deb0">
+    <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal" xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve"><![CDATA[http://www.cidoc-crm.org/cidoc-crm#E7_Activity]]></rdfs:label>
+    <rdf:type rdf:resource="http://museodelprado.es/ontologia/ecidoc.owl#E7_Activity_E22_Man-Made_Object" />
+  </cidoc:E7_Activity>
+</rdf:RDF>

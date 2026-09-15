@@ -120,7 +120,7 @@ def get_ontology(source: dict) -> dict:
         response = requests.post(
             f"{BACKEND_URL}/ontology",
             json=payload,
-            timeout=60,
+            timeout=500,
         )
     except requests.ConnectionError:
         raise APIError("Cannot reach the backend.")
@@ -135,7 +135,7 @@ def get_ontology(source: dict) -> dict:
     return response.json()
 
 
-def run_evaluation(sources: list[dict], metric_ids: list[str]) -> list[dict]:
+def run_evaluation(sources: list[dict], metric_ids: list[str],structural_shape: str | None = None) -> list[dict]:
     """
     POST /evaluate — runs evaluation and returns the raw datasets list.
 
@@ -147,13 +147,14 @@ def run_evaluation(sources: list[dict], metric_ids: list[str]) -> list[dict]:
     metric_ids
         List of metric_id strings.
     """
-    payload = _build_evaluation_payload(sources, metric_ids)
+
+    payload = _build_evaluation_payload(sources, metric_ids, structural_shape)
 
     try:
         response = requests.post(
             f"{BACKEND_URL}/evaluate",
             json=payload,
-            timeout=120,
+            timeout=500,
         )
     except requests.ConnectionError:
         raise APIError("Cannot reach the backend.")
@@ -171,7 +172,7 @@ def run_evaluation(sources: list[dict], metric_ids: list[str]) -> list[dict]:
     return response.json()["datasets"]
 
 
-def _build_evaluation_payload(sources: list[dict], metric_ids: list[str]) -> dict:
+def _build_evaluation_payload(sources: list[dict], metric_ids: list[str], structural_shape: str | None = None) -> dict:
     """
     Builds the POST /evaluate request body.
 
@@ -195,4 +196,5 @@ def _build_evaluation_payload(sources: list[dict], metric_ids: list[str]) -> dic
     return {
         "datasets": datasets,
         "metrics":  [{"metric_id": mid} for mid in metric_ids],
+        "structural_shape": structural_shape
     }

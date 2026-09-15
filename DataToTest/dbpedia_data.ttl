@@ -1,0 +1,5026 @@
+@prefix dbc: <http://dbpedia.org/resource/Category:> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbp: <http://dbpedia.org/property/> .
+@prefix dbpedia-de: <http://de.dbpedia.org/resource/> .
+@prefix dbpedia-es: <http://es.dbpedia.org/resource/> .
+@prefix dbpedia-fr: <http://fr.dbpedia.org/resource/> .
+@prefix dbpedia-gl: <http://gl.dbpedia.org/resource/> .
+@prefix dbpedia-global: <https://global.dbpedia.org/id/> .
+@prefix dbpedia-id: <http://id.dbpedia.org/resource/> .
+@prefix dbpedia-it: <http://it.dbpedia.org/resource/> .
+@prefix dbpedia-nl: <http://nl.dbpedia.org/resource/> .
+@prefix dbpedia-pl: <http://pl.dbpedia.org/resource/> .
+@prefix dbpedia-pt: <http://pt.dbpedia.org/resource/> .
+@prefix dbpedia-ro: <http://ro.dbpedia.org/resource/> .
+@prefix dbpedia-uz: <http://uz.dbpedia.org/resource/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo1: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix ns18: <http://dbpedia.org/resource/The_American_People_Series_18:> .
+@prefix ns19: <http://dbpedia.org/resource/Northwest_Trolls:> .
+@prefix ns23: <http://dbpedia.org/resource/Ferari_Mon:> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix wikidata: <http://www.wikidata.org/entity/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix yago-res: <http://yago-knowledge.org/resource/> .
+
+dbr:A_Danish_Timber_Bark_Getting_Under_Way a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "A Danish Timber Bark Getting Under Way"@en ;
+    dbp:imageFile "File:Samuel Scott - A Danish Timber Bark Getting Under Way.jpg"@en ;
+    dct:subject dbc:1736_paintings,
+        dbc:Paintings_by_Samuel_Scott,
+        dbc:Paintings_in_Royal_Museums_Greenwich,
+        dbc:River_Thames_in_art,
+        dbc:Ships_in_art ;
+    foaf:name "A Danish Timber Bark Getting Under Way"@en .
+
+dbr:A_Great_Day_in_Hip_Hop a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "A Great Day in Hip Hop"@en ;
+    dbp:imageFile "A Great Day in Hip Hop, by Gordon Parks.png"@en ;
+    dct:subject dbc:1990s_in_hip_hop_music,
+        dbc:1990s_photographs,
+        dbc:1998_in_American_music,
+        dbc:1998_in_New_York_City,
+        dbc:1998_in_art,
+        dbc:1998_works,
+        dbc:Black-and-white_photographs,
+        dbc:Harlem,
+        dbc:Photographs_of_the_United_States ;
+    foaf:name "A Great Day in Hip Hop"@en .
+
+dbr:A_Meet_of_the_Fife_Hounds a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "A Meet of the Fife Hounds"@en ;
+    dbp:imageFile "File:Sir Francis Grant - A Meet of the Fife Hounds - PG 3657 - National Galleries of Scotland.jpg"@en ;
+    dct:subject dbc:1833_paintings,
+        dbc:19th-century_portraits,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_Francis_Grant,
+        dbc:Paintings_in_National_Galleries_Scotland,
+        dbc:Portraits_of_men ;
+    foaf:name "A Meeting of the Fife Hounds"@en .
+
+dbr:A_Resting_Bashi-Bazouk a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "A Resting Bashi-Bazouk"@en ;
+    dbp:medium dbr:Panel_painting ;
+    dbp:otherTitle "Одмор башибозука"@en ;
+    dct:subject dbc:1880s_paintings,
+        dbc:Paja_Jovanović,
+        dbc:Serbian_paintings ;
+    foaf:name "A Resting Bashi-Bazouk"@en .
+
+dbr:A_Shooting_Party_at_Ranton_Abbey a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "A Shooting Party at Ranton Abbey"@en ;
+    dbp:imageFile "File:Francis Grant  - A Shooting Party at Ranton Abbey, Staffordshire - 1271073 - National Trust.jpg"@en ;
+    dct:subject dbc:1839_paintings,
+        dbc:19th-century_portraits,
+        dbc:Collections_of_the_National_Trust,
+        <http://dbpedia.org/resource/Category:Cultural_depictions_of_William_Lamb,_2nd_Viscount_Melbourne>,
+        dbc:Dogs_in_art,
+        dbc:Horses_in_art,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_Francis_Grant ;
+    foaf:name "A Shooting Party at Ranton Abbey"@en .
+
+dbr:A_Sorcerer_Comes_to_a_Peasant_Wedding a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "A Sorcerer Comes to a Peasant Wedding"@en ;
+    dbp:medium "Oil on canvas"@en ;
+    dct:subject dbc:Peredvizhniki,
+        dbc:Russian_paintings,
+        dbc:Snow_in_art ;
+    foaf:name "A Sorcerer comes to a peasant wedding"@en .
+
+dbr:A_View_in_Cairo a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "A View in Cairo"@en ;
+    dbp:imageFile "File:David Roberts - A View in Cairo - WGA19627.jpg"@en ;
+    dct:subject dbc:1840_paintings,
+        dbc:Landscape_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_David_Roberts,
+        dbc:Paintings_in_the_Royal_Collection_of_the_United_Kingdom ;
+    foaf:name "A View in Cairo"@en .
+
+<http://dbpedia.org/resource/A_View_of_Alexander_Pope's_Villa,_Twickenham> a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "A View of Alexander Pope's Villa, Twickenham"@en ;
+    dbp:imageFile "File:A View of Alexander Pope's Villa, Twickenham, on the Banks of the Thames by Samuel Scott, RA.jpg"@en ;
+    dct:subject dbc:1759_paintings,
+        dbc:London_in_art,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_Samuel_Scott,
+        dbc:Paintings_in_the_Tate_galleries,
+        dbc:River_Thames_in_art ;
+    foaf:name "A View of Alexander Pope's Villa, Twickenham"@en .
+
+dbr:A_View_of_Henley-on-Thames a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "A View of Henley-on-Thames"@en ;
+    dbp:imageFile "File:John Wootton  - A View of Henley-on-Thames - RCIN 400507 - Royal Collection.jpg"@en ;
+    dct:subject dbc:1743_paintings,
+        dbc:Berkshire_in_art,
+        dbc:Landscape_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Oxfordshire_in_art,
+        dbc:Paintings_in_the_Royal_Collection_of_the_United_Kingdom,
+        dbc:River_Thames_in_art ;
+    foaf:name "A View of Henley-on-Thames"@en .
+
+dbr:A_View_of_Toledo_and_the_River_Tagus a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "A View of Toledo and the River Tagus"@en ;
+    dbp:imageFile "File:David Roberts  - A View of Toledo and the River Tagus - RCIN 405042 - Royal Collection.jpg"@en ;
+    dct:subject dbc:1841_paintings,
+        dbc:Landscape_paintings,
+        dbc:Oil_on_panel_paintings,
+        dbc:Paintings_by_David_Roberts,
+        dbc:Paintings_in_the_Royal_Collection_of_the_United_Kingdom,
+        dbc:Rivers_in_art ;
+    foaf:name "A View of Toledo and the River Tagus"@en .
+
+dbr:Abraham_Lincoln_\(Bittinger\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Abraham Lincoln (Bittinger)"@en ;
+    dbp:medium dbr:Oil_painting ;
+    dct:subject dbc:2004_paintings,
+        dbc:21st-century_portraits,
+        dbc:Abraham_Lincoln_in_art,
+        dbc:American_paintings,
+        dbc:Books_in_art,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_in_the_United_States_Capitol,
+        dbc:Portraits_of_presidents_of_the_United_States ;
+    foaf:name "Abraham Lincoln"@en .
+
+dbr:Adam_and_Eve_\(Cranach\) a dbo:Artwork ;
+    rdfs:label "آدم وحواء (كراناخ)"@ar,
+        "Adam and Eve (Cranach)"@en,
+        "Adán y Eva (Lucas Cranach el Viejo)"@es,
+        "Adam et Ève (Cranach)"@fr,
+        "Adamo ed Eva (Cranach)"@it ;
+    dbo:wikiPageWikiLink dbr:Adam,
+        dbr:Adam_and_Eve,
+        dbr:Adam_and_Eve_\(Dürer\),
+        dbr:Albrecht_Dürer,
+        dbr:Art_Institute_of_Chicago,
+        dbc:1528_paintings,
+        dbc:Diptychs,
+        dbc:Nude_art,
+        dbc:Paintings_by_Lucas_Cranach_the_Elder,
+        dbc:Paintings_by_Lucas_Cranach_the_Elder_in_the_Uffizi,
+        dbc:Paintings_depicting_Adam_and_Eve,
+        dbc:Snakes_in_art,
+        dbr:Courtauld_Gallery,
+        dbr:Dark_\(TV_series\),
+        dbr:Diptych,
+        dbr:Eve,
+        dbr:Filippo_Baldinucci,
+        dbr:Grand_Duchy_of_Tuscany,
+        dbr:Kunsthistorisches_Museum,
+        dbr:Leipzig,
+        dbr:Lucas_Cranach_the_Elder,
+        dbr:Museo_del_Prado,
+        dbr:Museum_der_bildenden_Künste,
+        dbr:Musée_des_Beaux-Arts_de_Besançon,
+        dbr:National_Gallery_Prague,
+        <http://dbpedia.org/resource/National_Museum,_Warsaw>,
+        dbr:National_Museum_in_Warsaw,
+        dbr:Norton_Simon_Museum,
+        <http://dbpedia.org/resource/Pasadena,_California>,
+        <http://dbpedia.org/resource/Royal_Museum_of_Fine_Arts,_Antwerp>,
+        dbr:Serpents_in_the_Bible,
+        dbr:Staatliche_Kunstsammlungen_Dresden,
+        dbr:Tree_of_the_knowledge_of_good_and_evil,
+        dbr:Vienna ;
+    owl:sameAs <http://ar.dbpedia.org/resource/آدم_وحواء_(كراناخ)>,
+        <http://arz.dbpedia.org/resource/آدم_وحواء>,
+        dbpedia-es:Adán_y_Eva_\(Lucas_Cranach_el_Viejo\),
+        <http://fa.dbpedia.org/resource/آدم_و_حوا_(کراناخ)>,
+        dbpedia-fr:Adam_et_Ève_\(Cranach\),
+        dbpedia-it:Adamo_ed_Eva_\(Cranach\),
+        <http://rdf.freebase.com/ns/m.0h53k7m>,
+        wikidata:Q3605055,
+        dbpedia-global:3KCLm .
+
+dbr:Adoration_of_the_Shepherds_\(Reni\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work ;
+    rdfs:label "Adoration of the Shepherds (Reni)"@en ;
+    dct:subject dbc:1642_paintings,
+        dbc:Paintings_by_Guido_Reni,
+        dbc:Paintings_in_the_Certosa_di_San_Martino,
+        dbc:Paintings_of_the_Adoration_of_the_Shepherds .
+
+dbr:Albert_of_Brandenburg_as_Saint_Jerome a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work ;
+    rdfs:label "Albert of Brandenburg as Saint Jerome"@en ;
+    dct:subject dbc:1527_paintings,
+        dbc:16th-century_portraits,
+        dbc:Lions_in_art,
+        dbc:Oil_on_panel_paintings,
+        dbc:Paintings_by_Lucas_Cranach_the_Elder,
+        <http://dbpedia.org/resource/Category:Paintings_in_the_Gemäldegalerie,_Berlin>,
+        dbc:Paintings_in_the_Hessisches_Landesmuseum_Darmstadt,
+        dbc:Paintings_of_Jerome .
+
+dbr:Amrita_Sher-Gil_Self_Portrait_\(1931\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Amrita Sher-Gil Self Portrait (1931)"@en ;
+    dbp:medium dbr:Oil_painting ;
+    dct:subject dbc:1931_paintings,
+        dbc:20th-century_portraits,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_Amrita_Sher-Gil,
+        dbc:Portraits_of_women,
+        dbc:Self-portraits ;
+    foaf:name "Amrita Sher-Gil self portrait"@en .
+
+<http://dbpedia.org/resource/Andromeda,_Perseus_Coming_to_Her_Rescue> a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Andromeda, Perseus Coming to Her Rescue"@en ;
+    dbp:imageFile "File:Andromed by William Etty, c. 1840.jpg"@en ;
+    dct:subject dbc:1840_paintings,
+        dbc:History_paintings,
+        dbc:Nude_paintings_of_women,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_William_Etty,
+        dbc:Paintings_of_Andromeda ;
+    foaf:name "Andromeda, Perseus Coming to Her Rescue"@en .
+
+<http://dbpedia.org/resource/Andy's_Trip> a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Andy's Trip"@en ;
+    dbp:medium dbr:Woodcut ;
+    dct:subject dbc:1866_in_American_politics,
+        dbc:1866_in_art,
+        dbc:19th-century_prints,
+        dbc:American_political_satire,
+        dbc:Caricatures_of_presidents_of_the_United_States,
+        dbc:Cultural_depictions_of_Andrew_Johnson,
+        dbc:Editorial_cartoons,
+        dbc:Political_art,
+        dbc:Presidency_of_Andrew_Johnson,
+        dbc:Reconstruction_Era_in_popular_culture,
+        dbc:Satirical_cartoons,
+        dbc:Thomas_Nast,
+        dbc:Woodcuts,
+        <http://dbpedia.org/resource/Category:Works_originally_published_in_Harper's_Weekly> ;
+    foaf:name "Andy's Trip"@en .
+
+dbr:Aphrodite_Hypolympidia a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Aphrodite Hypolympidia"@en ;
+    dbp:medium "Marble"@en ;
+    dbp:otherTitle ""@en ;
+    dct:subject dbc:1973_archaeological_discoveries,
+        dbc:2nd-century_BC_Greek_sculptures,
+        dbc:Archaeological_discoveries_in_Macedonia_\(Greece\),
+        dbc:Art_of_Macedonia_\(ancient_kingdom\),
+        <http://dbpedia.org/resource/Category:Dion,_Pieria>,
+        dbc:Marble_sculptures_in_Greece,
+        dbc:Mount_Olympus,
+        dbc:Sculptures_of_Venus,
+        dbc:Sculptures_of_women_in_Greece,
+        dbc:Statues_in_Greece ;
+    foaf:name "Aphrodite Hypolympidia"@en .
+
+dbr:Apollo_Omphalos_\(Athens\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Apollo Omphalos (Athens)"@en ;
+    dbp:medium "Marble"@en ;
+    dbp:otherTitle ""@en ;
+    dct:subject dbc:1862_archaeological_discoveries,
+        dbc:2nd-century_Roman_sculptures,
+        dbc:Archaeological_discoveries_in_Attica,
+        dbc:Marble_sculptures_in_Greece,
+        <http://dbpedia.org/resource/Category:National_Archaeological_Museum,_Athens>,
+        dbc:Nude_sculptures_in_Greece,
+        dbc:Nude_sculptures_of_men,
+        dbc:Roman_copies_of_5th-century_BC_Greek_sculptures,
+        dbc:Sculptures_in_Athens,
+        dbc:Sculptures_of_Apollo,
+        dbc:Sculptures_of_men_in_Greece,
+        dbc:Statues_in_Greece ;
+    foaf:name "Apollo Omphalos"@en .
+
+dbr:Aristotle_\(Ribera_painting\) a dbo:Artwork ;
+    rdfs:label "Aristote (Ribera)"@fr,
+        "Аристотель (Рібера)"@uk ;
+    dbo:wikiPageWikiLink dbr:Anaxagoras,
+        dbr:Archimedes,
+        dbr:Aristotle,
+        dbr:Canvas,
+        dbr:Caravaggio,
+        dbr:Caravaggisti,
+        dbc:1637_paintings,
+        dbc:Books_in_art,
+        dbc:Cultural_depictions_of_Aristotle,
+        dbc:Paintings_by_Jusepe_de_Ribera,
+        dbc:Paintings_in_the_collection_of_the_Indianapolis_Museum_of_Art,
+        dbr:Crates_of_Thebes,
+        dbr:Diogenes_of_Sinope,
+        dbr:Indiana,
+        dbr:Indianapolis,
+        dbr:Indianapolis_Museum_of_Art,
+        dbr:Jusepe_de_Ribera,
+        <http://dbpedia.org/resource/Karl_Eusebius,_Prince_of_Liechtenstein>,
+        dbr:Metropolitan_Museum_of_Art,
+        dbr:Oil_painting,
+        dbr:Plato,
+        dbr:Prince_of_Liechtenstein,
+        dbr:Protagoras,
+        dbr:Spain ;
+    owl:sameAs <http://arz.dbpedia.org/resource/ارسطو_(لوحه)>,
+        dbpedia-fr:Aristote_\(Ribera\),
+        <http://uk.dbpedia.org/resource/Аристотель_(Рібера)>,
+        wikidata:Q4791095,
+        dbpedia-global:4S2Mf .
+
+dbr:Armed_Aphrodite_\(NAMA_262\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Armed Aphrodite (NAMA 262)"@en ;
+    dbp:medium "Marble"@en ;
+    dbp:otherTitle ""@en ;
+    dct:subject dbc:1886_archaeological_discoveries,
+        dbc:1st-century_Roman_sculptures,
+        dbc:Archaeological_discoveries_in_the_Peloponnese,
+        dbc:Epidaurus,
+        dbc:Marble_sculptures_in_Greece,
+        <http://dbpedia.org/resource/Category:National_Archaeological_Museum,_Athens>,
+        dbc:Roman_copies_of_4th-century_BC_Greek_sculptures,
+        dbc:Sculptures_in_Athens,
+        dbc:Sculptures_of_Venus,
+        dbc:Sculptures_of_women_in_Greece,
+        dbc:Statues_in_Greece ;
+    foaf:name "Armed Aphrodite"@en .
+
+dbr:Athena_Demegorusa a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Athena Demegorusa"@en ;
+    dbp:medium "White marble"@en ;
+    dbp:otherTitle ""@en ;
+    dct:subject dbc:1960_archaeological_discoveries,
+        dbc:1960_in_Greece,
+        dbc:2nd-century_Roman_sculptures,
+        dbc:Archaeological_discoveries_in_Epirus_\(region\),
+        dbc:Marble_sculptures_in_Greece,
+        dbc:Preveza,
+        dbc:Roman_Epirus,
+        dbc:Roman_copies_of_4th-century_BC_Greek_sculptures,
+        dbc:Sculptures_of_Athena,
+        dbc:Sculptures_of_women_in_Greece,
+        dbc:Statues_in_Greece ;
+    foaf:name "Athena Demegorusa"@en .
+
+dbr:Benjamin_Harrison_\(Niehaus\) a dbo:Artwork ;
+    dbo:wikiPageWikiLink dbr:Benjamin_Harrison,
+        dbr:Bronze,
+        dbc:1908_establishments_in_Indiana,
+        dbc:1908_sculptures,
+        dbc:Benjamin_Harrison,
+        dbc:Bronze_sculptures_in_Indiana,
+        dbc:Outdoor_sculptures_in_Indianapolis,
+        dbc:Sculptures_of_birds_in_the_United_States,
+        dbc:Sculptures_of_men_in_Indiana,
+        dbc:Statues_in_Indianapolis,
+        dbc:Statues_of_presidents_of_the_United_States,
+        dbr:Charles_Henry_Niehaus,
+        dbr:Gorham_Manufacturing_Company,
+        dbr:Henry_Bacon,
+        dbr:Indiana,
+        dbr:Indiana_World_War_Memorial_Plaza,
+        dbr:Indianapolis,
+        dbr:Limestone,
+        dbr:List_of_Presidents_of_the_United_States,
+        dbr:President_of_the_United_States,
+        dbr:United_States ;
+    owl:sameAs <http://rdf.freebase.com/ns/m.0bm9lwk>,
+        wikidata:Q4888776,
+        yago-res:Benjamin_Harrison_\(Niehaus\),
+        dbpedia-global:4XN3K .
+
+dbr:Bijoy_1971_\(sculpture\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Bijoy 1971"@en,
+        "Bijoy 1971 (sculpture)"@en ;
+    dbo:wikiPageWikiLink dbr:Bangladesh_Liberation_War,
+        dbr:Bharat-Bangladesh_Maitri_Udyan,
+        dbc:Asian_sculpture,
+        dbc:Bangladeshi_sculpture,
+        dbc:Indian_sculpture,
+        dbc:Sculpture,
+        dbc:Sculptures_by_Mahmudul_Hasan_Shohag,
+        dbc:South_Asia,
+        dbr:Chottakhola,
+        dbr:India,
+        dbr:Mahmudul_Hasan_Shohag,
+        dbr:Sculpture ;
+    dbp:medium "concrete casting"@en ;
+    dbp:otherTitle "বিজয় ১৯৭১"@en ;
+    dct:subject dbc:2016_sculptures,
+        dbc:Bangladeshi_sculpture,
+        dbc:Indian_sculpture,
+        dbc:Memorials_to_Bangladesh_Liberation_War,
+        dbc:Sculptures_by_Mahmudul_Hasan_Shohag,
+        dbc:Sculptures_of_men_in_India ;
+    owl:sameAs dbr:Bijoy_1971,
+        wikidata:Q107739728,
+        dbpedia-global:FyGfU ;
+    foaf:name "Bijoy 1971"@en .
+
+dbr:Birkenau_\(painting\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Birkenau (painting)"@en ;
+    dbp:medium "Oil on canvas"@en ;
+    dct:subject dbc:2014_paintings,
+        dbc:Paintings_by_Gerhard_Richter,
+        dbc:Reichstag_building,
+        dbc:Works_about_the_Holocaust ;
+    foaf:name "Birkenau"@en .
+
+dbr:Black_Lives_Matter_street_mural_\(Indianapolis\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Black Lives Matter street mural (Indianapolis)"@en ;
+    dbo:wikiPageWikiLink dbr:Acacia,
+        dbr:Alan_Bacon,
+        dbr:Amiah_Mims,
+        dbr:Ashley_Nora,
+        dbr:Ballot_box,
+        dbr:Billy_Hoodoo,
+        dbr:Black_Lives_Matter,
+        dbc:2020_establishments_in_Indiana,
+        dbc:2020_paintings,
+        dbc:African-American_history_of_Indianapolis,
+        dbc:Black_Lives_Matter_art,
+        dbc:Murals_in_Indiana,
+        dbc:Public_art_in_Indiana,
+        dbc:Vandalized_works_of_art_in_Indiana,
+        dbr:Central_Indiana_Community_Foundation,
+        dbr:Democratic_Party_\(United_States\),
+        dbr:Deonna_Craig,
+        dbr:Eminent_domain,
+        dbr:Ess_Mckee,
+        dbr:Faith_Ringgold,
+        <http://dbpedia.org/resource/File:Deonna_Craig_(The_Children's_Museum_of_Indianapolis)_-_standing.jpg>,
+        <http://dbpedia.org/resource/File:Israel_Solomon_(The_Children's_Museum_of_Indianapolis).jpg>,
+        <http://dbpedia.org/resource/File:Nathaniel_Rhodes_(The_Children's_Museum_of_Indianapolis)_-_sitting.jpg>,
+        dbr:Gary_Gee,
+        dbr:George_Floyd_protests,
+        dbr:Harriet_Watson,
+        dbr:Indiana,
+        dbr:Indiana_Avenue,
+        dbr:Indiana_Fever,
+        dbr:Indiana_University_Health,
+        <http://dbpedia.org/resource/Indiana_University–Purdue_University_Indianapolis>,
+        dbr:Indianapolis,
+        dbr:Indianapolis_City-County_Council,
+        dbr:Indianapolis_Metropolitan_Police_Department,
+        dbr:Indy10,
+        dbr:Interstate_65_in_Indiana,
+        dbr:Israel_Solomon,
+        dbr:Jarrod_Dortch,
+        dbr:John_G._Moore,
+        dbr:Kenneth_Hordge,
+        dbr:Kevin_West_\(artist\),
+        dbr:Labor_Day,
+        dbr:Lion,
+        dbr:List_of_Black_Lives_Matter_street_murals,
+        dbr:Madam_Walker_Legacy_Center,
+        dbr:Mali_Jeffers,
+        dbr:Naismith_Memorial_Basketball_Hall_of_Fame,
+        dbr:Nathaniel_Rhodes,
+        dbr:National_Urban_League,
+        dbr:New_America_\(organization\),
+        dbr:Pan-African_colours,
+        dbr:Rae_Parker,
+        dbr:Raised_fist,
+        dbr:Rebecca_Robinson_\(artist\),
+        dbr:Republican_Party_\(United_States\),
+        dbr:Shamira_Wilson,
+        dbr:Shane_Young_\(artist\),
+        dbr:Street_art,
+        dbr:Tamika_Catchings,
+        ns18:_The_Flag_is_Bleeding,
+        dbr:Wavy_Blayne,
+        dbr:White_House,
+        dbr:White_supremacy ;
+    dct:subject dbc:2020_establishments_in_Indiana,
+        dbc:2020_paintings,
+        dbc:African-American_history_of_Indianapolis,
+        dbc:Black_Lives_Matter_art,
+        dbc:Murals_in_Indiana,
+        dbc:Public_art_in_Indiana,
+        dbc:Vandalized_works_of_art_in_Indiana ;
+    owl:sameAs wikidata:Q107290972,
+        dbpedia-global:Fuxes ;
+    foaf:name "Black Lives Matter street mural"@en .
+
+dbr:Black_Lives_Matter_street_mural_\(Salt_Lake_City\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Black Lives Matter street mural (Salt Lake City)"@en ;
+    dct:subject dbc:2020_establishments_in_Utah,
+        dbc:2020_paintings,
+        dbc:Black_Lives_Matter_art,
+        dbc:Murals_in_Utah,
+        dbc:Murals_of_black_people,
+        dbc:Public_art_in_Utah ;
+    owl:sameAs wikidata:Q107404854,
+        dbpedia-global:FnZJd ;
+    foaf:name "Black Lives Matter street mural"@en .
+
+dbr:Bonnie_Prince_Charlie_Entering_the_Ballroom_at_Holyroodhouse a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Bonnie Prince Charlie Entering the Ballroom at Holyroodhouse"@en ;
+    dbp:imageFile "File:Bonnie Prince Charlie by John Pettie.jpg"@en ;
+    dct:subject dbc:1892_paintings,
+        dbc:Charles_Edward_Stuart,
+        dbc:History_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_in_the_Royal_Collection_of_the_United_Kingdom,
+        dbc:War_of_the_Austrian_Succession_in_art ;
+    foaf:name "Bonnie Prince Charlie Entering the Ballroom at Holyroodhouse"@en .
+
+dbr:Boston_Miroku a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Boston Miroku"@en ;
+    dbp:medium "Japanese cypress, gold, and inlaid crystal, split-and-joined construction"@en ;
+    dbp:otherTitle ""@en,
+        "弥勒菩薩立像　一躯"@en ;
+    dct:subject dbc:Buddhist_sculpture,
+        dbc:Japanese_sculpture,
+        dbc:Kei_school,
+        <http://dbpedia.org/resource/Category:Sculptures_in_the_Museum_of_Fine_Arts,_Boston>,
+        dbc:Wooden_sculptures_in_Massachusetts ;
+    foaf:name "Boston Miroku"@en .
+
+dbr:Burke_Jizō a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Burke Jizō"@en ;
+    dbp:medium "Lacquered Japanese cypress, color, gold, cut gold, and inlaid crystal"@en ;
+    dbp:otherTitle "快慶作 地蔵菩薩立像"@en ;
+    dct:subject dbc:1200s_in_art,
+        dbc:Buddhist_sculpture,
+        dbc:Japanese_sculpture,
+        dbc:Kei_school,
+        dbc:Kṣitigarbha,
+        dbc:Sculptures_in_the_Metropolitan_Museum_of_Art,
+        dbc:Wooden_sculptures_in_New_York_City ;
+    foaf:name "Jizō, Bodhisattva of the Earth Store (Kshitigarbha)"@en .
+
+dbr:Bust_of_Antinous_\(NAMA\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Bust of Antinous (NAMA)"@en ;
+    dbp:medium dbr:Marble_sculpture ;
+    dbp:otherTitle ""@en ;
+    dct:subject dbc:1856_archaeological_discoveries,
+        dbc:2nd-century_Roman_sculptures,
+        dbc:Archaeological_discoveries_in_the_Peloponnese,
+        dbc:Busts_in_Greece,
+        dbc:Marble_sculptures_in_Greece,
+        <http://dbpedia.org/resource/Category:National_Archaeological_Museum,_Athens>,
+        dbc:Sculptures_in_Athens,
+        dbc:Sculptures_of_Antinous,
+        dbc:Sculptures_of_men_in_Greece,
+        dbc:Works_of_uncertain_authorship ;
+    foaf:name "Bust of Antinous"@en .
+
+dbr:Bust_of_Atatürk a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Bust of Atatürk"@en ;
+    dct:subject dbc:Busts_in_Turkey,
+        dbc:Kadıköy,
+        dbc:Monuments_and_memorials_in_Istanbul,
+        dbc:Monuments_and_memorials_to_Mustafa_Kemal_Atatürk_in_Turkey,
+        dbc:Outdoor_sculptures_in_Istanbul,
+        dbc:Sculptures_of_men_in_Turkey ;
+    foaf:name "Bust of Atatürk"@en .
+
+<http://dbpedia.org/resource/Bust_of_Edward_VII,_Kuala_Lumpur> a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Bust of Edward VII, Kuala Lumpur"@en ;
+    dbp:medium "Bronze bust"@en ;
+    dct:subject dbc:1911_sculptures,
+        dbc:Statues_in_Malaysia ;
+    foaf:name "Bust of Edward VII"@en .
+
+dbr:Bust_of_George_Floyd a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Bust of George Floyd"@en ;
+    dbp:medium "Wood"@en ;
+    dct:subject dbc:2020s_in_Brooklyn,
+        dbc:2021_establishments_in_New_York_City,
+        dbc:2021_sculptures,
+        dbc:African-American_history_in_New_York_City,
+        dbc:Black_Lives_Matter_art,
+        dbc:Busts_in_New_York_City,
+        dbc:Memorials_to_George_Floyd,
+        dbc:Monuments_and_memorials_in_New_York_City,
+        dbc:Relocated_buildings_and_structures_in_New_York_City,
+        dbc:Sculptures_of_African_Americans,
+        dbc:Sculptures_of_men_in_New_York_\(state\),
+        dbc:Vandalized_works_of_art_in_New_York_City,
+        dbc:Wooden_sculptures_in_New_York_City ;
+    owl:sameAs wikidata:Q107410418,
+        dbpedia-global:Fqu8N ;
+    foaf:name "Bust of George Floyd"@en .
+
+dbr:Caoutchouc_\(Picabia\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Caoutchouc (Picabia)"@en,
+        "Caoutchouc (painting)"@en ;
+    dbo:wikiPageWikiLink dbr:Abstract_art,
+        dbr:Auguste_Herbin,
+        dbr:Black_Square_\(painting\),
+        dbc:1909_paintings,
+        <http://dbpedia.org/resource/Category:Collection_of_the_Musée_National_d'Art_Moderne>,
+        dbc:Cubist_paintings,
+        dbc:Paintings_by_Francis_Picabia,
+        dbr:Centre_Pompidou,
+        dbr:Cubism,
+        dbr:Fauvism,
+        <http://dbpedia.org/resource/File:Francis_Picabia_-_Caoutchouc.jpg>,
+        dbr:Francis_Picabia,
+        dbr:František_Kupka,
+        dbr:Gabrièle_Buffet-Picabia,
+        dbr:Guillaume_Apollinaire,
+        <http://dbpedia.org/resource/Kandinsky's_first_abstract_watercolor>,
+        dbr:Kasimir_Malevich,
+        dbr:Léopold_Survage,
+        dbr:Marcel_Duchamp,
+        <http://dbpedia.org/resource/Musée_National_d'Art_Moderne>,
+        <http://dbpedia.org/resource/Musée_national_d'art_moderne>,
+        dbr:Orphism_\(art\),
+        dbr:Paris,
+        dbr:Philip_Pearlstein,
+        dbr:Piet_Mondrian,
+        dbr:Proto-Cubism,
+        dbr:Robert_Delaunay,
+        dbr:Sonia_Delaunay,
+        dbr:Still_life,
+        dbr:Suprematist,
+        dbr:The_Spring,
+        dbr:Théâtre_Antoine-Simone_Berriau,
+        dbr:Virginia_Spate,
+        dbr:Wassily_Kandinsky,
+        dbr:Western_painting ;
+    dbp:imageFile "Francis Picabia, c.1909, Caoutchouc, watercolor, gouache and India ink on cardboard, 45.7 x 61.5 cm, Centre Pompidou.jpg"@en ;
+    dbp:medium "Watercolor, gouache and India ink on cardboard"@en ;
+    dct:subject dbc:1909_paintings,
+        dbc:Cubist_paintings,
+        dbc:Paintings_by_Francis_Picabia,
+        <http://dbpedia.org/resource/Category:Paintings_in_the_Musée_National_d'Art_Moderne>,
+        dbc:Watercolor_paintings ;
+    owl:sameAs dbr:Caoutchouc_\(painting\),
+        wikidata:Q65066805,
+        dbpedia-global:9prGT ;
+    foaf:name "Caoutchouc"@en .
+
+dbr:Cardinal_del_Portogallo_Altarpiece a dbo:Artwork ;
+    rdfs:label "Pala del cardinale del Portogallo"@it,
+        "Painel do Cardeal de Portugal"@pt ;
+    dbo:wikiPageWikiLink dbr:Antonio_del_Pollaiuolo,
+        dbc:1467_paintings,
+        dbc:Altarpieces,
+        dbc:Paintings_by_Antonio_del_Pollaiuolo,
+        dbc:Paintings_by_Piero_del_Pollaiuolo,
+        dbc:Paintings_in_the_collection_of_the_Uffizi,
+        dbc:Paintings_of_James_the_Great,
+        dbc:Paintings_of_Saint_Eustace,
+        dbc:Paintings_of_Vincent_of_Saragossa,
+        dbr:James_the_Great,
+        dbr:Piero_del_Pollaiuolo,
+        dbr:Saint_Eustace,
+        dbr:San_Miniato_al_Monte,
+        dbr:Uffizi,
+        dbr:Vincent_of_Saragossa ;
+    owl:sameAs <http://arz.dbpedia.org/resource/مذبح_الكاردينال_البرتغالى>,
+        dbpedia-it:Pala_del_cardinale_del_Portogallo,
+        dbpedia-pt:Painel_do_Cardeal_de_Portugal,
+        wikidata:Q3889223,
+        dbpedia-global:3cAaW .
+
+dbr:Checkered_House_\(Grandma_Moses\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Checkered House (Grandma Moses)"@en ;
+    dbp:medium "oil on canvas"@en ;
+    dct:subject dbc:1943_paintings,
+        dbc:Architecture_paintings,
+        dbc:Horses_in_art,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_Grandma_Moses ;
+    foaf:name "Checkered House"@en .
+
+dbr:Choosing_the_Wedding_Gown a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Choosing the Wedding Gown"@en ;
+    dbp:imageFile "File:William Mulready  - Choosing the Wedding Gown - FA.145 - Victoria and Albert Museum.jpg"@en ;
+    dct:subject dbc:1845_paintings,
+        dbc:Genre_paintings,
+        dbc:Oil_on_panel_paintings,
+        dbc:Paintings_by_William_Mulready,
+        dbc:Paintings_in_the_Victoria_and_Albert_Museum ;
+    foaf:name "Choosing the Wedding Gown"@en .
+
+dbr:Coronation_Portrait_of_Charles_X a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Coronation Portrait of Charles X"@en ;
+    dbp:imageFile "File:Carlos X de Francia .jpg"@en ;
+    dct:subject dbc:1825_paintings,
+        dbc:19th-century_portraits,
+        dbc:Cultural_depictions_of_Charles_X_of_France,
+        dbc:Paintings_by_François_Gérard,
+        dbc:Paintings_in_the_Museo_del_Prado,
+        dbc:Paintings_in_the_Palace_of_Versailles,
+        dbc:Paintings_in_the_Wellington_Collection,
+        dbc:Portraits_of_men ;
+    foaf:name "Portrait of Charles X"@en .
+
+dbr:Country_Fair_\(Grandma_Moses\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Country Fair (Grandma Moses)"@en ;
+    dbp:medium "oil on canvas"@en ;
+    dct:subject dbc:1950_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_Grandma_Moses ;
+    foaf:name "Country Fair"@en .
+
+dbr:Covent_Garden_Market_\(painting\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Covent Garden Market (painting)"@en ;
+    dbp:imageFile "File:Nebot covent garden market clean.jpg"@en ;
+    dct:subject dbc:1737_paintings,
+        dbc:Churches_in_art,
+        dbc:Landscape_paintings,
+        dbc:London_in_art,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_in_the_Tate_galleries,
+        dbc:Paintings_of_dogs ;
+    foaf:name "Covent Garden Market"@en .
+
+dbr:Crucifixion_with_a_Donor_\(Bosch\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Crucifixion with a Donor"@en,
+        "Crucifixion with a Donor (Bosch)"@en,
+        "Crucifixión con donante"@es,
+        "Crucifixion avec un donateur"@fr,
+        "Crocifissione con donatore"@it,
+        "Calvarie met schenker"@nl,
+        "Распятие с донатором (картина Босха)"@ru ;
+    dbo:wikiPageWikiLink dbr:Brussels,
+        dbc:1480s_paintings,
+        dbc:Collections_of_the_Royal_Museums_of_Fine_Arts_of_Belgium,
+        dbc:Paintings_by_Hieronymus_Bosch,
+        dbc:Paintings_depicting_the_Crucifixion_of_Jesus,
+        dbc:Paintings_of_the_Virgin_Mary,
+        dbr:Hieronymus_Bosch,
+        dbr:Royal_Museums_of_Fine_Arts_of_Belgium ;
+    dbp:imageFile "CrucifixionWithADonorBosch.jpg"@en ;
+    dct:subject dbc:1480s_paintings,
+        dbc:Paintings_by_Hieronymus_Bosch,
+        dbc:Paintings_in_the_Musée_Oldmasters,
+        dbc:Paintings_of_the_Crucifixion_of_Jesus,
+        dbc:Paintings_of_the_Virgin_Mary,
+        dbc:Paintings_with_donor_portraits ;
+    owl:sameAs <http://arz.dbpedia.org/resource/الصلب_مع_المتبرع>,
+        dbr:Crucifixion_with_a_Donor,
+        dbpedia-es:Crucifixión_con_donante,
+        dbpedia-fr:Crucifixion_avec_un_donateur,
+        dbpedia-it:Crocifissione_con_donatore,
+        dbpedia-nl:Calvarie_met_schenker,
+        <http://rdf.freebase.com/ns/m.0261fln>,
+        <http://ru.dbpedia.org/resource/Распятие_с_донатором_(картина_Босха)>,
+        <http://vi.dbpedia.org/resource/Đóng_đinh_với_một_thầy_cúng_(Bosch)>,
+        wikidata:Q2390211,
+        yago-res:Crucifixion_with_a_Donor_\(Bosch\),
+        dbpedia-global:2FgCz ;
+    foaf:name "Crucifixion With a Donor"@en .
+
+dbr:Dance_Class_at_the_Opera a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Dance Class at the Opera"@en ;
+    dbp:medium "Oil on canvas"@en ;
+    dct:subject dbc:1872_paintings,
+        dbc:Dance_in_art,
+        dbc:Mirrors_in_art,
+        dbc:Musical_instruments_in_art,
+        dbc:Paintings_by_Edgar_Degas,
+        dbc:Paintings_of_Paris ;
+    foaf:name "Dance Class at the Opera"@en .
+
+dbr:David_Garrick_in_The_Provoked_Wife a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "David Garrick in The Provoked Wife"@en ;
+    dbp:imageFile "File:Johann Zoffany  - David Garrick as Sir John Brute in Vanbrugh's 'The Provoked Wife' - OP607 - Wolverhampton Art Gallery.jpg"@en ;
+    dct:subject dbc:1765_paintings,
+        dbc:Cultural_depictions_of_David_Garrick,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_Johann_Zoffany,
+        dbc:Paintings_in_the_Wolverhampton_Art_Gallery,
+        dbc:Portraits_of_actors ;
+    foaf:name "David Garrick in the Provoked Wife"@en .
+
+dbr:Democritus_\(Agostino_Carracci\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Democritus (Agostino Carracci)"@en ;
+    dbp:medium "oil on canvas"@en ;
+    dct:subject dbc:1596_paintings,
+        dbc:Cultural_depictions_of_Democritus,
+        dbc:Paintings_by_Agostino_Carracci,
+        dbc:Paintings_in_the_Museo_di_Capodimonte,
+        dbc:Portraits_of_men ;
+    foaf:name "Democritus"@en .
+
+dbr:Dividend_Day_at_the_Bank_of_England a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Dividend Day at the Bank of England"@en ;
+    dbp:imageFile "File:George Elgar Hicks  - Dividend Day at the Bank of England - 0187 - Bank of England Museum.jpg"@en ;
+    dct:subject dbc:1859_paintings,
+        dbc:Genre_paintings,
+        dbc:London_in_art,
+        dbc:Oil_on_canvas_paintings ;
+    foaf:name "Dividend Day at the Bank of England"@en .
+
+dbr:Dragon_Fusuma a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Dragon Fusuma"@en ;
+    dbp:otherTitle "龍図襖"@en ;
+    dct:subject dbc:1786_paintings,
+        dbc:Dragons_in_art,
+        dbc:Wakayama_Prefecture_designated_tangible_cultural_property ;
+    foaf:name "Dragon Fusuma"@en .
+
+dbr:Dreaming_\(sculpture\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Dreaming (sculpture)"@en ;
+    dct:subject dbc:2020_sculptures,
+        dbc:Outdoor_sculptures_in_Toronto,
+        dbc:Sculptures_by_Jaume_Plensa ;
+    foaf:name "Dreaming"@en .
+
+dbr:Dulcinea_del_Toboso_\(painting\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Dulcinea del Toboso (painting)"@en ;
+    dbp:imageFile "File:Charles Robert Leslie  - Dulcinea del Toboso - FA.131 - Victoria and Albert Museum.jpg"@en ;
+    dct:subject dbc:1839_paintings,
+        dbc:Genre_paintings,
+        dbc:Oil_on_panel_paintings,
+        dbc:Paintings_by_Charles_Robert_Leslie,
+        dbc:Paintings_in_the_Victoria_and_Albert_Museum ;
+    foaf:name "Dulcinea del Toboso"@en .
+
+dbr:Dutch_Yachting_on_the_Zuider_Zee a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Dutch Yachting on the Zuider Zee"@en ;
+    dbp:imageFile "File:Dutch Yachting on the Zuider Zee RMG BHC1249.tiff"@en ;
+    dct:subject dbc:1848_paintings,
+        dbc:Maritime_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_Edward_William_Cooke,
+        dbc:Paintings_in_Royal_Museums_Greenwich,
+        dbc:Ships_in_art ;
+    foaf:name "Dutch Yachting on the Zuider Zee"@en .
+
+<http://dbpedia.org/resource/Ecce_Homo_(Bosch,_1510s)> a dbo:Artwork ;
+    rdfs:label "Ecce homo (Bosch, Indianapolis)"@fr ;
+    dbo:wikiPageWikiLink dbc:1510s_paintings,
+        dbc:Cultural_depictions_of_Pontius_Pilate,
+        dbc:Paintings_by_Hieronymus_Bosch,
+        dbc:Paintings_in_Indianapolis,
+        dbc:Paintings_in_the_collection_of_the_Philadelphia_Museum_of_Art,
+        dbc:Paintings_of_Ecce_Homo,
+        <http://dbpedia.org/resource/Ecce_Homo_(Bosch,_1470s)>,
+        <http://dbpedia.org/resource/File:Bosch_Ecce_Homo.jpg>,
+        dbr:Hieronymus_Bosch,
+        dbr:Indianapolis,
+        <http://dbpedia.org/resource/Indianapolis,_Indiana>,
+        dbr:Indianapolis_Museum_of_Art,
+        dbr:Jerusalem,
+        dbr:Jesus_Christ,
+        dbr:Philadelphia_Museum_of_Art,
+        dbr:Pontius_Pilate ;
+    owl:sameAs <http://arz.dbpedia.org/resource/ايتسى_هومو_(هيرونيموس_بوس_1490)>,
+        <http://fr.dbpedia.org/resource/Ecce_homo_(Bosch,_Indianapolis)>,
+        wikidata:Q924482,
+        dbpedia-global:55JKd .
+
+dbr:Edinburgh_from_the_Calton_Hill a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Edinburgh from the Calton Hill"@en ;
+    dbp:imageFile "File:David Roberts - Edinburgh from the Calton Hill - Google Art Project.jpg"@en ;
+    dct:subject dbc:1858_paintings,
+        dbc:Collection_of_the_Art_Gallery_of_New_South_Wales,
+        dbc:Collection_of_the_Guildhall_Art_Gallery,
+        dbc:Landscape_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_David_Roberts,
+        dbc:Scotland_in_art ;
+    foaf:name "Edinburgh from the Calton Hill"@en .
+
+dbr:El_Paseo_\(painting\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "El Paseo (painting)"@en ;
+    dbp:imageFile "File:John Phillip  - \"El Paseo\" - RCIN 404597 - Royal Collection.jpg"@en ;
+    dct:subject dbc:1854_paintings,
+        dbc:Genre_paintings,
+        dbc:Oil_on_panel_paintings,
+        dbc:Paintings_by_John_Phillip,
+        dbc:Paintings_in_the_Royal_Collection_of_the_United_Kingdom ;
+    foaf:name "El Paseo"@en .
+
+dbr:El_Perú_Libre a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "El Perú Libre"@en ;
+    dct:subject dbc:1853_paintings,
+        dbc:History_paintings,
+        dbc:National_personifications,
+        dbc:Paintings_in_Peru,
+        dbc:Recovered_works_of_art ;
+    owl:differentFrom dbr:Free_Peru ;
+    foaf:name "El Perú Libre"@en .
+
+dbr:Elizabeth_Taylor_and_Richard_Burton a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Elizabeth Taylor and Richard Burton"@en ;
+    dct:subject dbc:2015_establishments_in_Mexico,
+        dbc:2015_sculptures,
+        dbc:Bronze_sculptures_in_Mexico,
+        <http://dbpedia.org/resource/Category:Centro,_Puerto_Vallarta>,
+        dbc:Cultural_depictions_of_Elizabeth_Taylor,
+        dbc:Cultural_depictions_of_Richard_Burton,
+        dbc:Monuments_and_memorials_in_Jalisco,
+        dbc:Sculptures_of_men_in_Puerto_Vallarta,
+        dbc:Sculptures_of_women_in_Puerto_Vallarta,
+        dbc:Statues_in_Puerto_Vallarta ;
+    foaf:name "Elizabeth Taylor and Richard Burton"@en .
+
+dbr:Englefield_House_\(painting\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Englefield House (painting)"@en ;
+    dbp:imageFile "File:Englefield House .png"@en ;
+    dct:subject dbc:1832_paintings,
+        dbc:Berkshire_in_art,
+        dbc:Landscape_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_John_Constable,
+        dbc:Paintings_of_deer ;
+    foaf:name "Englefield House"@en .
+
+dbr:Entrada_de_Piérola_a_Lima_por_la_Puerta_de_Cocharcas a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Entrada de Piérola a Lima por la Puerta de Cocharcas"@en ;
+    dbp:medium dbr:Oil_painting ;
+    dct:subject dbc:1890_paintings,
+        dbc:1900_paintings,
+        dbc:History_paintings,
+        dbc:Paintings_by_Juan_Lepiani ;
+    foaf:name "Entrada de Piérola a Lima por la Puerta de Cocharcas, durante la Guerra Civil de 1894-1895"@en .
+
+dbr:Equestrian_statue_of_José_María_Morelos_\(Guadalajara\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Equestrian statue of José María Morelos (Guadalajara)"@en ;
+    dbp:medium dbr:Bronze_sculpture ;
+    dbp:otherTitle "Monumento a Morelos"@en ;
+    dct:subject dbc:1965_establishments_in_Mexico,
+        dbc:1965_sculptures,
+        dbc:Bronze_sculptures_in_Mexico,
+        dbc:Equestrian_statues_in_Mexico,
+        dbc:Monuments_and_memorials_in_Jalisco,
+        dbc:Obelisks,
+        dbc:Outdoor_sculptures_in_Guadalajara,
+        dbc:Sculptures_of_birds_in_Mexico,
+        dbc:Sculptures_of_eagles,
+        dbc:Sculptures_of_men_in_Mexico ;
+    foaf:name "Equestrian statue of José María Morelos"@en .
+
+dbr:Equestrian_statue_of_Sebastián_de_Belalcázar a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Equestrian statue of Sebastián de Belalcázar"@en ;
+    dct:subject dbc:1930s_establishments_in_Colombia,
+        dbc:Equestrian_statues,
+        dbc:Monuments_and_memorials_in_Colombia,
+        dbc:Monuments_and_memorials_removed_during_the_George_Floyd_protests,
+        dbc:Outdoor_sculptures_in_Colombia,
+        dbc:Sculptures_of_men_in_Colombia,
+        dbc:Statues_in_Colombia,
+        dbc:Statues_removed_in_2020,
+        dbc:Vandalized_works_of_art ;
+    owl:sameAs wikidata:Q107548493,
+        dbpedia-global:FtJZU ;
+    foaf:name "Equestrian statue of Sebastián de Belalcázar"@en .
+
+<http://dbpedia.org/resource/Equestrian_statue_of_the_Duke_of_Cambridge,_Whitehall> a dbo:Artwork ;
+    rdfs:label "Estatua ecuestre del duque de Cambridge (Whitehall)"@es,
+        "Конная статуя Георга герцога Кембриджского (Лондон)"@ru,
+        "Кінна статуя Джорджа герцога Кембриджського (Лондон)"@uk ;
+    dbo:wikiPageWikiLink dbr:17th_Lancers,
+        dbr:1907_in_art,
+        dbr:2nd_Life_Guards,
+        dbr:Adrian_Jones_\(sculptor\),
+        dbr:Alexandra_of_Denmark,
+        dbr:Bas-relief,
+        dbr:Buckingham_Palace,
+        dbc:1907_establishments_in_England,
+        dbc:1907_sculptures,
+        dbc:Equestrian_statues_in_the_United_Kingdom,
+        dbc:Grade_II_listed_monuments_and_memorials,
+        dbc:Grade_II_listed_statues_in_the_City_of_Westminster,
+        dbc:Granite_sculptures_in_the_United_Kingdom,
+        dbc:Monuments_and_memorials_in_London,
+        dbc:Outdoor_sculptures_in_London,
+        dbc:Sculptures_of_men_in_the_United_Kingdom,
+        dbc:Statues_of_military_officers,
+        dbc:Whitehall,
+        dbr:Edward_VII,
+        dbr:Edward_VIII,
+        dbr:Equestrian_statue,
+        dbr:Field_Marshal,
+        <http://dbpedia.org/resource/File:George_duke_of_cambridge.jpg>,
+        dbr:German_Army_\(German_Empire\),
+        dbr:Granite,
+        dbr:Grenadier_Guards,
+        dbr:Horse_Guards_\(building\),
+        dbr:John_Belcher_\(architect\),
+        dbr:Office_of_Works,
+        <http://dbpedia.org/resource/Prince_Arthur,_Duke_of_Connaught_and_Strathearn>,
+        dbr:Prince_Christian_of_Schleswig-Holstein,
+        <http://dbpedia.org/resource/Prince_George,_Duke_of_Cambridge>,
+        dbr:Prince_George_of_Greece_and_Denmark,
+        dbr:Princess_Victoria_of_the_United_Kingdom,
+        dbr:Sophia_of_Prussia,
+        dbr:War_Office,
+        dbr:Whitehall,
+        dbr:Wilhelm_von_Hahnke,
+        dbr:William_IV_of_the_United_Kingdom,
+        dbr:Wykeham_Leigh_Pemberton ;
+    owl:sameAs dbpedia-es:Estatua_ecuestre_del_duque_de_Cambridge_\(Whitehall\),
+        <http://rdf.freebase.com/ns/m.012zv04w>,
+        <http://ru.dbpedia.org/resource/Конная_статуя_Георга_герцога_Кембриджского_(Лондон)>,
+        <http://uk.dbpedia.org/resource/Кінна_статуя_Джорджа_герцога_Кембриджського_(Лондон)>,
+        wikidata:Q19516037,
+        <http://yago-knowledge.org/resource/Equestrian_statue_of_the_Duke_of_Cambridge,_Whitehall>,
+        dbpedia-global:s3h7 .
+
+dbr:Faith_and_Confidence a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Faith and Confidence"@en ;
+    dbp:medium "Photograph"@en ;
+    dct:subject dbc:1950s_photographs,
+        <http://dbpedia.org/resource/Category:1957_in_Washington,_D.C.>,
+        dbc:1957_works,
+        dbc:Black-and-white_photographs,
+        <http://dbpedia.org/resource/Category:Chinatown_(Washington,_D.C.)>,
+        dbc:History_of_law_enforcement_in_the_United_States,
+        dbc:Photographs_of_people,
+        dbc:Photographs_of_the_United_States,
+        <http://dbpedia.org/resource/Category:Pulitzer_Prize–winning_photographs>,
+        dbc:Works_about_law_enforcement_in_the_United_States,
+        dbc:Works_about_police_officers ;
+    foaf:name "Faith and Confidence"@en .
+
+dbr:Femme_au_miroir a dbo:Artwork ;
+    dbo:wikiPageWikiLink dbr:A_Bar_at_the_Folies-Bergère,
+        dbr:Albert_Gleizes,
+        dbr:Amedeo_Modigliani,
+        dbr:American_Art_Association,
+        dbr:André_Derain,
+        dbr:André_Salmon,
+        dbr:Archaeological_Museum_of_Rhodes,
+        dbr:Arnolfini_Portrait,
+        dbr:Art_of_ancient_Egypt,
+        dbr:Arthur_Bowen_Davies,
+        dbr:Au_Vélodrome,
+        dbr:Auguste_Herbin,
+        dbr:Blaise_Cendrars,
+        dbr:Brooklyn_Bridge_\(Gleizes\),
+        dbr:Carnegie_Museum_of_Art,
+        dbc:1916_paintings,
+        dbc:20th-century_portraits,
+        dbc:Paintings_by_Jean_Metzinger,
+        dbc:Portraits_of_women,
+        dbr:Classical_Greece,
+        dbr:Crystal_Cubism,
+        dbr:Cubism,
+        dbr:Daniel_Robbins_\(art_historian\),
+        dbr:Diego_Rivera,
+        dbr:Diego_Velázquez,
+        dbr:Dürer,
+        dbr:Earthly_Vanity_and_Divine_Salvation_\(Memling\),
+        dbr:Eduardo_Sívori,
+        <http://dbpedia.org/resource/File:Jean_Metzinger,_1915,_Soldat_jouant_aux_échecs_(Soldier_at_a_Game_of_Chess),_oil_on_canvas,_81.3_x_61_cm,_Smart_Museum_of_Art.jpg>,
+        <http://dbpedia.org/resource/File:Jean_Metzinger,_1916,_Femme_au_miroir_(Femme_à_sa_toilette,_Lady_at_her_Dressing_Table),_published_in_The_Sun,_New_York,_28_April_1918.jpg>,
+        <http://dbpedia.org/resource/File:Jean_Metzinger,_Le_Goûter,_Tea_Time_(1911)_and_Juan_Gris,_Hommage_à_Pablo_Picasso_(1912),_black_and_white.jpg>,
+        <http://dbpedia.org/resource/File:Jean_Metzinger,_invitation_card,_Léonce_Rosenberg,_Galerie_de_L'Effort_Moderne,_January_1919.jpg>,
+        <http://dbpedia.org/resource/File:Red-figure_lekythos,_woman,_mirror,_Athens_470-460_BC,_Prague,_NM_H10_774,_152187.jpg>,
+        <http://dbpedia.org/resource/File:Titian_-_Venus_with_a_Mirror_-_Google_Art_Project.jpg>,
+        dbr:Filippo_Brunelleschi,
+        dbr:Fourth_dimension_in_art,
+        dbr:Frans_Floris,
+        dbr:Frida_Kahlo,
+        dbr:Gino_Severini,
+        dbr:Girl_before_a_Mirror,
+        dbr:Hand_with_Reflecting_Sphere,
+        dbr:Hans_Memling,
+        dbr:Henri_Bergson,
+        dbr:Henri_Laurens,
+        dbr:Henri_Matisse,
+        dbr:Hermonax,
+        dbr:Hydria,
+        dbr:Jacques_Lipchitz,
+        dbr:Jacques_Villon,
+        dbr:Jan_van_Eyck,
+        dbr:Jean-Auguste-Dominique_Ingres,
+        dbr:Jean_Crotti,
+        dbr:Jean_Metzinger,
+        dbr:John_Quinn_\(collector\),
+        dbr:John_William_Godward,
+        dbr:Joseph_Csaky,
+        dbr:Juan_B._Castagnino_Fine_Arts_Museum,
+        dbr:Juan_Gris,
+        dbr:Las_Meninas,
+        dbr:Le_Fumeur,
+        dbr:Le_goûter_\(Tea_Time\),
+        dbr:Leonardo_da_Vinci,
+        dbr:Léonce_Rosenberg,
+        dbr:M._C._Escher,
+        dbr:Marcel_Duchamp,
+        dbr:Marsden_Hartley,
+        dbr:Maurice_Raynal,
+        dbr:Maurice_de_Vlaminck,
+        dbr:Max_Jacob,
+        dbr:Max_Weber_\(artist\),
+        dbr:Museo_Reina_Sofia,
+        dbr:Musée_Condé,
+        <http://dbpedia.org/resource/Musée_d'Art_Moderne_de_la_Ville_de_Paris>,
+        dbr:Musée_des_Beaux-Arts_de_Nantes,
+        dbr:Musée_des_Beaux-Arts_de_Strasbourg,
+        dbr:Musée_national_du_Moyen_Âge,
+        dbr:Pablo_Picasso,
+        dbr:Paolo_Veronese,
+        dbr:Peggy_Guggenheim_Collection,
+        dbr:Peter_Paul_Rubens,
+        dbr:Pierre_Reverdy,
+        dbr:Raymond_Duchamp-Villon,
+        dbr:Rembrandt,
+        dbr:Robert_Delaunay,
+        dbr:Self-portraits,
+        dbr:Smart_Museum_of_Art,
+        dbr:Soldier_at_a_Game_of_Chess,
+        dbr:Stanton_Macdonald-Wright,
+        dbr:Statens_Museum_for_Kunst,
+        dbr:The_Lady_and_the_Unicorn,
+        dbr:Thyssen-Bornemisza_Museum,
+        dbr:Titian,
+        dbr:University_of_Iowa_Museum_of_Art,
+        dbr:Van_Gogh,
+        dbr:Venice,
+        dbr:Venus_Anadyomene_\(Ingres\),
+        dbr:Venus_effect,
+        dbr:Walt_Kuhn,
+        dbr:William-Adolphe_Bouguereau,
+        dbr:Édouard_Manet ;
+    owl:sameAs <http://rdf.freebase.com/ns/m.0131jdr9>,
+        wikidata:Q20087530,
+        yago-res:Femme_au_miroir,
+        dbpedia-global:vVcN .
+
+<http://dbpedia.org/resource/Femme_nue_dormant_au_bord_de_l'eau> a dbo:Artwork ;
+    dbo:wikiPageWikiLink dbr:Canvas,
+        dbc:1921_paintings,
+        dbc:Nude_art,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_in_the_collection_of_the_Strasbourg_Museum_of_Modern_and_Contemporary_Art,
+        dbc:Sleep,
+        dbr:France,
+        dbr:Félix_Vallotton,
+        dbr:Inertia,
+        dbr:Landscape_painting,
+        dbr:Laziness,
+        dbr:Les_Nabis,
+        dbr:Nude_\(art\),
+        dbr:Oil_painting,
+        dbr:Painting,
+        dbr:Rowing,
+        dbr:Strasbourg,
+        dbr:Strasbourg_Museum_of_Modern_and_Contemporary_Art,
+        dbr:Switzerland ;
+    owl:sameAs wikidata:Q97860806,
+        dbpedia-global:DHojo .
+
+<http://dbpedia.org/resource/Femme_à_l'Éventail> a dbo:Artwork ;
+    dbo:wikiPageWikiLink dbr:Albert_Gleizes,
+        dbr:Albright-Knox_Art_Gallery,
+        dbr:Alexander_Archipenko,
+        dbr:Amedeo_Modigliani,
+        dbr:André_Lhote,
+        dbr:André_Mare,
+        dbr:Armory_show,
+        dbr:Atomist,
+        dbc:1912_paintings,
+        dbc:20th-century_portraits,
+        dbc:Paintings_by_Jean_Metzinger,
+        dbc:Portraits_of_women,
+        dbr:Chambre_des_députés,
+        dbr:Chiaroscuro,
+        dbr:Cubism,
+        dbr:Dancer_in_a_café,
+        dbr:Daniel_Robbins_\(art_historian\),
+        dbr:Danseuse_\(Csaky\),
+        dbr:Divisionism,
+        dbr:Du_%22Cubisme%22,
+        dbr:Eadweard_Muybridge,
+        dbr:Fauvism,
+        dbr:Fernand_Léger,
+        <http://dbpedia.org/resource/File:Jean_Metzinger,_1912,_Danseuse_au_café,_Dancer_in_a_café,_oil_on_canvas,_146.1_x_114.3_cm,_Albright-Knox_Art_Gallery,_Buffalo,_New_York.jpg>,
+        <http://dbpedia.org/resource/File:La_Maison_Cubiste,_Le_Salon_Bourgeois,_Salon_d'Automne,_1912,_Paris.jpg>,
+        <http://dbpedia.org/resource/File:Salon_d'Automne_1912,_Paris,_works_exhibited_by_Kupka,_Modigliani,_Csaky,_Picabia,_Metzinger,_Le_Fauconnier.jpg>,
+        dbr:Francis_Picabia,
+        dbr:František_Kupka,
+        dbr:Georges_Seurat,
+        dbr:Groupe_de_femmes,
+        dbr:Guillaume_Apollinaire,
+        dbr:Henri_Le_Fauconnier,
+        dbr:Impressionism,
+        dbr:Jean_Metzinger,
+        dbr:Joseph_Csaky,
+        dbr:La_Maison_Cubiste,
+        dbr:Louis_Vauxcelles,
+        dbr:Léonce_Rosenberg,
+        dbr:Man_on_a_Balcony_\(Gleizes\),
+        dbr:Marcel_Sembat,
+        dbr:Moderne_Kunstkring,
+        dbr:Musée_Rath,
+        dbr:National_Assembly_\(France\),
+        dbr:New_York_City,
+        dbr:Non-Euclidean_geometry,
+        dbr:Paul_Cézanne,
+        dbr:Paul_Signac,
+        dbr:Petit_Palais,
+        dbr:Pierre-Auguste_Renoir,
+        dbr:Polka_dot,
+        dbr:Proto-Cubism,
+        dbr:Raymond_Duchamp-Villon,
+        dbr:Return_to_order,
+        dbr:Roger_de_La_Fresnaye,
+        <http://dbpedia.org/resource/Salon_d'Automne>,
+        <http://dbpedia.org/resource/Section_d'Or>,
+        dbr:Solomon_R._Guggenheim_Museum,
+        dbr:Sonia_Delaunay,
+        dbr:The_Literary_Digest ;
+    owl:sameAs <http://rdf.freebase.com/ns/m.0_1mj9l>,
+        wikidata:Q16738834,
+        dbpedia-global:eBbt .
+
+dbr:Femme_à_la_montre a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Femme à la montre"@en ;
+    dbp:medium "Oil on canvas"@en ;
+    dct:subject dbc:1932_paintings,
+        dbc:Portraits_by_Pablo_Picasso,
+        dbc:Portraits_of_women ;
+    foaf:name "Femme à la montre"@en .
+
+dbr:Flowers_\(Warhol\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Flowers (Warhol)"@en ;
+    dbp:medium "Acrylic, silkscreen ink on canvas"@en ;
+    dct:subject dbc:1964_paintings,
+        dbc:1965_paintings,
+        dbc:20th-century_prints,
+        dbc:Flower_paintings,
+        dbc:Painting_series,
+        dbc:Paintings_by_Andy_Warhol ;
+    foaf:name "Flowers"@en .
+
+dbr:Fortune_\(Reni\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        owl:Thing ;
+    rdfs:label "Fortune (Reni)"@en ;
+    dct:subject dbc:Paintings_by_Guido_Reni .
+
+dbr:Funeral_of_a_Mummy_on_the_Nile a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Funeral of a Mummy on the Nile"@en ;
+    dbp:imageFile "Funeral of a Mummy on the Nile - Frederick Arthur Bridgman.jpg"@en,
+        "The Burial of a Mummy by Frederick Arthur Bridgman, 1877.jpg"@en ;
+    dbp:medium dbr:Oil_painting ;
+    dct:subject dbc:1887_paintings,
+        dbc:Ancient_Egypt_in_the_Western_imagination,
+        dbc:Ancient_Egyptian_funerary_practices,
+        dbc:Anubis,
+        dbc:Horus,
+        dbc:Isis,
+        dbc:Maritime_paintings,
+        dbc:Nephthys,
+        dbc:Nile,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_Frederick_Arthur_Bridgman,
+        dbc:Paintings_of_deities,
+        dbc:Rivers_in_art ;
+    foaf:name "Funeral of a Mummy on the Nile"@en,
+        "Funeral of a Mummy on the Nile (variant)"@en .
+
+dbr:George_II_at_the_Battle_of_Dettingen a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "George II at the Battle of Dettingen"@en ;
+    dbp:imageFile "--06-27"^^xsd:gMonthDay ;
+    dct:subject dbc:1743_paintings,
+        dbc:Cultural_depictions_of_George_II_of_Great_Britain,
+        dbc:History_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_in_the_National_Army_Museum,
+        <http://dbpedia.org/resource/Category:Prince_William,_Duke_of_Cumberland>,
+        dbc:War_of_the_Austrian_Succession_in_art ;
+    foaf:name "George II at the Battle of Dettingen"@en .
+
+dbr:Gleaming_waters a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Gleaming waters"@en ;
+    dbp:imageFile "File:Henry Scott Tuke - Gleaming waters, 1910.jpg"@en ;
+    dbp:medium dbr:Oil_painting ;
+    dct:subject dbc:1910_paintings,
+        dbc:Nude_paintings_of_children,
+        dbc:Paintings_by_Henry_Scott_Tuke ;
+    foaf:name "Gleaming waters"@en .
+
+<http://dbpedia.org/resource/Grandma's_Fairy_Tales> a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Grandma's Fairy Tales"@en ;
+    dbp:medium "Oil on canvas"@en ;
+    dct:subject dbc:1867_paintings,
+        dbc:Collection_of_the_Tretyakov_Gallery,
+        dbc:Russian_paintings ;
+    foaf:name "Grandma's Fairy Tales"@en .
+
+dbr:Great_Fire_\(The_Burning_of_Troy_in_1862\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        owl:Thing ;
+    rdfs:label "Great Fire (The Burning of Troy in 1862)"@en ;
+    dbp:medium "Oil paint, pressed wood"@en ;
+    dbp:onlysourced "yes"@en ;
+    dct:subject dbc:1959_paintings,
+        dbc:History_paintings,
+        dbc:Oil_on_panel_paintings,
+        dbc:Paintings_by_Grandma_Moses,
+        dbc:Paintings_in_the_Bennington_Museum .
+
+dbr:Hay_Barge_off_Greenwich a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Hay Barge off Greenwich"@en ;
+    dbp:imageFile "File:Hay Barge off Greenwich RMG BHC4165.tiff"@en ;
+    dct:subject dbc:1835_paintings,
+        dbc:London_in_art,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_Edward_William_Cooke,
+        dbc:Paintings_in_Royal_Museums_Greenwich,
+        dbc:River_Thames_in_art ;
+    foaf:name "Hay Barge Off Greenwich"@en .
+
+dbr:Head_of_a_Bear a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Head of a Bear"@en,
+        "Cabeza de un oso"@es,
+        "Голова медведя"@ru ;
+    dbp:medium "silverpoint pencil on  pink-beige paper"@en ;
+    dct:subject dbc:1480s_drawings,
+        dbc:Bears_in_art,
+        dbc:Drawings_by_Leonardo_da_Vinci ;
+    owl:sameAs dbpedia-es:Cabeza_de_un_oso,
+        <http://ru.dbpedia.org/resource/Голова_медведя>,
+        wikidata:Q107460193,
+        dbpedia-global:FrBnD ;
+    foaf:name "Head of a Bear"@en .
+
+dbr:Henry_VI_at_Towton a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Henry VI at Towton"@en ;
+    dbp:imageFile "File:William Dyce  - Henry VI at Towton, North Yorkshire - 661 - Guildhall Art Gallery.jpg"@en ;
+    dct:subject dbc:1860_paintings,
+        dbc:Collection_of_the_Guildhall_Art_Gallery,
+        dbc:Cultural_depictions_of_Henry_VI_of_England,
+        dbc:History_paintings,
+        dbc:Oil_on_panel_paintings,
+        dbc:Paintings_based_on_works_by_William_Shakespeare,
+        dbc:Paintings_by_William_Dyce,
+        dbc:War_of_the_Roses_in_art,
+        dbc:Yorkshire_in_art ;
+    foaf:name "Henry VI at Towton"@en .
+
+dbr:Hermes_Criophorus_\(Athens\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Hermes Criophorus (Athens)"@en ;
+    dbp:medium "Marble"@en ;
+    dbp:otherTitle ""@en ;
+    dct:subject dbc:1890_archaeological_discoveries,
+        dbc:1890_in_Greece,
+        dbc:2nd-century_Roman_sculptures,
+        dbc:Archaeological_discoveries_in_the_Peloponnese,
+        dbc:Marble_sculptures_in_Greece,
+        <http://dbpedia.org/resource/Category:National_Archaeological_Museum,_Athens>,
+        dbc:Nude_sculptures_in_Greece,
+        dbc:Roman_copies_of_5th-century_BC_Greek_sculptures,
+        dbc:Sculptures_in_Athens,
+        dbc:Sculptures_of_Hermes,
+        dbc:Sculptures_of_men_in_Greece,
+        dbc:Statues_in_Greece ;
+    foaf:name "Hermes Criophorus"@en .
+
+dbr:Hermes_of_Aegium a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Hermes of Aegium"@en ;
+    dbp:medium "Marble"@en ;
+    dbp:otherTitle ""@en ;
+    dct:subject dbc:1860_archaeological_discoveries,
+        dbc:1st-century_BC_Roman_sculptures,
+        dbc:1st-century_Roman_sculptures,
+        dbc:Archaeological_discoveries_in_the_Peloponnese,
+        dbc:Marble_sculptures_in_Greece,
+        <http://dbpedia.org/resource/Category:National_Archaeological_Museum,_Athens>,
+        dbc:Nude_sculptures_in_Greece,
+        dbc:Roman_copies_of_4th-century_BC_Greek_sculptures,
+        dbc:Sculptures_in_Athens,
+        dbc:Sculptures_of_Hermes,
+        dbc:Sculptures_of_men_in_Greece,
+        dbc:Statues_in_Greece ;
+    foaf:name "Hermes of Aegium"@en .
+
+dbr:Hero_and_Leander_\(Etty\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Hero and Leander (Etty)"@en ;
+    dbp:imageFile "File:Etty – Hero ExpiringFXD.jpg"@en ;
+    dct:subject dbc:1829_paintings,
+        dbc:History_paintings,
+        dbc:Nude_paintings_of_men,
+        dbc:Nude_paintings_of_women,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_William_Etty,
+        dbc:Paintings_in_the_Tate_galleries ;
+    foaf:name "Hero and Leander"@en .
+
+<http://dbpedia.org/resource/Hogarth's_Studio_in_1739> a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Hogarth's Studio in 1739"@en ;
+    dbp:imageFile "File:Edward Matthew Ward  - Hogarth's Studio in 1739 - YORAG , 349 - York Art Gallery.jpg"@en ;
+    dct:subject dbc:1863_paintings,
+        dbc:Cultural_depictions_of_William_Hogarth,
+        dbc:History_paintings,
+        dbc:London_in_art,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_Edward_Matthew_Ward,
+        dbc:Paintings_in_York_Art_Gallery ;
+    foaf:name "Hogarth's Studio in 1739"@en .
+
+dbr:Hogarth_Brought_Before_the_Governor_of_Calais_as_a_Spy a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Hogarth Brought Before the Governor of Calais as a Spy"@en ;
+    dbp:imageFile "File:Hogarth Brought Before the Governor of Calais as a Spy.png"@en ;
+    dct:subject dbc:1851_paintings,
+        dbc:Cultural_depictions_of_William_Hogarth,
+        dbc:History_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_William_Powell_Frith,
+        dbc:Paintings_of_dogs ;
+    foaf:name "Hogarth Brought Before the Governor of Calais as a Spy"@en .
+
+dbr:Homer_\(Ezekiel\) a dbo:Artwork ;
+    dbo:wikiPageWikiLink dbr:Amherst_College,
+        dbc:1907_establishments_in_Virginia,
+        dbc:1907_sculptures,
+        dbc:Bronze_sculptures_in_Virginia,
+        dbc:Cultural_depictions_of_Homer,
+        dbc:Musical_instruments_in_art,
+        dbc:Outdoor_sculptures_in_Virginia,
+        dbc:Sculptures_of_Moses_Jacob_Ezekiel,
+        dbc:Sculptures_of_men_in_Virginia,
+        dbc:Statues_in_Virginia,
+        dbc:Statues_of_writers,
+        dbc:University_of_Virginia,
+        dbc:Vandalized_works_of_art_in_Virginia,
+        dbr:Charles_McCance,
+        dbr:Charlottesville,
+        dbr:Homer,
+        dbr:Iliad,
+        dbr:John_Woodruff_Simpson,
+        dbr:Moses_Jacob_Ezekiel,
+        dbr:The_Lawn,
+        dbr:Thomas_Nelson_Page,
+        dbr:University_of_Virginia ;
+    owl:sameAs <http://rdf.freebase.com/ns/m.0_fpvw5>,
+        wikidata:Q16972956,
+        yago-res:Homer_\(Ezekiel\),
+        dbpedia-global:f6CD .
+
+dbr:Horiuchi_Mural a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Horiuchi Mural"@en,
+        "The Seattle Mural"@en ;
+    dct:subject dbc:1962_establishments_in_Washington_\(state\),
+        dbc:1962_works,
+        dbc:Century_21_Exposition,
+        dbc:Murals_in_Washington_\(state\),
+        dbc:Public_art_in_Seattle,
+        dbc:Seattle_Center ;
+    owl:sameAs dbr:The_Seattle_Mural ;
+    foaf:name "The Seattle Mural"@en .
+
+dbr:Hours_of_the_Day a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Hours of the Day"@en ;
+    dct:subject dbc:2018_establishments_in_Canada,
+        dbc:2018_sculptures,
+        dbc:Monuments_and_memorials_in_Toronto,
+        dbc:Outdoor_sculptures_in_Toronto ;
+    foaf:name "Hours of the Day"@en .
+
+dbr:Hunt_\(painting\) a dbo:Artwork ;
+    dbo:wikiPageWikiLink dbr:Alexi_Worth,
+        dbr:Algiz,
+        dbr:Artforum,
+        dbc:2002_paintings,
+        dbc:Ice_hockey_culture,
+        dbc:Paintings_by_Neo_Rauch,
+        dbc:Sports_paintings,
+        dbr:Concordia_University,
+        dbr:David_Zwirner_Gallery,
+        dbr:Neo_Rauch,
+        dbr:Oil_painting,
+        dbr:Pennsylvania,
+        dbr:Tyrolean_hat ;
+    owl:sameAs wikidata:Q28113312,
+        yago-res:Hunt_\(painting\),
+        dbpedia-global:2cL3C .
+
+dbr:I_Pifferari a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "I Pifferari"@en ;
+    dbp:imageFile "File:Sir David Wilkie  - I Pifferari - RCIN 405861 - Royal Collection.jpg"@en ;
+    dct:subject dbc:1827_paintings,
+        dbc:Genre_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_David_Wilkie,
+        dbc:Paintings_in_the_Royal_Collection_of_the_United_Kingdom,
+        dbc:Rome_in_art ;
+    foaf:name "I Pifferari"@en .
+
+<http://dbpedia.org/resource/I_will_have_your_back_always...> a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "I will have your back always..."@en ;
+    dbp:medium dbr:Bronze_sculpture ;
+    dct:subject dbc:2021_establishments_in_Idaho,
+        dbc:2021_sculptures,
+        <http://dbpedia.org/resource/Category:Buildings_and_structures_in_Boise,_Idaho>,
+        dbc:Outdoor_sculptures_in_the_United_States,
+        dbc:Statues_in_the_United_States ;
+    owl:sameAs wikidata:Q107570753,
+        dbpedia-global:FzUcz ;
+    foaf:name "I will have your back always..."@en .
+
+dbr:Infanta_Margareta_Teresa_in_a_Peach_Dress a dbo:Artwork ;
+    rdfs:label "La infanta Margarita"@es,
+        "L'Infante Marguerite en robe rose"@fr,
+        "Ritratto dell'infanta Margherita"@it ;
+    dbo:wikiPageWikiLink dbc:1654_paintings,
+        dbc:Portraits_by_Diego_Velázquez_in_the_Kunsthistorisches_Museum,
+        dbr:Kunsthistorisches_Museum,
+        dbr:Margaret_Theresa_of_Spain,
+        dbr:Velázquez ;
+    owl:sameAs <http://arz.dbpedia.org/resource/انفانتا_مارجريتا_تيريزا_بواسطه_فيلاسكيز>,
+        dbpedia-es:La_infanta_Margarita,
+        <http://fr.dbpedia.org/resource/L'Infante_Marguerite_en_robe_rose>,
+        <http://it.dbpedia.org/resource/Ritratto_dell'infanta_Margherita>,
+        wikidata:Q3204167,
+        dbpedia-global:2xVMx .
+
+dbr:Instructions_for_Paintings a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Instructions for Paintings"@en ;
+    dbp:otherTitle "絵画の指示"@en ;
+    dct:subject dbc:1961_works,
+        dbc:1962_works,
+        dbc:Collection_of_the_Museum_of_Modern_Art_\(New_York_City\),
+        dbc:Conceptual_art,
+        dbc:Works_by_Yoko_Ono ;
+    foaf:name "Instructions for Paintings"@en .
+
+dbr:Isaac_van_Amburgh_and_his_Animals a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Isaac van Amburgh and his Animals"@en ;
+    dbp:imageFile "File:Landseer.amburgh.jpg"@en ;
+    dct:subject dbc:1839_paintings,
+        dbc:Cats_in_art,
+        dbc:Lions_in_art,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_Edwin_Henry_Landseer,
+        dbc:Paintings_in_Windsor_Castle,
+        dbc:Paintings_in_the_Royal_Collection_of_the_United_Kingdom,
+        dbc:Sheep_in_art,
+        dbc:Tigers_in_art ;
+    foaf:name "Isaac van Amburgh and his Animals"@en .
+
+dbr:Isabella_\(Maris_painting\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Isabella (Maris painting)"@en ;
+    dbp:medium dbr:Oil_painting ;
+    dct:subject dbc:1906_paintings ;
+    foaf:name "Isabella"@en .
+
+dbr:July_Fourth_\(Grandma_Moses\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "July Fourth (Grandma Moses)"@en ;
+    dbp:medium "oil on masonite"@en ;
+    dct:subject dbc:1951_paintings,
+        dbc:Art_in_the_White_House,
+        dbc:Horses_in_art,
+        dbc:Oil_paintings,
+        dbc:Paintings_by_Grandma_Moses,
+        dbc:Paintings_of_people ;
+    foaf:name "July Fourth"@en .
+
+dbr:Katowice_beboks a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Katowice beboks"@en ;
+    dbp:medium "Bronze"@en ;
+    dct:subject dbc:21st-century_sculptures,
+        dbc:Buildings_and_structures_in_Katowice,
+        dbc:Outdoor_sculptures_in_Poland,
+        dbc:Tourist_attractions_in_Katowice .
+
+dbr:Keeper_of_the_Mausoleum_\(1903\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Keeper of the Mausoleum (1903)"@en ;
+    dbp:imageFile "Osman hamdy bey, vecchio davanti alle tombe di bambini, 1903.JPG"@en ;
+    dbp:medium "Oil on canvas"@en ;
+    dbp:otherTitle "Türbenin Bekçisi"@en ;
+    dct:subject dbc:Turkish_paintings ;
+    foaf:name "Keeper of the Mausoleum"@en .
+
+dbr:King_Kong_Balls a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "King Kong Balls"@en ;
+    dbp:medium "Sculpture"@en ;
+    dbp:otherTitle "Monkey Balls"@en ;
+    dct:subject dbc:Art,
+        dbc:Sculpture ;
+    foaf:name "King Kong Balls"@en .
+
+dbr:La_Femme_aux_Phlox a dbo:Artwork ;
+    rdfs:label "La Femme aux phlox"@fr ;
+    dbo:wikiPageWikiLink dbr:Albert_Gleizes,
+        dbr:André_Dunoyer_de_Segonzac,
+        dbr:André_Lhote,
+        dbr:André_Mare,
+        dbr:André_Salmon,
+        dbr:Armory_Show,
+        dbr:Boston,
+        dbr:Café_de_la_Rotonde,
+        dbc:1910_paintings,
+        dbc:Cubist_paintings,
+        dbc:Paintings_by_Albert_Gleizes,
+        <http://dbpedia.org/resource/Category:Paintings_in_the_collection_of_the_Museum_of_Fine_Arts,_Houston>,
+        dbr:Chicago,
+        dbr:Cubism,
+        dbr:Daniel_Robbins_\(art_historian\),
+        dbr:Felix_Ziem,
+        dbr:Fernand_Léger,
+        <http://dbpedia.org/resource/File:Delaunay_ChampDeMars.jpg>,
+        <http://dbpedia.org/resource/File:Recoveredgleizes.jpg>,
+        dbr:French_Parliament,
+        dbr:Guillaume_Apollinaire,
+        dbr:Henri_Le_Fauconnier,
+        dbr:Henri_Rousseau,
+        dbr:Jean_Babelon,
+        dbr:Jean_Jacques_Henner,
+        dbr:Jean_Metzinger,
+        <http://dbpedia.org/resource/L'Intermédiaire_des_chercheurs_et_curieux>,
+        dbr:Le_Dôme_Café,
+        dbr:Louis_Hautecœur,
+        dbr:Louis_Vauxcelles,
+        dbr:Man_on_a_Balcony_\(Gleizes\),
+        dbr:Marie_Laurencin,
+        dbr:Marlborough-Gerson,
+        dbr:Maurice_de_Vlaminck,
+        <http://dbpedia.org/resource/Museum_of_Fine_Arts,_Houston>,
+        dbr:New_York_City,
+        dbr:Pierre_Devambez,
+        dbr:Robert_Delaunay,
+        dbr:Roger_de_La_Fresnaye,
+        dbr:Salon_des_Indépendants,
+        <http://dbpedia.org/resource/Section_d'Or>,
+        <http://dbpedia.org/resource/The_Cubist_Painters,_Aesthetic_Meditations>,
+        dbr:William_Didier-Pouget ;
+    owl:sameAs dbpedia-fr:La_Femme_aux_phlox,
+        <http://rdf.freebase.com/ns/m.0wf0rzr>,
+        wikidata:Q17003030,
+        yago-res:La_Femme_aux_Phlox,
+        dbpedia-global:fPTm .
+
+dbr:Landscape_of_Łódź_Seen_From_Retkinia a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Landscape of Łódź Seen From Retkinia"@en,
+        "Landscape of Łódź Seen from Retkinia"@en ;
+    dbp:imageFile "Władysław Strzemiński, \"Pajzaż łódzki od strony Retkini\".jpg"@en ;
+    dbp:medium "Watercolour on paper"@en ;
+    dct:subject dbc:1941_paintings,
+        dbc:Landscape_paintings,
+        dbc:Polish_paintings,
+        dbc:Watercolor_paintings ;
+    owl:sameAs dbr:Landscape_of_Łódź_Seen_from_Retkinia ;
+    foaf:name "Landscape of Łódź Seen from Retkinia"@en .
+
+dbr:Last_Alarm_\(sculpture\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Last Alarm (sculpture)"@en ;
+    dct:subject dbc:Firefighting_memorials,
+        dbc:Monuments_and_memorials_in_Toronto,
+        dbc:Outdoor_sculptures_in_Toronto,
+        dbc:Sculptures_of_men_in_Ontario,
+        dbc:Statues_in_Ontario ;
+    owl:differentFrom dbr:The_Last_Alarm_\(sculpture\) ;
+    foaf:name "Last Alarm"@en .
+
+dbr:Le_Marteleur a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Le Marteleur"@en ;
+    dbp:otherTitle "The Hammerman"@en ;
+    dct:subject dbc:1886_sculptures,
+        dbc:Belgian_art,
+        dbc:Bronze_sculptures_in_Manhattan,
+        dbc:Columbia_University_campus,
+        dbc:Statues_in_New_York_City ;
+    owl:sameAs wikidata:Q107366765,
+        dbpedia-global:FqWGX ;
+    foaf:name "Le Marteleur"@en .
+
+dbr:Lifeboat_and_Manby_Apparatus_Going_Off_to_a_Stranded_Vessel a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Lifeboat and Manby Apparatus Going Off to a Stranded Vessel"@en ;
+    dbp:imageFile "File:Life-Boat and Manby Apparatus Going Off to a Stranded Vessel Making Signal  of Distress.png"@en ;
+    dct:subject dbc:1831_paintings,
+        dbc:Landscape_paintings,
+        dbc:Maritime_paintings,
+        dbc:Norfolk_in_art,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_J._M._W._Turner,
+        dbc:Paintings_in_the_Victoria_and_Albert_Museum ;
+    foaf:name "Lifeboat and Manby Apparatus Going Off to a Stranded Vessel"@en .
+
+dbr:Loss_of_the_Royal_George a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Loss of the Royal George"@en ;
+    dbp:imageFile "File:John Christian Schetky, Loss of the Royal George .jpg"@en ;
+    dct:subject dbc:1840_paintings,
+        dbc:Hampshire_in_art,
+        dbc:Maritime_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_in_the_Tate_galleries,
+        dbc:Ships_in_art ;
+    foaf:name "Loss of the Royal George"@en .
+
+dbr:Lucretia_and_Tarquin_\(Luca_Giordano\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        owl:Thing ;
+    rdfs:label "Lucretia and Tarquin (Luca Giordano)"@en ;
+    dct:subject dbc:1663_paintings,
+        dbc:Cultural_depictions_of_Lucretia,
+        dbc:Paintings_based_on_Fasti_\(poem\) .
+
+<http://dbpedia.org/resource/Ludlow_Castle,_Shropshire> a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Ludlow Castle, Shropshire"@en ;
+    dbp:imageFile "File:William Hodges  - Ludlow Castle, Shropshire - 43-1880 - Victoria and Albert Museum.jpg"@en ;
+    dct:subject dbc:1778_paintings,
+        dbc:Horses_in_art,
+        dbc:Landscape_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_William_Hodges,
+        dbc:Paintings_in_the_Victoria_and_Albert_Museum ;
+    foaf:name "Ludlow Castle, Shropshire"@en .
+
+<http://dbpedia.org/resource/Mary's_Invitation_–_A_Place_to_Regard_Beauty> a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Mary's Invitation – A Place to Regard Beauty"@en ;
+    dct:subject dbc:2014_sculptures,
+        dbc:Olympic_Sculpture_Park ;
+    foaf:name "Mary's Invitation – A Place to Regard Beauty"@en .
+
+dbr:Megaptera_\(sculpture\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Megaptera (sculpture)"@en ;
+    dbp:medium "Granite sculpture"@en ;
+    dct:subject dbc:1993_establishments_in_Ontario,
+        dbc:1993_sculptures,
+        dbc:Animal_sculptures_in_Canada,
+        dbc:Granite_sculptures_in_Canada,
+        dbc:Humpback_whale,
+        dbc:Outdoor_sculptures_in_Toronto,
+        dbc:Sculptures_by_Georg_Schmerholz,
+        dbc:Sculptures_of_whales,
+        dbc:Statues_in_Ontario ;
+    foaf:name "Megaptera"@en .
+
+dbr:Monkey_Queen a dbo:Artwork,
+        dbo:Work ;
+    rdfs:label "Depictions of Elizabeth II by Banksy"@en,
+        "Monkey Queen"@en ;
+    dct:subject dbc:Cultural_depictions_of_Elizabeth_II,
+        dbc:Works_by_Banksy ;
+    owl:sameAs dbr:Depictions_of_Elizabeth_II_by_Banksy .
+
+dbr:Monument_to_Multiculturalism a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Monument to Multiculturalism"@en ;
+    dct:subject dbc:1985_sculptures,
+        dbc:Monuments_and_memorials_in_Toronto,
+        dbc:Multiculturalism_in_Canada,
+        dbc:Outdoor_sculptures_in_Toronto,
+        dbc:Statues_in_Ontario ;
+    foaf:name "Monument to Multiculturalism"@en .
+
+dbr:Morgan_Commercial_and_Normal_College_Marker a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Morgan Commercial and Normal College Marker"@en ;
+    dct:subject dbc:Buildings_and_structures_in_Salt_Lake_City,
+        dbc:Monuments_and_memorials_in_Utah,
+        dbc:Outdoor_sculptures_in_Salt_Lake_City,
+        dbc:Sculptures_of_men_in_Utah ;
+    owl:sameAs wikidata:Q107489893,
+        dbpedia-global:Fp1RX ;
+    foaf:name "Morgan Commercial and Normal College Marker"@en .
+
+dbr:Morning_After_a_Heavy_Gale a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Morning After a Heavy Gale"@en ;
+    dbp:imageFile "File:Morning After a Heavy Gale.png"@en ;
+    dct:subject dbc:1857_paintings,
+        dbc:Kent_in_art,
+        dbc:Maritime_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_Edward_William_Cooke,
+        dbc:Paintings_in_the_Dallas_Museum_of_Art,
+        dbc:Ships_in_art ;
+    foaf:name "Morning After a Heavy Gale"@en .
+
+dbr:Mousehold_Heath_\(painting\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Mousehold Heath (painting)"@en ;
+    dbp:imageFile "File:Mousehold Heath, Norwich, by John Crome.jpg"@en ;
+    dct:subject dbc:1820_paintings,
+        dbc:Landscape_paintings,
+        dbc:Norfolk_in_art,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_in_the_Tate_galleries ;
+    foaf:name "Mousehold Heath"@en .
+
+dbr:Mural_of_Marcus_Rashford a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Mural of Marcus Rashford"@en ;
+    dbp:medium "Paint"@en ;
+    dbp:otherTitle "Marcus Rashford"@en ;
+    dct:subject dbc:2020_establishments_in_England,
+        dbc:2020s_murals,
+        dbc:Cultural_depictions_of_association_football_players,
+        dbc:Murals_in_England,
+        dbc:Murals_of_black_people,
+        dbc:Paintings_in_Manchester,
+        dbc:Tourist_attractions_in_England,
+        dbc:Vandalized_works_of_art_in_the_United_Kingdom,
+        dbc:Withington ;
+    owl:sameAs wikidata:Q107563359,
+        dbpedia-global:G2AQo ;
+    foaf:name "Mural of Marcus Rashford"@en .
+
+<http://dbpedia.org/resource/Musa_va_'Uj> a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Musa va 'Uj"@en ;
+    dbp:imageFile "File:The Giant 'Uj and the Prophets Moses, Jesus and Muhammad - Khalili Collection Islamic Art HIGHRES.jpg"@en ;
+    dbp:medium "Ink, gold, silver and opaque watercolour on paper"@en ;
+    dbp:otherTitle "The Giant ‘Uj and the Prophets Moses, Jesus and Muhammad"@en ;
+    dct:subject dbc:1460s_paintings,
+        dbc:Cultural_depictions_of_Muhammad,
+        dbc:Islamic_art,
+        dbc:Khalili_Collections,
+        dbc:Paintings_of_Moses,
+        dbc:Paintings_of_the_Madonna_and_Child,
+        dbc:Religious_paintings,
+        dbc:Watercolor_paintings ;
+    foaf:name "Musa va 'Uj"@en .
+
+dbr:Music_\(Kahlich\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Music (Kahlich)"@en ;
+    dbp:imageFile "KahlichMusic1938.jpg"@en ;
+    dct:subject dbc:1938_establishments_in_Wisconsin,
+        dbc:1938_sculptures,
+        dbc:Limestone_sculptures_in_Wisconsin,
+        dbc:Musical_sculptures,
+        dbc:Outdoor_sculptures_in_Milwaukee,
+        dbc:Sculptures_of_men_in_Wisconsin,
+        dbc:Sculptures_of_musical_instruments,
+        dbc:Works_Progress_Administration_in_Wisconsin ;
+    foaf:name "Music"@en .
+
+dbr:Napoleon_in_the_Prison_of_Nice_in_1794 a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Napoleon in the Prison of Nice in 1794"@en ;
+    dbp:imageFile "Napoléon prison.jpg"@en ;
+    dct:subject dbc:1841_paintings,
+        dbc:French_Revolutionary_Wars_in_art,
+        dbc:History_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_Edward_Matthew_Ward,
+        dbc:Paintings_in_the_Wellington_Collection,
+        dbc:Paintings_of_Napoleon ;
+    foaf:name "Napoleon in the Prison of Nice in 1794"@en .
+
+dbr:Neighbours_\(sculpture\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Neighbours (sculpture)"@en ;
+    dct:subject dbc:Outdoor_sculptures_in_Toronto,
+        dbc:Statues_in_Ontario ;
+    foaf:name "Neighbours"@en .
+
+ns19:_Way_of_the_Bird_King a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Northwest Trolls: Way of the Bird King"@en ;
+    dbp:medium "Sculpture"@en ;
+    dct:subject dbc:Public_art_in_Oregon,
+        dbc:Public_art_in_Washington_\(state\),
+        dbc:Sculptures_by_Danish_artists,
+        dbc:Sculptures_of_trolls ;
+    foaf:name "Northwest Trolls: Way of the Bird King"@en .
+
+dbr:Obelisk_11_March a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Obelisk 11 March"@en ;
+    dbp:medium "Obelisk made of white Carrara marble with chiseled letters"@en ;
+    dbp:otherTitle "This could be a Day of Historical Importance"@en ;
+    dct:subject dbc:1979_sculptures,
+        dbc:Charlottenburg,
+        dbc:Installation_art_works,
+        dbc:Marble_sculptures_in_Germany,
+        dbc:Obelisks_in_Germany,
+        dbc:Outdoor_sculptures_in_Berlin,
+        dbc:Outdoor_sculptures_in_Germany ;
+    foaf:name "11 March"@en .
+
+dbr:Old_Drury_Lane_Theatre_on_Fire a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Old Drury Lane Theatre on Fire"@en ;
+    dbp:imageFile "--02-24"^^xsd:gMonthDay ;
+    dct:subject dbc:1809_paintings,
+        dbc:Collection_of_the_Guildhall_Art_Gallery,
+        dbc:Landscape_paintings,
+        dbc:London_in_art,
+        dbc:Oil_on_canvas_paintings,
+        dbc:River_Thames_in_art ;
+    foaf:name "Old Drury Lane Theatre on Fire"@en .
+
+dbr:On_the_Road_from_Waterloo_to_Paris a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "On the Road from Waterloo to Paris"@en ;
+    dbp:imageFile "File:Marcus Stone - On the Road from Waterloo to Paris.jpg"@en ;
+    dct:subject dbc:1863_paintings,
+        dbc:Collection_of_the_Guildhall_Art_Gallery,
+        dbc:History_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_of_Napoleon,
+        dbc:Waterloo_campaign_in_paintings ;
+    foaf:name "On the Road from Waterloo to Paris"@en .
+
+dbr:Oprah_Winfrey_\(painting\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Oprah Winfrey (painting)"@en ;
+    dbp:medium "oil on linen"@en ;
+    dct:subject dbc:2023_paintings,
+        dbc:21st-century_portraits,
+        dbc:Oprah_Winfrey,
+        dbc:Paintings_in_the_National_Portrait_Gallery_\(United_States\),
+        dbc:Paintings_of_African-Americans,
+        dbc:Paintings_of_women ;
+    foaf:name "Oprah Winfrey"@en .
+
+dbr:Ostend_\(painting\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Ostend (painting)"@en ;
+    dbp:imageFile "File:Joseph Mallord William Turner Ostende 1844.jpg"@en ;
+    dct:subject dbc:1844_paintings,
+        dbc:Collection_of_the_Neue_Pinakothek,
+        dbc:Landscape_paintings,
+        dbc:Maritime_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_J._M._W._Turner ;
+    foaf:name "Ostend"@en .
+
+dbr:Otherworld_\(painting\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Otherworld (painting)"@en ;
+    dbp:medium "Tempera on panel"@en ;
+    dct:subject dbc:2002_paintings,
+        dbc:Aviation_art,
+        dbc:Paintings_by_Andrew_Wyeth,
+        dbc:Women_in_art ;
+    foaf:name "Otherworld"@en .
+
+dbr:Ouabache_\(sculpture\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Ouabache (sculpture)"@en ;
+    dbp:medium "Aluminum"@en ;
+    dct:subject dbc:Public_art_in_Indiana ;
+    foaf:name "OUABACHE: Spirit of the Wabash"@en .
+
+<http://dbpedia.org/resource/Our_King,_Dr._Martin_Luther_King,_Jr.> a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Our King, Dr. Martin Luther King, Jr."@en ;
+    dbp:medium "bronze casting, wood base"@en ;
+    dbp:otherTitle "\"Chieftan Statue\""@en .
+
+dbr:Owl_on_a_Frog_\(sculpture\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Owl on a Frog"@en,
+        "Owl on a Frog (sculpture)"@en ;
+    dbo:wikiPageWikiLink dbr:Austria,
+        dbc:Bronze_sculptures_in_New_York_City,
+        dbc:Frogs_in_art,
+        dbc:Owls_in_culture,
+        dbc:Sculptures_of_the_Metropolitan_Museum_of_Art,
+        dbr:Frog,
+        dbr:Metropolitan_Museum_of_Art,
+        dbr:New_York_City,
+        dbr:Owl ;
+    dbp:imageFile "File:Owl on a Frog MET ES7557.jpg"@en ;
+    dct:subject dbc:17th-century_sculptures,
+        dbc:Animal_sculptures_in_New_York_City,
+        dbc:Bronze_sculptures_in_New_York_City,
+        dbc:Sculptures_in_the_Metropolitan_Museum_of_Art,
+        dbc:Sculptures_of_birds_in_New_York_\(state\),
+        dbc:Sculptures_of_frogs,
+        dbc:Sculptures_of_owls ;
+    owl:sameAs dbr:Owl_on_a_Frog,
+        wikidata:Q56277705,
+        dbpedia-global:6GH52 ;
+    foaf:name "Owl on a Frog"@en .
+
+dbr:Painting_of_a_Christian_figure a dbo:Artwork ;
+    rdfs:label "Pintura nestoriana de Jesucristo"@es,
+        "Peinture chrétienne de Dunhuang"@fr,
+        "藏經洞基督像"@zh ;
+    dbo:wikiPageWikiLink dbr:Alopen,
+        dbr:Aurel_Stein,
+        dbr:Bhakti,
+        dbr:Bodhisattvas,
+        dbr:Bow_knot,
+        dbr:British_Museum,
+        dbr:Buddhist_iconography,
+        dbc:9th-century_paintings,
+        dbc:Ancient_Central_Asian_art,
+        dbc:Asian_objects_in_the_British_Museum,
+        dbc:Church_of_the_East_in_China,
+        dbc:Iconography_of_Jesus,
+        dbc:Paintings_of_saints,
+        dbc:Tang_dynasty_paintings,
+        <http://dbpedia.org/resource/Chang'an>,
+        dbr:Christian_mission,
+        dbr:Christoph_Baumer,
+        dbr:Church_of_the_East_in_China,
+        dbr:Dunhuang,
+        dbr:Eötvös_Loránd_University,
+        <http://dbpedia.org/resource/File:Cathayan_Nestorian_Cross_from_the_Nestorian_Stele.jpg>,
+        dbr:Folded_leaflet,
+        <http://dbpedia.org/resource/Google_Arts_&_Culture>,
+        dbr:Greco-Buddhist_art,
+        dbr:Halo_\(religious_iconography\),
+        dbr:Hindu_iconography,
+        dbr:Icon,
+        dbr:Jesus_Sutras,
+        dbr:Kushano-Sasanian_Kingdom,
+        dbr:Kyoto_University,
+        dbr:Lecturer,
+        dbr:London,
+        dbr:Manichaean_Painting_of_the_Buddha_Jesus,
+        dbr:Mogao_Caves,
+        dbr:Murals_from_the_Christian_temple_at_Qocho,
+        dbr:Nestorian_cross,
+        dbr:Nestorian_pillar_of_Luoyang,
+        dbr:P._Y._Saeki,
+        dbr:Professor_\(highest_academic_rank\),
+        dbr:Rayzha_Alimjan,
+        dbr:Sasanian_Empire,
+        dbr:Sasanian_art,
+        dbr:Sash,
+        dbr:Silk_painting,
+        dbr:Tang_Empire,
+        dbr:Tang_dynasty,
+        dbr:Taq-i_Bustan,
+        <http://dbpedia.org/resource/The_Longest_Day_in_Chang'an>,
+        dbr:Traditional_Chinese_characters,
+        dbr:Vitarka_Mudrā,
+        <http://dbpedia.org/resource/Xi'an_Stele> ;
+    owl:sameAs dbpedia-es:Pintura_nestoriana_de_Jesucristo,
+        dbpedia-fr:Peinture_chrétienne_de_Dunhuang,
+        wikidata:Q55347059,
+        <http://zh.dbpedia.org/resource/藏經洞基督像>,
+        dbpedia-global:5c5tG .
+
+dbr:Palestrina_-_Composition a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Palestrina - Composition"@en ;
+    dbp:imageFile "File:Joseph Mallord William Turner 067.jpg"@en ;
+    dct:subject dbc:1828_paintings,
+        dbc:Bridges_in_art,
+        dbc:Landscape_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_J._M._W._Turner,
+        dbc:Paintings_in_the_Tate_galleries,
+        dbc:Rivers_in_art,
+        dbc:Sheep_in_art ;
+    foaf:name "Palestrina - Composition"@en .
+
+dbr:Passing_of_the_Buffalo a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Passing of the Buffalo"@en ;
+    dbp:medium "Bronze"@en ;
+    dct:subject dbc:1929_sculptures,
+        dbc:Allegorical_sculptures_in_the_United_States,
+        dbc:Bison_in_art,
+        dbc:Bronze_sculptures,
+        dbc:Bronze_sculptures_in_Indiana,
+        <http://dbpedia.org/resource/Category:Buildings_and_structures_in_Muncie,_Indiana>,
+        dbc:Outdoor_sculptures_in_Indiana,
+        dbc:Public_art,
+        dbc:Public_art_in_Indiana,
+        dbc:Public_art_in_the_United_States,
+        dbc:Relocated_buildings_and_structures_in_Indiana,
+        dbc:Sculptures_of_Native_Americans_in_Indiana,
+        dbc:Sculptures_of_bison,
+        dbc:Sculptures_of_men_in_Indiana,
+        dbc:Skulls_in_art,
+        <http://dbpedia.org/resource/Category:Tourist_attractions_in_Delaware_County,_Indiana>,
+        dbc:Tourist_attractions_in_Indiana,
+        <http://dbpedia.org/resource/Category:Tourist_attractions_in_Muncie,_Indiana>,
+        dbc:Works_by_Cyrus_Edwin_Dallin .
+
+dbr:Penis_Satan a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Penis Satan"@en,
+        "Setan Penis"@in ;
+    dct:subject dbc:2014_disestablishments_in_British_Columbia,
+        dbc:2014_establishments_in_British_Columbia,
+        dbc:2014_sculptures,
+        dbc:Cultural_depictions_of_the_Devil,
+        dbc:Culture_jamming,
+        dbc:Nude_sculptures_of_men,
+        dbc:Obscenity_controversies_in_sculpture,
+        dbc:Outdoor_sculptures_in_Vancouver,
+        dbc:Removed_statues,
+        dbc:Sculptures_of_men_in_British_Columbia,
+        dbc:Statues_in_British_Columbia ;
+    owl:sameAs dbpedia-id:Setan_Penis,
+        wikidata:Q107599699,
+        dbpedia-global:FqN1z ;
+    foaf:name "Penis Satan"@en .
+
+<http://dbpedia.org/resource/Pia_de'_Tolomei_(Rossetti_painting)> a dbo:Artwork ;
+    rdfs:label "Pia de' Tolomei (Rossetti)"@it,
+        "Пия де Толомеи (картина Россетти)"@ru ;
+    dbo:wikiPageWikiLink dbr:Beata_Beatrix,
+        dbc:1868_paintings,
+        dbc:Birds_in_art,
+        dbc:Books_in_art,
+        dbc:Paintings_based_on_works_by_Dante_Alighieri,
+        dbc:Paintings_by_Dante_Gabriel_Rossetti,
+        dbc:Paintings_in_Kansas,
+        dbc:University_of_Kansas,
+        dbc:Works_based_on_Purgatorio,
+        dbr:Dante_Aligheri,
+        dbr:Dante_Gabriel_Rossetti,
+        dbr:Desdemona,
+        dbr:Elizabeth_Prettejohn,
+        dbr:Jane_Morris,
+        <http://dbpedia.org/resource/Lawrence,_Kansas>,
+        dbr:List_of_paintings_by_Dante_Gabriel_Rossetti,
+        dbr:Lizzie_Siddal,
+        dbr:Max_Beerbohm,
+        dbr:Oil_painting,
+        dbr:Proserpina,
+        dbr:Proserpine_\(Rossetti_painting\),
+        dbr:Purgatorio,
+        dbr:Queen_Guinevere,
+        dbr:Rossetti_and_His_Circle,
+        dbr:Russell_Ash,
+        dbr:Spencer_Museum_of_Art,
+        dbr:University_of_Kansas,
+        dbr:William_Morris ;
+    owl:sameAs <http://hy.dbpedia.org/resource/Պիա_դե_Տոլոմեի>,
+        <http://it.dbpedia.org/resource/Pia_de'_Tolomei_(Rossetti)>,
+        <http://ml.dbpedia.org/resource/പിയ_ഡി_ടോലോമി_(റോസെറ്റി_പെയിന്റിംഗ്)>,
+        <http://rdf.freebase.com/ns/m.0514l_g>,
+        <http://ru.dbpedia.org/resource/Пия_де_Толомеи_(картина_Россетти)>,
+        wikidata:Q7190014,
+        <http://yago-knowledge.org/resource/Pia_de'_Tolomei_(Rossetti_painting)>,
+        dbpedia-global:4tcyT .
+
+dbr:Pietà_\(Meštrović\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Pietà (Meštrović)"@en ;
+    dbp:imageFile "File:Basilica of the Sacred Heart  - interior, the Ivan Mestrovic Pieta  made of Carara marble .jpg"@en ;
+    dbp:medium dbr:Carrara_marble ;
+    dbp:otherTitle "Rimska Pietà"@en,
+        "Roman Pietà"@en ;
+    dct:subject dbc:1942_establishments_in_Indiana,
+        dbc:1942_sculptures,
+        dbc:Croatian_art,
+        dbc:Marble_sculptures_in_Indiana,
+        dbc:Sculptures_by_Ivan_Meštrović,
+        dbc:University_of_Notre_Dame_Public_Art_Collection ;
+    foaf:name "Pietà"@en .
+
+dbr:Pohang_Space_Walk a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Pohang Space Walk"@en ;
+    dbp:medium "Stainless steel"@en ;
+    dct:subject dbc:2021_establishments_in_South_Korea,
+        dbc:Buildings_and_structures_completed_in_2021,
+        dbc:Buildings_and_structures_in_North_Gyeongsang_Province,
+        dbc:Outdoor_sculptures_in_South_Korea,
+        dbc:Pohang,
+        dbc:Tourist_attractions_in_North_Gyeongsang_Province ;
+    foaf:name "Pohang Space Walk"@en .
+
+dbr:Portrait_of_Alexandra_of_Denmark_\(Fildes\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Portrait of Alexandra of Denmark (Fildes)"@en ;
+    dbp:imageFile "Queen Alexandra, when Princess of Wales - Fildes 1893.jpg"@en ;
+    dbp:medium dbr:Oil_painting ;
+    dct:subject dbc:1893_paintings,
+        dbc:Paintings_in_the_Royal_Collection_of_the_United_Kingdom,
+        dbc:Portraits_of_the_British_royal_family,
+        dbc:Portraits_of_women ;
+    foaf:name "Portrait of Alexandra of Denmark"@en .
+
+dbr:Portrait_of_Angelica_Kauffman a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work ;
+    rdfs:label "Portrait of Angelica Kauffman"@en ;
+    dct:subject dbc:Portraits_by_Joshua_Reynolds,
+        dbc:Portraits_of_women .
+
+dbr:Portrait_of_Cardinal_Alessandro_Farnese_\(Raphael\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Portrait of Cardinal Alessandro Farnese (Raphael)"@en ;
+    dbp:imageFile "Rafael - Alessandro Farnese.jpg"@en ;
+    dct:subject dbc:1510s_paintings,
+        dbc:1511_paintings,
+        dbc:16th-century_portraits,
+        dbc:Paintings_in_the_Museo_di_Capodimonte,
+        dbc:Portraits_by_Raphael ;
+    foaf:name "Portrait of Cardinal Alessandro Farnese"@en .
+
+dbr:Portrait_of_Elizabeth_II_\(Stone\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work ;
+    rdfs:label "Portrait of Elizabeth II (Stone)"@en,
+        "Richard Stone's portraits of Elizabeth II"@en ;
+    dct:subject dbc:1992_paintings,
+        dbc:2015_paintings,
+        dbc:20th-century_portraits,
+        dbc:21st-century_portraits,
+        dbc:Portraits_by_British_artists,
+        dbc:Portraits_of_Elizabeth_II ;
+    owl:sameAs <http://dbpedia.org/resource/Richard_Stone's_portraits_of_Elizabeth_II> .
+
+dbr:Portrait_of_Giacomo_Doria_\(Titian\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Portrait of Giacomo Doria"@en,
+        "Portrait of Giacomo Doria (Titian)"@en,
+        "Portrait de Giacomo Doria (Titien)"@fr ;
+    dbo:wikiPageWikiLink dbr:Ashmolean_Museum,
+        dbc:1535_paintings,
+        dbc:16th-century_portraits,
+        dbc:Paintings_in_the_collection_of_the_Ashmolean_Museum,
+        dbc:Portraits_by_Titian,
+        dbr:Oxford,
+        dbr:Titian ;
+    dbp:imageFile "Tizian 124.JPG"@en ;
+    dbp:medium dbr:Oil_painting ;
+    dct:subject dbc:1535_paintings,
+        dbc:16th-century_portraits,
+        dbc:Paintings_in_the_Ashmolean_Museum,
+        dbc:Portraits_by_Titian,
+        dbc:Portraits_of_men ;
+    owl:sameAs dbr:Portrait_of_Giacomo_Doria,
+        dbpedia-fr:Portrait_de_Giacomo_Doria_\(Titien\),
+        <http://mk.dbpedia.org/resource/Портрет_на_Џакомо_Дорија_(Тицијан)>,
+        <http://rdf.freebase.com/ns/m.0h3tvxc>,
+        wikidata:Q7232270,
+        yago-res:Portrait_of_Giacomo_Doria_\(Titian\),
+        dbpedia-global:4txLC ;
+    foaf:name "Portrait of Giacomo Doria"@en .
+
+dbr:Portrait_of_Jaime_Sabartés a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Portrait of Jaime Sabartés"@en,
+        "Portrait of Jaume Sabartés"@en ;
+    dbp:medium dbr:Oil_painting ;
+    dct:subject dbc:1901_paintings,
+        dbc:Food_and_drink_paintings,
+        dbc:Paintings_in_the_Pushkin_Museum,
+        dbc:Portraits_by_Pablo_Picasso ;
+    owl:sameAs dbr:Portrait_of_Jaume_Sabartés .
+
+dbr:Portrait_of_Lola_Montez a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Portrait of Lola Montez"@en ;
+    dbp:imageFile "File:Stieler - Lola Montez .jpg"@en ;
+    dct:subject dbc:1847_paintings,
+        dbc:19th-century_portraits,
+        dbc:Cultural_depictions_of_Lola_Montez,
+        dbc:Paintings_by_Joseph_Karl_Stieler ;
+    foaf:name "Portrait of Lola Montez"@en .
+
+dbr:Portrait_of_Tenochtitlan a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Portrait of Tenochtitlan"@en ;
+    dbp:otherTitle "In ixtli, in yollotl, in Tenochtitlan"@en,
+        "Retrato de Tenochtitlan"@en ;
+    dct:subject dbc:2023_software,
+        dbc:Digital_art,
+        dbc:Tenochtitlan .
+
+dbr:Portrait_of_the_Duke_of_Leeds a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Portrait of the Duke of Leeds"@en ;
+    dbp:imageFile "Francis Osborne, 5th Duke of Leeds.jpg"@en ;
+    dct:subject dbc:1796_paintings,
+        dbc:Paintings_by_Thomas_Lawrence,
+        dbc:Paintings_in_the_Ashmolean_Museum,
+        dbc:Portraits_of_men ;
+    foaf:name "Portrait of the Duke of Leeds"@en .
+
+dbr:Portrait_of_the_Loredan_Family a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Portrait of the Loredan Family"@en ;
+    dbp:medium "egg tempera on poplar"@en ;
+    dbp:otherTitle "Ritratto della famiglia Loredano"@en ;
+    dct:subject dbc:1507_paintings,
+        dbc:Leonardo_Loredan,
+        dbc:Loredan_family,
+        dbc:Paintings_by_Giovanni_Bellini ;
+    foaf:name "Portrait of the Loredan Family"@en .
+
+dbr:Princess_Margaret_Fountain a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Princess Margaret Fountain"@en ;
+    dct:subject dbc:Exhibition_Place,
+        dbc:Fountains_in_Canada,
+        dbc:Outdoor_sculptures_in_Toronto ;
+    foaf:name "Princess Margaret Fountain"@en .
+
+dbr:Procne_and_Itys_\(sculpture\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Procne and Itys (sculpture)"@en ;
+    dbp:medium "Marble"@en ;
+    dbp:otherTitle ""@en ;
+    dct:subject dbc:1836_archaeological_discoveries,
+        dbc:1836_in_Greece,
+        dbc:5th-century_BC_Greek_sculptures,
+        dbc:Acropolis_Museum,
+        dbc:Archaeological_discoveries_in_Attica,
+        dbc:Filicides,
+        dbc:Marble_sculptures_in_Greece,
+        dbc:Nude_sculptures_in_Greece,
+        dbc:Sculptures_in_Athens,
+        dbc:Sculptures_of_Greek_mythology,
+        dbc:Sculptures_of_children_in_Greece,
+        dbc:Sculptures_of_women_in_Greece,
+        dbc:Statues_in_Greece ;
+    foaf:name "Procne and Itys"@en .
+
+dbr:Red_Cavalry_\(painting\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Red Cavalry (painting)"@en,
+        "Red Cavalry Riding"@en ;
+    dbo:wikiPageWikiLink dbc:1932_paintings,
+        dbc:Collections_of_the_Russian_Museum,
+        dbc:Paintings_by_Kazimir_Malevich,
+        dbr:Kazimir_Malevich,
+        dbr:Oil_painting,
+        dbr:Red_Cavalry,
+        dbr:Russian_Museum,
+        dbr:Soviet_art,
+        dbr:St._Petersburg,
+        dbr:Suprematist ;
+    dbp:imageFile "Malevich cavalry.jpg"@en ;
+    dct:subject dbc:1932_paintings,
+        dbc:Collection_of_the_Russian_Museum,
+        dbc:Paintings_by_Kazimir_Malevich ;
+    owl:sameAs dbr:Red_Cavalry_Riding,
+        <http://sr.dbpedia.org/resource/Црвена_коњица_(слика)>,
+        wikidata:Q110469155,
+        dbpedia-global:GFzg4 ;
+    foaf:name "Red Cavalry Riding"@en .
+
+dbr:Robbins_Memorial_Flagstaff a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Robbins Memorial Flagstaff"@en ;
+    dbp:medium "Bronze"@en ;
+    dct:subject dbc:1911_sculptures,
+        dbc:Bronze_sculptures_in_Massachusetts,
+        <http://dbpedia.org/resource/Category:Buildings_and_structures_in_Arlington,_Massachusetts>,
+        dbc:Monuments_and_memorials_in_Massachusetts,
+        dbc:Sculptures_in_Massachusetts,
+        dbc:Sculptures_of_Native_Americans_in_Massachusetts,
+        dbc:Sculptures_of_books,
+        dbc:Sculptures_of_children_in_Massachusetts,
+        dbc:Sculptures_of_eagles,
+        dbc:Sculptures_of_men_in_Massachusetts,
+        dbc:Works_by_Cyrus_Edwin_Dallin ;
+    owl:sameAs wikidata:Q107453705,
+        dbpedia-global:FmZcG ;
+    foaf:name "Robbins Memorial Flagstaff"@en .
+
+dbr:Runner_\(sculpture\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Runner (sculpture)"@en ;
+    dct:subject dbc:2017_sculptures,
+        dbc:Beyoğlu,
+        dbc:Outdoor_sculptures_in_Istanbul ;
+    foaf:name "Runner"@en .
+
+dbr:Rupali_Guitar_\(sculpture\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Rupali Guitar"@en,
+        "Rupali Guitar (sculpture)"@en ;
+    dbo:wikiPageWikiLink dbr:A_J_M_Nasir_Uddin,
+        dbr:Ayub_Bachchu,
+        dbr:Bangladesh,
+        dbc:2019_in_Bangladesh,
+        dbc:2019_in_art,
+        dbc:Culture_in_Chittagong,
+        dbc:Iron_sculptures,
+        dbc:Musical_instruments_in_art,
+        dbc:Musical_sculptures,
+        dbc:Outdoor_sculptures_in_Bangladesh,
+        dbc:Steel_sculptures,
+        dbc:Works_about_guitars_and_guitarists,
+        dbr:Chittagong,
+        dbr:Chittagong_City_Corporation,
+        ns23:_Unplugged_Live,
+        dbr:Iron,
+        dbr:Love_Runs_Blind,
+        dbr:Music,
+        dbr:Steel ;
+    dbp:medium dbr:Iron,
+        dbr:Stainless_steel ;
+    dct:subject dbc:2019_in_Bangladesh,
+        dbc:2019_in_art,
+        dbc:Culture_in_Chittagong,
+        dbc:Iron_sculptures,
+        dbc:Outdoor_sculptures_in_Bangladesh,
+        dbc:Sculptures_of_musical_instruments,
+        dbc:Stainless_steel_sculptures,
+        dbc:Works_about_guitars_and_guitarists ;
+    owl:sameAs <http://bn.dbpedia.org/resource/রূপালী_গিটার_(ভাস্কর্য)>,
+        dbr:Rupali_Guitar,
+        wikidata:Q68537096,
+        dbpedia-global:AhAji ;
+    foaf:name "Rupali Guitar"@en .
+
+dbr:Sabrina_Fountain a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Sabrina Fountain"@en ;
+    dct:subject dbc:19th-century_architecture_in_the_United_Kingdom,
+        dbc:William_Burges_buildings ;
+    foaf:name "Sabrina Fountain"@en .
+
+dbr:Schloss_by_the_Water a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work ;
+    rdfs:label "Schloss by the Water"@en ;
+    dct:subject dbc:1908_paintings,
+        dbc:Landscape_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_Gustav_Klimt,
+        dbc:Paintings_in_the_National_Gallery_Prague .
+
+<http://dbpedia.org/resource/Self-portrait_(van_Gogh,_Paris)> a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Self-portrait (van Gogh, Paris)"@en ;
+    dbp:imageFile "Vincent van Gogh - Self-Portrait - Google Art Project.jpg"@en ;
+    dbp:medium dbr:Oil_painting ;
+    dct:subject dbc:1889_paintings,
+        dbc:Oil_on_canvas_paintings,
+        <http://dbpedia.org/resource/Category:Paintings_in_the_Musée_d'Orsay>,
+        dbc:Self-portraits_by_Vincent_van_Gogh ;
+    foaf:name "Self-portrait"@en .
+
+dbr:Self-portrait_in_a_Velvet_Dress a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Self-portrait in a Velvet Dress"@en ;
+    dbp:imageFile 200 ;
+    dbp:medium "Oil on canvas"@en ;
+    dct:subject dbc:1920s_paintings,
+        dbc:1926_paintings,
+        dbc:20th-century_portraits,
+        dbc:Magic_realism,
+        dbc:Mexican_art,
+        dbc:Mexican_paintings,
+        dbc:Paintings_by_Frida_Kahlo,
+        dbc:Self-portraits_by_Frida_Kahlo,
+        dbc:Self-portraiture ;
+    foaf:name "Self-portrait in a Velvet Dress"@en .
+
+dbr:Simon_bar_Kokhba_\(sculpture\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Simon bar Kokhba (sculpture)"@en ;
+    dbp:medium "Bronze"@en ;
+    dct:subject dbc:1905_sculptures,
+        dbc:Bronze_sculptures_in_Israel,
+        dbc:Sculptures_of_men_in_Israel .
+
+dbr:Sleep_\(Sher-Gil\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Sleep (Sher-Gil)"@en ;
+    dct:subject dbc:1933_paintings,
+        dbc:Dragons_in_art,
+        dbc:Nude_paintings_of_women,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_Amrita_Sher-Gil,
+        dbc:Paintings_in_India,
+        dbc:Portraits_of_women ;
+    foaf:name "Sleep"@en .
+
+dbr:Sleeping_Lady_with_Black_Vase a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Sleeping Lady with Black Vase"@en ;
+    dbp:imageFile "Alvó nő fekete vázával .jpg"@en ;
+    dbp:otherTitle ""@en ;
+    dct:subject dbc:1920s_paintings,
+        dbc:Hungarian_paintings,
+        dbc:Lost_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Portraits_of_women ;
+    owl:sameAs wikidata:Q107584498,
+        dbpedia-global:Fs3FW ;
+    foaf:name "Sleeping Lady with Black Vase"@en .
+
+dbr:South_Indian_Villagers_going_to_Market a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "South Indian Villagers going to Market"@en ;
+    dbp:medium "Oil on canvas"@en ;
+    dct:subject dbc:1937_paintings,
+        dbc:Genre_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_Amrita_Sher-Gil,
+        dbc:Paintings_in_India,
+        dbc:Paintings_of_children,
+        dbc:Paintings_of_women ;
+    foaf:name "South Indian Villagers going to Market"@en .
+
+dbr:Spirit_of_Discovery_\(sculpture\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Spirit of Discovery (sculpture)"@en ;
+    dct:subject dbc:2005_sculptures,
+        dbc:Bronze_sculptures_in_Ontario,
+        dbc:Outdoor_sculptures_in_Toronto,
+        dbc:Stainless_steel_sculptures,
+        dbc:Steel_sculptures_in_Canada,
+        dbc:University_of_Toronto ;
+    foaf:name "Spirit of Discovery"@en .
+
+dbr:St_Euphemia_\(Mantegna\) a dbo:Artwork ;
+    rdfs:label "Santa Eufemia (Mantegna)"@es,
+        "Sant'Eufemia (Mantegna)"@it ;
+    dbo:wikiPageWikiLink dbr:Andrea_Mantegna,
+        dbc:1454_paintings,
+        dbc:Paintings_by_Andrea_Mantegna,
+        dbc:Paintings_in_the_collection_of_the_Museo_di_Capodimonte,
+        dbr:Euphemia,
+        dbr:Museo_nazionale_di_Capodimonte,
+        dbr:Naples ;
+    owl:sameAs <http://arz.dbpedia.org/resource/القديس_اوفيميا>,
+        <http://bg.dbpedia.org/resource/Света_Евфимия_(Мантеня)>,
+        dbpedia-es:Santa_Eufemia_\(Mantegna\),
+        <http://it.dbpedia.org/resource/Sant'Eufemia_(Mantegna)>,
+        wikidata:Q3948849,
+        dbpedia-global:3eEpN .
+
+dbr:Statue_of_Atatürk_\(Gülhane_Park\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Atatürk (Gülhane Park)"@en ;
+    dct:subject dbc:Monuments_and_memorials_in_Istanbul,
+        dbc:Monuments_and_memorials_to_Mustafa_Kemal_Atatürk_in_Turkey,
+        dbc:Outdoor_sculptures_in_Istanbul,
+        dbc:Sculptures_of_men_in_Turkey,
+        dbc:Statues_in_Turkey ;
+    foaf:name "Statue of Atatürk"@en .
+
+<http://dbpedia.org/resource/Statue_of_Bee_Gees_(Douglas,_Isle_of_Man)> a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Bee Gees (Douglas, Isle of Man)"@en,
+        "Bee Gees staty (Douglas, Isle of Man)"@sv ;
+    dbp:medium dbr:Bronze_sculpture ;
+    dct:subject dbc:Bee_Gees,
+        dbc:Buildings_and_structures_in_the_Isle_of_Man,
+        dbc:Monuments_and_memorials_in_the_Isle_of_Man,
+        dbc:Statues_of_musicians ;
+    owl:sameAs <http://sv.dbpedia.org/resource/Bee_Gees_staty_(Douglas,_Isle_of_Man)>,
+        wikidata:Q107626024,
+        dbpedia-global:FoeJs ;
+    foaf:name "Statue of Bee Gees"@en .
+
+dbr:Statue_of_Can_Bartu a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Can Bartu"@en ;
+    dct:subject dbc:2021_establishments_in_Turkey,
+        dbc:2021_sculptures,
+        dbc:Kadıköy,
+        dbc:Monuments_and_memorials_in_Istanbul,
+        dbc:Outdoor_sculptures_in_Istanbul,
+        dbc:Sculptures_of_men_in_Turkey,
+        dbc:Statues_in_Turkey ;
+    foaf:name "Statue of Can Bartu"@en .
+
+dbr:Statue_of_Christian_Peter_Wilhelm_Beuth a dbo:ArchitecturalStructure,
+        dbo:Artwork,
+        dbo:Monument,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Beuth-Denkmal (Berlin)"@de,
+        "Statue of Christian Peter Wilhelm Beuth"@en,
+        "Statue of Peter Beuth"@en ;
+    dbo:wikiPageWikiLink dbr:August_Kiss,
+        dbr:Berlin,
+        dbr:Bronze_sculpture,
+        dbc:Bronze_sculptures_in_Germany,
+        dbc:Mitte,
+        dbc:Monuments_and_memorials_in_Germany,
+        dbc:Outdoor_sculptures_in_Berlin,
+        dbc:Sculptures_of_men_in_Germany,
+        dbc:Statues_in_Germany,
+        dbr:Christian_Peter_Wilhelm_Beuth,
+        dbr:Schinkelplatz ;
+    dbp:medium dbr:Bronze_sculpture ;
+    dct:subject dbc:Bronze_sculptures_in_Germany,
+        dbc:Mitte,
+        dbc:Monuments_and_memorials_in_Germany,
+        dbc:Outdoor_sculptures_in_Berlin,
+        dbc:Sculptures_of_men_in_Germany,
+        dbc:Statues_in_Germany ;
+    owl:sameAs dbr:Statue_of_Peter_Beuth,
+        dbpedia-de:Beuth-Denkmal_\(Berlin\),
+        wikidata:Q24977000,
+        yago-res:Statue_of_Christian_Peter_Wilhelm_Beuth,
+        dbpedia-global:2MdNL ;
+    foaf:name "Statue of Christian Peter Wilhelm Beuth"@en .
+
+<http://dbpedia.org/resource/Statue_of_Christopher_Columbus_(Richmond,_Virginia)> a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Christopher Columbus (Blauvelt, New York)"@en,
+        "Statue of Christopher Columbus (Richmond, Virginia)"@en ;
+    dbo:wikiPageWikiLink dbr:Benito_Mussolini,
+        dbc:1927_establishments_in_Virginia,
+        dbc:1927_sculptures,
+        dbc:2020_disestablishments_in_Virginia,
+        <http://dbpedia.org/resource/Category:Buildings_and_structures_in_Richmond,_Virginia>,
+        dbc:Monuments_and_memorials_in_Virginia,
+        dbc:Monuments_and_memorials_removed_during_the_George_Floyd_protests,
+        <http://dbpedia.org/resource/Category:Outdoor_sculptures_in_Richmond,_Virginia>,
+        dbc:Relocated_buildings_and_structures_in_Virginia,
+        dbc:Statues_of_Christopher_Columbus,
+        dbc:Statues_removed_in_2020,
+        dbc:Vandalized_works_of_art_in_Virginia,
+        dbr:Christopher_Columbus,
+        dbr:Columbus_Day,
+        <http://dbpedia.org/resource/File:Richmond,_Virginia_(8127316337).jpg>,
+        dbr:Giacomo_de_Martino,
+        dbr:Gun_salute,
+        dbr:Harry_F._Byrd,
+        dbr:Ku_Klux_Klan,
+        dbr:List_of_monuments_and_memorials_removed_during_the_George_Floyd_protests,
+        dbr:List_of_monuments_and_memorials_to_Christopher_Columbus,
+        dbr:Monument_Avenue,
+        dbr:Murder_of_George_Floyd,
+        dbr:Native_Americans_in_the_United_States,
+        dbr:Powhatan,
+        <http://dbpedia.org/resource/Richmond,_Virginia> ;
+    dbp:medium "Bronze"@en ;
+    dct:subject dbc:1927_establishments_in_Virginia,
+        dbc:1927_sculptures,
+        dbc:2020_disestablishments_in_Virginia,
+        <http://dbpedia.org/resource/Category:Buildings_and_structures_in_Richmond,_Virginia>,
+        dbc:Monuments_and_memorials_in_Virginia,
+        dbc:Monuments_and_memorials_in_the_United_States_removed_during_the_George_Floyd_protests,
+        <http://dbpedia.org/resource/Category:Outdoor_sculptures_in_Richmond,_Virginia>,
+        dbc:Relocated_buildings_and_structures_in_Virginia,
+        dbc:Statues_of_Christopher_Columbus,
+        dbc:Statues_removed_in_2020,
+        dbc:Vandalized_works_of_art_in_Virginia ;
+    owl:sameAs <http://dbpedia.org/resource/Statue_of_Christopher_Columbus_(Blauvelt,_New_York)>,
+        wikidata:Q96194357,
+        dbpedia-global:BwoWa ;
+    foaf:name "Christopher Columbus"@en .
+
+dbr:Statue_of_Egerton_Ryerson a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Egerton Ryerson"@en ;
+    dct:subject dbc:1890_establishments_in_Ontario,
+        dbc:1890_sculptures,
+        dbc:2021_disestablishments_in_Ontario,
+        dbc:Destroyed_sculptures,
+        dbc:Monuments_and_memorials_in_Toronto,
+        dbc:Outdoor_sculptures_in_Toronto,
+        dbc:Sculptures_of_men_in_Ontario,
+        dbc:Statues_in_Ontario,
+        dbc:Statues_removed_in_2021,
+        dbc:Toronto_Metropolitan_University,
+        dbc:Vandalized_works_of_art_in_Canada ;
+    owl:sameAs wikidata:Q107450274,
+        dbpedia-global:FuZfy ;
+    foaf:name "Statue of Egerton Ryerson"@en .
+
+dbr:Statue_of_Elizabeth_II_\(Toronto\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Elizabeth II (Toronto)"@en ;
+    dbp:medium dbr:Bronze_sculpture ;
+    dct:subject dbc:2023_establishments_in_Ontario,
+        dbc:2023_sculptures,
+        dbc:Bronze_sculptures_in_Ontario,
+        dbc:Monuments_and_memorials_in_Toronto,
+        dbc:Outdoor_sculptures_in_Toronto,
+        dbc:Sculptures_of_women_in_Ontario,
+        dbc:Statues_in_Canada,
+        dbc:Statues_of_Elizabeth_II ;
+    foaf:name "Statue of Queen Elizabeth II"@en .
+
+dbr:Statue_of_Elizabeth_II_\(Winnipeg\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Elizabeth II (Winnipeg)"@en ;
+    dbp:medium dbr:Bronze_sculpture ;
+    dct:subject dbc:1970_sculptures,
+        dbc:Bronze_sculptures_in_Canada,
+        dbc:Buildings_and_structures_in_Winnipeg,
+        dbc:Monuments_and_memorials_in_Manitoba,
+        dbc:Outdoor_sculptures_in_Canada,
+        dbc:Royal_monuments_in_Canada,
+        dbc:Sculptures_of_women_in_Canada,
+        dbc:Statues_in_Manitoba,
+        dbc:Statues_of_Elizabeth_II,
+        dbc:Statues_removed_in_2021,
+        dbc:Vandalized_works_of_art_in_Canada ;
+    owl:sameAs wikidata:Q107564624,
+        dbpedia-global:Fo1gB ;
+    foaf:name "Statue of Elizabeth II"@en .
+
+dbr:Statue_of_Fikret_Mualla_Saygı a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Fikret Mualla Saygı"@en ;
+    dct:subject dbc:Kadıköy,
+        dbc:Monuments_and_memorials_in_Istanbul,
+        dbc:Outdoor_sculptures_in_Istanbul,
+        dbc:Sculptures_of_men_in_Turkey,
+        dbc:Statues_in_Turkey ;
+    foaf:name "Statue of Fikret Mualla Saygı"@en .
+
+dbr:Statue_of_George_Floyd a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of George Floyd"@en,
+        "조지 플로이드 동상"@ko ;
+    dbp:medium "Bronze"@en ;
+    dct:subject dbc:2021_establishments_in_New_Jersey,
+        dbc:2021_in_New_Jersey,
+        dbc:2021_sculptures,
+        dbc:Black_Lives_Matter_art,
+        dbc:Bronze_sculptures_in_New_Jersey,
+        <http://dbpedia.org/resource/Category:Buildings_and_structures_in_Newark,_New_Jersey>,
+        dbc:Memorials_to_George_Floyd,
+        dbc:Monuments_and_memorials_in_New_Jersey,
+        dbc:Outdoor_sculptures_in_New_Jersey,
+        <http://dbpedia.org/resource/Category:Public_art_in_Newark,_New_Jersey>,
+        dbc:Sculptures_of_African_Americans,
+        dbc:Sculptures_of_men_in_New_Jersey,
+        dbc:Statues_in_New_Jersey,
+        dbc:Vandalized_works_of_art_in_New_Jersey ;
+    owl:sameAs <http://ko.dbpedia.org/resource/조지_플로이드_동상>,
+        wikidata:Q107404474,
+        dbpedia-global:Fwush ;
+    foaf:name "Statue of George Floyd"@en .
+
+dbr:Statue_of_Giordano_Bruno a dbo:Artwork ;
+    rdfs:label "Statue de Giordano Bruno"@fr,
+        "Monumento a Giordano Bruno"@it,
+        "Памятник Джордано Бруно"@ru,
+        "Monumentet över Giordano Bruno"@sv,
+        "Пам'ятник Джордано Бруно"@uk ;
+    dbo:wikiPageWikiLink dbr:Ab_Apostolici,
+        dbr:Alexander_Polzin,
+        dbr:Atheists,
+        dbr:Berlin,
+        <http://dbpedia.org/resource/Campo_de'_Fiori>,
+        dbc:1889_sculptures,
+        dbc:Bronze_sculptures_in_Italy,
+        dbc:Cultural_depictions_of_Giordano_Bruno,
+        dbc:Freemasonry_in_Italy,
+        dbc:Outdoor_sculptures_in_Rome,
+        dbc:Statues_in_Italy,
+        dbr:Ettore_Ferrari,
+        <http://dbpedia.org/resource/File:GiordanoBrunoStatueCampoDeFiori.jpg>,
+        dbr:Franco-Prussian_War,
+        dbr:Freemasonry,
+        dbr:Freethinkers,
+        dbr:Giordano_Bruno,
+        dbr:Giovanni_Bovio,
+        dbr:Giuseppe_Garibaldi,
+        dbr:Grand_Master_\(order\),
+        <http://dbpedia.org/resource/Grande_Oriente_d'Italia>,
+        dbr:Humanum_genus,
+        dbr:Italian_unification,
+        dbr:Italy,
+        dbr:Mason_\(Freemasonry\),
+        dbr:Masonic,
+        dbr:Pantheism,
+        dbr:Pantheists,
+        dbr:Papal_States_under_Pope_Pius_IX,
+        dbr:Pope_Leo_XIII,
+        dbr:Potsdamer_Platz,
+        dbr:Rome,
+        dbr:Rovigo ;
+    owl:sameAs <http://arz.dbpedia.org/resource/تمثال_جيوردانو_برونو>,
+        <http://commons.dbpedia.org/resource/Monument_to_Giordano_Bruno_(Rome)>,
+        dbpedia-fr:Statue_de_Giordano_Bruno,
+        dbpedia-it:Monumento_a_Giordano_Bruno,
+        <http://ka.dbpedia.org/resource/ჯორდანო_ბრუნოს_ქანდაკება>,
+        <http://rdf.freebase.com/ns/m.03d0zms>,
+        <http://ru.dbpedia.org/resource/Памятник_Джордано_Бруно>,
+        <http://sv.dbpedia.org/resource/Monumentet_över_Giordano_Bruno>,
+        <http://uk.dbpedia.org/resource/Пам'ятник_Джордано_Бруно>,
+        wikidata:Q3648036,
+        yago-res:Statue_of_Giordano_Bruno,
+        dbpedia-global:3NRjN .
+
+dbr:Statue_of_Harry_F._Byrd a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Harry F. Byrd"@en ;
+    dct:subject <http://dbpedia.org/resource/Category:Buildings_and_structures_in_Richmond,_Virginia>,
+        dbc:Monuments_and_memorials_in_Virginia,
+        dbc:Outdoor_sculptures_in_Virginia,
+        dbc:Sculptures_of_men_in_Virginia,
+        dbc:Statues_in_Virginia,
+        dbc:Statues_removed_in_2021 ;
+    owl:sameAs wikidata:Q107610348,
+        dbpedia-global:Fq132 ;
+    foaf:name "Statue of Harry F. Byrd"@en .
+
+dbr:Statue_of_Industry a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Industry"@en ;
+    dbp:medium "Plaster over steel frame"@en ;
+    dct:subject dbc:1929_sculptures,
+        dbc:20th_century_in_Newcastle_upon_Tyne,
+        dbc:Allegorical_sculptures_in_the_United_Kingdom,
+        dbc:Outdoor_sculptures_in_Newcastle_upon_Tyne,
+        dbc:Statues_of_women_in_the_United_Kingdom,
+        dbc:Vandalized_works_of_art_in_the_United_Kingdom,
+        dbc:Works_by_Herbert_Maryon ;
+    rdfs:seeAlso dbr:Works_of_Herbert_Maryon ;
+    foaf:name "Statue of Industry"@en .
+
+<http://dbpedia.org/resource/Statue_of_James_Cook_(Victoria,_British_Columbia)> a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of James Cook (Victoria, British Columbia)"@en ;
+    dbp:medium dbr:Fiberglass ;
+    dct:subject dbc:1976_sculptures,
+        dbc:2021_disestablishments_in_British_Columbia,
+        dbc:Destroyed_sculptures,
+        dbc:Monuments_and_memorials_in_British_Columbia,
+        dbc:Monuments_and_memorials_to_James_Cook,
+        dbc:Sculptures_of_men_in_British_Columbia,
+        dbc:Statues_in_British_Columbia,
+        dbc:Statues_removed_in_2021,
+        dbc:Vandalized_works_of_art_in_Canada,
+        <http://dbpedia.org/resource/Category:Victoria,_British_Columbia> ;
+    owl:sameAs wikidata:Q107409925,
+        dbpedia-global:Fwx6C ;
+    foaf:name "Statue of James Cook"@en .
+
+dbr:Statue_of_John_A._Macdonald_\(Wade\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of John A. Macdonald (Wade)"@en ;
+    dct:subject <http://dbpedia.org/resource/Category:Buildings_and_structures_in_Kingston,_Ontario>,
+        dbc:Cultural_depictions_of_John_A._Macdonald,
+        dbc:Monuments_and_memorials_removed_during_the_George_Floyd_protests,
+        dbc:Relocated_buildings_and_structures_in_Canada,
+        dbc:Sculptures_of_men_in_Ontario,
+        dbc:Statues_in_Ontario,
+        dbc:Statues_of_prime_ministers,
+        dbc:Statues_removed_in_2021 ;
+    owl:sameAs wikidata:Q107564027,
+        dbpedia-global:FwVqc ;
+    foaf:name "Statue of John A. Macdonald"@en .
+
+dbr:Statue_of_Joshua_Nkomo a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Joshua Nkomo"@en ;
+    dct:subject dbc:2013_sculptures,
+        dbc:Korean_sculptures,
+        dbc:Mansudae_Overseas_Projects,
+        dbc:Monuments_and_memorials_in_Zimbabwe,
+        dbc:Statues_in_Zimbabwe ;
+    foaf:name "Statue of Joshua Nkomo"@en .
+
+dbr:Statue_of_Juan_Marichal a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Juan Marichal"@en ;
+    dct:subject dbc:2005_sculptures,
+        dbc:Monuments_and_memorials_in_California,
+        dbc:Outdoor_sculptures_in_San_Francisco,
+        dbc:Sculptures_by_William_Behrends,
+        dbc:Sculptures_of_men_in_California,
+        dbc:Statues_in_San_Francisco,
+        dbc:Statues_of_baseball_players,
+        dbc:Statues_of_sportspeople_in_California ;
+    foaf:name "Statue of Juan Marichal"@en .
+
+<http://dbpedia.org/resource/Statue_of_Junípero_Serra_(Carmel-by-the-Sea,_California)> a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Junípero Serra (Carmel Woods, California)"@en,
+        "Statue of Junípero Serra (Carmel-by-the-Sea, California)"@en ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/Carmel-by-the-Sea,_California>,
+        dbr:Carmel_Woods,
+        dbc:1922_establishments_in_California,
+        dbc:1922_sculptures,
+        dbc:Monuments_and_memorials_in_California,
+        dbc:Monuments_and_memorials_removed_during_the_George_Floyd_protests,
+        dbc:Outdoor_sculptures_in_California,
+        dbc:Sculptures_of_men_in_California,
+        dbc:Statues_in_California,
+        dbc:Statues_of_Junípero_Serra,
+        dbc:Statues_removed_in_2020,
+        dbc:Vandalized_works_of_art_in_California,
+        dbc:Wooden_sculptures_in_the_United_States,
+        <http://dbpedia.org/resource/File:Carmel_Woods_with_Jo_Mora_and_his_daughter_Patti.jpg>,
+        dbr:George_Floyd_protests_in_Canada,
+        dbr:George_Sterling,
+        dbr:Joseph_Jacinto_Mora,
+        dbr:Junípero_Serra,
+        dbr:List_of_monuments_and_memorials_removed_during_the_George_Floyd_protests,
+        dbr:Mission_San_Carlos_Borromeo_de_Carmelo,
+        dbr:Oak,
+        <http://dbpedia.org/resource/Presidio_of_Monterey,_California>,
+        dbr:Procession,
+        dbr:Samuel_Finley_Brown_Morse ;
+    dbp:medium "Oak sculpture"@en ;
+    dct:subject dbc:1922_establishments_in_California,
+        dbc:1922_sculptures,
+        dbc:Monuments_and_memorials_in_California,
+        dbc:Monuments_and_memorials_in_the_United_States_removed_during_the_George_Floyd_protests,
+        dbc:Outdoor_sculptures_in_California,
+        dbc:Sculptures_of_men_in_California,
+        dbc:Statues_in_California,
+        dbc:Statues_of_Junípero_Serra,
+        dbc:Statues_removed_in_2020,
+        dbc:Vandalized_works_of_art_in_California,
+        dbc:Wooden_sculptures_in_the_United_States ;
+    owl:sameAs <http://arz.dbpedia.org/resource/تمثال_جونيبيرو_سيرا_(تمثال_فى_امريكا)>,
+        <http://dbpedia.org/resource/Statue_of_Junípero_Serra_(Carmel_Woods,_California)>,
+        wikidata:Q97355000,
+        dbpedia-global:DLWWn ;
+    foaf:name "Statue of Junípero Serra"@en .
+
+dbr:Statue_of_Kobe_Bryant a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Kobe Bryant"@en ;
+    dbo:wikiPageWikiLink dbr:National_Garden_of_American_Heroes ;
+    dbp:medium dbr:Bronze_sculpture ;
+    dbp:otherTitle "The Black Mamba Statue"@en ;
+    dct:subject dbc:2024_establishments_in_California,
+        dbc:2024_in_sports_in_Los_Angeles,
+        dbc:2024_sculptures,
+        dbc:Bronze_sculptures_in_California,
+        dbc:Kobe_Bryant,
+        dbc:Monuments_and_memorials_in_California,
+        dbc:Outdoor_sculptures_in_Greater_Los_Angeles,
+        dbc:Sculptures_of_African_Americans,
+        dbc:Sculptures_of_men_in_California,
+        dbc:Statues_in_Los_Angeles,
+        dbc:Statues_of_basketball_players,
+        dbc:Statues_of_sportspeople_in_California ;
+    foaf:name "Statue of Kobe Bryant"@en .
+
+dbr:Statue_of_Lefter_Küçükandonyadis a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Lefter Küçükandonyadis"@en ;
+    dct:subject dbc:2009_establishments_in_Turkey,
+        dbc:2009_sculptures,
+        dbc:Kadıköy,
+        dbc:Monuments_and_memorials_in_Istanbul,
+        dbc:Outdoor_sculptures_in_Istanbul,
+        dbc:Sculptures_of_men_in_Turkey,
+        dbc:Statues_in_Turkey ;
+    foaf:name "Statue of Lefter Küçükandonyadis"@en .
+
+<http://dbpedia.org/resource/Statue_of_Lord_Nelson,_Bridgetown> a dbo:ArchitecturalStructure,
+        dbo:Artwork,
+        dbo:Monument,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Lord Nelson, Bridgetown"@en,
+        "Статуя Нельсона (Бриджтаун)"@ru ;
+    dbp:medium dbr:Bronze ;
+    dct:subject dbc:1813_sculptures,
+        dbc:Bronze_sculptures_in_Barbados,
+        dbc:Monuments_and_memorials_in_Barbados,
+        dbc:Monuments_and_memorials_to_Horatio_Nelson,
+        dbc:Outdoor_sculptures_in_Barbados,
+        dbc:Sculptures_by_Richard_Westmacott,
+        dbc:Sculptures_of_men_in_Barbados,
+        dbc:Statues_removed_in_2020,
+        dbc:Vandalized_works_of_art ;
+    owl:sameAs <http://ru.dbpedia.org/resource/Статуя_Нельсона_(Бриджтаун)>,
+        dbpedia-uz:Nelson_haykali_Brijtaun,
+        wikidata:Q107548492,
+        dbpedia-global:FoyN9 ;
+    foaf:name "Statue of Lord Nelson, Bridgetown"@en .
+
+dbr:Statue_of_Mary_McLeod_Bethune_\(U.S._Capitol\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Mary McLeod Bethune (U.S. Capitol)"@en ;
+    dbp:medium dbr:Marble_sculpture ;
+    dct:subject <http://dbpedia.org/resource/Category:2022_establishments_in_Washington,_D.C.>,
+        dbc:2022_sculptures,
+        <http://dbpedia.org/resource/Category:Marble_sculptures_in_Washington,_D.C.>,
+        dbc:Mary_McLeod_Bethune,
+        <http://dbpedia.org/resource/Category:Monuments_and_memorials_in_Washington,_D.C.>,
+        dbc:National_Statuary_Hall_Collection,
+        dbc:Sculptures_of_African_Americans,
+        <http://dbpedia.org/resource/Category:Sculptures_of_women_in_Washington,_D.C.> ;
+    owl:sameAs wikidata:Q107547581,
+        dbpedia-global:FuPDp ;
+    foaf:name "Mary McLeod Bethune"@en .
+
+dbr:Statue_of_Norman_Bethune a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Norman Bethune"@en ;
+    dct:subject dbc:Monuments_and_memorials_in_Toronto,
+        dbc:Norman_Bethune,
+        dbc:Outdoor_sculptures_in_Toronto,
+        dbc:Sculptures_of_men_in_Ontario,
+        dbc:Statues_in_Ontario,
+        dbc:University_of_Toronto ;
+    foaf:name "Statue of Norman Bethune"@en .
+
+dbr:Statue_of_Northrop_Frye a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Northrop Frye"@en ;
+    dct:subject dbc:Monuments_and_memorials_in_Toronto,
+        dbc:Outdoor_sculptures_in_Toronto,
+        dbc:Sculptures_of_men_in_Ontario,
+        dbc:Statues_in_Ontario ;
+    foaf:name "Statue of Northrop Frye"@en .
+
+<http://dbpedia.org/resource/Statue_of_Pierre_Belain_d'Esnambuc> a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Pierre Belain d'Esnambuc"@en ;
+    dbp:medium dbr:Bronze_sculpture ;
+    dct:subject dbc:Destroyed_sculptures,
+        dbc:Monuments_and_memorials_removed_during_the_George_Floyd_protests,
+        dbc:Outdoor_sculptures_in_France,
+        dbc:Sculptures_of_men_in_Martinique,
+        dbc:Statues_in_France,
+        dbc:Statues_removed_in_2020,
+        dbc:Vandalized_works_of_art ;
+    owl:sameAs wikidata:Q107548491,
+        dbpedia-global:Fn4y6 ;
+    foaf:name "Statue of Pierre Belain d'Esnambuc"@en .
+
+dbr:Statue_of_Pope_John_XXIII a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Pope John XXIII"@en ;
+    dct:subject dbc:2006_establishments_in_Turkey,
+        dbc:2006_sculptures,
+        dbc:Beyoğlu,
+        dbc:Cultural_depictions_of_Pope_John_XXIII,
+        dbc:Outdoor_sculptures_in_Istanbul,
+        dbc:Sculptures_of_men_in_Turkey,
+        dbc:Statues_in_Turkey ;
+    foaf:name "Statue of Pope John XXIII"@en .
+
+dbr:Statue_of_Robert_Sandilands_Frowd_Walker a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Robert Sandilands Frowd Walker"@en ;
+    dbp:medium "Bronze statue"@en ;
+    dct:subject dbc:1913_sculptures,
+        dbc:Statues_in_Malaysia,
+        <http://dbpedia.org/resource/Category:Taiping,_Perak> ;
+    foaf:name "Statue of Robert Sandilands Frowd Walker"@en .
+
+<http://dbpedia.org/resource/Statue_of_Ronald_Reagan,_Budapest> a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Ronald Reagan, Budapest"@en ;
+    dbp:medium "Sculpture"@en ;
+    dct:subject dbc:Buildings_and_structures_in_Budapest,
+        dbc:Cultural_depictions_of_Ronald_Reagan,
+        dbc:Monuments_and_memorials_in_Budapest,
+        dbc:Monuments_and_memorials_to_Ronald_Reagan,
+        dbc:Sculptures_of_men_in_Hungary,
+        dbc:Statues_in_Hungary,
+        dbc:Statues_of_Ronald_Reagan,
+        dbc:Statues_of_presidents_of_the_United_States ;
+    owl:sameAs wikidata:Q107536682,
+        dbpedia-global:FmAXH ;
+    foaf:name "Statue of Ronald Reagan"@en .
+
+<http://dbpedia.org/resource/Statue_of_Sun_Yat-sen_(Chinatown,_Toronto)> a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Sun Yat-sen (Chinatown, Toronto)"@en ;
+    dct:subject dbc:Cultural_depictions_of_Sun_Yat-sen,
+        dbc:Monuments_and_memorials_in_Toronto,
+        dbc:Monuments_and_memorials_to_Sun_Yat-sen,
+        dbc:Outdoor_sculptures_in_Toronto,
+        dbc:Sculptures_of_men_in_Ontario,
+        dbc:Statues_in_Ontario ;
+    foaf:name "Statue of Sun Yat-sen"@en .
+
+dbr:Statue_of_Süreyya_İlmen a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Süreyya İlmen"@en ;
+    dct:subject dbc:2013_establishments_in_Turkey,
+        dbc:2013_sculptures,
+        dbc:Kadıköy,
+        dbc:Monuments_and_memorials_in_Istanbul,
+        dbc:Outdoor_sculptures_in_Istanbul,
+        dbc:Sculptures_of_men_in_Turkey,
+        dbc:Statues_in_Turkey ;
+    foaf:name "Statue of Süreyya İlmen"@en .
+
+dbr:Statue_of_Yunus_Emre a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Yunus Emre"@en ;
+    dct:subject dbc:Kadıköy,
+        dbc:Monuments_and_memorials_in_Istanbul,
+        dbc:Outdoor_sculptures_in_Istanbul,
+        dbc:Sculptures_of_men_in_Turkey,
+        dbc:Statues_in_Turkey ;
+    foaf:name "Statue of Yunus Emre"@en .
+
+dbr:Statue_of_Âşık_Veysel a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Statue of Âşık Veysel"@en ;
+    dct:subject dbc:Fatih,
+        dbc:Monuments_and_memorials_in_Istanbul,
+        dbc:Outdoor_sculptures_in_Istanbul,
+        dbc:Sculptures_of_men_in_Turkey,
+        dbc:Statues_in_Turkey ;
+    foaf:name "Statue of Âşık Veysel"@en .
+
+dbr:Still_Dancing a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Still Dancing"@en ;
+    dct:subject dbc:Outdoor_sculptures_in_Toronto ;
+    foaf:name "Still Dancing"@en .
+
+dbr:Still_Life_with_Fruit_\(Caravaggio\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Still Life with Fruit (Caravaggio)"@en,
+        "Still Life with Fruit on a Stone Ledge"@en,
+        "Nature morte aux fruits"@fr,
+        "Natura morta con frutta"@it ;
+    dbo:wikiPageWikiLink dbr:Antonio_Barberini,
+        dbr:Baroque,
+        dbr:Boy_Bitten_by_a_Lizard_\(Caravaggio\),
+        dbr:Caravaggio,
+        dbr:Cardinal_\(Catholicism\),
+        dbc:1600s_paintings,
+        dbc:Paintings_by_Caravaggio,
+        dbc:Paintings_in_the_Borghese_Collection,
+        dbc:Still_life_paintings,
+        dbr:Francesco_Maria_Del_Monte,
+        dbr:Italy,
+        dbr:List_of_paintings_by_Caravaggio,
+        dbr:Renaissance,
+        dbr:Sacrifice_of_Isaac_\(Caravaggio\),
+        dbr:Top-left_lighting ;
+    dbp:imageFile "Caravaggio - Still Life with Fruit .png"@en ;
+    dbp:medium "Oil on canvas"@en ;
+    dct:subject dbc:1600s_paintings,
+        dbc:Paintings_by_Caravaggio,
+        dbc:Paintings_in_the_Borghese_Collection,
+        dbc:Still_life_paintings ;
+    owl:sameAs <http://arz.dbpedia.org/resource/لا_تزال_الحياه_مع_الفاكهه>,
+        dbr:Still_Life_with_Fruit_on_a_Stone_Ledge,
+        dbpedia-fr:Nature_morte_aux_fruits,
+        dbpedia-it:Natura_morta_con_frutta,
+        <http://rdf.freebase.com/ns/m.08s9fp>,
+        wikidata:Q3337119,
+        yago-res:Still_Life_with_Fruit_\(Caravaggio\),
+        dbpedia-global:34qEs ;
+    foaf:name "Still Life with Fruit on a Stone Ledge"@en .
+
+dbr:Study_of_a_Stork a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Study of a Stork"@en ;
+    dbp:medium dbr:Watercolor_painting ;
+    dct:subject dbc:1781_paintings,
+        dbc:Birds_in_art,
+        dbc:Indian_paintings,
+        dbc:Watercolor_paintings ;
+    foaf:name "Study of a Stork"@en .
+
+dbr:Sugaring_Off_\(Grandma_Moses\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Sugaring Off (Grandma Moses)"@en ;
+    dbp:medium "oil on canvas"@en ;
+    dct:subject dbc:1943_paintings,
+        dbc:Farming_in_art,
+        dbc:Food_and_drink_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_Grandma_Moses,
+        dbc:Syrup,
+        dbc:Works_about_agriculture ;
+    foaf:name "Sugaring Off"@en .
+
+dbr:Super_Mario_Clouds a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Super Mario Clouds"@en ;
+    dct:subject dbc:2002_works,
+        dbc:Collection_of_the_Whitney_Museum,
+        dbc:Installation_art_works,
+        dbc:Super_Mario,
+        dbc:Unofficial_works_based_on_Mario,
+        dbc:Video_art,
+        dbc:Video_game_mods ;
+    owl:sameAs wikidata:Q107417220,
+        dbpedia-global:FsrMC ;
+    foaf:name "Super Mario Clouds"@en .
+
+dbr:Sursock_bronze a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Sursock bronze"@en ;
+    dbp:imageFile "Jupiter Heliopolitanus - Louvre AO19534.jpg"@en ;
+    dbp:italicOtherTitle "no"@en ;
+    dbp:medium "Gilded bronze"@en ;
+    dct:subject dbc:2nd-century_Roman_sculptures,
+        dbc:Ancient_Roman_metalwork,
+        dbc:Archaeological_discoveries_in_Lebanon,
+        dbc:Collection_of_the_Louvre,
+        dbc:Figurines,
+        dbc:Hellenistic_and_Roman_bronzes ;
+    foaf:name "Sursock bronze"@en .
+
+dbr:Survivors_Are_Not_Heroes a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Survivors Are Not Heroes"@en ;
+    dbp:medium dbr:Bronze_sculpture ;
+    dct:subject dbc:1967_sculptures,
+        dbc:Bronze_sculptures_in_Ontario,
+        dbc:Outdoor_sculptures_in_Toronto,
+        dbc:University_of_Toronto ;
+    foaf:name "Survivors Are Not Heroes"@en .
+
+<http://dbpedia.org/resource/Susanna_and_the_Elders_(Artemisia_Gentileschi,_London)> a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Susanna and the Elders (Artemisia Gentileschi, Edinburgh)"@en,
+        "Susanna and the Elders (Artemisia Gentileschi, London)"@en ;
+    dbp:medium "Oil on canvas"@en ;
+    dct:subject dbc:1639_in_England,
+        dbc:1639_paintings,
+        dbc:17th_century_in_London,
+        dbc:Henrietta_Maria_of_France,
+        dbc:Paintings_by_Artemisia_Gentileschi,
+        dbc:Paintings_in_Edinburgh,
+        dbc:Paintings_of_Susanna_and_the_Elders ;
+    owl:sameAs <http://dbpedia.org/resource/Susanna_and_the_Elders_(Artemisia_Gentileschi,_Edinburgh)> .
+
+dbr:Terpsichore_statuette_from_Dodona a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Terpsichore statuette from Dodona"@en ;
+    dbp:medium "White marble"@en ;
+    dbp:otherTitle ""@en ;
+    dct:subject dbc:1997_archaeological_discoveries,
+        dbc:1997_in_Greece,
+        dbc:2002_in_Atlanta,
+        dbc:2024_in_Atlanta,
+        dbc:2024_in_Greece,
+        dbc:2nd-century_BC_Greek_sculptures,
+        dbc:Ancient_Epirus,
+        dbc:Archaeological_discoveries_in_Epirus_\(region\),
+        dbc:Archaeological_theft,
+        dbc:Cultural_depictions_of_the_Muses_\(mythology\),
+        dbc:Emory_University,
+        <http://dbpedia.org/resource/Category:Greece–United_States_relations>,
+        dbc:Marble_sculptures_in_Greece,
+        dbc:Recovered_works_of_art,
+        dbc:Repatriated_objects,
+        dbc:Sculptures_of_Greek_goddesses,
+        dbc:Sculptures_of_women_in_Greece,
+        dbc:Statues_in_Greece ;
+    foaf:name "Statuette of Terpsichore"@en .
+
+dbr:Teucer_statue a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Estàtua de Teucre"@ca,
+        "Teucer (statue)"@en,
+        "Teucer statue"@en,
+        "Estatua de Teucro"@es,
+        "Statue de Teucros"@fr,
+        "Statua di Teucro"@it,
+        "Estátua de Teucro"@pt ;
+    dbo:wikiPageWikiLink dbr:Achilles,
+        dbr:Ajax_the_Great,
+        dbr:Basilica_of_Saint_Mary_Major_\(Pontevedra\),
+        dbr:Bow_\(archery\),
+        dbr:Bronze,
+        dbr:Buttress,
+        dbr:Caixa_de_Pontevedra,
+        dbc:21st-century_sculptures,
+        dbc:Bronze_sculptures,
+        dbc:Colossal_statues,
+        dbc:History_of_Pontevedra,
+        dbc:Monuments_and_memorials_in_Galicia_\(Spain\),
+        dbc:Monuments_and_memorials_in_Pontevedra,
+        dbc:Outdoor_sculptures_in_Spain,
+        dbc:Pontevedra,
+        dbc:Sculptures_in_Pontevedra,
+        dbc:Sculptures_in_Spain,
+        dbc:Sculptures_of_men_in_Spain,
+        dbc:Spanish_sculpture,
+        dbc:Tourist_attractions_in_Galicia_\(Spain\),
+        dbr:Church_of_the_Pilgrim_Virgin,
+        dbr:Club_\(weapon\),
+        dbr:Cándido_Pazos_\(artist\),
+        dbr:Granite,
+        dbr:Hispania,
+        dbr:Iberian_Peninsula,
+        dbr:Nemean_lion,
+        dbr:Plaza_de_Teucro,
+        dbr:Pontevedra,
+        <http://dbpedia.org/resource/Pontevedra,_Spain>,
+        dbr:Pontevedra_City_Hall,
+        dbr:Ria_de_Pontevedra,
+        dbr:Salamis_Island,
+        dbr:Strait_of_Gibraltar,
+        dbr:Telamon,
+        dbr:Teucer,
+        dbr:The_Fiel_contraste,
+        dbr:Trojan_War ;
+    dbp:imageFile "Pontevedra - Sede Afundación Pontevedra 5.JPG"@en ;
+    dct:subject dbc:21st-century_sculptures,
+        dbc:Bronze_sculptures,
+        dbc:Colossal_statues_in_Spain,
+        dbc:History_of_Pontevedra,
+        dbc:Monuments_and_memorials_in_Galicia_\(Spain\),
+        dbc:Monuments_and_memorials_in_Pontevedra,
+        dbc:Outdoor_sculptures_in_Pontevedra,
+        dbc:Pontevedra,
+        dbc:Sculptures_in_Spain,
+        dbc:Sculptures_of_men_in_Spain,
+        dbc:Spanish_sculpture,
+        dbc:Tourist_attractions_in_Galicia_\(Spain\) ;
+    owl:sameAs <http://ca.dbpedia.org/resource/Estàtua_de_Teucre>,
+        dbr:Teucer_\(statue\),
+        dbpedia-es:Estatua_de_Teucro,
+        dbpedia-fr:Statue_de_Teucros,
+        dbpedia-gl:Estatua_de_Teucro,
+        dbpedia-it:Statua_di_Teucro,
+        dbpedia-pt:Estátua_de_Teucro,
+        wikidata:Q103437642,
+        dbpedia-global:FMUeM ;
+    foaf:name "Teucer"@en .
+
+dbr:The_Battle_of_Aspern-Essling a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "The Battle of Aspern-Essling"@en ;
+    dbp:imageFile "--05-22"^^xsd:gMonthDay ;
+    dct:subject dbc:1820_paintings,
+        dbc:History_paintings,
+        dbc:Napoleonic_Wars_in_art,
+        dbc:Paintings_by_Johann_Peter_Krafft ;
+    foaf:name "The Battle of Aspern-Essling"@en .
+
+dbr:The_Dream_of_Peace a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work ;
+    rdfs:label "The Dream of Peace"@en ;
+    dct:subject dbc:Norwegian_art,
+        dbc:United_Nations_properties .
+
+dbr:The_Duke_of_Wellington_with_Colonel_Gurwood_at_Apsley_House a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "The Duke of Wellington with Colonel Gurwood at Apsley House"@en ;
+    dbp:imageFile "File:Andrew Morton  - The Duke of Wellington with Colonel Gurwood at Apsley House - P632 - The Wallace Collection.jpg"@en ;
+    dbp:medium dbr:Oil_painting ;
+    dct:subject dbc:1840_paintings,
+        <http://dbpedia.org/resource/Category:Cultural_depictions_of_Arthur_Wellesley,_1st_Duke_of_Wellington>,
+        dbc:London_in_art,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_in_the_Wallace_Collection,
+        dbc:Portrait_paintings_of_prime_ministers_of_the_United_Kingdom ;
+    foaf:name "The Duke of Wellington with Colonel Gurwood at Apsley House"@en .
+
+dbr:The_Entombment_\(Giordano\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "The Entombment (Giordano)"@en ;
+    dbp:medium dbr:Oil_painting ;
+    dct:subject dbc:1650s_paintings,
+        dbc:Biblical_art,
+        dbc:Christian_art,
+        dbc:Christian_art_about_death,
+        dbc:Jesus_in_art,
+        dbc:Paintings_by_Luca_Giordano ;
+    foaf:name "The Entombment"@en .
+
+dbr:The_Fallen_Angel_\(painting\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "الملاك الساقط (لوحة)"@ar,
+        "The Fallen Angel (painting)"@en,
+        "L'Ange déchu (Alexandre Cabanel)"@fr ;
+    dbp:imageFile "Alexandre Cabanel - Fallen Angel.jpg"@en ;
+    dbp:medium "oil on canvas"@en ;
+    dct:subject dbc:1847_paintings,
+        dbc:Demons_in_art,
+        dbc:Lucifer,
+        dbc:Paintings_by_Alexandre_Cabanel,
+        dbc:Paintings_in_the_Musée_Fabre,
+        dbc:Paintings_of_angels ;
+    owl:sameAs <http://ar.dbpedia.org/resource/الملاك_الساقط_(لوحة)>,
+        <http://fr.dbpedia.org/resource/L'Ange_déchu_(Alexandre_Cabanel)>,
+        wikidata:Q107486133,
+        dbpedia-global:FmAWS ;
+    foaf:name "The Fallen Angel"@en .
+
+dbr:The_Fortune_Teller_\(Valentin_de_Boulogne\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "The Fortune Teller (Boulogne)"@en,
+        "The Fortune Teller (Valentin de Boulogne)"@en ;
+    dbp:imageFile "Valentin_de_Boulogne,_Fortune_Teller_02.jpg"@en ;
+    dct:subject dbc:1620s_paintings,
+        dbc:Fortune-telling_in_popular_culture,
+        dbc:Genre_paintings,
+        dbc:Paintings_by_Valentin_de_Boulogne,
+        dbc:Paintings_in_the_Toledo_Museum_of_Art ;
+    owl:sameAs dbr:The_Fortune_Teller_\(Boulogne\) ;
+    foaf:name "The Fortune Teller"@en .
+
+dbr:The_Freedom_Train_\(graffiti\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "The Freedom Train (graffiti)"@en ;
+    dbp:medium "Spray paint on steel"@en ;
+    dct:subject dbc:Graffiti_in_New_York_City,
+        dbc:History_of_rail_transportation_in_the_United_States,
+        dbc:United_States_Bicentennial,
+        dbc:Works_set_on_the_New_York_City_Subway ;
+    owl:differentFrom dbr:Freedom_Tunnel ;
+    foaf:name "The Freedom Train"@en .
+
+dbr:The_Funeral_Games_of_Patroclus a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "The Funeral Games of Patroclus"@en,
+        "The Funeral of Patroclus"@en,
+        "Les Funérailles de Patrocle"@fr,
+        "帕特罗克洛斯的葬礼游戏"@zh ;
+    dbp:imageFile "JL David Les funérailles de Patrocle.jpg"@en ;
+    dbp:medium "Oil on canvas"@en ;
+    dct:subject dbc:1778_paintings,
+        dbc:Collection_of_the_National_Gallery_of_Ireland,
+        dbc:Horses_in_art,
+        dbc:Mythological_paintings_by_Jacques-Louis_David,
+        dbc:Paintings_based_on_the_Iliad,
+        dbc:Paintings_by_Jacques-Louis_David,
+        dbc:Ships_in_art ;
+    owl:sameAs <http://arz.dbpedia.org/resource/العاب_الجنازه_باتروكلس>,
+        dbr:The_Funeral_of_Patroclus,
+        dbpedia-fr:Les_Funérailles_de_Patrocle,
+        <http://rdf.freebase.com/ns/m.012snyw1>,
+        wikidata:Q3232845,
+        yago-res:The_Funeral_Games_of_Patroclus,
+        <http://zh.dbpedia.org/resource/帕特罗克洛斯的葬礼游戏>,
+        dbpedia-global:2zN4z ;
+    foaf:name "The Funeral Games of Patroclus"@en .
+
+dbr:The_Gardener_\(Van_Gogh\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "The Gardener (Van Gogh)"@en ;
+    dbp:imageFile "Il giardiniere .jpg"@en ;
+    dct:subject dbc:1889_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_Vincent_van_Gogh,
+        <http://dbpedia.org/resource/Category:Paintings_in_the_Galleria_Nazionale_d'Arte_Moderna>,
+        dbc:Portraits_by_Vincent_van_Gogh,
+        dbc:Portraits_of_men,
+        dbc:Recovered_works_of_art ;
+    foaf:name "The Gardener"@en .
+
+dbr:The_Grotto_\(San_Antonio\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "The Grotto (San Antonio)"@en ;
+    dbp:medium "Concrete"@en ;
+    dct:subject dbc:Buildings_and_structures_in_San_Antonio,
+        dbc:Concrete_sculptures_in_Texas,
+        dbc:Outdoor_sculptures_in_San_Antonio,
+        dbc:San_Antonio_River ;
+    owl:sameAs wikidata:Q107610175,
+        dbpedia-global:Fq6Jy ;
+    foaf:name "The Grotto"@en .
+
+dbr:The_Light_of_Truth_Ida_B._Wells_National_Monument a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "The Light of Truth Ida B. Wells National Monument"@en ;
+    dbp:medium "Granite and bronze sculpture"@en ;
+    dct:subject dbc:2021_establishments_in_Illinois,
+        dbc:2021_sculptures,
+        dbc:Abstract_sculptures_in_Illinois,
+        dbc:Bronze_sculptures_in_Illinois,
+        dbc:Ida_B._Wells,
+        dbc:Monuments_and_memorials_in_Illinois,
+        dbc:Outdoor_sculptures_in_Illinois ;
+    foaf:name "The Light of Truth Ida B. Wells National Monument"@en .
+
+dbr:The_Marlborough_Family a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "The Marlborough Family"@en ;
+    dbp:imageFile "File:Reynolds - 4th Duke of Marlborough and Family.jpg"@en ;
+    dct:subject dbc:1778_paintings,
+        dbc:18th-century_portraits,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_of_children,
+        dbc:Paintings_of_dogs,
+        dbc:Portraits_by_Joshua_Reynolds ;
+    foaf:name "The Marlborough Family"@en .
+
+<http://dbpedia.org/resource/The_Minstrel's_Corner> a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "The Minstrel's Corner"@en ;
+    dbp:otherTitle "La Rinconada del Juglar"@en ;
+    dct:subject dbc:1999_establishments_in_Mexico,
+        dbc:1999_sculptures,
+        <http://dbpedia.org/resource/Category:Centro,_Puerto_Vallarta>,
+        dbc:Musical_instruments_in_art,
+        dbc:Outdoor_sculptures_in_Puerto_Vallarta,
+        dbc:Sculptures_of_men_in_Mexico,
+        dbc:Statues_in_Puerto_Vallarta ;
+    foaf:name "The Minstrel's Corner"@en .
+
+<http://dbpedia.org/resource/The_Old_Oaken_Bucket,_The_Last> a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "The Old Oaken Bucket, The Last"@en ;
+    dbp:medium "oil on masonite"@en ;
+    dct:subject dbc:1947_paintings,
+        dbc:Oil_paintings,
+        dbc:Paintings_based_on_literature,
+        dbc:Paintings_by_Grandma_Moses,
+        dbc:Works_based_on_poems ;
+    foaf:name "The Old Oaken Bucket, The Last"@en .
+
+dbr:The_Palette_Game a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work ;
+    rdfs:label "The Palette Game"@en ;
+    dct:subject dbc:1760s_paintings,
+        dbc:Paintings_by_Jean-Honoré_Fragonard,
+        dbc:Paintings_in_the_Louvre_by_French_artists,
+        dbc:Paintings_in_the_Musée_Fabre .
+
+dbr:The_Pasture a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "The Pasture"@en ;
+    dct:subject dbc:1985_sculptures,
+        dbc:Bronze_sculptures_in_Ontario,
+        dbc:Outdoor_sculptures_in_Toronto,
+        dbc:Sculptures_of_cattle,
+        dbc:Statues_in_Ontario ;
+    foaf:name "The Pasture"@en .
+
+dbr:The_Peacemakers_\(mural\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "The Peacemakers (mural)"@en ;
+    dct:subject dbc:1930s_in_San_Francisco,
+        dbc:1930s_murals,
+        dbc:1939_paintings,
+        dbc:1940s_in_San_Francisco,
+        dbc:Golden_Gate_International_Exposition,
+        dbc:Murals_in_San_Francisco,
+        <http://dbpedia.org/resource/Category:Treasure_Island,_San_Francisco> ;
+    foaf:name "The Peacemakers"@en .
+
+dbr:The_Reluctant_Bride a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work ;
+    rdfs:label "The Reluctant Bride"@en ;
+    dct:subject dbc:1866_paintings,
+        dbc:French_paintings,
+        dbc:Genre_paintings,
+        dbc:Paintings_of_women .
+
+<http://dbpedia.org/resource/The_See-Saw_(Fragonard,_Louvre)> a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work ;
+    rdfs:label "The See-Saw (Fragonard, Louvre)"@en ;
+    dct:subject dbc:1760s_paintings,
+        dbc:Paintings_by_Jean-Honoré_Fragonard,
+        dbc:Paintings_in_the_Louvre_by_French_artists,
+        dbc:Paintings_in_the_Musée_Fabre,
+        dbc:Paintings_of_children .
+
+dbr:The_Sunset_Scene a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "The Sunset Scene"@en ;
+    dbp:medium "Stained glass"@en ;
+    dct:subject dbc:1915_in_art,
+        dbc:1915_works,
+        dbc:Rivers_in_art,
+        dbc:Stained_glass .
+
+dbr:The_Tree_\(Gleizes\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "The Tree (Gleitzes)"@en,
+        "The Tree (Gleizes)"@en ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/L'Arbre> ;
+    dbp:imageFile "Albert Gleizes, 1910, L'Arbre , oil on canvas, 92 x 73.2 cm, private collection.jpg"@en ;
+    dbp:medium "Oil on canvas"@en ;
+    dbp:otherTitle "L'Arbre"@en ;
+    dct:subject dbc:1910_paintings,
+        dbc:Landscape_paintings,
+        dbc:Paintings_by_Albert_Gleizes,
+        dbc:Proto-Cubist_paintings ;
+    foaf:name "The Tree"@en .
+
+dbr:The_Vision_of_Catherine_of_Aragon a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "The Vision of Catherine of Aragon"@en ;
+    dbp:imageFile "The Vision of Catherine of Aragon.jpg"@en ;
+    dbp:medium dbr:Oil_painting ;
+    dct:subject dbc:1781_paintings,
+        dbc:Cultural_depictions_of_Catherine_of_Aragon,
+        dbc:Nude_paintings_of_women,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_Henry_Fuseli,
+        dbc:Paintings_of_women ;
+    foaf:name "The Vision of Catherine of Aragon"@en .
+
+dbr:The_Wanderer_\(painting\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "The Wanderer (painting)"@en ;
+    dbp:medium dbr:Oil_painting ;
+    dct:subject dbc:1943_paintings,
+        dbc:Paintings_by_George_Grosz,
+        dbc:Paintings_in_the_Memorial_Art_Gallery,
+        dbc:Portraits_of_men ;
+    foaf:name "The Wanderer"@en .
+
+dbr:The_Welsh_at_Mametz_Wood_\(painting\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "The Welsh at Mametz Wood (painting)"@en,
+        "Atak walijskiej dywizji w lesie Mametz"@pl ;
+    dbp:imageFile "MametzWood Christopher Williams.jpg"@en ;
+    dct:subject dbc:1917_paintings,
+        dbc:Paintings_about_death,
+        dbc:Paintings_by_Christopher_Williams_\(Welsh_artist\),
+        dbc:Paintings_in_National_Museum_Cardiff,
+        dbc:War_paintings ;
+    owl:sameAs dbpedia-pl:Atak_walijskiej_dywizji_w_lesie_Mametz,
+        wikidata:Q107454953,
+        dbpedia-global:FqTFm ;
+    foaf:name "The Welsh at Mametz Wood"@en .
+
+dbr:Trans_Am_Totem a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Trans Am Totem"@de,
+        "Trans Am Rapture"@en,
+        "Trans Am Totem"@en,
+        "Trans Am Totem"@pl ;
+    dbp:otherTitle "Trans Am Totem"@en ;
+    dct:subject dbc:2015_establishments_in_British_Columbia,
+        dbc:2015_sculptures,
+        dbc:Buildings_and_structures_completed_in_2015,
+        dbc:Cars_in_art,
+        dbc:Outdoor_sculptures_in_Vancouver,
+        dbc:Sculptures_of_objects,
+        dbc:Wooden_sculptures_in_Canada ;
+    owl:sameAs dbr:Trans_Am_Rapture,
+        dbpedia-de:Trans_Am_Totem,
+        dbpedia-pl:Trans_Am_Totem,
+        wikidata:Q20818771,
+        yago-res:Trans_Am_Totem,
+        dbpedia-global:yd8s ;
+    foaf:name "Trans Am Rapture"@en .
+
+dbr:Twardowski_conjuring_up_the_spirit_of_Barbara_before_Sigismund_Augustus a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Twardowski conjuring up the spirit of Barbara before Sigismund Augustus"@en ;
+    dbp:medium "oil on canvas"@en ;
+    dct:subject dbc:Books_in_art,
+        dbc:Cultural_depictions_of_monarchs,
+        dbc:Mirrors_in_art,
+        dbc:Paintings_by_Jan_Matejko,
+        <http://dbpedia.org/resource/Category:Paintings_in_the_National_Museum,_Warsaw>,
+        dbc:Polish_folklore,
+        dbc:Polish_legends,
+        dbc:Supernatural_legends ;
+    foaf:name "Twardowski conjuring the spirit of Barbara for Sigismund Augustus (sketch)"@en .
+
+dbr:Two_Plane_Vertical_Horizontal_Variation_III a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Two Plane Vertical Horizontal Variation III"@en ;
+    dct:subject dbc:1973_sculptures,
+        dbc:Olympic_Sculpture_Park ;
+    foaf:name "Two Plane Vertical Horizontal Variation III"@en .
+
+dbr:Union_Station_arch a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Union Station arch"@en ;
+    dbp:medium ""@en,
+        "Brick"@en,
+        "Terracotta"@en ;
+    dct:subject dbc:1899_establishments_in_Ohio,
+        dbc:1899_sculptures,
+        <http://dbpedia.org/resource/Category:Buildings_and_structures_in_Columbus,_Ohio>,
+        <http://dbpedia.org/resource/Category:Downtown_Columbus,_Ohio>,
+        dbc:Monuments_and_memorials_in_Ohio,
+        <http://dbpedia.org/resource/Category:Outdoor_sculptures_in_Columbus,_Ohio>,
+        <http://dbpedia.org/resource/Category:Transportation_buildings_and_structures_in_Franklin_County,_Ohio> ;
+    owl:sameAs wikidata:Q107338455,
+        dbpedia-global:Fs8Mg ;
+    foaf:name "Union Station arch"@en .
+
+dbr:Untitled_\(1982_painting\) a dbo:Artwork ;
+    dbo:wikiPageWikiLink dbr:Andy_Warhol,
+        dbr:Annina_Nosei,
+        dbr:Brant_Foundation,
+        dbr:Brooklyn_Museum,
+        dbc:1982_paintings,
+        dbc:Paintings_by_Jean-Michel_Basquiat,
+        dbc:Skulls_in_art,
+        dbr:Chiba_\(city\),
+        <http://dbpedia.org/resource/Christie's>,
+        dbr:Contemporary_art,
+        dbr:Jean-Michel_Basquiat,
+        dbr:List_of_most_expensive_paintings,
+        dbr:List_of_paintings_by_Jean-Michel_Basquiat,
+        dbr:Neo-expressionism,
+        dbr:Seattle_Art_Museum,
+        dbr:Shot_Marilyns,
+        dbr:Silver_Car_Crash_\(Double_Disaster\),
+        <http://dbpedia.org/resource/Sotheby's>,
+        dbr:Untitled_\(Devil\),
+        dbr:Yusaku_Maezawa ;
+    owl:sameAs wikidata:Q104859034,
+        dbpedia-global:FQZ7U .
+
+dbr:Untitled_\(One_Eyed_Man_or_Xerox_Face\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Untitled (One Eyed Man or Xerox Face)"@en ;
+    dbp:medium "Acrylic, spray paint, oilstick and Xerox collage on panel"@en ;
+    dct:subject dbc:1982_paintings,
+        dbc:Paintings_by_Jean-Michel_Basquiat,
+        dbc:Xerox_art ;
+    owl:sameAs wikidata:Q107335169,
+        dbpedia-global:FpNUy ;
+    foaf:name "Untitled (One Eyed Man or Xerox Face)"@en .
+
+dbr:Vanitas_with_Sunflower_and_Jewelry_Box a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Vanitas with Sunflower and Jewelry Box"@en ;
+    dbp:medium "oil on canvas"@en ;
+    dct:subject dbc:1675_paintings,
+        dbc:Paintings_in_the_Rijksmuseum,
+        dbc:Still_life_paintings ;
+    foaf:name "Vanitas with Sunflower and Jewelry Box"@en .
+
+dbr:Venus_in_Search_of_Cupid_Surprises_Diana a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Venus in Search of Cupid Surprises Diana"@en ;
+    dbp:imageFile "File:William Hilton  - Venus in Search of Cupid Surprises Diana - P633 - The Wallace Collection.jpg"@en ;
+    dbp:medium dbr:Oil_painting ;
+    dct:subject dbc:1820_paintings,
+        dbc:Bathing_in_art,
+        dbc:Nude_paintings_of_women,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_based_on_The_Faerie_Queene,
+        dbc:Paintings_in_the_Wallace_Collection,
+        dbc:Paintings_of_Venus ;
+    foaf:name "Venus in Search of Cupid Surprises Diana"@en .
+
+dbr:Vincent_van_Gogh_\(Russell_painting\) a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Vincent van Gogh (Russell painting)"@en,
+        "Vincent van Gogh (Russell)"@en,
+        "Vincent van Gogh (por John Russell)"@es ;
+    dbp:imageFile "Vincent van Gogh - s0273V1962 - Van Gogh Museum.jpg"@en ;
+    dbp:medium dbr:Oil_painting ;
+    dct:subject dbc:1886_paintings,
+        dbc:19th-century_portraits,
+        dbc:Australian_paintings,
+        dbc:Collection_of_the_Van_Gogh_Museum,
+        dbc:Paintings_by_John_Russell_\(Australian_painter\),
+        dbc:Portraits_by_Australian_artists,
+        dbc:Works_about_Vincent_van_Gogh ;
+    owl:sameAs dbr:Vincent_van_Gogh_\(Russell\),
+        dbpedia-es:Vincent_van_Gogh_\(por_John_Russell\),
+        wikidata:Q19838007,
+        dbpedia-global:tmrp ;
+    foaf:name "Vincent van Gogh"@en .
+
+dbr:When_I_Was_Naked a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "When I Was Naked"@en ;
+    dbp:medium dbr:Bronze_sculpture ;
+    dct:subject dbc:Outdoor_sculptures_in_Cleveland,
+        dbc:Outdoor_sculptures_in_Toronto,
+        dbc:Sculptures_by_Timothy_Schmalz,
+        <http://dbpedia.org/resource/Category:Sculptures_in_Washington,_D.C.>,
+        dbc:Statues_of_Jesus ;
+    foaf:name "When I Was Naked"@en .
+
+dbr:When_I_Was_Sick a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "When I Was Sick"@en ;
+    dbp:imageFile "--11-10"^^xsd:gMonthDay ;
+    dct:subject dbc:Bronze_sculptures_in_Ohio,
+        dbc:Outdoor_sculptures_in_Cleveland,
+        dbc:Outdoor_sculptures_in_Toronto,
+        dbc:Sculptures_by_Timothy_Schmalz ;
+    foaf:name "When I Was Sick"@en .
+
+dbr:Woman_on_Charpoy a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Woman on Charpoy"@en ;
+    dct:subject dbc:1940_paintings,
+        dbc:Oil_on_canvas_paintings,
+        dbc:Paintings_by_Amrita_Sher-Gil,
+        dbc:Paintings_of_women ;
+    foaf:name "Woman on Charpoy"@en .
+
+dbr:Woman_with_Parakeet a dbo:Artwork ;
+    rdfs:label "Mujer con periquito"@es ;
+    dbo:wikiPageWikiLink dbr:Ambroise_Vollard,
+        dbc:1871_paintings,
+        dbc:Birds_in_art,
+        dbc:Impressionism,
+        dbc:Paintings_by_Pierre-Auguste_Renoir,
+        dbc:Paintings_in_the_collection_of_the_Solomon_R._Guggenheim_Museum,
+        <http://dbpedia.org/resource/File:Lise_Tréhot_in_1864.jpg>,
+        <http://dbpedia.org/resource/File:Pierre-Auguste_Renoir_-_Lise_in_a_White_Shawl_-_1985.R.58_-_Dallas_Museum_of_Art.jpg>,
+        <http://dbpedia.org/resource/File:Édouard_Manet_-_Young_Lady_in_1866_-_Google_Art_Project.jpg>,
+        dbr:Franco-Prussian_War,
+        dbr:French_Third_Republic,
+        dbr:Guggenheim_Collection,
+        dbr:Gustave_Courbet,
+        dbr:Impressionism,
+        dbr:Justin_K._Thannhauser,
+        dbr:Justin_Thannhauser,
+        dbr:Lise_Tréhot,
+        dbr:New_York_City,
+        dbr:Paris_Commune,
+        dbr:Parisian_Women_in_Algerian_Costume_\(The_Harem\),
+        dbr:Pierre-Auguste_Renoir,
+        dbr:Salon_\(Paris\),
+        dbr:Solomon_R._Guggenheim_Museum,
+        dbr:Thannhauser_Galleries,
+        dbr:Édouard_Manet ;
+    owl:sameAs dbpedia-es:Mujer_con_periquito,
+        <http://ml.dbpedia.org/resource/വുമൺ_വിത്_പാരക്കീറ്റ്>,
+        wikidata:Q19882957,
+        yago-res:Woman_with_Parakeet,
+        dbpedia-global:tqiV .
+
+dbr:Woodpecker_Column a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Woodpecker Column"@en ;
+    dct:subject dbc:1997_establishments_in_Ontario,
+        dbc:1997_sculptures,
+        dbc:Outdoor_sculptures_in_Toronto,
+        dbc:Sculptures_of_birds_in_Canada,
+        dbc:Statues_in_Ontario ;
+    foaf:name "Woodpecker Column"@en .
+
+<http://dbpedia.org/resource/World's_Largest_Frying_Pan> a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "World's Largest Frying Pan"@en ;
+    dbp:medium "Copper, fiberglass"@en ;
+    dct:subject dbc:1941_establishments_in_Washington_\(state\),
+        dbc:1941_sculptures,
+        dbc:Sculptures_in_Washington_\(state\) ;
+    foaf:name "World's Largest Frying Pan"@en .
+
+<http://dbpedia.org/resource/World's_Largest_Six-Pack> a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "World's Largest Six-Pack"@en ;
+    dbp:medium "Steel"@en ;
+    dct:subject dbc:1969_establishments_in_Wisconsin,
+        dbc:1969_sculptures,
+        <http://dbpedia.org/resource/Category:La_Crosse,_Wisconsin>,
+        dbc:Sculptures_in_Wisconsin ;
+    foaf:name "World's Largest Six-Pack"@en .
+
+dbr:Zenith_\(1985_painting\) a dbo:Artwork ;
+    dbo:wikiPageWikiLink dbr:Andy_Warhol,
+        dbr:Bruno_Bischofberger,
+        dbr:Castello_di_Rivoli,
+        dbc:1985_paintings,
+        dbc:Paintings_by_Andy_Warhol,
+        dbc:Paintings_by_Jean-Michel_Basquiat,
+        dbc:Skulls_in_art,
+        <http://dbpedia.org/resource/Centre_for_Fine_Arts,_Brussels>,
+        dbr:Fridericianum,
+        dbr:Guggenheim_Museum_Bilbao,
+        dbr:Jean-Michel_Basquiat,
+        dbr:Kunstmuseum_Wolfsburg,
+        dbr:List_of_paintings_by_Jean-Michel_Basquiat,
+        dbr:Museo_Nacional_Centro_de_Arte_Reina_Sofía,
+        dbr:Neo-expressionism,
+        dbr:Phillips_\(auctioneers\),
+        dbr:Pop_art,
+        dbr:Ronnie_Cutrone,
+        dbr:Villa_Stuck,
+        dbr:Zenith_Electronics ;
+    owl:sameAs wikidata:Q105095631,
+        dbpedia-global:FQPjc .
+
+dbr:İsimlerin_Şehri_İstanbul a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "İsimlerin Şehri İstanbul"@en ;
+    dct:subject dbc:Beyoğlu,
+        dbc:Outdoor_sculptures_in_Istanbul ;
+    foaf:name "İsimlerin Şehri İstanbul"@en .
+
+dbr:Epicenter_II_\(sculpture\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Epicenter II"@en,
+        "Epicenter II (sculpture)"@en ;
+    dbo:wikiPageWikiLink dbc:1976_establishments_in_Wisconsin,
+        dbc:1976_sculptures,
+        dbc:Outdoor_sculptures_in_Milwaukee,
+        dbc:Steel_sculptures_in_Wisconsin,
+        dbr:Epicenter_\(sculpture\),
+        dbr:Ernest_Carl_Shaw,
+        dbr:III_Columns_\(sculpture\),
+        dbr:Lynden_Sculpture_Garden,
+        dbr:Milwaukee,
+        dbr:Public_art,
+        dbr:Rust,
+        dbr:Steel,
+        dbr:Wisconsin ;
+    dct:subject dbc:1976_establishments_in_Wisconsin,
+        dbc:1976_sculptures,
+        dbc:Outdoor_sculptures_in_Milwaukee,
+        dbc:Steel_sculptures_in_Wisconsin ;
+    owl:sameAs dbr:Epicenter_II,
+        <http://rdf.freebase.com/ns/m.0pk_77c>,
+        wikidata:Q5382498,
+        yago-res:Epicenter_II_\(sculpture\),
+        dbpedia-global:4jbnd ;
+    foaf:name "Epicenter II"@en .
+
+dbr:III_Columns_\(sculpture\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        geo1:SpatialThing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "III Columns"@en,
+        "III Columns (sculpture)"@en ;
+    dbo:wikiPageWikiLink dbr:Arch_\(sculpture\),
+        dbc:1976_establishments_in_Wisconsin,
+        dbc:1976_sculptures,
+        dbc:Outdoor_sculptures_in_Milwaukee,
+        dbc:Steel_sculptures_in_Wisconsin,
+        dbr:Epicenter_\(sculpture\),
+        dbr:Epicenter_II_\(sculpture\),
+        dbr:Ernest_Carl_Shaw,
+        dbr:Lynden_Sculpture_Garden,
+        dbr:Milwaukee,
+        dbr:Public_art,
+        dbr:Rust,
+        dbr:Steel,
+        dbr:Wisconsin ;
+    dct:subject dbc:1976_establishments_in_Wisconsin,
+        dbc:1976_sculptures,
+        dbc:Outdoor_sculptures_in_Milwaukee,
+        dbc:Steel_sculptures_in_Wisconsin ;
+    owl:sameAs dbr:III_Columns,
+        <http://rdf.freebase.com/ns/m.0pl0hyb>,
+        wikidata:Q5971295,
+        yago-res:III_Columns_\(sculpture\),
+        dbpedia-global:4nCTQ ;
+    foaf:name "III Columns"@en .
+
+dbr:Sacrifice_of_Isaac_\(Caravaggio\) a dbo:Artwork,
+        dbo:Work,
+        schema1:CreativeWork,
+        owl:Thing,
+        wikidata:Q386724,
+        wikidata:Q838948 ;
+    rdfs:label "Sacrifice of Isaac (Caravaggio)"@en,
+        "El sacrificio de Isaac (Caravaggio, Florencia)"@es,
+        "Le Sacrifice d'Isaac (Le Caravage, Florence)"@fr,
+        "Sacrificio di Isacco (Caravaggio)"@it,
+        "Ofiarowanie Izaaka (obraz Caravaggia z 1603)"@pl ;
+    dbo:wikiPageWikiLink dbr:Abraham,
+        dbr:Angel,
+        dbr:Bartolomeo_Cavarozzi,
+        dbr:Bartolomeo_cavarozzi,
+        dbr:Caravaggio,
+        dbr:Caravaggisti,
+        dbc:1598_paintings,
+        dbc:1603_paintings,
+        dbc:Paintings_by_Caravaggio,
+        dbc:Paintings_depicting_the_Sacrifice_of_Isaac,
+        dbc:Paintings_in_the_collection_of_the_Uffizi,
+        dbc:Sheep_in_art,
+        dbr:Cecco_del_Caravaggio,
+        dbr:Chiaroscuro,
+        dbr:Diego_Velázquez,
+        dbr:Elohim,
+        dbr:Florence,
+        dbr:Giulio_Mancini,
+        dbr:Isaac,
+        dbr:Jesus,
+        dbr:John_the_Baptist_\(Caravaggio\),
+        dbr:List_of_paintings_by_Caravaggio,
+        dbr:M_\(Peter_Robb_book\),
+        dbr:Oil_painting,
+        dbr:Patriarch,
+        dbr:Peter_Robb_\(author\),
+        dbr:Pope_Urban_VIII,
+        dbr:Portrait_of_Maffeo_Barberini,
+        <http://dbpedia.org/resource/Princeton,_New_Jersey>,
+        dbr:Sacrifice_of_Isaac,
+        dbr:Shofar,
+        dbr:Spain,
+        dbr:Uffizi,
+        dbr:Uffizi_Gallery,
+        dbr:Yeshua ;
+    dbp:imageFile "Sacrifice of Isaac-Caravaggio .jpg"@en ;
+    dbp:medium dbr:Oil_painting ;
+    dbp:otherTitle "Sacrificio d'Isacco"@en ;
+    dct:subject dbc:1598_paintings,
+        dbc:1603_paintings,
+        dbc:Paintings_by_Caravaggio,
+        dbc:Paintings_in_the_Uffizi,
+        dbc:Paintings_of_the_Sacrifice_of_Isaac,
+        dbc:Sheep_in_art ;
+    owl:sameAs <http://arz.dbpedia.org/resource/تضحيه_اسحاق>,
+        <http://az.dbpedia.org/resource/İsaqın_qurban_verilməsi_(Karavacco)>,
+        <http://br.dbpedia.org/resource/Aberzhidigezh_Izaag_(Caravaggio)>,
+        <http://es.dbpedia.org/resource/El_sacrificio_de_Isaac_(Caravaggio,_Florencia)>,
+        <http://fr.dbpedia.org/resource/Le_Sacrifice_d'Isaac_(Le_Caravage,_Florence)>,
+        <http://he.dbpedia.org/resource/עקדת_יצחק_(קאראווג'ו)>,
+        dbpedia-it:Sacrificio_di_Isacco_\(Caravaggio\),
+        dbpedia-pl:Ofiarowanie_Izaaka_\(obraz_Caravaggia_z_1603\),
+        <http://rdf.freebase.com/ns/m.08wl5l>,
+        dbpedia-ro:Sacrificiul_lui_Isaac,
+        wikidata:Q2284829,
+        yago-res:Sacrifice_of_Isaac_\(Caravaggio\),
+        dbpedia-global:2AEsw ;
+    foaf:name "Abraham and the sacrifice of his son Isaac"@en,
+        "Sacrifice of Isaac"@en .
+

@@ -17,6 +17,8 @@ def build_sidebar() -> html.Div:
         _metrics_section(),
         html.Hr(className="my-3"),
         _run_section(),
+        html.Hr(className="my-3"),
+        _config_section(),
     ])
 
 
@@ -67,6 +69,93 @@ def _metrics_section() -> html.Div:
         dcc.Store(id="metric-selection", data=[]),
     ])
 
+
+def _config_section() -> html.Div:
+    """
+    Build metric configuration section.
+    Mirrors metrics layout but only exposes config actions.
+    """
+
+    from api_client import get_metrics, APIError
+
+    try:
+        metrics = get_metrics()
+    except APIError:
+        metrics = []
+
+    from collections import OrderedDict
+    by_dim: dict[str, list] = OrderedDict()
+
+    for m in metrics:
+        dim = m.get("dimension", "Other")
+        by_dim.setdefault(dim, []).append(m)
+
+    items = []
+
+    for dim, dim_metrics in by_dim.items():
+
+        # header (same style as metrics section)
+        title = html.Span([
+            html.Span(dim, style={
+                "fontSize": "0.82rem",
+                "fontWeight": "500"
+            }),
+        ])
+
+        # config buttons per metric
+        config_rows = [
+            dbc.Row([
+                dbc.Col(
+                    html.Span(m["name"], style={"fontSize": "0.85rem"}),
+                    width=10,
+                ),
+                dbc.Col(
+                    html.Button(
+                        "⚙",
+                        id={"type": "metric-config-btn", "index": m["metric_id"]},
+                        n_clicks=0,
+                        style={
+                            "background": "none",
+                            "border": "none",
+                            "cursor": "pointer",
+                            "color": "#6c757d",
+                            "fontSize": "0.85rem",
+                            "padding": "0",
+                        },
+                    ),
+                    width=2,
+                    style={
+                        "textAlign": "right",
+                        "display": "flex",
+                        "alignItems": "center",
+                    },
+                ),
+            ], className="g-0", style={"padding": "2px 0"})
+            for m in dim_metrics
+        ]
+
+        items.append(
+            dbc.AccordionItem(
+                html.Div(config_rows),
+                title=title,
+            )
+        )
+
+    return html.Div([
+        html.P(
+            "Configuration",
+            className="text-muted text-uppercase fw-semibold mb-2",
+            style={"fontSize": "0.75rem", "letterSpacing": "0.08em"}
+        ),
+        dbc.Accordion(
+            items,
+            start_collapsed=True,
+            always_open=True,
+            flush=True,
+            className="mb-1",
+            style={"fontSize": "0.875rem"},
+        ),
+    ])
 
 def _run_section() -> html.Div:
     """
@@ -258,7 +347,10 @@ def build_scope_tree(classes: list[dict], source_id: str,
 
     def _render_node(cls: dict, depth: int = 0) -> html.Div:
         uri        = cls["uri"]
-        label      = cls.get("label", uri.split("#")[-1].split("/")[-1])
+        label = cls.get("label", uri.split("#")[-1].split("/")[-1])
+        aliases = cls.get("aliases", [])
+        if aliases:
+            label = f"{label} (=" + ", =".join(aliases) + ")"
         count      = cls.get("instance_count", 0)
         children   = cls.get("children", [])
         checked    = uri in selected_uris
@@ -428,3 +520,48 @@ def build_add_source_modal() -> dbc.Modal:
         is_open=False,
         backdrop="static",
     )
+
+
+def build_structural_completeness_modal():
+    from pathlib import Path
+
+    SHAPES_DIR = Path(__file__).resolve().parents[2] / "backend" / "metrics" / "shapes"
+    files = [
+        f for f in SHAPES_DIR.glob("*.ttl")
+    ]
+
+    options = [
+        {"label": f.stem, "value": str(f)}
+        for f in files
+    ]
+
+    return dbc.Modal([
+        dbc.ModalHeader(dbc.ModalTitle("Structural Completeness Configuration")),
+
+        dbc.ModalBody([
+            dcc.Store(id="structural-config-store", data=None),
+
+            dbc.Label("Select shape profile"),
+
+            dbc.RadioItems(
+                id="structural-shape-selection",
+                options=options,
+                value=options[0]["value"] if options else None,
+                className="mb-2"
+            ),
+
+            html.Div(
+                id="structural-config-feedback",
+                className="text-muted",
+                style={"fontSize": "0.8rem"}
+            )
+        ]),
+
+        dbc.ModalFooter([
+            dbc.Button("Save", id="btn-structural-save", color="primary"),
+        ])
+
+    ],
+    id="modal-structural-config",
+    is_open=False,
+    backdrop="static")

@@ -373,3 +373,31 @@ def render_sc_class_drilldown(click_data, results):
         return no_update
 
     return render_class_drilldown(class_label, ds_details)
+
+
+@callback(
+    Output("modal-structural-config", "is_open"),
+    Input({"type": "metric-config-btn", "index": "structural_completeness"}, "n_clicks"),
+    State("modal-structural-config", "is_open"),
+    prevent_initial_call=True
+)
+def toggle_structural_modal(n_clicks, is_open):
+    if not n_clicks:
+        return is_open
+    return not is_open
+
+@callback(
+    Output("structural-config-store", "data"),
+    Input("btn-structural-save", "n_clicks"),
+    State("structural-shape-selection", "value"),
+    prevent_initial_call=True
+)
+def save_structural_config(n_clicks, selected_value):
+    print("SAVE CALLBACK TRIGGERED")
+    print("n_clicks:", n_clicks)
+    print("selected_value:", selected_value)
+    if not n_clicks:
+        print("Entre en el if not")
+        return None
+
+    return selected_value

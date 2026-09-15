@@ -102,6 +102,7 @@ class ClassNodeResponse(BaseModel):
     uri:            str
     label:          str
     instance_count: int
+    aliases: List[str] = []
     properties:     List[PropertyInfoResponse] = []
     children:       List["ClassNodeResponse"]  = []
 
@@ -125,6 +126,7 @@ class ClassNodeResponse(BaseModel):
             uri=node.uri,
             label=node.label,
             instance_count=node.instance_count,
+            aliases=node.aliases,
             properties=[
                 PropertyInfoResponse(uri=p.uri, label=p.label, count=p.count)
                 for p in node.properties

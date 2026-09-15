@@ -44,6 +44,7 @@ class ClassNode:
     uri: str
     label: str
     instance_count: int
+    aliases: list[str] = field(default_factory=list)
     properties: list[PropertyInfo] = field(default_factory=list)
     children: list["ClassNode"] = field(default_factory=list)
 
@@ -174,6 +175,7 @@ def _build_tree(
     class_instances: dict[str, set[str]],
     class_properties: dict[str, list[PropertyInfo]],
     children_map: dict[str, list[str]],
+    aliases_map: dict[str, list[str]],
     visited: set[str],
 ) -> list[ClassNode]:
     """
@@ -206,11 +208,16 @@ def _build_tree(
             label=_local_name(class_uri),
             instance_count=instance_count,
             properties=class_properties.get(class_uri, []),
+            aliases=[
+                _local_name(uri)
+                for uri in aliases_map.get(class_uri, [])
+            ],
             children=_build_tree(
                 child_uris,
                 class_instances,
                 class_properties,
                 children_map,
+                aliases_map,
                 visited,
             ),
         )
@@ -218,6 +225,48 @@ def _build_tree(
 
     nodes.sort(key=lambda n: n.instance_count, reverse=True)
     return nodes
+
+
+def _group_equivalent_classes(
+    class_instances: dict[str, set[str]],
+) -> tuple[dict[str, set[str]], dict[str, list[str]]]:
+    """
+    Merge classes having exactly the same instance set.
+
+    Returns
+    -------
+    grouped_instances
+        Representative URI -> instance set
+
+    aliases
+        Representative URI -> equivalent class URIs
+    """
+    groups: dict[frozenset[str], list[str]] = defaultdict(list)
+
+    for class_uri, instances in class_instances.items():
+        groups[frozenset(instances)].append(class_uri)
+
+    grouped_instances = {}
+    aliases = {}
+
+    for instances, class_uris in groups.items():
+
+        representative = min(
+            class_uris,
+            key=lambda uri: (
+                _local_name(uri).startswith("Q"),
+                len(_local_name(uri))
+            )
+        )
+
+        grouped_instances[representative] = set(instances)
+
+        aliases[representative] = [
+            uri for uri in class_uris
+            if uri != representative
+        ]
+
+    return grouped_instances, aliases
 
 
 def extract(graph: Graph) -> list[ClassNode]:
@@ -240,6 +289,9 @@ def extract(graph: Graph) -> list[ClassNode]:
 
     if not class_instances:
         return []
+    aliases_map = {}
+    class_instances, aliases_map = _group_equivalent_classes(class_instances)
+
 
     class_properties = _collect_properties(graph, class_instances)
     children_map = _collect_subclass_edges(graph)
@@ -264,5 +316,5 @@ def extract(graph: Graph) -> list[ClassNode]:
 
     visited: set[str] = set()
     return _build_tree(
-        roots, class_instances, class_properties, children_map, visited
+        roots, class_instances, class_properties, children_map, aliases_map, visited
     )

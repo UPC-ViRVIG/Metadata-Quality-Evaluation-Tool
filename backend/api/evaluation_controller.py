@@ -170,7 +170,7 @@ def evaluate(request: EvaluationRequest):
     ]
 
     try:
-        results = engine.evaluate(datasets=datasets, metrics=metrics)
+        results = engine.evaluate(datasets=datasets, metrics=metrics,structural_shape=request.structural_shape)
     except Exception as exc:
         raise HTTPException(
             status_code=422,

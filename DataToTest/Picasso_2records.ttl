@@ -1,0 +1,89 @@
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbp: <http://dbpedia.org/property/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo1: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix georss: <http://www.georss.org/georss/> .
+@prefix gold: <http://purl.org/linguistics/gold/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://dbpedia.org/resource/Bust_of_Sylvette> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Bust of Sylvette"@en ;
+    dbo:author <http://dbpedia.org/resource/Carl_Nesjar>,
+        <http://dbpedia.org/resource/Pablo_Picasso> ;
+    dbo:description "عمل فني مرئي"@ar,
+        "sculpture by Pablo Picasso and Carl Nesjar"@en ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/Bust_of_Sylvette_2012.jpg?width=300> ;
+    dbp:artist <http://dbpedia.org/resource/Carl_Nesjar>,
+        <http://dbpedia.org/resource/Pablo_Picasso> ;
+    dbp:city "New York, New York"@en ;
+    dbp:dimensions 36 ;
+    dbp:imageFile "Bust of Sylvette 2012.jpg"@en ;
+    dbp:imageSize 250 ;
+    dbp:imperialUnit "ft"@en ;
+    dbp:material "Concrete"@en ;
+    dbp:metricUnit "m"@en ;
+    dbp:title "Bust of Sylvette"@en ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Cite_New_York_1960>,
+        <http://dbpedia.org/resource/Template:Cite_book>,
+        <http://dbpedia.org/resource/Template:Cite_report>,
+        <http://dbpedia.org/resource/Template:Convert>,
+        <http://dbpedia.org/resource/Template:Harvid>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Public_art_in_Manhattan>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Short_description>,
+        <http://dbpedia.org/resource/Template:Use_mdy_dates> ;
+    dbp:year 1968 ;
+    dcterms:subject <http://dbpedia.org/resource/Category:Sculptures_in_New_York_City> ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Bust_of_Sylvette?oldid=1259965553&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/Bust_of_Sylvette_2012.jpg> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Bust_of_Sylvette> ;
+    foaf:name "Bust of Sylvette"@en .
+
+<http://dbpedia.org/resource/Bust_of_a_Seated_Woman_(Jacqueline_Roque)> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Bust of Sylvette"@en ;
+    dbo:author <http://dbpedia.org/resource/Carl_Nesjar>,
+        <http://dbpedia.org/resource/Pablo_Picasso> ;
+    dbo:description "عمل فني مرئي"@ar,
+        "sculpture by Pablo Picasso and Carl Nesjar"@en ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/Bust_of_Sylvette_2012.jpg?width=300> ;
+    dbp:artist <http://dbpedia.org/resource/Carl_Nesjar>,
+        <http://dbpedia.org/resource/Pablo_Picasso> ;
+    dbp:city "New York, New York"@en ;
+    dbp:dimensions 36 ;
+    dbp:imageFile "Bust of Sylvette 2012.jpg"@en ;
+    dbp:imageSize 250 ;
+    dbp:imperialUnit "ft"@en ;
+    dbp:material "Concrete"@en ;
+    dbp:metricUnit "m"@en ;
+    dbp:title "Bust of Sylvette"@en ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Cite_New_York_1960>,
+        <http://dbpedia.org/resource/Template:Cite_book>,
+        <http://dbpedia.org/resource/Template:Cite_report>,
+        <http://dbpedia.org/resource/Template:Convert>,
+        <http://dbpedia.org/resource/Template:Harvid>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Public_art_in_Manhattan>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Short_description>,
+        <http://dbpedia.org/resource/Template:Use_mdy_dates> ;
+    dbp:year 1968 ;
+    dcterms:subject <http://dbpedia.org/resource/Category:Sculptures_in_New_York_City> ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Bust_of_Sylvette?oldid=1259965553&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/Bust_of_Sylvette_2012.jpg> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Bust_of_Sylvette> ;
+    foaf:name "Bust of Sylvette"@en .

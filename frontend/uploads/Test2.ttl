@@ -1,0 +1,1858 @@
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbp: <http://dbpedia.org/property/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo1: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix georss: <http://www.georss.org/georss/> .
+@prefix gold: <http://purl.org/linguistics/gold/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://dbpedia.org/resource/Amrita_Sher-Gil_Self_Portrait_(1931)> a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Amrita Sher-Gil Self Portrait (1931)"@en ;
+    dbo:author <http://dbpedia.org/resource/Amrita_Sher-Gil> ;
+    dbo:description "عمل فني مرئي"@ar,
+        "Gemälde von Amrita Sher-Gil"@de,
+        "1931 painting by Amrita Sher-Gil"@en,
+        "cuadro de Amrita Sher-Gil"@es,
+        "tableau d'Amrita Sher-Gil"@fr,
+        "dipinto di Amrita Sher-Gil"@it,
+        "schilderij van Amrita Sher-Gil"@nl ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/Amrita_Sher-Gil_Self-portrait,_untitled.jpg?width=300> ;
+    dbp:artist <http://dbpedia.org/resource/Amrita_Sher-Gil> ;
+    dbp:heightMetric 6.51e+01 ;
+    dbp:imperialUnit "in"@en ;
+    dbp:medium <http://dbpedia.org/resource/Oil_painting> ;
+    dbp:metricUnit "cm"@en ;
+    dbp:title "Amrita Sher-Gil self portrait"@en ;
+    dbp:widthMetric 54 ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:1930s-painting-stub>,
+        <http://dbpedia.org/resource/Template:Amrita_Sher-Gil>,
+        <http://dbpedia.org/resource/Template:Cite_book>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Short_description> ;
+    dbp:year "nope";
+    dcterms:subject <http://dbpedia.org/resource/Category:1931_paintings>,
+        <http://dbpedia.org/resource/Category:20th-century_portraits>,
+        <http://dbpedia.org/resource/Category:Oil_on_canvas_paintings>,
+        <http://dbpedia.org/resource/Category:Paintings_by_Amrita_Sher-Gil>,
+        <http://dbpedia.org/resource/Category:Portraits_of_women>,
+        <http://dbpedia.org/resource/Category:Self-portraits> ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Amrita_Sher-Gil_Self_Portrait_(1931)?oldid=1311039334&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/Amrita_Sher-Gil_Self-portrait,_untitled.jpg> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Amrita_Sher-Gil_Self_Portrait_(1931)> ;
+    foaf:name "Amrita Sher-Gil self portrait"@en .
+
+<http://dbpedia.org/resource/Aphrodite_Hypolympidia> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Aphrodite Hypolympidia"@en ;
+    dbo:description "عمل فني مرئي"@ar,
+        "small statue of Aphrodite"@en,
+        "pequeña estatua helenística de Afrodita"@es ;
+    dbo:museum <http://dbpedia.org/resource/Dion,_Archaeological_Museum> ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/Marble_cult_statue_of_Aphrodite_Hypolympidia,_from_the_santuary_of_Isis,_2nd_c._BC,_Archaeological_Museum,_Dion_(7079958443).jpg?width=300> ;
+    dbp:caption "The statue today in Dion"@en ;
+    dbp:catalogue "No 383"@en ;
+    dbp:city <http://dbpedia.org/resource/Dion,_Pieria> ;
+    dbp:condition "Three pieces"@en ;
+    dbp:heightMetric 113 ;
+    dbp:medium "Marble"@en ;
+    dbp:metricUnit "cm"@en ;
+    dbp:movement "Hellenistic"@en ;
+    dbp:museum <http://dbpedia.org/resource/Dion,_Archaeological_Museum> ;
+    dbp:otherLanguage "Greek"@en ;
+    dbp:otherTitle ""@en ;
+    dbp:owner "Greece"@en ;
+    dbp:subject "the goddess Aphrodite"@en ;
+    dbp:title "Aphrodite Hypolympidia"@en ;
+    dbp:widthMetric 48 ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Cite_book>,
+        <http://dbpedia.org/resource/Template:Cite_thesis>,
+        <http://dbpedia.org/resource/Template:Commons_category-inline>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Langx>,
+        <http://dbpedia.org/resource/Template:Portal>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Sculptures_of_Aphrodite>,
+        <http://dbpedia.org/resource/Template:Sfn>,
+        <http://dbpedia.org/resource/Template:Short_description> ;
+    dbp:year 2 ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1973_archaeological_discoveries>,
+        <http://dbpedia.org/resource/Category:2nd-century_BC_Greek_sculptures>,
+        <http://dbpedia.org/resource/Category:Archaeological_discoveries_in_Macedonia_(Greece)>,
+        <http://dbpedia.org/resource/Category:Art_of_Macedonia_(ancient_kingdom)>,
+        <http://dbpedia.org/resource/Category:Dion,_Pieria>,
+        <http://dbpedia.org/resource/Category:Marble_sculptures_in_Greece>,
+        <http://dbpedia.org/resource/Category:Mount_Olympus>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_Venus>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_women_in_Greece>,
+        <http://dbpedia.org/resource/Category:Statues_in_Greece> ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Aphrodite_Hypolympidia?oldid=1272003835&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/Marble_cult_statue_of_Aphrodite_Hypolympidia,_from_the_santuary_of_Isis,_2nd_c._BC,_Archaeological_Museum,_Dion_(7079958443).jpg> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Aphrodite_Hypolympidia> ;
+    foaf:name "Aphrodite Hypolympidia"@en .
+
+<http://dbpedia.org/resource/Apollo_Omphalos_(Athens)> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Apollo Omphalos (Athens)"@en ;
+    dbo:description "عمل فني مرئي"@ar,
+        "ancient Greek sculpture"@en,
+        "copia romana de una escultura griega"@es ;
+    dbo:museum <http://dbpedia.org/resource/National_Archaeological_Museum,_Athens> ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/Apollo_Omphalos_marble_Roman_copy,_NAMA_45_102631.jpg?width=300> ;
+    dbp:caption "The statue today"@en ;
+    dbp:catalogue "No 45"@en ;
+    dbp:city <http://dbpedia.org/resource/Athens> ;
+    dbp:condition "Restored fragments"@en ;
+    dbp:heightMetric 1.76e+00 ;
+    dbp:medium "Marble"@en ;
+    dbp:metricUnit "m"@en ;
+    dbp:movement "Early archaic"@en ;
+    dbp:museum <http://dbpedia.org/resource/National_Archaeological_Museum,_Athens> ;
+    dbp:otherLanguage "Greek"@en ;
+    dbp:otherTitle ""@en ;
+    dbp:owner "Greece"@en ;
+    dbp:subject "the god Apollo"@en ;
+    dbp:title "Apollo Omphalos"@en ;
+    dbp:website <https://www.namuseum.gr/> ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Authority_control>,
+        <http://dbpedia.org/resource/Template:Cite_book>,
+        <http://dbpedia.org/resource/Template:Commons_category-inline>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Langx>,
+        <http://dbpedia.org/resource/Template:National_Archaeological_Museum_of_Athens>,
+        <http://dbpedia.org/resource/Template:Portal>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Sfn>,
+        <http://dbpedia.org/resource/Template:Short_description> ;
+    dbp:wikidata "Q26831027"@en ;
+    dbp:year 2 ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1862_archaeological_discoveries>,
+        <http://dbpedia.org/resource/Category:2nd-century_Roman_sculptures>,
+        <http://dbpedia.org/resource/Category:Archaeological_discoveries_in_Attica>,
+        <http://dbpedia.org/resource/Category:Marble_sculptures_in_Greece>,
+        <http://dbpedia.org/resource/Category:National_Archaeological_Museum,_Athens>,
+        <http://dbpedia.org/resource/Category:Nude_sculptures_in_Greece>,
+        <http://dbpedia.org/resource/Category:Nude_sculptures_of_men>,
+        <http://dbpedia.org/resource/Category:Roman_copies_of_5th-century_BC_Greek_sculptures>,
+        <http://dbpedia.org/resource/Category:Sculptures_in_Athens>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_Apollo>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_men_in_Greece>,
+        <http://dbpedia.org/resource/Category:Statues_in_Greece> ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Apollo_Omphalos_(Athens)?oldid=1295125910&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/Apollo_Omphalos_marble_Roman_copy,_NAMA_45_102631.jpg> ;
+    foaf:homepage <https://www.namuseum.gr/> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Apollo_Omphalos_(Athens)> ;
+    foaf:name "Apollo Omphalos"@en .
+
+<http://dbpedia.org/resource/Aristotle_(Ribera_painting)> a dbo:Artwork ;
+    rdfs:label "Aristote (Ribera)"@fr,
+        "Аристотель (Рібера)"@uk ;
+    dbo:wikiPageExternalLink <http://collection.nmwa.go.jp/en/P.1989-0001.html>,
+        <http://www.imamuseum.org/art/collections/artwork/aristotle-ribera-jusepe-de>,
+        <https://web.archive.org/web/20111024071222/http:/collectionsonline.lacma.org/mwebcgi/mweb.exe%3Frequest=record> ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/Anaxagoras>,
+        <http://dbpedia.org/resource/Archimedes>,
+        <http://dbpedia.org/resource/Aristotle>,
+        <http://dbpedia.org/resource/Canvas>,
+        <http://dbpedia.org/resource/Caravaggio>,
+        <http://dbpedia.org/resource/Caravaggisti>,
+        <http://dbpedia.org/resource/Category:1637_paintings>,
+        <http://dbpedia.org/resource/Category:Books_in_art>,
+        <http://dbpedia.org/resource/Category:Cultural_depictions_of_Aristotle>,
+        <http://dbpedia.org/resource/Category:Paintings_by_Jusepe_de_Ribera>,
+        <http://dbpedia.org/resource/Category:Paintings_in_the_collection_of_the_Indianapolis_Museum_of_Art>,
+        <http://dbpedia.org/resource/Crates_of_Thebes>,
+        <http://dbpedia.org/resource/Diogenes_of_Sinope>,
+        <http://dbpedia.org/resource/Indiana>,
+        <http://dbpedia.org/resource/Indianapolis>,
+        <http://dbpedia.org/resource/Indianapolis_Museum_of_Art>,
+        <http://dbpedia.org/resource/Jusepe_de_Ribera>,
+        <http://dbpedia.org/resource/Karl_Eusebius,_Prince_of_Liechtenstein>,
+        <http://dbpedia.org/resource/Metropolitan_Museum_of_Art>,
+        <http://dbpedia.org/resource/Oil_painting>,
+        <http://dbpedia.org/resource/Plato>,
+        <http://dbpedia.org/resource/Prince_of_Liechtenstein>,
+        <http://dbpedia.org/resource/Protagoras>,
+        <http://dbpedia.org/resource/Spain> ;
+    owl:sameAs <http://arz.dbpedia.org/resource/ارسطو_(لوحه)>,
+        <http://fr.dbpedia.org/resource/Aristote_(Ribera)>,
+        <http://uk.dbpedia.org/resource/Аристотель_(Рібера)>,
+        <http://www.wikidata.org/entity/Q4791095>,
+        <https://global.dbpedia.org/id/4S2Mf> .
+
+<http://dbpedia.org/resource/Armed_Aphrodite_(NAMA_262)> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Armed Aphrodite (NAMA 262)"@en ;
+    dbo:description "عمل فني مرئي"@ar,
+        "sculpture of Aphrodite Areia"@en,
+        "escultura de Afrodita"@es ;
+    dbo:museum <http://dbpedia.org/resource/National_Archaeological_Museum,_Athens> ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/Armed_Aphrodite_(National_Archaeological_Museum_of_Athens,_1-31-2023).jpg?width=300> ;
+    dbp:caption "The statue today in the NAMA"@en ;
+    dbp:catalogue "No 262"@en ;
+    dbp:city <http://dbpedia.org/resource/Athens> ;
+    dbp:condition "Intact"@en ;
+    dbp:heightMetric 1.51e+00 ;
+    dbp:medium "Marble"@en ;
+    dbp:metricUnit "m"@en ;
+    dbp:movement "Classical"@en ;
+    dbp:museum <http://dbpedia.org/resource/National_Archaeological_Museum,_Athens> ;
+    dbp:otherLanguage "Greek"@en ;
+    dbp:otherTitle ""@en ;
+    dbp:owner "Greece"@en ;
+    dbp:subject "the goddess Aphrodite"@en ;
+    dbp:title "Armed Aphrodite"@en ;
+    dbp:website <https://www.namuseum.gr/> ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Authority_control>,
+        <http://dbpedia.org/resource/Template:Cite_book>,
+        <http://dbpedia.org/resource/Template:Commons_category-inline>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Langx>,
+        <http://dbpedia.org/resource/Template:National_Archaeological_Museum_of_Athens>,
+        <http://dbpedia.org/resource/Template:Portal>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Sculptures_of_Aphrodite>,
+        <http://dbpedia.org/resource/Template:Sfn>,
+        <http://dbpedia.org/resource/Template:Short_description> ;
+    dbp:year 1 ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1886_archaeological_discoveries>,
+        <http://dbpedia.org/resource/Category:1st-century_Roman_sculptures>,
+        <http://dbpedia.org/resource/Category:Archaeological_discoveries_in_the_Peloponnese>,
+        <http://dbpedia.org/resource/Category:Epidaurus>,
+        <http://dbpedia.org/resource/Category:Marble_sculptures_in_Greece>,
+        <http://dbpedia.org/resource/Category:National_Archaeological_Museum,_Athens>,
+        <http://dbpedia.org/resource/Category:Roman_copies_of_4th-century_BC_Greek_sculptures>,
+        <http://dbpedia.org/resource/Category:Sculptures_in_Athens>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_Venus>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_women_in_Greece>,
+        <http://dbpedia.org/resource/Category:Statues_in_Greece> ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Armed_Aphrodite_(NAMA_262)?oldid=1306372439&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/Armed_Aphrodite_(National_Archaeological_Museum_of_Athens,_1-31-2023).jpg> ;
+    foaf:homepage <https://www.namuseum.gr/> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Armed_Aphrodite_(NAMA_262)> ;
+    foaf:name "Armed Aphrodite"@en .
+
+<http://dbpedia.org/resource/Benjamin_Harrison_(Niehaus)> a dbo:Artwork ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/Benjamin_Harrison>,
+        <http://dbpedia.org/resource/Bronze>,
+        <http://dbpedia.org/resource/Category:1908_establishments_in_Indiana>,
+        <http://dbpedia.org/resource/Category:1908_sculptures>,
+        <http://dbpedia.org/resource/Category:Benjamin_Harrison>,
+        <http://dbpedia.org/resource/Category:Bronze_sculptures_in_Indiana>,
+        <http://dbpedia.org/resource/Category:Outdoor_sculptures_in_Indianapolis>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_birds_in_the_United_States>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_men_in_Indiana>,
+        <http://dbpedia.org/resource/Category:Statues_in_Indianapolis>,
+        <http://dbpedia.org/resource/Category:Statues_of_presidents_of_the_United_States>,
+        <http://dbpedia.org/resource/Charles_Henry_Niehaus>,
+        <http://dbpedia.org/resource/Gorham_Manufacturing_Company>,
+        <http://dbpedia.org/resource/Henry_Bacon>,
+        <http://dbpedia.org/resource/Indiana>,
+        <http://dbpedia.org/resource/Indiana_World_War_Memorial_Plaza>,
+        <http://dbpedia.org/resource/Indianapolis>,
+        <http://dbpedia.org/resource/Limestone>,
+        <http://dbpedia.org/resource/List_of_Presidents_of_the_United_States>,
+        <http://dbpedia.org/resource/President_of_the_United_States>,
+        <http://dbpedia.org/resource/United_States> ;
+    gold:hypernym <http://dbpedia.org/resource/Artwork> ;
+    owl:sameAs <http://rdf.freebase.com/ns/m.0bm9lwk>,
+        <http://www.wikidata.org/entity/Q4888776>,
+        <http://yago-knowledge.org/resource/Benjamin_Harrison_(Niehaus)>,
+        <https://global.dbpedia.org/id/4XN3K> .
+
+<http://dbpedia.org/resource/Black_Lives_Matter_street_mural_(Indianapolis)> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        geo1:SpatialThing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Black Lives Matter street mural (Indianapolis)"@en ;
+    dbo:description "street mural in Indianapolis, Indiana, United States"@en ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/Black_Lives_Matter_street_mural_(Indianapolis).jpg?width=300> ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/Acacia>,
+        <http://dbpedia.org/resource/Alan_Bacon>,
+        <http://dbpedia.org/resource/Amiah_Mims>,
+        <http://dbpedia.org/resource/Ashley_Nora>,
+        <http://dbpedia.org/resource/Ballot_box>,
+        <http://dbpedia.org/resource/Billy_Hoodoo>,
+        <http://dbpedia.org/resource/Black_Lives_Matter>,
+        <http://dbpedia.org/resource/Category:2020_establishments_in_Indiana>,
+        <http://dbpedia.org/resource/Category:2020_paintings>,
+        <http://dbpedia.org/resource/Category:African-American_history_of_Indianapolis>,
+        <http://dbpedia.org/resource/Category:Black_Lives_Matter_art>,
+        <http://dbpedia.org/resource/Category:Murals_in_Indiana>,
+        <http://dbpedia.org/resource/Category:Public_art_in_Indiana>,
+        <http://dbpedia.org/resource/Category:Vandalized_works_of_art_in_Indiana>,
+        <http://dbpedia.org/resource/Central_Indiana_Community_Foundation>,
+        <http://dbpedia.org/resource/Democratic_Party_(United_States)>,
+        <http://dbpedia.org/resource/Deonna_Craig>,
+        <http://dbpedia.org/resource/Eminent_domain>,
+        <http://dbpedia.org/resource/Ess_Mckee>,
+        <http://dbpedia.org/resource/Faith_Ringgold>,
+        <http://dbpedia.org/resource/File:Deonna_Craig_(The_Children's_Museum_of_Indianapolis)_-_standing.jpg>,
+        <http://dbpedia.org/resource/File:Israel_Solomon_(The_Children's_Museum_of_Indianapolis).jpg>,
+        <http://dbpedia.org/resource/File:Nathaniel_Rhodes_(The_Children's_Museum_of_Indianapolis)_-_sitting.jpg>,
+        <http://dbpedia.org/resource/Gary_Gee>,
+        <http://dbpedia.org/resource/George_Floyd_protests>,
+        <http://dbpedia.org/resource/Harriet_Watson>,
+        <http://dbpedia.org/resource/Indiana>,
+        <http://dbpedia.org/resource/Indiana_Avenue>,
+        <http://dbpedia.org/resource/Indiana_Fever>,
+        <http://dbpedia.org/resource/Indiana_University_Health>,
+        <http://dbpedia.org/resource/Indiana_University–Purdue_University_Indianapolis>,
+        <http://dbpedia.org/resource/Indianapolis>,
+        <http://dbpedia.org/resource/Indianapolis_City-County_Council>,
+        <http://dbpedia.org/resource/Indianapolis_Metropolitan_Police_Department>,
+        <http://dbpedia.org/resource/Indy10>,
+        <http://dbpedia.org/resource/Interstate_65_in_Indiana>,
+        <http://dbpedia.org/resource/Israel_Solomon>,
+        <http://dbpedia.org/resource/Jarrod_Dortch>,
+        <http://dbpedia.org/resource/John_G._Moore>,
+        <http://dbpedia.org/resource/Kenneth_Hordge>,
+        <http://dbpedia.org/resource/Kevin_West_(artist)>,
+        <http://dbpedia.org/resource/Labor_Day>,
+        <http://dbpedia.org/resource/Lion>,
+        <http://dbpedia.org/resource/List_of_Black_Lives_Matter_street_murals>,
+        <http://dbpedia.org/resource/Madam_Walker_Legacy_Center>,
+        <http://dbpedia.org/resource/Mali_Jeffers>,
+        <http://dbpedia.org/resource/Naismith_Memorial_Basketball_Hall_of_Fame>,
+        <http://dbpedia.org/resource/Nathaniel_Rhodes>,
+        <http://dbpedia.org/resource/National_Urban_League>,
+        <http://dbpedia.org/resource/New_America_(organization)>,
+        <http://dbpedia.org/resource/Pan-African_colours>,
+        <http://dbpedia.org/resource/Rae_Parker>,
+        <http://dbpedia.org/resource/Raised_fist>,
+        <http://dbpedia.org/resource/Rebecca_Robinson_(artist)>,
+        <http://dbpedia.org/resource/Republican_Party_(United_States)>,
+        <http://dbpedia.org/resource/Shamira_Wilson>,
+        <http://dbpedia.org/resource/Shane_Young_(artist)>,
+        <http://dbpedia.org/resource/Street_art>,
+        <http://dbpedia.org/resource/Tamika_Catchings>,
+        <http://dbpedia.org/resource/The_American_People_Series_18:_The_Flag_is_Bleeding>,
+        <http://dbpedia.org/resource/Wavy_Blayne>,
+        <http://dbpedia.org/resource/White_House>,
+        <http://dbpedia.org/resource/White_supremacy> ;
+    dbp:caption "--08-08"^^xsd:gMonthDay ;
+    dbp:city "Indianapolis, Indiana, U.S."@en ;
+    dbp:imperialUnit "in"@en ;
+    dbp:italicTitle "no"@en ;
+    dbp:metricUnit "cm"@en ;
+    dbp:title "Black Lives Matter street mural"@en ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Black_Lives_Matter>,
+        <http://dbpedia.org/resource/Template:Commons_category-inline>,
+        <http://dbpedia.org/resource/Template:Coord>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Portal>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Short_description>,
+        <http://dbpedia.org/resource/Template:Start_date> ;
+    dcterms:subject <http://dbpedia.org/resource/Category:2020_establishments_in_Indiana>,
+        <http://dbpedia.org/resource/Category:2020_paintings>,
+        <http://dbpedia.org/resource/Category:African-American_history_of_Indianapolis>,
+        <http://dbpedia.org/resource/Category:Black_Lives_Matter_art>,
+        <http://dbpedia.org/resource/Category:Murals_in_Indiana>,
+        <http://dbpedia.org/resource/Category:Public_art_in_Indiana>,
+        <http://dbpedia.org/resource/Category:Vandalized_works_of_art_in_Indiana> ;
+    georss:point "39.7768 -86.1688" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q107290972>,
+        <https://global.dbpedia.org/id/Fuxes> ;
+    geo1:geometry "POINT(-86.168800354004 39.776798248291)"^^<http://www.openlinksw.com/schemas/virtrdf#Geometry> ;
+    geo1:lat "39.77679824829102"^^xsd:float ;
+    geo1:long "-86.1688003540039"^^xsd:float ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Black_Lives_Matter_street_mural_(Indianapolis)?oldid=1285931397&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/Black_Lives_Matter_street_mural_(Indianapolis).jpg>,
+        <http://commons.wikimedia.org/wiki/Special:FilePath/Deonna_Craig_(The_Children's_Museum_of_Indianapolis)_-_standing.jpg>,
+        <http://commons.wikimedia.org/wiki/Special:FilePath/Israel_Solomon_(The_Children's_Museum_of_Indianapolis).jpg>,
+        <http://commons.wikimedia.org/wiki/Special:FilePath/Nathaniel_Rhodes_(The_Children's_Museum_of_Indianapolis)_-_sitting.jpg> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Black_Lives_Matter_street_mural_(Indianapolis)> ;
+    foaf:name "Black Lives Matter street mural"@en .
+
+<http://dbpedia.org/resource/Bust_of_Antinous_(NAMA)> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Bust of Antinous (NAMA)"@en ;
+    dbo:description "bust of Antinous in Athens, Greece"@en ;
+    dbo:museum <http://dbpedia.org/resource/National_Archaeological_Museum,_Athens> ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/Bust_of_Antinous_(2)._2nd_cent._A.D_(cropped).jpg?width=300> ;
+    dbp:caption "The bust of Antinous"@en ;
+    dbp:city <http://dbpedia.org/resource/Athens> ;
+    dbp:heightMetric 67 ;
+    dbp:medium <http://dbpedia.org/resource/Marble_sculpture> ;
+    dbp:museum <http://dbpedia.org/resource/National_Archaeological_Museum,_Athens> ;
+    dbp:otherLanguage "Greek"@en ;
+    dbp:otherTitle ""@en ;
+    dbp:subject <http://dbpedia.org/resource/Antinous> ;
+    dbp:title "Bust of Antinous"@en ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Authority_control>,
+        <http://dbpedia.org/resource/Template:Commons_category-inline>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Langx>,
+        <http://dbpedia.org/resource/Template:National_Archaeological_Museum_of_Athens>,
+        <http://dbpedia.org/resource/Template:Portal>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Short_description> ;
+    dbp:year 2 ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1856_archaeological_discoveries>,
+        <http://dbpedia.org/resource/Category:2nd-century_Roman_sculptures>,
+        <http://dbpedia.org/resource/Category:Archaeological_discoveries_in_the_Peloponnese>,
+        <http://dbpedia.org/resource/Category:Busts_in_Greece>,
+        <http://dbpedia.org/resource/Category:Marble_sculptures_in_Greece>,
+        <http://dbpedia.org/resource/Category:National_Archaeological_Museum,_Athens>,
+        <http://dbpedia.org/resource/Category:Sculptures_in_Athens>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_Antinous>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_men_in_Greece>,
+        <http://dbpedia.org/resource/Category:Works_of_uncertain_authorship> ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Bust_of_Antinous_(NAMA)?oldid=1258916706&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/1641_-_Archaeological_Museum,_Athens_-_Antinous_-_Photo_by_Giovanni_Dall'Orto,_Nov_11_2009.jpg>,
+        <http://commons.wikimedia.org/wiki/Special:FilePath/1647_-_Archaeological_Museum,_Athens_-_Antinous_-_Photo_by_Giovanni_Dall'Orto,_Nov_11_2009.jpg>,
+        <http://commons.wikimedia.org/wiki/Special:FilePath/Bust_of_Antinous_(2)._2nd_cent._A.D_(cropped).jpg>,
+        <http://commons.wikimedia.org/wiki/Special:FilePath/Bust_of_Antinous_(3)._2nd_cent._A.D.jpg>,
+        <http://commons.wikimedia.org/wiki/Special:FilePath/Exhibition_%22Hadrian_and_Antinous_an_encounter,_19_centuries_later%22,_National_Archaeological_Museum_of_Athens_(42836815081).jpg> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Bust_of_Antinous_(NAMA)> ;
+    foaf:name "Bust of Antinous"@en .
+
+<http://dbpedia.org/resource/Bust_of_Atatürk> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Bust of Atatürk"@en ;
+    dbo:description "sculpture in Istanbul, Turkey"@en ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/2021_09_18_Kadikoy_Yogurtcu_Parki_Mustafa_Kemal_Ataturk.jpg?width=300> ;
+    dbp:caption "The bust in 2021"@en ;
+    dbp:city "Istanbul, Turkey"@en ;
+    dbp:imperialUnit "in"@en ;
+    dbp:italicTitle "no"@en ;
+    dbp:metricUnit "cm"@en ;
+    dbp:subject <http://dbpedia.org/resource/Mustafa_Kemal_Atatürk> ;
+    dbp:title "Bust of Atatürk"@en ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Commons_category-inline>,
+        <http://dbpedia.org/resource/Template:Coord_missing>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Portal>,
+        <http://dbpedia.org/resource/Template:Public_art_in_Istanbul>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Sculpture-stub>,
+        <http://dbpedia.org/resource/Template:Short_description>,
+        <http://dbpedia.org/resource/Template:Turkey-stub> ;
+    dcterms:subject <http://dbpedia.org/resource/Category:Busts_in_Turkey>,
+        <http://dbpedia.org/resource/Category:Kadıköy>,
+        <http://dbpedia.org/resource/Category:Monuments_and_memorials_in_Istanbul>,
+        <http://dbpedia.org/resource/Category:Monuments_and_memorials_to_Mustafa_Kemal_Atatürk_in_Turkey>,
+        <http://dbpedia.org/resource/Category:Outdoor_sculptures_in_Istanbul>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_men_in_Turkey> ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Bust_of_Atatürk?oldid=1187979165&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/2021_09_18_Kadikoy_Yogurtcu_Parki_Mustafa_Kemal_Ataturk.jpg> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Bust_of_Atatürk> ;
+    foaf:name "Bust of Atatürk"@en .
+
+<http://dbpedia.org/resource/Bust_of_Edward_VII,_Kuala_Lumpur> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Bust of Edward VII, Kuala Lumpur"@en ;
+    dbo:description "عمل فني مرئي"@ar,
+        "1911 bust by Arthur Stanley Young"@en ;
+    dbo:museum <http://dbpedia.org/resource/National_Museum_(Malaysia)> ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/Bust_of_King_Edward_VII_in_Malaysia.jpg?width=300> ;
+    dbp:artist "Arthur Stanley Young"@en ;
+    dbp:completionDate 1911 ;
+    dbp:italicTitle "no"@en ;
+    dbp:medium "Bronze bust"@en ;
+    dbp:museum <http://dbpedia.org/resource/National_Museum_(Malaysia)> ;
+    dbp:subject <http://dbpedia.org/resource/Edward_VII> ;
+    dbp:title "Bust of Edward VII"@en ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Malaysia-stub>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Short_description> ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1911_sculptures>,
+        <http://dbpedia.org/resource/Category:Statues_in_Malaysia> ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Bust_of_Edward_VII,_Kuala_Lumpur?oldid=1252246766&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/Bust_of_King_Edward_VII_in_Malaysia.jpg> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Bust_of_Edward_VII,_Kuala_Lumpur> ;
+    foaf:name "Bust of Edward VII"@en .
+
+<http://dbpedia.org/resource/Cardinal_del_Portogallo_Altarpiece> a dbo:Artwork ;
+    rdfs:label "Pala del cardinale del Portogallo"@it,
+        "Painel do Cardeal de Portugal"@pt ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/Antonio_del_Pollaiuolo>,
+        <http://dbpedia.org/resource/Category:1467_paintings>,
+        <http://dbpedia.org/resource/Category:Altarpieces>,
+        <http://dbpedia.org/resource/Category:Paintings_by_Antonio_del_Pollaiuolo>,
+        <http://dbpedia.org/resource/Category:Paintings_by_Piero_del_Pollaiuolo>,
+        <http://dbpedia.org/resource/Category:Paintings_in_the_collection_of_the_Uffizi>,
+        <http://dbpedia.org/resource/Category:Paintings_of_James_the_Great>,
+        <http://dbpedia.org/resource/Category:Paintings_of_Saint_Eustace>,
+        <http://dbpedia.org/resource/Category:Paintings_of_Vincent_of_Saragossa>,
+        <http://dbpedia.org/resource/James_the_Great>,
+        <http://dbpedia.org/resource/Piero_del_Pollaiuolo>,
+        <http://dbpedia.org/resource/Saint_Eustace>,
+        <http://dbpedia.org/resource/San_Miniato_al_Monte>,
+        <http://dbpedia.org/resource/Uffizi>,
+        <http://dbpedia.org/resource/Vincent_of_Saragossa> ;
+    owl:sameAs <http://arz.dbpedia.org/resource/مذبح_الكاردينال_البرتغالى>,
+        <http://it.dbpedia.org/resource/Pala_del_cardinale_del_Portogallo>,
+        <http://pt.dbpedia.org/resource/Painel_do_Cardeal_de_Portugal>,
+        <http://www.wikidata.org/entity/Q3889223>,
+        <https://global.dbpedia.org/id/3cAaW> .
+
+<http://dbpedia.org/resource/Democritus_(Agostino_Carracci)> a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Democritus (Agostino Carracci)"@en ;
+    dbo:author <http://dbpedia.org/resource/Agostino_Carracci> ;
+    dbo:description "عمل فني مرئي"@ar,
+        "painting by Agostino Carracci"@en ;
+    dbo:museum <http://dbpedia.org/resource/Museo_di_Capodimonte> ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/Democritus_by_Agostino_Carracci.jpg?width=300> ;
+    dbp:artist <http://dbpedia.org/resource/Agostino_Carracci> ;
+    dbp:city <http://dbpedia.org/resource/Naples> ;
+    dbp:heightMetric 8.85e+01 ;
+    dbp:imageUpright 1.1e+00 ;
+    dbp:medium "oil on canvas"@en ;
+    dbp:metricUnit "cm"@en ;
+    dbp:museum <http://dbpedia.org/resource/Museo_di_Capodimonte> ;
+    dbp:title "Democritus"@en ;
+    dbp:widthMetric 66 ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:About>,
+        <http://dbpedia.org/resource/Template:Agostino_Carracci>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Short_description> ;
+    dbp:year "c. 1596"@en ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1596_paintings>,
+        <http://dbpedia.org/resource/Category:Cultural_depictions_of_Democritus>,
+        <http://dbpedia.org/resource/Category:Paintings_by_Agostino_Carracci>,
+        <http://dbpedia.org/resource/Category:Paintings_in_the_Museo_di_Capodimonte>,
+        <http://dbpedia.org/resource/Category:Portraits_of_men> ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Democritus_(Agostino_Carracci)?oldid=1297087026&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/Democritus_by_Agostino_Carracci.jpg> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Democritus_(Agostino_Carracci)> ;
+    foaf:name "Democritus"@en .
+
+<http://dbpedia.org/resource/Dragon_Fusuma> a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Dragon Fusuma"@en ;
+    dbo:author <http://dbpedia.org/resource/Nagasawa_Rosetsu> ;
+    dbo:description "لوحة فنية"@ar,
+        "painting by Nagasawa Rosetsu"@en,
+        "長沢芦雪が描いた襖絵"@ja ;
+    dbo:museum <http://dbpedia.org/resource/Kushimoto_Ōkyo_Rosetsu_Art_Museum> ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/Muryoji_dragon_2000px.jpg?width=300> ;
+    dbp:artist <http://dbpedia.org/resource/Nagasawa_Rosetsu> ;
+    dbp:city <http://dbpedia.org/resource/Kushimoto,_Wakayama>,
+        <http://dbpedia.org/resource/Wakayama_Prefecture> ;
+    dbp:designation <http://dbpedia.org/resource/Important_Cultural_Property_(Japan)> ;
+    dbp:dimensions """Right Four Sides: 183.5 x 115.5 cm each
+Left Two Sides: 180.0 x 87.0 cm each"""@en ;
+    dbp:museum "Kushimoto Ōkyo Rosetsu Art Museum, Muryō-ji"@en ;
+    dbp:otherLanguage "Japanese"@en ;
+    dbp:otherTitle "龍図襖"@en ;
+    dbp:subject "Dragon on Fusuma"@en ;
+    dbp:title "Dragon Fusuma"@en ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Authority_control>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Short_description> ;
+    dbp:year 1786 ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1786_paintings>,
+        <http://dbpedia.org/resource/Category:Dragons_in_art>,
+        <http://dbpedia.org/resource/Category:Wakayama_Prefecture_designated_tangible_cultural_property> ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Dragon_Fusuma?oldid=1239595646&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/Muryoji_dragon_2000px.jpg> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Dragon_Fusuma> ;
+    foaf:name "Dragon Fusuma"@en .
+
+<http://dbpedia.org/resource/Dreaming_(sculpture)> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        geo1:SpatialThing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Dreaming (sculpture)"@en ;
+    dbo:author <http://dbpedia.org/resource/Jaume_Plensa> ;
+    dbo:description "عمل فني مرئي"@ar,
+        "sculpture in Toronto, Ontario, Canada"@en ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/Toronto,_November_10,_2023_-_205.jpg?width=300> ;
+    dbp:artist <http://dbpedia.org/resource/Jaume_Plensa> ;
+    dbp:caption "The sculpture in 2023"@en ;
+    dbp:city "Toronto, Ontario, Canada"@en ;
+    dbp:imageUpright 1.2e+00 ;
+    dbp:imperialUnit "in"@en ;
+    dbp:mapframe "yes"@en ;
+    dbp:mapframeZoom 13 ;
+    dbp:metricUnit "cm"@en ;
+    dbp:title "Dreaming"@en ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Canada-sculpture-stub>,
+        <http://dbpedia.org/resource/Template:Coord>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Jaume_Plensa>,
+        <http://dbpedia.org/resource/Template:Portal>,
+        <http://dbpedia.org/resource/Template:Public_art_in_Toronto>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Short_description> ;
+    dbp:year 2020 ;
+    dcterms:subject <http://dbpedia.org/resource/Category:2020_sculptures>,
+        <http://dbpedia.org/resource/Category:Outdoor_sculptures_in_Toronto>,
+        <http://dbpedia.org/resource/Category:Sculptures_by_Jaume_Plensa> ;
+    georss:point "43.64958333333333 -79.38322222222222" ;
+    geo1:geometry "POINT(-79.383224487305 43.64958190918)"^^<http://www.openlinksw.com/schemas/virtrdf#Geometry> ;
+    geo1:lat "43.64958190917969"^^xsd:float ;
+    geo1:long "-79.38322448730469"^^xsd:float ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Dreaming_(sculpture)?oldid=1280882647&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/Toronto,_November_10,_2023_-_205.jpg>,
+        <http://commons.wikimedia.org/wiki/Special:FilePath/Toronto,_November_10,_2023_-_206.jpg> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Dreaming_(sculpture)> ;
+    foaf:name "Dreaming"@en .
+
+<http://dbpedia.org/resource/Ecce_Homo_(Bosch,_1510s)> a dbo:Artwork ;
+    rdfs:label "Ecce homo (Bosch, Indianapolis)"@fr ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/Category:1510s_paintings>,
+        <http://dbpedia.org/resource/Category:Cultural_depictions_of_Pontius_Pilate>,
+        <http://dbpedia.org/resource/Category:Paintings_by_Hieronymus_Bosch>,
+        <http://dbpedia.org/resource/Category:Paintings_in_Indianapolis>,
+        <http://dbpedia.org/resource/Category:Paintings_in_the_collection_of_the_Philadelphia_Museum_of_Art>,
+        <http://dbpedia.org/resource/Category:Paintings_of_Ecce_Homo>,
+        <http://dbpedia.org/resource/Ecce_Homo_(Bosch,_1470s)>,
+        <http://dbpedia.org/resource/File:Bosch_Ecce_Homo.jpg>,
+        <http://dbpedia.org/resource/Hieronymus_Bosch>,
+        <http://dbpedia.org/resource/Indianapolis>,
+        <http://dbpedia.org/resource/Indianapolis,_Indiana>,
+        <http://dbpedia.org/resource/Indianapolis_Museum_of_Art>,
+        <http://dbpedia.org/resource/Jerusalem>,
+        <http://dbpedia.org/resource/Jesus_Christ>,
+        <http://dbpedia.org/resource/Philadelphia_Museum_of_Art>,
+        <http://dbpedia.org/resource/Pontius_Pilate> ;
+    owl:sameAs <http://arz.dbpedia.org/resource/ايتسى_هومو_(هيرونيموس_بوس_1490)>,
+        <http://fr.dbpedia.org/resource/Ecce_homo_(Bosch,_Indianapolis)>,
+        <http://www.wikidata.org/entity/Q924482>,
+        <https://global.dbpedia.org/id/55JKd> .
+
+<http://dbpedia.org/resource/El_Perú_Libre> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "El Perú Libre"@en ;
+    dbo:author <http://dbpedia.org/resource/Luis_Montero_Cáceres> ;
+    dbo:description "عمل فني"@ar,
+        "painting by Luis Montero"@en,
+        "obra de Luis Montero"@es ;
+    dbo:museum <http://dbpedia.org/resource/Legislative_Palace_(Peru)> ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/El_Peru_Libre_de_1853.jpg?width=300> ;
+    dbp:artist <http://dbpedia.org/resource/Luis_Montero_Cáceres> ;
+    dbp:city <http://dbpedia.org/resource/Lima> ;
+    dbp:heightMetric 223 ;
+    dbp:lengthMetric 156 ;
+    dbp:museum <http://dbpedia.org/resource/Legislative_Palace_(Peru)> ;
+    dbp:title "El Perú Libre"@en ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Distinguish>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Quote>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Short_description> ;
+    dbp:wikidata "Q123558224"@en ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1853_paintings>,
+        <http://dbpedia.org/resource/Category:History_paintings>,
+        <http://dbpedia.org/resource/Category:National_personifications>,
+        <http://dbpedia.org/resource/Category:Paintings_in_Peru>,
+        <http://dbpedia.org/resource/Category:Recovered_works_of_art> ;
+    owl:differentFrom <http://dbpedia.org/resource/Free_Peru> ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/El_Perú_Libre?oldid=1280008975&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/El_Peru_Libre_de_1853.jpg> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/El_Perú_Libre> ;
+    foaf:name "El Perú Libre"@en .
+
+<http://dbpedia.org/resource/Equestrian_statue_of_the_Duke_of_Cambridge,_Whitehall> a dbo:Artwork ;
+    rdfs:label "Estatua ecuestre del duque de Cambridge (Whitehall)"@es,
+        "Конная статуя Георга герцога Кембриджского (Лондон)"@ru,
+        "Кінна статуя Джорджа герцога Кембриджського (Лондон)"@uk ;
+    dbo:wikiPageExternalLink <http://www.londonremembers.com/memorials/george-duke-of-cambridge>,
+        <http://www.waymarking.com/waymarks/WMC97J_Duke_of_Cambridge_Whitehall_London_UK> ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/17th_Lancers>,
+        <http://dbpedia.org/resource/1907_in_art>,
+        <http://dbpedia.org/resource/2nd_Life_Guards>,
+        <http://dbpedia.org/resource/Adrian_Jones_(sculptor)>,
+        <http://dbpedia.org/resource/Alexandra_of_Denmark>,
+        <http://dbpedia.org/resource/Bas-relief>,
+        <http://dbpedia.org/resource/Buckingham_Palace>,
+        <http://dbpedia.org/resource/Category:1907_establishments_in_England>,
+        <http://dbpedia.org/resource/Category:1907_sculptures>,
+        <http://dbpedia.org/resource/Category:Equestrian_statues_in_the_United_Kingdom>,
+        <http://dbpedia.org/resource/Category:Grade_II_listed_monuments_and_memorials>,
+        <http://dbpedia.org/resource/Category:Grade_II_listed_statues_in_the_City_of_Westminster>,
+        <http://dbpedia.org/resource/Category:Granite_sculptures_in_the_United_Kingdom>,
+        <http://dbpedia.org/resource/Category:Monuments_and_memorials_in_London>,
+        <http://dbpedia.org/resource/Category:Outdoor_sculptures_in_London>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_men_in_the_United_Kingdom>,
+        <http://dbpedia.org/resource/Category:Statues_of_military_officers>,
+        <http://dbpedia.org/resource/Category:Whitehall>,
+        <http://dbpedia.org/resource/Edward_VII>,
+        <http://dbpedia.org/resource/Edward_VIII>,
+        <http://dbpedia.org/resource/Equestrian_statue>,
+        <http://dbpedia.org/resource/Field_Marshal>,
+        <http://dbpedia.org/resource/File:George_duke_of_cambridge.jpg>,
+        <http://dbpedia.org/resource/German_Army_(German_Empire)>,
+        <http://dbpedia.org/resource/Granite>,
+        <http://dbpedia.org/resource/Grenadier_Guards>,
+        <http://dbpedia.org/resource/Horse_Guards_(building)>,
+        <http://dbpedia.org/resource/John_Belcher_(architect)>,
+        <http://dbpedia.org/resource/Office_of_Works>,
+        <http://dbpedia.org/resource/Prince_Arthur,_Duke_of_Connaught_and_Strathearn>,
+        <http://dbpedia.org/resource/Prince_Christian_of_Schleswig-Holstein>,
+        <http://dbpedia.org/resource/Prince_George,_Duke_of_Cambridge>,
+        <http://dbpedia.org/resource/Prince_George_of_Greece_and_Denmark>,
+        <http://dbpedia.org/resource/Princess_Victoria_of_the_United_Kingdom>,
+        <http://dbpedia.org/resource/Sophia_of_Prussia>,
+        <http://dbpedia.org/resource/War_Office>,
+        <http://dbpedia.org/resource/Whitehall>,
+        <http://dbpedia.org/resource/Wilhelm_von_Hahnke>,
+        <http://dbpedia.org/resource/William_IV_of_the_United_Kingdom>,
+        <http://dbpedia.org/resource/Wykeham_Leigh_Pemberton> ;
+    gold:hypernym <http://dbpedia.org/resource/Memorial> ;
+    owl:sameAs <http://es.dbpedia.org/resource/Estatua_ecuestre_del_duque_de_Cambridge_(Whitehall)>,
+        <http://rdf.freebase.com/ns/m.012zv04w>,
+        <http://ru.dbpedia.org/resource/Конная_статуя_Георга_герцога_Кембриджского_(Лондон)>,
+        <http://uk.dbpedia.org/resource/Кінна_статуя_Джорджа_герцога_Кембриджського_(Лондон)>,
+        <http://www.wikidata.org/entity/Q19516037>,
+        <http://yago-knowledge.org/resource/Equestrian_statue_of_the_Duke_of_Cambridge,_Whitehall>,
+        <https://global.dbpedia.org/id/s3h7> .
+
+<http://dbpedia.org/resource/Faith_and_Confidence> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Faith and Confidence"@en ;
+    dbo:description "1958 Pulitzer Prize winning photograph"@en,
+        "fotografia vencedora do Prêmio Pulitzer de 1958"@pt ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/Faith_and_Confidence.jpg?width=300> ;
+    dbp:caption "Faith and Confidence , a policeman patiently reasons with a two-year-old boy"@en ;
+    dbp:imperialUnit "in"@en ;
+    dbp:medium "Photograph"@en ;
+    dbp:metricUnit "cm"@en ;
+    dbp:title "Faith and Confidence"@en ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Frac>,
+        <http://dbpedia.org/resource/Template:Good_article>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Italic_title>,
+        <http://dbpedia.org/resource/Template:Nbsp>,
+        <http://dbpedia.org/resource/Template:Pulitzer_Prize>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Short_description>,
+        <http://dbpedia.org/resource/Template:Use_mdy_dates> ;
+    dbp:year 1957 ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1950s_photographs>,
+        <http://dbpedia.org/resource/Category:1957_in_Washington,_D.C.>,
+        <http://dbpedia.org/resource/Category:1957_works>,
+        <http://dbpedia.org/resource/Category:Black-and-white_photographs>,
+        <http://dbpedia.org/resource/Category:Chinatown_(Washington,_D.C.)>,
+        <http://dbpedia.org/resource/Category:History_of_law_enforcement_in_the_United_States>,
+        <http://dbpedia.org/resource/Category:Photographs_of_people>,
+        <http://dbpedia.org/resource/Category:Photographs_of_the_United_States>,
+        <http://dbpedia.org/resource/Category:Pulitzer_Prize–winning_photographs>,
+        <http://dbpedia.org/resource/Category:Works_about_law_enforcement_in_the_United_States>,
+        <http://dbpedia.org/resource/Category:Works_about_police_officers> ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Faith_and_Confidence?oldid=1285516398&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/Faith_and_Confidence.jpg>,
+        <http://commons.wikimedia.org/wiki/Special:FilePath/Faith_and_Confidence_front_page.jpg> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Faith_and_Confidence> ;
+    foaf:name "Faith and Confidence"@en .
+
+<http://dbpedia.org/resource/Femme_au_miroir> a dbo:Artwork ;
+    dbo:wikiPageExternalLink <http://www.photo.rmn.fr/C.aspx%3FVP3=SearchResult&VBID=2CO5PCE9A16U&SMLS=1&RW=1085&RH=643>,
+        <https://jeanmetzinger.art/femme-au-miroir-lady-at-her-dressing-table/> ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/A_Bar_at_the_Folies-Bergère>,
+        <http://dbpedia.org/resource/Albert_Gleizes>,
+        <http://dbpedia.org/resource/Amedeo_Modigliani>,
+        <http://dbpedia.org/resource/American_Art_Association>,
+        <http://dbpedia.org/resource/André_Derain>,
+        <http://dbpedia.org/resource/André_Salmon>,
+        <http://dbpedia.org/resource/Archaeological_Museum_of_Rhodes>,
+        <http://dbpedia.org/resource/Arnolfini_Portrait>,
+        <http://dbpedia.org/resource/Art_of_ancient_Egypt>,
+        <http://dbpedia.org/resource/Arthur_Bowen_Davies>,
+        <http://dbpedia.org/resource/Au_Vélodrome>,
+        <http://dbpedia.org/resource/Auguste_Herbin>,
+        <http://dbpedia.org/resource/Blaise_Cendrars>,
+        <http://dbpedia.org/resource/Brooklyn_Bridge_(Gleizes)>,
+        <http://dbpedia.org/resource/Carnegie_Museum_of_Art>,
+        <http://dbpedia.org/resource/Category:1916_paintings>,
+        <http://dbpedia.org/resource/Category:20th-century_portraits>,
+        <http://dbpedia.org/resource/Category:Paintings_by_Jean_Metzinger>,
+        <http://dbpedia.org/resource/Category:Portraits_of_women>,
+        <http://dbpedia.org/resource/Classical_Greece>,
+        <http://dbpedia.org/resource/Crystal_Cubism>,
+        <http://dbpedia.org/resource/Cubism>,
+        <http://dbpedia.org/resource/Daniel_Robbins_(art_historian)>,
+        <http://dbpedia.org/resource/Diego_Rivera>,
+        <http://dbpedia.org/resource/Diego_Velázquez>,
+        <http://dbpedia.org/resource/Dürer>,
+        <http://dbpedia.org/resource/Earthly_Vanity_and_Divine_Salvation_(Memling)>,
+        <http://dbpedia.org/resource/Eduardo_Sívori>,
+        <http://dbpedia.org/resource/File:Jean_Metzinger,_1915,_Soldat_jouant_aux_échecs_(Soldier_at_a_Game_of_Chess),_oil_on_canvas,_81.3_x_61_cm,_Smart_Museum_of_Art.jpg>,
+        <http://dbpedia.org/resource/File:Jean_Metzinger,_1916,_Femme_au_miroir_(Femme_à_sa_toilette,_Lady_at_her_Dressing_Table),_published_in_The_Sun,_New_York,_28_April_1918.jpg>,
+        <http://dbpedia.org/resource/File:Jean_Metzinger,_Le_Goûter,_Tea_Time_(1911)_and_Juan_Gris,_Hommage_à_Pablo_Picasso_(1912),_black_and_white.jpg>,
+        <http://dbpedia.org/resource/File:Jean_Metzinger,_invitation_card,_Léonce_Rosenberg,_Galerie_de_L'Effort_Moderne,_January_1919.jpg>,
+        <http://dbpedia.org/resource/File:Red-figure_lekythos,_woman,_mirror,_Athens_470-460_BC,_Prague,_NM_H10_774,_152187.jpg>,
+        <http://dbpedia.org/resource/File:Titian_-_Venus_with_a_Mirror_-_Google_Art_Project.jpg>,
+        <http://dbpedia.org/resource/Filippo_Brunelleschi>,
+        <http://dbpedia.org/resource/Fourth_dimension_in_art>,
+        <http://dbpedia.org/resource/Frans_Floris>,
+        <http://dbpedia.org/resource/Frida_Kahlo>,
+        <http://dbpedia.org/resource/Gino_Severini>,
+        <http://dbpedia.org/resource/Girl_before_a_Mirror>,
+        <http://dbpedia.org/resource/Hand_with_Reflecting_Sphere>,
+        <http://dbpedia.org/resource/Hans_Memling>,
+        <http://dbpedia.org/resource/Henri_Bergson>,
+        <http://dbpedia.org/resource/Henri_Laurens>,
+        <http://dbpedia.org/resource/Henri_Matisse>,
+        <http://dbpedia.org/resource/Hermonax>,
+        <http://dbpedia.org/resource/Hydria>,
+        <http://dbpedia.org/resource/Jacques_Lipchitz>,
+        <http://dbpedia.org/resource/Jacques_Villon>,
+        <http://dbpedia.org/resource/Jan_van_Eyck>,
+        <http://dbpedia.org/resource/Jean-Auguste-Dominique_Ingres>,
+        <http://dbpedia.org/resource/Jean_Crotti>,
+        <http://dbpedia.org/resource/Jean_Metzinger>,
+        <http://dbpedia.org/resource/John_Quinn_(collector)>,
+        <http://dbpedia.org/resource/John_William_Godward>,
+        <http://dbpedia.org/resource/Joseph_Csaky>,
+        <http://dbpedia.org/resource/Juan_B._Castagnino_Fine_Arts_Museum>,
+        <http://dbpedia.org/resource/Juan_Gris>,
+        <http://dbpedia.org/resource/Las_Meninas>,
+        <http://dbpedia.org/resource/Le_Fumeur>,
+        <http://dbpedia.org/resource/Le_goûter_(Tea_Time)>,
+        <http://dbpedia.org/resource/Leonardo_da_Vinci>,
+        <http://dbpedia.org/resource/Léonce_Rosenberg>,
+        <http://dbpedia.org/resource/M._C._Escher>,
+        <http://dbpedia.org/resource/Marcel_Duchamp>,
+        <http://dbpedia.org/resource/Marsden_Hartley>,
+        <http://dbpedia.org/resource/Maurice_Raynal>,
+        <http://dbpedia.org/resource/Maurice_de_Vlaminck>,
+        <http://dbpedia.org/resource/Max_Jacob>,
+        <http://dbpedia.org/resource/Max_Weber_(artist)>,
+        <http://dbpedia.org/resource/Museo_Reina_Sofia>,
+        <http://dbpedia.org/resource/Musée_Condé>,
+        <http://dbpedia.org/resource/Musée_d'Art_Moderne_de_la_Ville_de_Paris>,
+        <http://dbpedia.org/resource/Musée_des_Beaux-Arts_de_Nantes>,
+        <http://dbpedia.org/resource/Musée_des_Beaux-Arts_de_Strasbourg>,
+        <http://dbpedia.org/resource/Musée_national_du_Moyen_Âge>,
+        <http://dbpedia.org/resource/Pablo_Picasso>,
+        <http://dbpedia.org/resource/Paolo_Veronese>,
+        <http://dbpedia.org/resource/Peggy_Guggenheim_Collection>,
+        <http://dbpedia.org/resource/Peter_Paul_Rubens>,
+        <http://dbpedia.org/resource/Pierre_Reverdy>,
+        <http://dbpedia.org/resource/Raymond_Duchamp-Villon>,
+        <http://dbpedia.org/resource/Rembrandt>,
+        <http://dbpedia.org/resource/Robert_Delaunay>,
+        <http://dbpedia.org/resource/Self-portraits>,
+        <http://dbpedia.org/resource/Smart_Museum_of_Art>,
+        <http://dbpedia.org/resource/Soldier_at_a_Game_of_Chess>,
+        <http://dbpedia.org/resource/Stanton_Macdonald-Wright>,
+        <http://dbpedia.org/resource/Statens_Museum_for_Kunst>,
+        <http://dbpedia.org/resource/The_Lady_and_the_Unicorn>,
+        <http://dbpedia.org/resource/Thyssen-Bornemisza_Museum>,
+        <http://dbpedia.org/resource/Titian>,
+        <http://dbpedia.org/resource/University_of_Iowa_Museum_of_Art>,
+        <http://dbpedia.org/resource/Van_Gogh>,
+        <http://dbpedia.org/resource/Venice>,
+        <http://dbpedia.org/resource/Venus_Anadyomene_(Ingres)>,
+        <http://dbpedia.org/resource/Venus_effect>,
+        <http://dbpedia.org/resource/Walt_Kuhn>,
+        <http://dbpedia.org/resource/William-Adolphe_Bouguereau>,
+        <http://dbpedia.org/resource/Édouard_Manet> ;
+    gold:hypernym <http://dbpedia.org/resource/Painting> ;
+    owl:sameAs <http://rdf.freebase.com/ns/m.0131jdr9>,
+        <http://www.wikidata.org/entity/Q20087530>,
+        <http://yago-knowledge.org/resource/Femme_au_miroir>,
+        <https://global.dbpedia.org/id/vVcN> .
+
+<http://dbpedia.org/resource/Femme_nue_dormant_au_bord_de_l'eau> a dbo:Artwork ;
+    dbo:wikiPageExternalLink <https://www.musees.strasbourg.eu/-uvre-mamcs/-/entity/id/220472%3F_eu_strasbourg_portlet_entity_detail_EntityDetailPortlet_returnURL=https%3A%2F%2Fwww.musees.strasbourg.eu%2Fpt%2F-uvre-mamcs%3Fp_p_id%3Dcom_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_lbfl36WUKJfe%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_p_auth%3DTrzxY1Bq> ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/Canvas>,
+        <http://dbpedia.org/resource/Category:1921_paintings>,
+        <http://dbpedia.org/resource/Category:Nude_art>,
+        <http://dbpedia.org/resource/Category:Oil_on_canvas_paintings>,
+        <http://dbpedia.org/resource/Category:Paintings_in_the_collection_of_the_Strasbourg_Museum_of_Modern_and_Contemporary_Art>,
+        <http://dbpedia.org/resource/Category:Sleep>,
+        <http://dbpedia.org/resource/France>,
+        <http://dbpedia.org/resource/Félix_Vallotton>,
+        <http://dbpedia.org/resource/Inertia>,
+        <http://dbpedia.org/resource/Landscape_painting>,
+        <http://dbpedia.org/resource/Laziness>,
+        <http://dbpedia.org/resource/Les_Nabis>,
+        <http://dbpedia.org/resource/Nude_(art)>,
+        <http://dbpedia.org/resource/Oil_painting>,
+        <http://dbpedia.org/resource/Painting>,
+        <http://dbpedia.org/resource/Rowing>,
+        <http://dbpedia.org/resource/Strasbourg>,
+        <http://dbpedia.org/resource/Strasbourg_Museum_of_Modern_and_Contemporary_Art>,
+        <http://dbpedia.org/resource/Switzerland> ;
+    owl:sameAs <http://www.wikidata.org/entity/Q97860806>,
+        <https://global.dbpedia.org/id/DHojo> .
+
+<http://dbpedia.org/resource/Femme_à_l'Éventail> a dbo:Artwork ;
+    dbo:wikiPageExternalLink <http://jean-metzinger.blogspot.com.es/>,
+        <http://www.photo.rmn.fr/C.aspx%3FVP3=SearchResult&VBID=2CO5PCE9A16U&SMLS=1&RW=1085&RH=643>,
+        <https://jeanmetzinger.art/femme-a-leventail-woman-with-a-fan/> ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/Albert_Gleizes>,
+        <http://dbpedia.org/resource/Albright-Knox_Art_Gallery>,
+        <http://dbpedia.org/resource/Alexander_Archipenko>,
+        <http://dbpedia.org/resource/Amedeo_Modigliani>,
+        <http://dbpedia.org/resource/André_Lhote>,
+        <http://dbpedia.org/resource/André_Mare>,
+        <http://dbpedia.org/resource/Armory_show>,
+        <http://dbpedia.org/resource/Atomist>,
+        <http://dbpedia.org/resource/Category:1912_paintings>,
+        <http://dbpedia.org/resource/Category:20th-century_portraits>,
+        <http://dbpedia.org/resource/Category:Paintings_by_Jean_Metzinger>,
+        <http://dbpedia.org/resource/Category:Portraits_of_women>,
+        <http://dbpedia.org/resource/Chambre_des_députés>,
+        <http://dbpedia.org/resource/Chiaroscuro>,
+        <http://dbpedia.org/resource/Cubism>,
+        <http://dbpedia.org/resource/Dancer_in_a_café>,
+        <http://dbpedia.org/resource/Daniel_Robbins_(art_historian)>,
+        <http://dbpedia.org/resource/Danseuse_(Csaky)>,
+        <http://dbpedia.org/resource/Divisionism>,
+        <http://dbpedia.org/resource/Du_%22Cubisme%22>,
+        <http://dbpedia.org/resource/Eadweard_Muybridge>,
+        <http://dbpedia.org/resource/Fauvism>,
+        <http://dbpedia.org/resource/Fernand_Léger>,
+        <http://dbpedia.org/resource/File:Jean_Metzinger,_1912,_Danseuse_au_café,_Dancer_in_a_café,_oil_on_canvas,_146.1_x_114.3_cm,_Albright-Knox_Art_Gallery,_Buffalo,_New_York.jpg>,
+        <http://dbpedia.org/resource/File:La_Maison_Cubiste,_Le_Salon_Bourgeois,_Salon_d'Automne,_1912,_Paris.jpg>,
+        <http://dbpedia.org/resource/File:Salon_d'Automne_1912,_Paris,_works_exhibited_by_Kupka,_Modigliani,_Csaky,_Picabia,_Metzinger,_Le_Fauconnier.jpg>,
+        <http://dbpedia.org/resource/Francis_Picabia>,
+        <http://dbpedia.org/resource/František_Kupka>,
+        <http://dbpedia.org/resource/Georges_Seurat>,
+        <http://dbpedia.org/resource/Groupe_de_femmes>,
+        <http://dbpedia.org/resource/Guillaume_Apollinaire>,
+        <http://dbpedia.org/resource/Henri_Le_Fauconnier>,
+        <http://dbpedia.org/resource/Impressionism>,
+        <http://dbpedia.org/resource/Jean_Metzinger>,
+        <http://dbpedia.org/resource/Joseph_Csaky>,
+        <http://dbpedia.org/resource/La_Maison_Cubiste>,
+        <http://dbpedia.org/resource/Louis_Vauxcelles>,
+        <http://dbpedia.org/resource/Léonce_Rosenberg>,
+        <http://dbpedia.org/resource/Man_on_a_Balcony_(Gleizes)>,
+        <http://dbpedia.org/resource/Marcel_Sembat>,
+        <http://dbpedia.org/resource/Moderne_Kunstkring>,
+        <http://dbpedia.org/resource/Musée_Rath>,
+        <http://dbpedia.org/resource/National_Assembly_(France)>,
+        <http://dbpedia.org/resource/New_York_City>,
+        <http://dbpedia.org/resource/Non-Euclidean_geometry>,
+        <http://dbpedia.org/resource/Paul_Cézanne>,
+        <http://dbpedia.org/resource/Paul_Signac>,
+        <http://dbpedia.org/resource/Petit_Palais>,
+        <http://dbpedia.org/resource/Pierre-Auguste_Renoir>,
+        <http://dbpedia.org/resource/Polka_dot>,
+        <http://dbpedia.org/resource/Proto-Cubism>,
+        <http://dbpedia.org/resource/Raymond_Duchamp-Villon>,
+        <http://dbpedia.org/resource/Return_to_order>,
+        <http://dbpedia.org/resource/Roger_de_La_Fresnaye>,
+        <http://dbpedia.org/resource/Salon_d'Automne>,
+        <http://dbpedia.org/resource/Section_d'Or>,
+        <http://dbpedia.org/resource/Solomon_R._Guggenheim_Museum>,
+        <http://dbpedia.org/resource/Sonia_Delaunay>,
+        <http://dbpedia.org/resource/The_Literary_Digest> ;
+    gold:hypernym <http://dbpedia.org/resource/Painting> ;
+    owl:sameAs <http://rdf.freebase.com/ns/m.0_1mj9l>,
+        <http://www.wikidata.org/entity/Q16738834>,
+        <https://global.dbpedia.org/id/eBbt> .
+
+<http://dbpedia.org/resource/Femme_à_la_montre> a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Femme à la montre"@en ;
+    dbo:author <http://dbpedia.org/resource/Pablo_Picasso> ;
+    dbo:description "عمل فني مرئي"@ar,
+        "1932 painting by Pablo Picasso"@en,
+        "obraz Pabla Picassa, 1932"@pl ;
+    dbp:artist <http://dbpedia.org/resource/Pablo_Picasso> ;
+    dbp:heightMetric 130 ;
+    dbp:image "As seen at the 2023 Sotheby's auction"@en,
+        "On display,"@en,
+        "The painting Femme à la montre"@en ;
+    dbp:medium "Oil on canvas"@en ;
+    dbp:subject <http://dbpedia.org/resource/Marie-Thérèse_Walter> ;
+    dbp:title "Femme à la montre"@en ;
+    dbp:widthMetric 97 ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Dts>,
+        <http://dbpedia.org/resource/Template:Efn>,
+        <http://dbpedia.org/resource/Template:External_media>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Notelist>,
+        <http://dbpedia.org/resource/Template:Pablo_Picasso>,
+        <http://dbpedia.org/resource/Template:R>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Short_description>,
+        <http://dbpedia.org/resource/Template:Snd>,
+        <http://dbpedia.org/resource/Template:Start_date_and_age> ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1932_paintings>,
+        <http://dbpedia.org/resource/Category:Portraits_by_Pablo_Picasso>,
+        <http://dbpedia.org/resource/Category:Portraits_of_women> ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Femme_à_la_montre?oldid=1292837345&ns=0> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Femme_à_la_montre> ;
+    foaf:name "Femme à la montre"@en .
+
+<http://dbpedia.org/resource/Fortune_(Reni)> a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        owl:Thing ;
+    rdfs:label "Fortune (Reni)"@en ;
+    dbo:description "لوحة فنية"@ar ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/La_Fortuna_-_Accademia_Nazionale_di_San_Luca.jpg?width=300> ;
+    dbp:image "Guido Reni - Fortuna with a purse .jpg"@en,
+        "La Fortuna - Accademia Nazionale di San Luca.jpg"@en ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Authority_control>,
+        <http://dbpedia.org/resource/Template:Cite_book>,
+        <http://dbpedia.org/resource/Template:Cite_journal>,
+        <http://dbpedia.org/resource/Template:Cite_web>,
+        <http://dbpedia.org/resource/Template:Commons-inline>,
+        <http://dbpedia.org/resource/Template:Guido_Reni>,
+        <http://dbpedia.org/resource/Template:Multiple_image>,
+        <http://dbpedia.org/resource/Template:Reflist> ;
+    dcterms:subject <http://dbpedia.org/resource/Category:Paintings_by_Guido_Reni> ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Fortune_(Reni)?oldid=1189716375&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/Guido_Reni_-_Fortuna_with_a_purse_(1636).jpg>,
+        <http://commons.wikimedia.org/wiki/Special:FilePath/La_Fortuna_-_Accademia_Nazionale_di_San_Luca.jpg> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Fortune_(Reni)> .
+
+<http://dbpedia.org/resource/Hermes_Criophorus_(Athens)> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Hermes Criophorus (Athens)"@en ;
+    dbo:description "عمل فني مرئي"@ar,
+        "statue of Hermes in the NAMA"@en,
+        "estatua de Hermes en el Museo Arqueológico de Atenas"@es ;
+    dbo:museum <http://dbpedia.org/resource/National_Archaeological_Museum,_Athens> ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/Hermes_Criophorus_(National_Archaeological_Museum_of_Athens,_1-31-2023).jpg?width=300> ;
+    dbp:caption "The statue in the NAMA"@en ;
+    dbp:catalogue "No 243"@en ;
+    dbp:city <http://dbpedia.org/resource/Athens> ;
+    dbp:condition "Right arm and left hand missing"@en ;
+    dbp:heightMetric 180 ;
+    dbp:medium "Marble"@en ;
+    dbp:movement "Classical"@en ;
+    dbp:museum <http://dbpedia.org/resource/National_Archaeological_Museum,_Athens> ;
+    dbp:otherLanguage "Greek"@en ;
+    dbp:otherTitle ""@en ;
+    dbp:owner "Greece"@en ;
+    dbp:subject "The god Hermes with ram"@en ;
+    dbp:title "Hermes Criophorus"@en ;
+    dbp:website <https://www.namuseum.gr/> ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Authority_control>,
+        <http://dbpedia.org/resource/Template:Cite_book>,
+        <http://dbpedia.org/resource/Template:Commons_category-inline>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Langx>,
+        <http://dbpedia.org/resource/Template:National_Archaeological_Museum_of_Athens>,
+        <http://dbpedia.org/resource/Template:Portal>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Sculptures_of_Hermes>,
+        <http://dbpedia.org/resource/Template:Sfn>,
+        <http://dbpedia.org/resource/Template:Short_description> ;
+    dbp:year 2 ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1890_archaeological_discoveries>,
+        <http://dbpedia.org/resource/Category:1890_in_Greece>,
+        <http://dbpedia.org/resource/Category:2nd-century_Roman_sculptures>,
+        <http://dbpedia.org/resource/Category:Archaeological_discoveries_in_the_Peloponnese>,
+        <http://dbpedia.org/resource/Category:Marble_sculptures_in_Greece>,
+        <http://dbpedia.org/resource/Category:National_Archaeological_Museum,_Athens>,
+        <http://dbpedia.org/resource/Category:Nude_sculptures_in_Greece>,
+        <http://dbpedia.org/resource/Category:Roman_copies_of_5th-century_BC_Greek_sculptures>,
+        <http://dbpedia.org/resource/Category:Sculptures_in_Athens>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_Hermes>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_men_in_Greece>,
+        <http://dbpedia.org/resource/Category:Statues_in_Greece> ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Hermes_Criophorus_(Athens)?oldid=1274898476&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/Hermes_Criophorus_(National_Archaeological_Museum_of_Athens,_1-31-2023).jpg> ;
+    foaf:homepage <https://www.namuseum.gr/> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Hermes_Criophorus_(Athens)> ;
+    foaf:name "Hermes Criophorus"@en .
+
+<http://dbpedia.org/resource/Hermes_of_Aegium> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Hermes of Aegium"@en ;
+    dbo:description "عمل فني مرئي"@ar,
+        "statue of Hermes in the NAMA"@en,
+        "estatua de Hermes en el Museo Arqueológico Nacional de Atenas"@es ;
+    dbo:museum <http://dbpedia.org/resource/National_Archaeological_Museum,_Athens> ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/0620_-_Archaeological_Museum,_Athens_-_Hermes_-_Photo_by_Giovanni_Dall'Orto,_Nov_13_2009.jpg?width=300> ;
+    dbp:caption "The statue in the NAMA in 2009"@en ;
+    dbp:catalogue "No 241"@en ;
+    dbp:city <http://dbpedia.org/resource/Athens> ;
+    dbp:condition "Intact"@en ;
+    dbp:heightMetric 171 ;
+    dbp:medium "Marble"@en ;
+    dbp:movement "Classical-inspired"@en ;
+    dbp:museum <http://dbpedia.org/resource/National_Archaeological_Museum,_Athens> ;
+    dbp:otherLanguage "Greek"@en ;
+    dbp:otherTitle ""@en ;
+    dbp:owner "Greece"@en ;
+    dbp:subject "The god Hermes"@en ;
+    dbp:title "Hermes of Aegium"@en ;
+    dbp:website <https://www.namuseum.gr/> ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Authority_control>,
+        <http://dbpedia.org/resource/Template:Cite_book>,
+        <http://dbpedia.org/resource/Template:Commons_category-inline>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Langx>,
+        <http://dbpedia.org/resource/Template:National_Archaeological_Museum_of_Athens>,
+        <http://dbpedia.org/resource/Template:Portal>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Sculptures_of_Hermes>,
+        <http://dbpedia.org/resource/Template:Sfn>,
+        <http://dbpedia.org/resource/Template:Short_description> ;
+    dbp:year 1 ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1860_archaeological_discoveries>,
+        <http://dbpedia.org/resource/Category:1st-century_BC_Roman_sculptures>,
+        <http://dbpedia.org/resource/Category:1st-century_Roman_sculptures>,
+        <http://dbpedia.org/resource/Category:Archaeological_discoveries_in_the_Peloponnese>,
+        <http://dbpedia.org/resource/Category:Marble_sculptures_in_Greece>,
+        <http://dbpedia.org/resource/Category:National_Archaeological_Museum,_Athens>,
+        <http://dbpedia.org/resource/Category:Nude_sculptures_in_Greece>,
+        <http://dbpedia.org/resource/Category:Roman_copies_of_4th-century_BC_Greek_sculptures>,
+        <http://dbpedia.org/resource/Category:Sculptures_in_Athens>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_Hermes>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_men_in_Greece>,
+        <http://dbpedia.org/resource/Category:Statues_in_Greece> ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Hermes_of_Aegium?oldid=1273256881&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/0620_-_Archaeological_Museum,_Athens_-_Hermes_-_Photo_by_Giovanni_Dall'Orto,_Nov_13_2009.jpg> ;
+    foaf:homepage <https://www.namuseum.gr/> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Hermes_of_Aegium> ;
+    foaf:name "Hermes of Aegium"@en .
+
+<http://dbpedia.org/resource/Homer_(Ezekiel)> a dbo:Artwork ;
+    dbo:wikiPageExternalLink <http://siris-artinventories.si.edu/ipac20/ipac.jsp%3F&profile=all&source=~!siartinventories&uri=full=3100001~!317771~!0%23focus>,
+        <https://books.google.com/books%3Fid=F7UgAAAAMAAJ&pg=PA232&lpg=PA232&dq=homer+%22moses+ezekiel%22+dimensions&source=bl&ots=l_LGYUazMZ&sig=jC8s-xckOVKVTVGeUpahE_rwWWQ&hl=en&sa=X&ei=iIriUobIL9WzsATLs4G4CQ&ved=0CEsQ6AEwBw%23v=onepage&q=homer%20%22moses%20ezekiel%22%20dimensions&f=false> ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/Amherst_College>,
+        <http://dbpedia.org/resource/Category:1907_establishments_in_Virginia>,
+        <http://dbpedia.org/resource/Category:1907_sculptures>,
+        <http://dbpedia.org/resource/Category:Bronze_sculptures_in_Virginia>,
+        <http://dbpedia.org/resource/Category:Cultural_depictions_of_Homer>,
+        <http://dbpedia.org/resource/Category:Musical_instruments_in_art>,
+        <http://dbpedia.org/resource/Category:Outdoor_sculptures_in_Virginia>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_Moses_Jacob_Ezekiel>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_men_in_Virginia>,
+        <http://dbpedia.org/resource/Category:Statues_in_Virginia>,
+        <http://dbpedia.org/resource/Category:Statues_of_writers>,
+        <http://dbpedia.org/resource/Category:University_of_Virginia>,
+        <http://dbpedia.org/resource/Category:Vandalized_works_of_art_in_Virginia>,
+        <http://dbpedia.org/resource/Charles_McCance>,
+        <http://dbpedia.org/resource/Charlottesville>,
+        <http://dbpedia.org/resource/Homer>,
+        <http://dbpedia.org/resource/Iliad>,
+        <http://dbpedia.org/resource/John_Woodruff_Simpson>,
+        <http://dbpedia.org/resource/Moses_Jacob_Ezekiel>,
+        <http://dbpedia.org/resource/The_Lawn>,
+        <http://dbpedia.org/resource/Thomas_Nelson_Page>,
+        <http://dbpedia.org/resource/University_of_Virginia> ;
+    gold:hypernym <http://dbpedia.org/resource/Sculpture> ;
+    owl:sameAs <http://rdf.freebase.com/ns/m.0_fpvw5>,
+        <http://www.wikidata.org/entity/Q16972956>,
+        <http://yago-knowledge.org/resource/Homer_(Ezekiel)>,
+        <https://global.dbpedia.org/id/f6CD> .
+
+<http://dbpedia.org/resource/Hours_of_the_Day> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        geo1:SpatialThing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Hours of the Day"@en ;
+    dbo:description "عمل فني مرئي"@ar,
+        "memorial and sculpture in Toronto, Ontario, Canada"@en ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/Toronto,_November_10,_2023_-_040.jpg?width=300> ;
+    dbp:artist "Paul Raff Studios"@en ;
+    dbp:caption "The sculpture in 2023"@en ;
+    dbp:city "Toronto, Ontario, Canada"@en ;
+    dbp:imperialUnit "in"@en ;
+    dbp:mapframe "yes"@en ;
+    dbp:mapframeZoom 13 ;
+    dbp:metricUnit "cm"@en ;
+    dbp:title "Hours of the Day"@en ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Canada-sculpture-stub>,
+        <http://dbpedia.org/resource/Template:Coord>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Portal>,
+        <http://dbpedia.org/resource/Template:Public_art_in_Toronto>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Short_description>,
+        <http://dbpedia.org/resource/Template:Start_date> ;
+    dcterms:subject <http://dbpedia.org/resource/Category:2018_establishments_in_Canada>,
+        <http://dbpedia.org/resource/Category:2018_sculptures>,
+        <http://dbpedia.org/resource/Category:Monuments_and_memorials_in_Toronto>,
+        <http://dbpedia.org/resource/Category:Outdoor_sculptures_in_Toronto> ;
+    georss:point "43.66222222222222 -79.38925" ;
+    geo1:geometry "POINT(-79.389251708984 43.662223815918)"^^<http://www.openlinksw.com/schemas/virtrdf#Geometry> ;
+    geo1:lat "43.66222381591797"^^xsd:float ;
+    geo1:long "-79.38925170898438"^^xsd:float ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Hours_of_the_Day?oldid=1197728802&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/Toronto,_November_10,_2023_-_040.jpg> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Hours_of_the_Day> ;
+    foaf:name "Hours of the Day"@en .
+
+<http://dbpedia.org/resource/Hunt_(painting)> a dbo:Artwork ;
+    dbo:wikiPageExternalLink <http://www.davidzwirner.com/artists/neo-rauch/survey/image/page/33/> ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/Alexi_Worth>,
+        <http://dbpedia.org/resource/Algiz>,
+        <http://dbpedia.org/resource/Artforum>,
+        <http://dbpedia.org/resource/Category:2002_paintings>,
+        <http://dbpedia.org/resource/Category:Ice_hockey_culture>,
+        <http://dbpedia.org/resource/Category:Paintings_by_Neo_Rauch>,
+        <http://dbpedia.org/resource/Category:Sports_paintings>,
+        <http://dbpedia.org/resource/Concordia_University>,
+        <http://dbpedia.org/resource/David_Zwirner_Gallery>,
+        <http://dbpedia.org/resource/Neo_Rauch>,
+        <http://dbpedia.org/resource/Oil_painting>,
+        <http://dbpedia.org/resource/Pennsylvania>,
+        <http://dbpedia.org/resource/Tyrolean_hat> ;
+    owl:sameAs <http://www.wikidata.org/entity/Q28113312>,
+        <http://yago-knowledge.org/resource/Hunt_(painting)>,
+        <https://global.dbpedia.org/id/2cL3C> .
+
+<http://dbpedia.org/resource/Infanta_Margareta_Teresa_in_a_Peach_Dress> a dbo:Artwork ;
+    rdfs:label "La infanta Margarita"@es,
+        "L'Infante Marguerite en robe rose"@fr,
+        "Ritratto dell'infanta Margherita"@it ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/Category:1654_paintings>,
+        <http://dbpedia.org/resource/Category:Portraits_by_Diego_Velázquez_in_the_Kunsthistorisches_Museum>,
+        <http://dbpedia.org/resource/Kunsthistorisches_Museum>,
+        <http://dbpedia.org/resource/Margaret_Theresa_of_Spain>,
+        <http://dbpedia.org/resource/Velázquez> ;
+    owl:sameAs <http://arz.dbpedia.org/resource/انفانتا_مارجريتا_تيريزا_بواسطه_فيلاسكيز>,
+        <http://es.dbpedia.org/resource/La_infanta_Margarita>,
+        <http://fr.dbpedia.org/resource/L'Infante_Marguerite_en_robe_rose>,
+        <http://it.dbpedia.org/resource/Ritratto_dell'infanta_Margherita>,
+        <http://www.wikidata.org/entity/Q3204167>,
+        <https://global.dbpedia.org/id/2xVMx> .
+
+<http://dbpedia.org/resource/La_Femme_aux_Phlox> a dbo:Artwork ;
+    rdfs:label "La Femme aux phlox"@fr ;
+    dbo:wikiPageExternalLink <http://extras.artic.edu/media/armoryshow/eddy-collection-1922.pdf>,
+        <http://www.fondationgleizes.fr/fr/gleize/page/fondation/-/fondation>,
+        <http://www.photo.rmn.fr/C.aspx%3FVP3=SearchResult&VBID=2CO5PCE96XN7&SMLS=1&RW=1085&RH=643>,
+        <https://archive.org/stream/albertgleizes1881robb%23page/44/mode/2up>,
+        <https://books.google.com/books%3Fid=QG9wNyIlEAgC&pg=PA19&dq=Portrait+of+Jacques+Nayral&hl=en&sa=X&ei=A1-vUfmgFsrQsgat-oHgBQ&redir_esc=y%23v=onepage&q=Portrait%20of%20Jacques%20Nayral&f=false>,
+        <https://openlibrary.org/books/OL21986284M/Cubists_and_post-impressionism.> ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/Albert_Gleizes>,
+        <http://dbpedia.org/resource/André_Dunoyer_de_Segonzac>,
+        <http://dbpedia.org/resource/André_Lhote>,
+        <http://dbpedia.org/resource/André_Mare>,
+        <http://dbpedia.org/resource/André_Salmon>,
+        <http://dbpedia.org/resource/Armory_Show>,
+        <http://dbpedia.org/resource/Boston>,
+        <http://dbpedia.org/resource/Café_de_la_Rotonde>,
+        <http://dbpedia.org/resource/Category:1910_paintings>,
+        <http://dbpedia.org/resource/Category:Cubist_paintings>,
+        <http://dbpedia.org/resource/Category:Paintings_by_Albert_Gleizes>,
+        <http://dbpedia.org/resource/Category:Paintings_in_the_collection_of_the_Museum_of_Fine_Arts,_Houston>,
+        <http://dbpedia.org/resource/Chicago>,
+        <http://dbpedia.org/resource/Cubism>,
+        <http://dbpedia.org/resource/Daniel_Robbins_(art_historian)>,
+        <http://dbpedia.org/resource/Felix_Ziem>,
+        <http://dbpedia.org/resource/Fernand_Léger>,
+        <http://dbpedia.org/resource/File:Delaunay_ChampDeMars.jpg>,
+        <http://dbpedia.org/resource/File:Recoveredgleizes.jpg>,
+        <http://dbpedia.org/resource/French_Parliament>,
+        <http://dbpedia.org/resource/Guillaume_Apollinaire>,
+        <http://dbpedia.org/resource/Henri_Le_Fauconnier>,
+        <http://dbpedia.org/resource/Henri_Rousseau>,
+        <http://dbpedia.org/resource/Jean_Babelon>,
+        <http://dbpedia.org/resource/Jean_Jacques_Henner>,
+        <http://dbpedia.org/resource/Jean_Metzinger>,
+        <http://dbpedia.org/resource/L'Intermédiaire_des_chercheurs_et_curieux>,
+        <http://dbpedia.org/resource/Le_Dôme_Café>,
+        <http://dbpedia.org/resource/Louis_Hautecœur>,
+        <http://dbpedia.org/resource/Louis_Vauxcelles>,
+        <http://dbpedia.org/resource/Man_on_a_Balcony_(Gleizes)>,
+        <http://dbpedia.org/resource/Marie_Laurencin>,
+        <http://dbpedia.org/resource/Marlborough-Gerson>,
+        <http://dbpedia.org/resource/Maurice_de_Vlaminck>,
+        <http://dbpedia.org/resource/Museum_of_Fine_Arts,_Houston>,
+        <http://dbpedia.org/resource/New_York_City>,
+        <http://dbpedia.org/resource/Pierre_Devambez>,
+        <http://dbpedia.org/resource/Robert_Delaunay>,
+        <http://dbpedia.org/resource/Roger_de_La_Fresnaye>,
+        <http://dbpedia.org/resource/Salon_des_Indépendants>,
+        <http://dbpedia.org/resource/Section_d'Or>,
+        <http://dbpedia.org/resource/The_Cubist_Painters,_Aesthetic_Meditations>,
+        <http://dbpedia.org/resource/William_Didier-Pouget> ;
+    gold:hypernym <http://dbpedia.org/resource/Painting> ;
+    owl:sameAs <http://fr.dbpedia.org/resource/La_Femme_aux_phlox>,
+        <http://rdf.freebase.com/ns/m.0wf0rzr>,
+        <http://www.wikidata.org/entity/Q17003030>,
+        <http://yago-knowledge.org/resource/La_Femme_aux_Phlox>,
+        <https://global.dbpedia.org/id/fPTm> .
+
+<http://dbpedia.org/resource/Last_Alarm_(sculpture)> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        geo1:SpatialThing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Last Alarm (sculpture)"@en ;
+    dbo:description "عمل فني مرئي"@ar,
+        "artwork and memorial in Toronto, Canada"@en ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/Toronto,_November_12,_2023_-_177.jpg?width=300> ;
+    dbp:caption "The memorial in 2023"@en ;
+    dbp:city "Toronto, Ontario, Canada"@en ;
+    dbp:imperialUnit "in"@en ;
+    dbp:mapframe "yes"@en ;
+    dbp:mapframeZoom 13 ;
+    dbp:metricUnit "cm"@en ;
+    dbp:title "Last Alarm"@en ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Canada-sculpture-stub>,
+        <http://dbpedia.org/resource/Template:Coord>,
+        <http://dbpedia.org/resource/Template:Distinguish>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Public_art_in_Toronto>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Short_description>,
+        <http://dbpedia.org/resource/Template:Toronto-stub> ;
+    dcterms:subject <http://dbpedia.org/resource/Category:Firefighting_memorials>,
+        <http://dbpedia.org/resource/Category:Monuments_and_memorials_in_Toronto>,
+        <http://dbpedia.org/resource/Category:Outdoor_sculptures_in_Toronto>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_men_in_Ontario>,
+        <http://dbpedia.org/resource/Category:Statues_in_Ontario> ;
+    georss:point "43.63755555555556 -79.38836111111111" ;
+    owl:differentFrom <http://dbpedia.org/resource/The_Last_Alarm_(sculpture)> ;
+    geo1:geometry "POINT(-79.388359069824 43.637554168701)"^^<http://www.openlinksw.com/schemas/virtrdf#Geometry> ;
+    geo1:lat "43.63755416870117"^^xsd:float ;
+    geo1:long "-79.38835906982422"^^xsd:float ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Last_Alarm_(sculpture)?oldid=1185902385&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/Toronto,_November_12,_2023_-_177.jpg> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Last_Alarm_(sculpture)> ;
+    foaf:name "Last Alarm"@en .
+
+<http://dbpedia.org/resource/Lucretia_and_Tarquin_(Luca_Giordano)> a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        owl:Thing ;
+    rdfs:label "Lucretia and Tarquin (Luca Giordano)"@en ;
+    dbo:description "لوحة فنية"@ar,
+        "1663 oil painting by Luca Giordano"@en ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/Luca_Giordano,_Lukretia_und_Sextus_Tarquinius.jpg?width=300> ;
+    dbp:caption "Picture in a private collection"@en,
+        "Picture in the Louvre"@en ;
+    dbp:date "December 2023"@en ;
+    dbp:direction "horizontal"@en ;
+    dbp:image "1700.0"^^<http://dbpedia.org/datatype/second>,
+        "Tarquin and Lucretia, 1663-4.jpg"@en ;
+    dbp:reason "identify picture"@en ;
+    dbp:totalWidth 250 ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Authority_control>,
+        <http://dbpedia.org/resource/Template:Cite_book>,
+        <http://dbpedia.org/resource/Template:Cite_encyclopedia>,
+        <http://dbpedia.org/resource/Template:Clarify>,
+        <http://dbpedia.org/resource/Template:Commons-inline>,
+        <http://dbpedia.org/resource/Template:Italic_title>,
+        <http://dbpedia.org/resource/Template:Luca_Giordano>,
+        <http://dbpedia.org/resource/Template:Multiple_image>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Short_description> ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1663_paintings>,
+        <http://dbpedia.org/resource/Category:Cultural_depictions_of_Lucretia>,
+        <http://dbpedia.org/resource/Category:Paintings_based_on_Fasti_(poem)> ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Lucretia_and_Tarquin_(Luca_Giordano)?oldid=1289207839&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/Luca_Giordano,_Lukretia_und_Sextus_Tarquinius.jpg>,
+        <http://commons.wikimedia.org/wiki/Special:FilePath/Lucretia_and_Tarquin,_early_1700s_(3).jpg>,
+        <http://commons.wikimedia.org/wiki/Special:FilePath/Tarquin_and_Lucretia,_1663-4.jpg>,
+        <http://commons.wikimedia.org/wiki/Special:FilePath/Verkrachting_van_Lucretia,_RP-P-OB-65.155.jpg> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Lucretia_and_Tarquin_(Luca_Giordano)> .
+
+<http://dbpedia.org/resource/Megaptera_(sculpture)> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        geo1:SpatialThing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Megaptera (sculpture)"@en ;
+    dbo:description "public artwork by Georg Schmerholz in Toronto, Ontario, Canada"@en ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/Megaptera_sculpture,_Toronto,_November_10,_2023_-_203.jpg?width=300> ;
+    dbp:artist "Georg Schmerholz"@en ;
+    dbp:caption "The sculpture in 2023"@en ;
+    dbp:city "Toronto, Ontario, Canada"@en ;
+    dbp:imperialUnit "in"@en ;
+    dbp:mapframe "yes"@en ;
+    dbp:mapframeZoom 13 ;
+    dbp:medium "Granite sculpture"@en ;
+    dbp:metricUnit "cm"@en ;
+    dbp:title "Megaptera"@en ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Canada-sculpture-stub>,
+        <http://dbpedia.org/resource/Template:Commons_category-inline>,
+        <http://dbpedia.org/resource/Template:Coord>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Public_art_in_Toronto>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Short_description>,
+        <http://dbpedia.org/resource/Template:Toronto-stub> ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1993_establishments_in_Ontario>,
+        <http://dbpedia.org/resource/Category:1993_sculptures>,
+        <http://dbpedia.org/resource/Category:Animal_sculptures_in_Canada>,
+        <http://dbpedia.org/resource/Category:Granite_sculptures_in_Canada>,
+        <http://dbpedia.org/resource/Category:Humpback_whale>,
+        <http://dbpedia.org/resource/Category:Outdoor_sculptures_in_Toronto>,
+        <http://dbpedia.org/resource/Category:Sculptures_by_Georg_Schmerholz>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_whales>,
+        <http://dbpedia.org/resource/Category:Statues_in_Ontario> ;
+    georss:point "43.648 -79.38275" ;
+    geo1:geometry "POINT(-79.382751464844 43.647998809814)"^^<http://www.openlinksw.com/schemas/virtrdf#Geometry> ;
+    geo1:lat "43.64799880981445"^^xsd:float ;
+    geo1:long "-79.38275146484375"^^xsd:float ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Megaptera_(sculpture)?oldid=1309475030&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/Megaptera_sculpture,_Toronto,_November_10,_2023_-_203.jpg> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Megaptera_(sculpture)> ;
+    foaf:name "Megaptera"@en .
+
+<http://dbpedia.org/resource/Monument_to_Multiculturalism> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        geo1:SpatialThing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Monument to Multiculturalism"@en ;
+    dbo:description "تمثال في تورونتو، كندا"@ar,
+        "statue in Toronto, Canada"@en ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/WLM-CA-2018-Toronto-Union_Station-9296.jpg?width=300> ;
+    dbp:caption "The sculpture in 2017"@en ;
+    dbp:city "Toronto, Ontario, Canada"@en ;
+    dbp:imperialUnit "in"@en ;
+    dbp:mapframe "yes"@en ;
+    dbp:mapframeZoom 13 ;
+    dbp:metricUnit "cm"@en ;
+    dbp:title "Monument to Multiculturalism"@en ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Canada-sculpture-stub>,
+        <http://dbpedia.org/resource/Template:Commons_category-inline>,
+        <http://dbpedia.org/resource/Template:Coord>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Multiculturalism>,
+        <http://dbpedia.org/resource/Template:Portal>,
+        <http://dbpedia.org/resource/Template:Public_art_in_Toronto>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Short_description> ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1985_sculptures>,
+        <http://dbpedia.org/resource/Category:Monuments_and_memorials_in_Toronto>,
+        <http://dbpedia.org/resource/Category:Multiculturalism_in_Canada>,
+        <http://dbpedia.org/resource/Category:Outdoor_sculptures_in_Toronto>,
+        <http://dbpedia.org/resource/Category:Statues_in_Ontario> ;
+    georss:point "43.64545 -79.38073" ;
+    geo1:geometry "POINT(-79.380729675293 43.645450592041)"^^<http://www.openlinksw.com/schemas/virtrdf#Geometry> ;
+    geo1:lat "43.64545059204102"^^xsd:float ;
+    geo1:long "-79.38072967529297"^^xsd:float ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Monument_to_Multiculturalism?oldid=1203127045&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/WLM-CA-2018-Toronto-Union_Station-9296.jpg> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Monument_to_Multiculturalism> ;
+    foaf:name "Monument to Multiculturalism"@en .
+
+<http://dbpedia.org/resource/Neighbours_(sculpture)> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        geo1:SpatialThing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> .
+
+<http://dbpedia.org/resource/Northwest_Trolls:_Way_of_the_Bird_King> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> .
+
+<http://dbpedia.org/resource/Oprah_Winfrey_(painting)> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> .
+
+<http://dbpedia.org/resource/Ouabache_(sculpture)> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        geo1:SpatialThing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> .
+
+<http://dbpedia.org/resource/Painting_of_a_Christian_figure> a dbo:Artwork ;
+    rdfs:label "Pintura nestoriana de Jesucristo"@es,
+        "Peinture chrétienne de Dunhuang"@fr,
+        "藏經洞基督像"@zh ;
+    dbo:wikiPageExternalLink <https://artsandculture.google.com/asset/a-christian-figure-ink-and-colours-on-silk-fragment/-QGWZfdPB41FAA> ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/Alopen>,
+        <http://dbpedia.org/resource/Aurel_Stein>,
+        <http://dbpedia.org/resource/Bhakti>,
+        <http://dbpedia.org/resource/Bodhisattvas>,
+        <http://dbpedia.org/resource/Bow_knot>,
+        <http://dbpedia.org/resource/British_Museum>,
+        <http://dbpedia.org/resource/Buddhist_iconography>,
+        <http://dbpedia.org/resource/Category:9th-century_paintings>,
+        <http://dbpedia.org/resource/Category:Ancient_Central_Asian_art>,
+        <http://dbpedia.org/resource/Category:Asian_objects_in_the_British_Museum>,
+        <http://dbpedia.org/resource/Category:Church_of_the_East_in_China>,
+        <http://dbpedia.org/resource/Category:Iconography_of_Jesus>,
+        <http://dbpedia.org/resource/Category:Paintings_of_saints>,
+        <http://dbpedia.org/resource/Category:Tang_dynasty_paintings>,
+        <http://dbpedia.org/resource/Chang'an>,
+        <http://dbpedia.org/resource/Christian_mission>,
+        <http://dbpedia.org/resource/Christoph_Baumer>,
+        <http://dbpedia.org/resource/Church_of_the_East_in_China>,
+        <http://dbpedia.org/resource/Dunhuang>,
+        <http://dbpedia.org/resource/Eötvös_Loránd_University>,
+        <http://dbpedia.org/resource/File:Cathayan_Nestorian_Cross_from_the_Nestorian_Stele.jpg>,
+        <http://dbpedia.org/resource/Folded_leaflet>,
+        <http://dbpedia.org/resource/Google_Arts_&_Culture>,
+        <http://dbpedia.org/resource/Greco-Buddhist_art>,
+        <http://dbpedia.org/resource/Halo_(religious_iconography)>,
+        <http://dbpedia.org/resource/Hindu_iconography>,
+        <http://dbpedia.org/resource/Icon>,
+        <http://dbpedia.org/resource/Jesus_Sutras>,
+        <http://dbpedia.org/resource/Kushano-Sasanian_Kingdom>,
+        <http://dbpedia.org/resource/Kyoto_University>,
+        <http://dbpedia.org/resource/Lecturer>,
+        <http://dbpedia.org/resource/London>,
+        <http://dbpedia.org/resource/Manichaean_Painting_of_the_Buddha_Jesus>,
+        <http://dbpedia.org/resource/Mogao_Caves>,
+        <http://dbpedia.org/resource/Murals_from_the_Christian_temple_at_Qocho>,
+        <http://dbpedia.org/resource/Nestorian_cross>,
+        <http://dbpedia.org/resource/Nestorian_pillar_of_Luoyang>,
+        <http://dbpedia.org/resource/P._Y._Saeki>,
+        <http://dbpedia.org/resource/Professor_(highest_academic_rank)>,
+        <http://dbpedia.org/resource/Rayzha_Alimjan>,
+        <http://dbpedia.org/resource/Sasanian_Empire>,
+        <http://dbpedia.org/resource/Sasanian_art>,
+        <http://dbpedia.org/resource/Sash>,
+        <http://dbpedia.org/resource/Silk_painting>,
+        <http://dbpedia.org/resource/Tang_Empire>,
+        <http://dbpedia.org/resource/Tang_dynasty>,
+        <http://dbpedia.org/resource/Taq-i_Bustan>,
+        <http://dbpedia.org/resource/The_Longest_Day_in_Chang'an>,
+        <http://dbpedia.org/resource/Traditional_Chinese_characters>,
+        <http://dbpedia.org/resource/Vitarka_Mudrā>,
+        <http://dbpedia.org/resource/Xi'an_Stele> ;
+    owl:sameAs <http://es.dbpedia.org/resource/Pintura_nestoriana_de_Jesucristo>,
+        <http://fr.dbpedia.org/resource/Peinture_chrétienne_de_Dunhuang>,
+        <http://www.wikidata.org/entity/Q55347059>,
+        <http://zh.dbpedia.org/resource/藏經洞基督像>,
+        <https://global.dbpedia.org/id/5c5tG> .
+
+<http://dbpedia.org/resource/Pia_de'_Tolomei_(Rossetti_painting)> a dbo:Artwork ;
+    rdfs:label "Pia de' Tolomei (Rossetti)"@it,
+        "Пия де Толомеи (картина Россетти)"@ru ;
+    dbo:wikiPageExternalLink <http://www.preraphaelites.org/the-collection/artist-biography/dante-gabriel-rossetti/>,
+        <http://www.rossettiarchive.org>,
+        <http://www.spencerart.ku.edu/> ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/Beata_Beatrix>,
+        <http://dbpedia.org/resource/Category:1868_paintings>,
+        <http://dbpedia.org/resource/Category:Birds_in_art>,
+        <http://dbpedia.org/resource/Category:Books_in_art>,
+        <http://dbpedia.org/resource/Category:Paintings_based_on_works_by_Dante_Alighieri>,
+        <http://dbpedia.org/resource/Category:Paintings_by_Dante_Gabriel_Rossetti>,
+        <http://dbpedia.org/resource/Category:Paintings_in_Kansas>,
+        <http://dbpedia.org/resource/Category:University_of_Kansas>,
+        <http://dbpedia.org/resource/Category:Works_based_on_Purgatorio>,
+        <http://dbpedia.org/resource/Dante_Aligheri>,
+        <http://dbpedia.org/resource/Dante_Gabriel_Rossetti>,
+        <http://dbpedia.org/resource/Desdemona>,
+        <http://dbpedia.org/resource/Elizabeth_Prettejohn>,
+        <http://dbpedia.org/resource/Jane_Morris>,
+        <http://dbpedia.org/resource/Lawrence,_Kansas>,
+        <http://dbpedia.org/resource/List_of_paintings_by_Dante_Gabriel_Rossetti>,
+        <http://dbpedia.org/resource/Lizzie_Siddal>,
+        <http://dbpedia.org/resource/Max_Beerbohm>,
+        <http://dbpedia.org/resource/Oil_painting>,
+        <http://dbpedia.org/resource/Proserpina>,
+        <http://dbpedia.org/resource/Proserpine_(Rossetti_painting)>,
+        <http://dbpedia.org/resource/Purgatorio>,
+        <http://dbpedia.org/resource/Queen_Guinevere>,
+        <http://dbpedia.org/resource/Rossetti_and_His_Circle>,
+        <http://dbpedia.org/resource/Russell_Ash>,
+        <http://dbpedia.org/resource/Spencer_Museum_of_Art>,
+        <http://dbpedia.org/resource/University_of_Kansas>,
+        <http://dbpedia.org/resource/William_Morris> ;
+    owl:sameAs <http://hy.dbpedia.org/resource/Պիա_դե_Տոլոմեի>,
+        <http://it.dbpedia.org/resource/Pia_de'_Tolomei_(Rossetti)>,
+        <http://ml.dbpedia.org/resource/പിയ_ഡി_ടോലോമി_(റോസെറ്റി_പെയിന്റിംഗ്)>,
+        <http://rdf.freebase.com/ns/m.0514l_g>,
+        <http://ru.dbpedia.org/resource/Пия_де_Толомеи_(картина_Россетти)>,
+        <http://www.wikidata.org/entity/Q7190014>,
+        <http://yago-knowledge.org/resource/Pia_de'_Tolomei_(Rossetti_painting)>,
+        <https://global.dbpedia.org/id/4tcyT> .
+
+<http://dbpedia.org/resource/Pietà_(Meštrović)> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        geo1:SpatialThing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> .
+
+<http://dbpedia.org/resource/Pohang_Space_Walk> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        geo1:SpatialThing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> .
+
+<http://dbpedia.org/resource/Portrait_of_Lola_Montez> a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> .
+
+<http://dbpedia.org/resource/Portrait_of_the_Duke_of_Leeds> a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> .
+
+<http://dbpedia.org/resource/Princess_Margaret_Fountain> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        geo1:SpatialThing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> .
+
+<http://dbpedia.org/resource/Procne_and_Itys_(sculpture)> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> .
+
+<http://dbpedia.org/resource/Runner_(sculpture)> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> .
+
+<http://dbpedia.org/resource/Sabrina_Fountain> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> .
+
+<http://dbpedia.org/resource/Self-portrait_in_a_Velvet_Dress> a dbo:Artwork,
+        dbo:Painting,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> .
+
+<http://dbpedia.org/resource/St_Euphemia_(Mantegna)> a dbo:Artwork ;
+    rdfs:label "Santa Eufemia (Mantegna)"@es,
+        "Sant'Eufemia (Mantegna)"@it ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/Andrea_Mantegna>,
+        <http://dbpedia.org/resource/Category:1454_paintings>,
+        <http://dbpedia.org/resource/Category:Paintings_by_Andrea_Mantegna>,
+        <http://dbpedia.org/resource/Category:Paintings_in_the_collection_of_the_Museo_di_Capodimonte>,
+        <http://dbpedia.org/resource/Euphemia>,
+        <http://dbpedia.org/resource/Museo_nazionale_di_Capodimonte>,
+        <http://dbpedia.org/resource/Naples> ;
+    owl:sameAs <http://arz.dbpedia.org/resource/القديس_اوفيميا>,
+        <http://bg.dbpedia.org/resource/Света_Евфимия_(Мантеня)>,
+        <http://es.dbpedia.org/resource/Santa_Eufemia_(Mantegna)>,
+        <http://it.dbpedia.org/resource/Sant'Eufemia_(Mantegna)>,
+        <http://www.wikidata.org/entity/Q3948849>,
+        <https://global.dbpedia.org/id/3eEpN> .
+
+<http://dbpedia.org/resource/Statue_of_Giordano_Bruno> a dbo:Artwork ;
+    rdfs:label "Statue de Giordano Bruno"@fr,
+        "Monumento a Giordano Bruno"@it,
+        "Памятник Джордано Бруно"@ru,
+        "Monumentet över Giordano Bruno"@sv,
+        "Пам'ятник Джордано Бруно"@uk ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/Ab_Apostolici>,
+        <http://dbpedia.org/resource/Alexander_Polzin>,
+        <http://dbpedia.org/resource/Atheists>,
+        <http://dbpedia.org/resource/Berlin>,
+        <http://dbpedia.org/resource/Campo_de'_Fiori>,
+        <http://dbpedia.org/resource/Category:1889_sculptures>,
+        <http://dbpedia.org/resource/Category:Bronze_sculptures_in_Italy>,
+        <http://dbpedia.org/resource/Category:Cultural_depictions_of_Giordano_Bruno>,
+        <http://dbpedia.org/resource/Category:Freemasonry_in_Italy>,
+        <http://dbpedia.org/resource/Category:Outdoor_sculptures_in_Rome>,
+        <http://dbpedia.org/resource/Category:Statues_in_Italy>,
+        <http://dbpedia.org/resource/Ettore_Ferrari>,
+        <http://dbpedia.org/resource/File:GiordanoBrunoStatueCampoDeFiori.jpg>,
+        <http://dbpedia.org/resource/Franco-Prussian_War>,
+        <http://dbpedia.org/resource/Freemasonry>,
+        <http://dbpedia.org/resource/Freethinkers>,
+        <http://dbpedia.org/resource/Giordano_Bruno>,
+        <http://dbpedia.org/resource/Giovanni_Bovio>,
+        <http://dbpedia.org/resource/Giuseppe_Garibaldi>,
+        <http://dbpedia.org/resource/Grand_Master_(order)>,
+        <http://dbpedia.org/resource/Grande_Oriente_d'Italia>,
+        <http://dbpedia.org/resource/Humanum_genus>,
+        <http://dbpedia.org/resource/Italian_unification>,
+        <http://dbpedia.org/resource/Italy>,
+        <http://dbpedia.org/resource/Mason_(Freemasonry)>,
+        <http://dbpedia.org/resource/Masonic>,
+        <http://dbpedia.org/resource/Pantheism>,
+        <http://dbpedia.org/resource/Pantheists>,
+        <http://dbpedia.org/resource/Papal_States_under_Pope_Pius_IX>,
+        <http://dbpedia.org/resource/Pope_Leo_XIII>,
+        <http://dbpedia.org/resource/Potsdamer_Platz>,
+        <http://dbpedia.org/resource/Rome>,
+        <http://dbpedia.org/resource/Rovigo> ;
+    owl:sameAs <http://arz.dbpedia.org/resource/تمثال_جيوردانو_برونو>,
+        <http://commons.dbpedia.org/resource/Monument_to_Giordano_Bruno_(Rome)>,
+        <http://fr.dbpedia.org/resource/Statue_de_Giordano_Bruno>,
+        <http://it.dbpedia.org/resource/Monumento_a_Giordano_Bruno>,
+        <http://ka.dbpedia.org/resource/ჯორდანო_ბრუნოს_ქანდაკება>,
+        <http://rdf.freebase.com/ns/m.03d0zms>,
+        <http://ru.dbpedia.org/resource/Памятник_Джордано_Бруно>,
+        <http://sv.dbpedia.org/resource/Monumentet_över_Giordano_Bruno>,
+        <http://uk.dbpedia.org/resource/Пам'ятник_Джордано_Бруно>,
+        <http://www.wikidata.org/entity/Q3648036>,
+        <http://yago-knowledge.org/resource/Statue_of_Giordano_Bruno>,
+        <https://global.dbpedia.org/id/3NRjN> .
+
+<http://dbpedia.org/resource/Untitled_(1982_painting)> a dbo:Artwork ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/Andy_Warhol>,
+        <http://dbpedia.org/resource/Annina_Nosei>,
+        <http://dbpedia.org/resource/Brant_Foundation>,
+        <http://dbpedia.org/resource/Brooklyn_Museum>,
+        <http://dbpedia.org/resource/Category:1982_paintings>,
+        <http://dbpedia.org/resource/Category:Paintings_by_Jean-Michel_Basquiat>,
+        <http://dbpedia.org/resource/Category:Skulls_in_art>,
+        <http://dbpedia.org/resource/Chiba_(city)>,
+        <http://dbpedia.org/resource/Christie's>,
+        <http://dbpedia.org/resource/Contemporary_art>,
+        <http://dbpedia.org/resource/Jean-Michel_Basquiat>,
+        <http://dbpedia.org/resource/List_of_most_expensive_paintings>,
+        <http://dbpedia.org/resource/List_of_paintings_by_Jean-Michel_Basquiat>,
+        <http://dbpedia.org/resource/Neo-expressionism>,
+        <http://dbpedia.org/resource/Seattle_Art_Museum>,
+        <http://dbpedia.org/resource/Shot_Marilyns>,
+        <http://dbpedia.org/resource/Silver_Car_Crash_(Double_Disaster)>,
+        <http://dbpedia.org/resource/Sotheby's>,
+        <http://dbpedia.org/resource/Untitled_(Devil)>,
+        <http://dbpedia.org/resource/Yusaku_Maezawa> ;
+    owl:sameAs <http://www.wikidata.org/entity/Q104859034>,
+        <https://global.dbpedia.org/id/FQZ7U> .
+
+<http://dbpedia.org/resource/Woman_with_Parakeet> a dbo:Artwork ;
+    rdfs:label "Mujer con periquito"@es ;
+    dbo:wikiPageExternalLink <https://www.guggenheim.org/artwork/3699> ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/Ambroise_Vollard>,
+        <http://dbpedia.org/resource/Category:1871_paintings>,
+        <http://dbpedia.org/resource/Category:Birds_in_art>,
+        <http://dbpedia.org/resource/Category:Impressionism>,
+        <http://dbpedia.org/resource/Category:Paintings_by_Pierre-Auguste_Renoir>,
+        <http://dbpedia.org/resource/Category:Paintings_in_the_collection_of_the_Solomon_R._Guggenheim_Museum>,
+        <http://dbpedia.org/resource/File:Lise_Tréhot_in_1864.jpg>,
+        <http://dbpedia.org/resource/File:Pierre-Auguste_Renoir_-_Lise_in_a_White_Shawl_-_1985.R.58_-_Dallas_Museum_of_Art.jpg>,
+        <http://dbpedia.org/resource/File:Édouard_Manet_-_Young_Lady_in_1866_-_Google_Art_Project.jpg>,
+        <http://dbpedia.org/resource/Franco-Prussian_War>,
+        <http://dbpedia.org/resource/French_Third_Republic>,
+        <http://dbpedia.org/resource/Guggenheim_Collection>,
+        <http://dbpedia.org/resource/Gustave_Courbet>,
+        <http://dbpedia.org/resource/Impressionism>,
+        <http://dbpedia.org/resource/Justin_K._Thannhauser>,
+        <http://dbpedia.org/resource/Justin_Thannhauser>,
+        <http://dbpedia.org/resource/Lise_Tréhot>,
+        <http://dbpedia.org/resource/New_York_City>,
+        <http://dbpedia.org/resource/Paris_Commune>,
+        <http://dbpedia.org/resource/Parisian_Women_in_Algerian_Costume_(The_Harem)>,
+        <http://dbpedia.org/resource/Pierre-Auguste_Renoir>,
+        <http://dbpedia.org/resource/Salon_(Paris)>,
+        <http://dbpedia.org/resource/Solomon_R._Guggenheim_Museum>,
+        <http://dbpedia.org/resource/Thannhauser_Galleries>,
+        <http://dbpedia.org/resource/Édouard_Manet> ;
+    owl:sameAs <http://es.dbpedia.org/resource/Mujer_con_periquito>,
+        <http://ml.dbpedia.org/resource/വുമൺ_വിത്_പാരക്കീറ്റ്>,
+        <http://www.wikidata.org/entity/Q19882957>,
+        <http://yago-knowledge.org/resource/Woman_with_Parakeet>,
+        <https://global.dbpedia.org/id/tqiV> .
+
+<http://dbpedia.org/resource/Zenith_(1985_painting)> a dbo:Artwork ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/Andy_Warhol>,
+        <http://dbpedia.org/resource/Bruno_Bischofberger>,
+        <http://dbpedia.org/resource/Castello_di_Rivoli>,
+        <http://dbpedia.org/resource/Category:1985_paintings>,
+        <http://dbpedia.org/resource/Category:Paintings_by_Andy_Warhol>,
+        <http://dbpedia.org/resource/Category:Paintings_by_Jean-Michel_Basquiat>,
+        <http://dbpedia.org/resource/Category:Skulls_in_art>,
+        <http://dbpedia.org/resource/Centre_for_Fine_Arts,_Brussels>,
+        <http://dbpedia.org/resource/Fridericianum>,
+        <http://dbpedia.org/resource/Guggenheim_Museum_Bilbao>,
+        <http://dbpedia.org/resource/Jean-Michel_Basquiat>,
+        <http://dbpedia.org/resource/Kunstmuseum_Wolfsburg>,
+        <http://dbpedia.org/resource/List_of_paintings_by_Jean-Michel_Basquiat>,
+        <http://dbpedia.org/resource/Museo_Nacional_Centro_de_Arte_Reina_Sofía>,
+        <http://dbpedia.org/resource/Neo-expressionism>,
+        <http://dbpedia.org/resource/Phillips_(auctioneers)>,
+        <http://dbpedia.org/resource/Pop_art>,
+        <http://dbpedia.org/resource/Ronnie_Cutrone>,
+        <http://dbpedia.org/resource/Villa_Stuck>,
+        <http://dbpedia.org/resource/Zenith_Electronics> ;
+    owl:sameAs <http://www.wikidata.org/entity/Q105095631>,
+        <https://global.dbpedia.org/id/FQPjc> .
+

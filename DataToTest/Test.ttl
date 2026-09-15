@@ -1,0 +1,388 @@
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbp: <http://dbpedia.org/property/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://dbpedia.org/resource/Amrita_Sher-Gil_Self_Portrait_(1931)> a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Amrita Sher-Gil Self Portrait (1931)"@en ;
+    dbp:medium <http://dbpedia.org/resource/Oil_painting> ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1931_paintings>,
+        <http://dbpedia.org/resource/Category:20th-century_portraits>,
+        <http://dbpedia.org/resource/Category:Oil_on_canvas_paintings>,
+        <http://dbpedia.org/resource/Category:Paintings_by_Amrita_Sher-Gil>,
+        <http://dbpedia.org/resource/Category:Portraits_of_women>,
+        <http://dbpedia.org/resource/Category:Self-portraits> ;
+    foaf:name "Amrita Sher-Gil self portrait"@en .
+
+
+<http://dbpedia.org/resource/Aristotle_(Ribera_painting)> a dbo:Artwork ;
+    rdfs:label "Aristote (Ribera)"@fr,
+        "Аристотель (Рібера)"@uk ;
+    owl:sameAs <http://arz.dbpedia.org/resource/ارسطو_(لوحه)>,
+        <http://fr.dbpedia.org/resource/Aristote_(Ribera)>,
+        <http://uk.dbpedia.org/resource/Аристотель_(Рібера)>,
+        <http://www.wikidata.org/entity/Q4791095>,
+        <https://global.dbpedia.org/id/4S2Mf> .
+
+<http://dbpedia.org/resource/Armed_Aphrodite_(NAMA_262)> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Armed Aphrodite (NAMA 262)"@en ;
+    dbp:medium "Marble"@en ;
+    dbp:otherTitle ""@en ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1886_archaeological_discoveries>,
+        <http://dbpedia.org/resource/Category:1st-century_Roman_sculptures>,
+        <http://dbpedia.org/resource/Category:Archaeological_discoveries_in_the_Peloponnese>,
+        <http://dbpedia.org/resource/Category:Epidaurus>,
+        <http://dbpedia.org/resource/Category:Marble_sculptures_in_Greece>,
+        <http://dbpedia.org/resource/Category:National_Archaeological_Museum,_Athens>,
+        <http://dbpedia.org/resource/Category:Roman_copies_of_4th-century_BC_Greek_sculptures>,
+        <http://dbpedia.org/resource/Category:Sculptures_in_Athens>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_Venus>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_women_in_Greece>,
+        <http://dbpedia.org/resource/Category:Statues_in_Greece> ;
+    foaf:name "Armed Aphrodite"@en .
+
+<http://dbpedia.org/resource/Benjamin_Harrison_(Niehaus)> a dbo:Artwork ;
+    owl:sameAs <http://rdf.freebase.com/ns/m.0bm9lwk>,
+        <http://www.wikidata.org/entity/Q4888776>,
+        <http://yago-knowledge.org/resource/Benjamin_Harrison_(Niehaus)>,
+        <https://global.dbpedia.org/id/4XN3K> .
+
+<http://dbpedia.org/resource/Black_Lives_Matter_street_mural_(Indianapolis)> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing>,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Black Lives Matter street mural (Indianapolis)"@en ;
+    dcterms:subject <http://dbpedia.org/resource/Category:2020_establishments_in_Indiana>,
+        <http://dbpedia.org/resource/Category:2020_paintings>,
+        <http://dbpedia.org/resource/Category:African-American_history_of_Indianapolis>,
+        <http://dbpedia.org/resource/Category:Black_Lives_Matter_art>,
+        <http://dbpedia.org/resource/Category:Murals_in_Indiana>,
+        <http://dbpedia.org/resource/Category:Public_art_in_Indiana>,
+        <http://dbpedia.org/resource/Category:Vandalized_works_of_art_in_Indiana> ;
+    owl:sameAs <http://www.wikidata.org/entity/Q107290972>,
+        <https://global.dbpedia.org/id/Fuxes> ;
+    foaf:name "Black Lives Matter street mural"@en .
+
+<http://dbpedia.org/resource/Bust_of_Antinous_(NAMA)> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Bust of Antinous (NAMA)"@en ;
+    dbp:medium <http://dbpedia.org/resource/Marble_sculpture> ;
+    dbp:otherTitle ""@en ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1856_archaeological_discoveries>,
+        <http://dbpedia.org/resource/Category:2nd-century_Roman_sculptures>,
+        <http://dbpedia.org/resource/Category:Archaeological_discoveries_in_the_Peloponnese>,
+        <http://dbpedia.org/resource/Category:Busts_in_Greece>,
+        <http://dbpedia.org/resource/Category:Marble_sculptures_in_Greece>,
+        <http://dbpedia.org/resource/Category:National_Archaeological_Museum,_Athens>,
+        <http://dbpedia.org/resource/Category:Sculptures_in_Athens>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_Antinous>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_men_in_Greece>,
+        <http://dbpedia.org/resource/Category:Works_of_uncertain_authorship> ;
+    foaf:name "Bust of Antinous"@en .
+
+<http://dbpedia.org/resource/Bust_of_Atatürk> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Bust of Atatürk"@en ;
+    dcterms:subject <http://dbpedia.org/resource/Category:Busts_in_Turkey>,
+        <http://dbpedia.org/resource/Category:Kadıköy>,
+        <http://dbpedia.org/resource/Category:Monuments_and_memorials_in_Istanbul>,
+        <http://dbpedia.org/resource/Category:Monuments_and_memorials_to_Mustafa_Kemal_Atatürk_in_Turkey>,
+        <http://dbpedia.org/resource/Category:Outdoor_sculptures_in_Istanbul>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_men_in_Turkey> ;
+    foaf:name "Bust of Atatürk"@en .
+
+<http://dbpedia.org/resource/Bust_of_Edward_VII,_Kuala_Lumpur> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Bust of Edward VII, Kuala Lumpur"@en ;
+    dbp:medium "Bronze bust"@en ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1911_sculptures>,
+        <http://dbpedia.org/resource/Category:Statues_in_Malaysia> ;
+    foaf:name "Bust of Edward VII"@en .
+
+<http://dbpedia.org/resource/Cardinal_del_Portogallo_Altarpiece> a dbo:Artwork ;
+    rdfs:label "Pala del cardinale del Portogallo"@it,
+        "Painel do Cardeal de Portugal"@pt ;
+    owl:sameAs <http://arz.dbpedia.org/resource/مذبح_الكاردينال_البرتغالى>,
+        <http://it.dbpedia.org/resource/Pala_del_cardinale_del_Portogallo>,
+        <http://pt.dbpedia.org/resource/Painel_do_Cardeal_de_Portugal>,
+        <http://www.wikidata.org/entity/Q3889223>,
+        <https://global.dbpedia.org/id/3cAaW> .
+
+<http://dbpedia.org/resource/Democritus_(Agostino_Carracci)> a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Democritus (Agostino Carracci)"@en ;
+    dbp:medium "oil on canvas"@en ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1596_paintings>,
+        <http://dbpedia.org/resource/Category:Cultural_depictions_of_Democritus>,
+        <http://dbpedia.org/resource/Category:Paintings_by_Agostino_Carracci>,
+        <http://dbpedia.org/resource/Category:Paintings_in_the_Museo_di_Capodimonte>,
+        <http://dbpedia.org/resource/Category:Portraits_of_men> ;
+    foaf:name "Democritus"@en .
+
+<http://dbpedia.org/resource/Dragon_Fusuma> a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Dragon Fusuma"@en ;
+    dbp:otherTitle "龍図襖"@en ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1786_paintings>,
+        <http://dbpedia.org/resource/Category:Dragons_in_art>,
+        <http://dbpedia.org/resource/Category:Wakayama_Prefecture_designated_tangible_cultural_property> ;
+    foaf:name "Dragon Fusuma"@en .
+
+<http://dbpedia.org/resource/Dreaming_(sculpture)> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing>,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Dreaming (sculpture)"@en ;
+    dcterms:subject <http://dbpedia.org/resource/Category:2020_sculptures>,
+        <http://dbpedia.org/resource/Category:Outdoor_sculptures_in_Toronto>,
+        <http://dbpedia.org/resource/Category:Sculptures_by_Jaume_Plensa> ;
+    foaf:name "Dreaming"@en .
+
+<http://dbpedia.org/resource/Ecce_Homo_(Bosch,_1510s)> a dbo:Artwork ;
+    rdfs:label "Ecce homo (Bosch, Indianapolis)"@fr ;
+    owl:sameAs <http://arz.dbpedia.org/resource/ايتسى_هومو_(هيرونيموس_بوس_1490)>,
+        <http://fr.dbpedia.org/resource/Ecce_homo_(Bosch,_Indianapolis)>,
+        <http://www.wikidata.org/entity/Q924482>,
+        <https://global.dbpedia.org/id/55JKd> .
+
+<http://dbpedia.org/resource/El_Perú_Libre> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "El Perú Libre"@en ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1853_paintings>,
+        <http://dbpedia.org/resource/Category:History_paintings>,
+        <http://dbpedia.org/resource/Category:National_personifications>,
+        <http://dbpedia.org/resource/Category:Paintings_in_Peru>,
+        <http://dbpedia.org/resource/Category:Recovered_works_of_art> ;
+    owl:differentFrom <http://dbpedia.org/resource/Free_Peru> ;
+    foaf:name "El Perú Libre"@en .
+
+<http://dbpedia.org/resource/Equestrian_statue_of_the_Duke_of_Cambridge,_Whitehall> a dbo:Artwork ;
+    rdfs:label "Estatua ecuestre del duque de Cambridge (Whitehall)"@es,
+        "Конная статуя Георга герцога Кембриджского (Лондон)"@ru,
+        "Кінна статуя Джорджа герцога Кембриджського (Лондон)"@uk ;
+    owl:sameAs <http://es.dbpedia.org/resource/Estatua_ecuestre_del_duque_de_Cambridge_(Whitehall)>,
+        <http://rdf.freebase.com/ns/m.012zv04w>,
+        <http://ru.dbpedia.org/resource/Конная_статуя_Георга_герцога_Кембриджского_(Лондон)>,
+        <http://uk.dbpedia.org/resource/Кінна_статуя_Джорджа_герцога_Кембриджського_(Лондон)>,
+        <http://www.wikidata.org/entity/Q19516037>,
+        <http://yago-knowledge.org/resource/Equestrian_statue_of_the_Duke_of_Cambridge,_Whitehall>,
+        <https://global.dbpedia.org/id/s3h7> .
+
+<http://dbpedia.org/resource/Faith_and_Confidence> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Faith and Confidence"@en ;
+    dbp:medium "Photograph"@en ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1950s_photographs>,
+        <http://dbpedia.org/resource/Category:1957_in_Washington,_D.C.>,
+        <http://dbpedia.org/resource/Category:1957_works>,
+        <http://dbpedia.org/resource/Category:Black-and-white_photographs>,
+        <http://dbpedia.org/resource/Category:Chinatown_(Washington,_D.C.)>,
+        <http://dbpedia.org/resource/Category:History_of_law_enforcement_in_the_United_States>,
+        <http://dbpedia.org/resource/Category:Photographs_of_people>,
+        <http://dbpedia.org/resource/Category:Photographs_of_the_United_States>,
+        <http://dbpedia.org/resource/Category:Pulitzer_Prize–winning_photographs>,
+        <http://dbpedia.org/resource/Category:Works_about_law_enforcement_in_the_United_States>,
+        <http://dbpedia.org/resource/Category:Works_about_police_officers> ;
+    foaf:name "Faith and Confidence"@en .
+
+<http://dbpedia.org/resource/Femme_au_miroir> a dbo:Artwork ;
+    owl:sameAs <http://rdf.freebase.com/ns/m.0131jdr9>,
+        <http://www.wikidata.org/entity/Q20087530>,
+        <http://yago-knowledge.org/resource/Femme_au_miroir>,
+        <https://global.dbpedia.org/id/vVcN> .
+
+<http://dbpedia.org/resource/Femme_nue_dormant_au_bord_de_l'eau> a dbo:Artwork ;
+    owl:sameAs <http://www.wikidata.org/entity/Q97860806>,
+        <https://global.dbpedia.org/id/DHojo> .
+
+<http://dbpedia.org/resource/Femme_à_l'Éventail> a dbo:Artwork ;
+    owl:sameAs <http://rdf.freebase.com/ns/m.0_1mj9l>,
+        <http://www.wikidata.org/entity/Q16738834>,
+        <https://global.dbpedia.org/id/eBbt> .
+
+<http://dbpedia.org/resource/Femme_à_la_montre> a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Femme à la montre"@en ;
+    dbp:medium "Oil on canvas"@en ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1932_paintings>,
+        <http://dbpedia.org/resource/Category:Portraits_by_Pablo_Picasso>,
+        <http://dbpedia.org/resource/Category:Portraits_of_women> ;
+    foaf:name "Femme à la montre"@en .
+
+<http://dbpedia.org/resource/Fortune_(Reni)> a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        owl:Thing ;
+    rdfs:label "Fortune (Reni)"@en ;
+    dcterms:subject <http://dbpedia.org/resource/Category:Paintings_by_Guido_Reni> .
+
+<http://dbpedia.org/resource/Hermes_Criophorus_(Athens)> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Hermes Criophorus (Athens)"@en ;
+    dbp:medium "Marble"@en ;
+    dbp:otherTitle ""@en ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1890_archaeological_discoveries>,
+        <http://dbpedia.org/resource/Category:1890_in_Greece>,
+        <http://dbpedia.org/resource/Category:2nd-century_Roman_sculptures>,
+        <http://dbpedia.org/resource/Category:Archaeological_discoveries_in_the_Peloponnese>,
+        <http://dbpedia.org/resource/Category:Marble_sculptures_in_Greece>,
+        <http://dbpedia.org/resource/Category:National_Archaeological_Museum,_Athens>,
+        <http://dbpedia.org/resource/Category:Nude_sculptures_in_Greece>,
+        <http://dbpedia.org/resource/Category:Roman_copies_of_5th-century_BC_Greek_sculptures>,
+        <http://dbpedia.org/resource/Category:Sculptures_in_Athens>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_Hermes>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_men_in_Greece>,
+        <http://dbpedia.org/resource/Category:Statues_in_Greece> ;
+    foaf:name "Hermes Criophorus"@en .
+
+<http://dbpedia.org/resource/Hermes_of_Aegium> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Hermes of Aegium"@en ;
+    dbp:medium "Marble"@en ;
+    dbp:otherTitle ""@en ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1860_archaeological_discoveries>,
+        <http://dbpedia.org/resource/Category:1st-century_BC_Roman_sculptures>,
+        <http://dbpedia.org/resource/Category:1st-century_Roman_sculptures>,
+        <http://dbpedia.org/resource/Category:Archaeological_discoveries_in_the_Peloponnese>,
+        <http://dbpedia.org/resource/Category:Marble_sculptures_in_Greece>,
+        <http://dbpedia.org/resource/Category:National_Archaeological_Museum,_Athens>,
+        <http://dbpedia.org/resource/Category:Nude_sculptures_in_Greece>,
+        <http://dbpedia.org/resource/Category:Roman_copies_of_4th-century_BC_Greek_sculptures>,
+        <http://dbpedia.org/resource/Category:Sculptures_in_Athens>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_Hermes>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_men_in_Greece>,
+        <http://dbpedia.org/resource/Category:Statues_in_Greece> ;
+    foaf:name "Hermes of Aegium"@en .
+
+<http://dbpedia.org/resource/Homer_(Ezekiel)> a dbo:Artwork ;
+    owl:sameAs <http://rdf.freebase.com/ns/m.0_fpvw5>,
+        <http://www.wikidata.org/entity/Q16972956>,
+        <http://yago-knowledge.org/resource/Homer_(Ezekiel)>,
+        <https://global.dbpedia.org/id/f6CD> .
+
+<http://dbpedia.org/resource/Hours_of_the_Day> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing>,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Hours of the Day"@en ;
+    dcterms:subject <http://dbpedia.org/resource/Category:2018_establishments_in_Canada>,
+        <http://dbpedia.org/resource/Category:2018_sculptures>,
+        <http://dbpedia.org/resource/Category:Monuments_and_memorials_in_Toronto>,
+        <http://dbpedia.org/resource/Category:Outdoor_sculptures_in_Toronto> ;
+    foaf:name "Hours of the Day"@en .
+
+<http://dbpedia.org/resource/Hunt_(painting)> a dbo:Artwork ;
+    owl:sameAs <http://www.wikidata.org/entity/Q28113312>,
+        <http://yago-knowledge.org/resource/Hunt_(painting)>,
+        <https://global.dbpedia.org/id/2cL3C> .
+
+<http://dbpedia.org/resource/Infanta_Margareta_Teresa_in_a_Peach_Dress> a dbo:Artwork ;
+    rdfs:label "La infanta Margarita"@es,
+        "L'Infante Marguerite en robe rose"@fr,
+        "Ritratto dell'infanta Margherita"@it ;
+    dbo:wikiPageWikiLink <http://dbpedia.org/resource/Category:1654_paintings>,
+        <http://dbpedia.org/resource/Category:Portraits_by_Diego_Velázquez_in_the_Kunsthistorisches_Museum>,
+        <http://dbpedia.org/resource/Kunsthistorisches_Museum>,
+        <http://dbpedia.org/resource/Margaret_Theresa_of_Spain>,
+        <http://dbpedia.org/resource/Velázquez> ;
+    owl:sameAs <http://arz.dbpedia.org/resource/انفانتا_مارجريتا_تيريزا_بواسطه_فيلاسكيز>,
+        <http://es.dbpedia.org/resource/La_infanta_Margarita>,
+        <http://fr.dbpedia.org/resource/L'Infante_Marguerite_en_robe_rose>,
+        <http://it.dbpedia.org/resource/Ritratto_dell'infanta_Margherita>,
+        <http://www.wikidata.org/entity/Q3204167>,
+        <https://global.dbpedia.org/id/2xVMx> .
+
+<http://dbpedia.org/resource/La_Femme_aux_Phlox> a dbo:Artwork ;
+    rdfs:label "La Femme aux phlox"@fr ;
+    owl:sameAs <http://fr.dbpedia.org/resource/La_Femme_aux_phlox>,
+        <http://rdf.freebase.com/ns/m.0wf0rzr>,
+        <http://www.wikidata.org/entity/Q17003030>,
+        <http://yago-knowledge.org/resource/La_Femme_aux_Phlox>,
+        <https://global.dbpedia.org/id/fPTm> .
+
+<http://dbpedia.org/resource/Last_Alarm_(sculpture)> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing>,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Last Alarm (sculpture)"@en ;
+    dcterms:subject <http://dbpedia.org/resource/Category:Firefighting_memorials>,
+        <http://dbpedia.org/resource/Category:Monuments_and_memorials_in_Toronto>,
+        <http://dbpedia.org/resource/Category:Outdoor_sculptures_in_Toronto>,
+        <http://dbpedia.org/resource/Category:Sculptures_of_men_in_Ontario>,
+        <http://dbpedia.org/resource/Category:Statues_in_Ontario> ;
+    owl:differentFrom <http://dbpedia.org/resource/The_Last_Alarm_(sculpture)> ;
+    foaf:name "Last Alarm"@en .
+
+
+<http://dbpedia.org/resource/Zenith_(1985_painting)> a dbo:Artwork ;
+    owl:sameAs <http://www.wikidata.org/entity/Q105095631>,
+        <https://global.dbpedia.org/id/FQPjc> .
+

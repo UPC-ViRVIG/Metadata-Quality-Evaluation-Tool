@@ -397,12 +397,19 @@ class StructuralCompletenessMetric(MetricPlugin):
                 f"Dataset '{context.dataset_id}' contains an empty graph."
             )
 
-        try:
-            profile_name, shapes_path = detect_profile(graph)
-        except ProfileDetectionError as e:
-            return self.error_result(str(e))
+        shapes_path_str = getattr(context, "config", {}).get("structural_shape")
 
-        low_confidence = (profile_name == "core")
+        if shapes_path_str:
+            shapes_path = Path(shapes_path_str)
+            profile_name = shapes_path.stem
+            low_confidence = False
+        else:
+            try:
+                profile_name, shapes_path = detect_profile(graph)
+            except ProfileDetectionError as e:
+                return self.error_result(str(e))
+
+            low_confidence = (profile_name == "core")
 
         try:
             shapes_graph = load_shapes(shapes_path)

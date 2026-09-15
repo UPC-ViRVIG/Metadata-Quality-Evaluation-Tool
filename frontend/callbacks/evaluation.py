@@ -12,9 +12,10 @@ from store import make_results
     Input("btn-run-evaluation",  "n_clicks"),
     State("store-sources",    "data"),
     State("metric-selection", "data"),
+    State("structural-config-store", "data"),
     prevent_initial_call=True,
 )
-def run_evaluation_callback(n_clicks, sources, selected_metrics):
+def run_evaluation_callback(n_clicks, sources, selected_metrics, structural_shape):
     """
     Execute dataset evaluation through the backend API.
 
@@ -60,6 +61,7 @@ def run_evaluation_callback(n_clicks, sources, selected_metrics):
             )
 
     """
+
     if not n_clicks:
         return no_update, no_update, no_update, no_update
 
@@ -73,7 +75,7 @@ def run_evaluation_callback(n_clicks, sources, selected_metrics):
     label = "Run Analysis" if len(selected_sources) == 1 else "Run Comparison"
 
     try:
-        datasets = run_evaluation(selected_sources, selected_metrics)
+        datasets = run_evaluation(selected_sources, selected_metrics,structural_shape=structural_shape)
     except APIError as exc:
         result = make_results([], error_message=str(exc))
         return result, False, label, ""

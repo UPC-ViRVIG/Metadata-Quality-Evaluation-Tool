@@ -1,0 +1,53 @@
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbp: <http://dbpedia.org/property/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo1: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix georss: <http://www.georss.org/georss/> .
+@prefix gold: <http://purl.org/linguistics/gold/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://dbpedia.org/resource/A_Great_Day_in_Hip_Hop> a dbo:Artwork,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "A Great Day in Hip Hop"@en ;
+    dbo:author <http://dbpedia.org/resource/Gordon_Parks> ;
+    dbo:description "1998 photograph by Gordon Parks"@en ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/A_Great_Day_in_Hip_Hop,_by_Gordon_Parks.png?width=300> ;
+    dbp:artist <http://dbpedia.org/resource/Gordon_Parks> ;
+    dbp:caption "XXL #7 centerfold of the photograph"@en ;
+    dbp:city "Harlem, New York"@en ;
+    dbp:completionDate "adfd"^^xsd:date ;
+    dbp:imageFile "A Great Day in Hip Hop, by Gordon Parks.png"@en ;
+    dbp:owner "The Gordon Parks Organization"@en ;
+    dbp:title "A Great Day in Hip Hop"@en ;
+    dbp:type <http://dbpedia.org/resource/Street_photography> ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:Div_col>,
+        <http://dbpedia.org/resource/Template:Div_col_end>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Italic_title>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Short_description>,
+        <http://dbpedia.org/resource/Template:Start_date>,
+        <http://dbpedia.org/resource/Template:Use_mdy_dates> ;
+    dcterms:subject <http://dbpedia.org/resource/Category:1990s_in_hip_hop_music>,
+        <http://dbpedia.org/resource/Category:1990s_photographs>,
+        <http://dbpedia.org/resource/Category:1998_in_American_music>,
+        <http://dbpedia.org/resource/Category:1998_in_New_York_City>,
+        <http://dbpedia.org/resource/Category:1998_in_art>,
+        <http://dbpedia.org/resource/Category:1998_works>,
+        <http://dbpedia.org/resource/Category:Black-and-white_photographs>,
+        <http://dbpedia.org/resource/Category:Harlem>,
+        <http://dbpedia.org/resource/Category:Photographs_of_the_United_States> ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/A_Great_Day_in_Hip_Hop?oldid=1290091585&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/17_E._126th_St,_Harlem.jpg>,
+        <http://commons.wikimedia.org/wiki/Special:FilePath/A_Great_Day_in_Hip_Hop,_by_Gordon_Parks.png> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/A_Great_Day_in_Hip_Hop> ;
+    foaf:name "A Great Day in Hip Hop"@en .
+

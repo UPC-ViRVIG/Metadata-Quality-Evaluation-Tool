@@ -78,10 +78,9 @@ class EvaluationRequest(BaseModel):
     metrics : List[MetricSelection]
         Metrics to run.
     """
-
     datasets: List[DatasetRequest]
     metrics: List[MetricSelection]
-
+    structural_shape: Optional[str] = None
 
 class OntologyRequest(BaseModel):
     """

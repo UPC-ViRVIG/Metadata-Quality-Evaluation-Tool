@@ -1,0 +1,54 @@
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbp: <http://dbpedia.org/property/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo1: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix georss: <http://www.georss.org/georss/> .
+@prefix gold: <http://purl.org/linguistics/gold/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://dbpedia.org/resource/Amrita_Sher-Gil_Self_Portrait_(1931)> a dbo:Artwork,
+        dbo:Painting,
+        dbo:Work,
+        <http://schema.org/CreativeWork>,
+        owl:Thing,
+        <http://www.wikidata.org/entity/Q386724>,
+        <http://www.wikidata.org/entity/Q838948> ;
+    rdfs:label "Amrita Sher-Gil Self Portrait (1931)"@en ;
+    dbo:author <http://dbpedia.org/resource/Amrita_Sher-Gil> ;
+    dbo:description "عمل فني مرئي"@ar,
+        "Gemälde von Amrita Sher-Gil"@de,
+        "1931 painting by Amrita Sher-Gil"@en,
+        "cuadro de Amrita Sher-Gil"@es,
+        "tableau d'Amrita Sher-Gil"@fr,
+        "dipinto di Amrita Sher-Gil"@it,
+        "schilderij van Amrita Sher-Gil"@nl ;
+    dbo:thumbnail <http://commons.wikimedia.org/wiki/Special:FilePath/Amrita_Sher-Gil_Self-portrait,_untitled.jpg?width=300> ;
+    dbp:artist <http://dbpedia.org/resource/Amrita_Sher-Gil> ;
+    dbp:heightMetric 6.51e+01 ;
+    dbp:imperialUnit "in"@en ;
+    dbp:medium <http://dbpedia.org/resource/Oil_painting> ;
+    dbp:metricUnit "cm"@en ;
+    dbp:title "Amrita Sher-Gil self portrait"@en ;
+    dbp:widthMetric 54 ;
+    dbp:wikiPageUsesTemplate <http://dbpedia.org/resource/Template:1930s-painting-stub>,
+        <http://dbpedia.org/resource/Template:Amrita_Sher-Gil>,
+        <http://dbpedia.org/resource/Template:Cite_book>,
+        <http://dbpedia.org/resource/Template:Infobox_artwork>,
+        <http://dbpedia.org/resource/Template:Reflist>,
+        <http://dbpedia.org/resource/Template:Short_description> ;
+    dbp:year "nope";
+    dcterms:subject <http://dbpedia.org/resource/Category:1931_paintings>,
+        <http://dbpedia.org/resource/Category:20th-century_portraits>,
+        <http://dbpedia.org/resource/Category:Oil_on_canvas_paintings>,
+        <http://dbpedia.org/resource/Category:Paintings_by_Amrita_Sher-Gil>,
+        <http://dbpedia.org/resource/Category:Portraits_of_women>,
+        <http://dbpedia.org/resource/Category:Self-portraits> ;
+    prov:wasDerivedFrom <http://en.wikipedia.org/wiki/Amrita_Sher-Gil_Self_Portrait_(1931)?oldid=1311039334&ns=0> ;
+    foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/Amrita_Sher-Gil_Self-portrait,_untitled.jpg> ;
+    foaf:isPrimaryTopicOf <http://en.wikipedia.org/wiki/Amrita_Sher-Gil_Self_Portrait_(1931)> ;
+    foaf:name "Amrita Sher-Gil self portrait"@en .
+

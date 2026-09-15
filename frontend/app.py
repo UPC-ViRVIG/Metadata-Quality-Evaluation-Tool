@@ -31,11 +31,12 @@ store-metric-dims
 store-dimensions
     Quality dimension descriptions and tooltips.
 """
+
 import dash
 from dash import html, dcc
 import dash_bootstrap_components as dbc
 
-from layout.sidebar import build_sidebar, build_add_source_modal
+from layout.sidebar import build_sidebar, build_add_source_modal,build_structural_completeness_modal
 
 
 app = dash.Dash(
@@ -65,7 +66,7 @@ app.layout = dbc.Container(
 
         # ── Modal ─────────────────────────────────────────────────────────
         build_add_source_modal(),
-
+        build_structural_completeness_modal(),
         # ── Top bar ───────────────────────────────────────────────────────
         dbc.Row(
             dbc.Col(
@@ -91,4 +92,4 @@ import callbacks.main_panel   # noqa: F401, E402
 import callbacks.ui            # noqa: F401, E402
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8050)
+    app.run(debug=True, use_reloader=False)

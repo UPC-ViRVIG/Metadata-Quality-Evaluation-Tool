@@ -417,6 +417,7 @@ def confirm_modal(
                     **s,
                     "label":         label,
                     "source_config": source_config,
+                    "expanded": True,
                 })
             else:
                 updated.append(s)
@@ -428,6 +429,7 @@ def confirm_modal(
         source_config=source_config,
         selected=True,
     )
+    new_source["expanded"] = True
     return sources + [new_source], "", False
 
 @callback(
@@ -591,26 +593,28 @@ def toggle_expand_source(n_clicks_list, sources, ontology_store):
 
 @callback(
     Output("store-ontology", "data", allow_duplicate=True),
-    Input("store-ontology",  "data"),
-    State("store-sources",   "data"),
+    Input("store-sources",  "data"),  # I modified this, before store-ontology, I believe this prevented changes when sources were edited.
+    State("store-ontology",   "data"),
     prevent_initial_call=True,
 )
-def fetch_ontology(ontology_store, sources):
+def fetch_ontology(sources, ontology_store):
     """
     Lazily fetch ontology hierarchy data from the backend.
     """
-    ontology = dict(ontology_store or {})
+    # ontology = dict(ontology_store or {})
+    ontology = {} # I forced it to retrieve the ontology
     sources  = sources or []
 
-    to_fetch = [
-        s for s in sources
-        if s.get("expanded") and ontology.get(s["id"]) is None
-    ]
-    if not to_fetch:
-        return no_update
-
-    updated = False
-    for s in to_fetch:
+    # to_fetch = [
+    #     s for s in sources
+    #     if s.get("expanded") and ontology.get(s["id"]) is None
+    # ]
+    # if not to_fetch:
+    #     return no_update
+    #
+    # updated = False
+    #for s in to_fetch:
+    for s in sources:
         sid = s["id"]
         try:
             from api_client import get_ontology, APIError
