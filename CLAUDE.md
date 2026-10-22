@@ -27,7 +27,8 @@ backend/
     graph/                   Ontology extraction, graph caching, scope filtering
         graph_cache.py            thread-safe singleton graph cache
         ontology_extractor.py     class/property hierarchy extraction
-    export/                  Metric-specific export infrastructure (CSV)
+    export/                  Metric-specific export infrastructure (CSV) +
+                             result_archive.py (archive format, API+CLI shared)
     metrics/                 Plugin interface + metric implementations
         metric_plugin.py          shared plugin interface
         metric_registry.py        identifier -> plugin class registry
@@ -39,6 +40,8 @@ frontend/
     api_client.py            HTTP client wrapping backend endpoints
     store.py                 Shared application state (dcc.Store) definitions
     callbacks/                All reactive callback modules
+        evaluation.py             run trigger + merge_results (sole store-results writer)
+        results_io.py             saved-result import/export/selection
         ui.py                     visualization callbacks (store-ui driven)
     layout/                  Layout builder functions
         sidebar.py                data source + metric selection UI
@@ -53,13 +56,15 @@ Each module maps to a component described in the thesis's System Design chapter.
 
 ## Backend Architecture
 
-- **API layer** (`api/evaluation_controller`): HTTP interface only — no evaluation logic. Validates/deserializes requests, delegates to the Evaluation Engine or Ontology Extractor, serializes responses. Four endpoints:
+- **API layer** (`api/evaluation_controller`): HTTP interface only — no evaluation logic. Validates/deserializes requests, delegates to the Evaluation Engine or Ontology Extractor, serializes responses. Endpoints:
     - `GET /metrics` — implemented metrics + metadata, sourced from `config/metrics_config.json`. Metric names are **never hardcoded in the frontend**; adding a metric to config alone surfaces it in the UI.
     - `GET /dimensions` — the four quality dimensions (Intrinsic, Contextual, Representational, Accessibility), same config file.
     - `POST /ontology` — lazy class-hierarchy extraction for scope filtering; reads from graph cache if already loaded.
     - `POST /evaluate` — runs selected metrics for the given datasets. 400 if a metric identifier is unrecognized; 500 if a registered identifier has no plugin implementation (configuration inconsistency, not user error).
     - `GET /export/{dataset_id}/{metric_id}/{category}` — streams CSV of cached export rows; 404 if no matching export data exists.
-- **CLI** (`cli/cli.py`): same pipeline as the API. Commands: `--config` (run a YAML evaluation config), `--inspect` (ontology/class hierarchy), `--template` (print an annotated example config), `--list-metrics`, `--help`. Config format intentionally mirrors the API's internal request models. Relative output paths resolve against the CLI directory, not the current working directory.
+    - `POST /results/export` — builds a results archive from results the client already holds; 400 if no datasets given.
+    - `POST /results/import` — reads an archive back (body is an untyped `dict | list`, since legacy archives are a bare list); 400 on any unreadable archive.
+- **CLI** (`cli/cli.py`): same pipeline as the API. Commands: `--config` (run a YAML evaluation config), `--inspect` (ontology/class hierarchy), `--benchmark` (cold/warm timing), `--template` (print an annotated example config), `--list-metrics`, `--help`. Config format intentionally mirrors the API's internal request models. Relative output paths resolve against the CLI directory, not the current working directory. `output.format: json` writes a **results archive** via the shared serializer, so CLI runs are importable into the dashboard; `csv` stays a lossy flat summary.
 - **Evaluation Engine** (`engine/evaluation_engine.py`): orchestrator only — never implement data loading or metric computation here. Pipeline per request: Data Source loads graph (via `DataSourceFactory`) -> optional scope filter -> wrap in `DatasetContext` -> run each selected metric plugin -> pass results to `ResultAggregator` -> attach graph statistics. **Scope filtering is engine-level, not metric-level** — do not reintroduce per-metric scope logic.
 - **Data Source** (`datasource/`): Strategy + Factory. `RDFFileSource` and `SPARQLEndpointSource` both implement a single `load()` interface and return `rdflib.Graph`. Format inferred from file extension if not explicit. SPARQL side uses CONSTRUCT queries (not SELECT) so results parse directly into a graph; queries must be single-line in JSON bodies (multiline breaks Wikidata/DBpedia with 502/422 errors).
 - **Graph cache** (`graph/graph_cache.py`): thread-safe singleton, keyed by SHA-256 hash of the canonical source config (not dataset id/label), protected by `threading.Lock`. Scope-filtered subgraphs are **intentionally not cached** — filtering is cheap in-memory work; the expensive part (parsing/I/O) is already cached at the full-graph level.
@@ -70,7 +75,8 @@ Each module maps to a component described in the thesis's System Design chapter.
     - `multilingual_labeling_coverage.py` — coverage ratio × language-count multiplier (`blank_class_rates` is always `{}` since BNodes have no rdf:type)
     - `foundational_format_consistency.py` — URI validity, datatype correctness, BCP 47 language tags, structural issues (blank nodes, empty literals); each sub-score exported separately via the Export cache
 - **Results Aggregator** (`results_aggregator/aggregator.py`): weighted mean of successfully-computed metrics only; returns `None` (not a fabricated score) if nothing is valid. Also computes triple/entity/class counts. Keep aggregation logic isolated from metric implementations.
-- **Export infrastructure** (`export/`): thread-safe in-memory cache keyed by `(dataset_id, metric_id, category)`; invalidated whenever the corresponding graph cache entry is invalidated so exports never go stale.
+- **Export infrastructure** (`export/`): thread-safe in-memory cache keyed by `(dataset_id, metric_id, category)`, process-local — re-running an evaluation overwrites a dataset's entries, and a backend restart empties the cache. (`clear_dataset()` and `graph_cache.invalidate()` exist but have no callers; the README previously claimed otherwise.)
+- **Result archives** (`export/result_archive.py`): the **single** serializer for the archive format, used by both the API and the CLI — never reimplement archive reading or writing in either entry point. `build_archive()` stamps schema/tool version, timestamp, per-dataset provenance (`source_config`, `scope`) and a `metrics_config` snapshot, and pulls the full export rows out of the export cache. `parse_archive()` accepts schema version 1 and legacy bare lists (version 0), **re-keys dataset ids to `imported_<digest>_<n>`** (deterministic, from the file contents) so imports can't collide with live UUIDs, and `restore_exports()` writes the rows back under those ids so `GET /export/...` serves imported datasets unchanged. Metrics with no numeric score or `status == "error"` stay in the file but are filtered out of the parse result and reported in `dropped_metrics` — the frontend escalates a failed metric to a whole-view error, and does unguarded arithmetic on scores.
 
 ## Frontend Architecture
 
@@ -78,7 +84,13 @@ Each module maps to a component described in the thesis's System Design chapter.
     - `store-sources` — list of source objects (UUID, label, source type/params, scope class URIs, selected flag). Single source of truth for the source list.
     - `store-results` — full nested evaluation results. `null` -> guide mode; one dataset -> analysis mode; multiple -> comparison mode.
     - `store-ui` — transient UI state (selected metric, active drilldown class). Kept separate from results so navigation doesn't touch evaluation data.
+    - `store-computed` — datasets from the most recent run (or its error message); written only by the run callback.
+    - `store-imported` — saved results keyed by their re-keyed dataset id, each with `dataset`, `archive` metadata and a `selected` flag. **Imports arrive with `selected=False`** — loading a file must never change what is on screen, because an archive is not an analysis the user has run. Re-importing an already-present dataset keeps its current selection.
     - (an ontology cache also exists client-side to avoid redundant `/ontology` calls on repeated expand/collapse)
+
+  **`store-results` is derived state with exactly one writer — `merge_results` in `callbacks/evaluation.py`. Never add another Output to it.** It concatenates the computed run (first, so it owns `datasets[0]` and colour index 0) with the selected imported datasets, and returns `None` when nothing is selected. Because `make_results` derives the mode from `len(datasets)`, cross-run comparison needs no mode logic of its own. When a `store-imported` change leaves the visible dataset list identical (the usual case on import, since entries arrive unselected) it returns `no_update`, so the main panel is not re-rendered and the user's drilldown is preserved.
+- **Export is per dataset** — `callbacks/results_io.py` renders one `{"type": "btn-export-dataset"}` button per dataset of the latest run and exports that dataset alone, so an archive written by the dashboard always holds exactly one dataset. Multi-dataset archives remain *readable* (older CLI output), and the importer splits them into independent entries.
+- **Comparison never fabricates a score.** Compared datasets may cover different metric sets (a saved result vs. a run with different metrics selected). `_comparison_card_body` in `layout/components/metric_card.py` draws a bar only for datasets that actually measured the metric — **never default a missing metric to 0.0**, which renders as a score of 0% rather than an absence — and names the rest under the chart. Colours are keyed to each dataset's index in `datasets`, not to its position among the present bars, so a dataset keeps one colour across all cards. `build_comparison` hides the Overall Score chart unless every dataset covers the same metrics (the mean is over a different set otherwise) and warns when the intersection is empty. `_render_overview` in `detail_views.py` already intersects metrics for the spider chart.
 - **Callbacks** (`callbacks/`) fall into three categories: configuration (sources, metric selection, lazy ontology loading), evaluation (validates >=1 source and >=1 metric, calls the API, normalizes into `store-results`), and visualization (`callbacks/ui.py` — drilldown, CSV export, active-card styling). Callbacks never talk to each other directly; only through the stores.
 - **Layout**: `app.py` is the 3/9-column Bootstrap grid root. `layout/sidebar.py` builds data-source cards (`build_source_item()`) and the metric accordion. `layout/ main_panel.py` dispatches on `store-results` via `build_guide()` / `build_analysis()` / `build_comparison()`.
 - **Charts** (`charts/`): pure functions, plain Python data in, Plotly `Figure` out, no Dash imports. One file per metric plus `overview.py`. Known gotcha: `fig.add_shape` creates a cartesian axis that clears background fills — use `add_scatter(mode="lines")` for background zone overlays instead.

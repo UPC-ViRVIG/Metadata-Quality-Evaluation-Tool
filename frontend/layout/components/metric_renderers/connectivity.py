@@ -33,17 +33,6 @@ def render(metric: dict, datasets: list[dict]) -> html.Div:
     if not ds_details:
         return html.Div()
 
-    # Enrich ds_details with dataset_id, label, and exports_available so
-    # _export_section can build the correct download requests.
-    for i, (ds, detail) in enumerate(zip(datasets, ds_details)):
-        detail["dataset_id"] = ds.get("dataset_id", "")
-        detail["label"]      = ds.get("label", f"Dataset {i+1}")
-        m = next(
-            (x for x in ds.get("metrics", []) if x["metric_id"] == METRIC_ID),
-            {},
-        )
-        detail["exports_available"] = m.get("exports_available") or []
-
     comparison = len(ds_details) > 1
     header = (
         comparison_header("Connectivity", ds_details, metric=metric)

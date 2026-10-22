@@ -20,14 +20,19 @@ POST /evaluate
     Runs the selected metrics over the requested datasets.
 GET /export/{dataset_id}/{metric_id}/{category}
     Streams the cached export rows for one metric category as CSV.
+POST /results/export
+    Serialises evaluation results into a portable results archive.
+POST /results/import
+    Reads a results archive back and restores its export rows.
 
 Graph loading, caching, and scope filtering all happen further down the
 stack — the router never touches a graph directly.
 """
 
-from fastapi import APIRouter, HTTPException
-from fastapi.responses import StreamingResponse
+from fastapi import APIRouter, Body, HTTPException
+from fastapi.responses import Response, StreamingResponse
 import io
+import json
 import re
 
 from engine.evaluation_engine import EvaluationEngine
@@ -37,8 +42,18 @@ from graph.ontology_extractor import extract
 
 from export.export_cache import get as get_export
 from export.csv_writer import rows_to_csv
+from export.result_archive import (
+    build_archive,
+    parse_archive,
+    restore_exports,
+    ResultArchiveError,
+)
 
-from models.request import EvaluationRequest, OntologyRequest
+from models.request import (
+    EvaluationRequest,
+    OntologyRequest,
+    ResultExportRequest,
+)
 from models.response import (
     EvaluationResponse,
     DatasetEvaluationResponse,
@@ -48,6 +63,7 @@ from models.response import (
     MetricConfigResponse,
     OntologyResponse,
     ClassNodeResponse,
+    ResultImportResponse,
 )
 
 from config.config_loader import load_metrics_config, load_dimensions_config
@@ -308,4 +324,128 @@ def export_csv(dataset_id: str, metric_id: str, category: str, label: str = ""):
         headers={
             "Content-Disposition": f'attachment; filename="{filename}"',
         },
+    )
+
+@router.post("/results/export")
+def export_results(request: ResultExportRequest):
+    """
+    Serialise evaluation results into a portable results archive.
+
+    The archive carries the scores and metric details the client already
+    holds, the provenance of the run, and the complete export rows read
+    out of the export cache, so that the run can be rendered again in a
+    later session or a fresh process.
+
+    Parameters
+    ----------
+    request : ResultExportRequest
+        Dataset results to archive, optionally with the source
+        configuration and scope they were evaluated under.
+
+    Returns
+    -------
+    Response
+        The archive as indented JSON, with a Content-Disposition header
+        suggesting a filename.
+
+    Raises
+    ------
+    HTTPException 400
+        If no dataset results were provided.
+    """
+    datasets = [dataset.model_dump() for dataset in request.datasets]
+
+    try:
+        archive = build_archive(datasets, created_by="api")
+    except ResultArchiveError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+    first_label = datasets[0].get("label") or datasets[0].get("dataset_id", "")
+    safe_label = re.sub(r"[^\w\-]", "_", first_label) or "results"
+    stamp = re.sub(r"[^\w]", "", archive["created_at"])
+    filename = f"results_{safe_label}_{stamp}.json"
+
+    return Response(
+        content=json.dumps(archive, indent=2, ensure_ascii=False),
+        media_type="application/json",
+        headers={
+            "Content-Disposition": f'attachment; filename="{filename}"',
+        },
+    )
+
+
+@router.post("/results/import", response_model=ResultImportResponse)
+def import_results(payload: dict | list = Body(...)):
+    """
+    Read a results archive back into evaluation response form.
+
+    The body is accepted untyped because archives written by older CLI
+    runs are a bare list of dataset results rather than an envelope;
+    parse_archive is what decides whether a payload is readable.
+
+    Export rows travelling with the archive are written back into the
+    export cache under the re-keyed dataset identifiers, so the CSV
+    export endpoint serves imported datasets exactly as it serves
+    freshly evaluated ones.
+
+    Parameters
+    ----------
+    payload : dict | list
+        A results archive, or a legacy list of dataset results.
+
+    Returns
+    -------
+    ResultImportResponse
+        The archive's provenance, the datasets in evaluation response
+        form, and the names of any metrics that could not be rendered.
+
+    Raises
+    ------
+    HTTPException 400
+        If the payload is not a readable archive, carries no datasets,
+        or declares a schema version this tool cannot read.
+    """
+    try:
+        parsed = parse_archive(payload)
+    except ResultArchiveError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+    restore_exports(parsed["datasets"])
+
+    response_datasets = []
+    for dataset in parsed["datasets"]:
+        metric_responses = [
+            MetricResultResponse(
+                metric_id=metric["metric_id"],
+                name=metric["name"],
+                score=metric["score"],
+                weight=metric["weight"],
+                status=metric["status"],
+                details=metric["details"],
+                exports_available=metric["exports_available"],
+            )
+            for metric in dataset["metrics"]
+        ]
+
+        stats = (
+            DatasetStatsResponse(**dataset["stats"])
+            if dataset["stats"] else None
+        )
+
+        response_datasets.append(
+            DatasetEvaluationResponse(
+                dataset_id=dataset["dataset_id"],
+                label=dataset["label"],
+                overall_score=dataset["overall_score"],
+                metrics=metric_responses,
+                stats=stats,
+            )
+        )
+
+    return ResultImportResponse(
+        schema_version=parsed["schema_version"],
+        created_at=parsed["created_at"],
+        tool_version=parsed["tool_version"],
+        dropped_metrics=parsed["dropped_metrics"],
+        datasets=response_datasets,
     )

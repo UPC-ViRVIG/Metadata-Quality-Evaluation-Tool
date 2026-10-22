@@ -60,13 +60,14 @@ def render_main_panel(results):
     datasets = results.get("datasets", [])
 
     first_metric = None
-    if datasets:
+    for dataset in datasets:
         metrics = [
-            m for m in datasets[0].get("metrics", [])
+            m for m in dataset.get("metrics", [])
             if m.get("status") not in ("error", "skipped")
         ]
         if metrics:
             first_metric = metrics[0]["metric_id"]
+            break
 
     initial_ui = {"active_metric": first_metric, "active_class": None}
 

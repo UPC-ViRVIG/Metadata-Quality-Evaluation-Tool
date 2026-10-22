@@ -493,14 +493,21 @@ _last_rendered_source_keys = [[]]
     Output("run-feedback",       "children"),
     Input("store-sources",    "data"),
     Input("metric-selection", "data"),
+    Input("store-imported",   "data"),
 )
-def update_run_button(sources, selected_metrics):
+def update_run_button(sources, selected_metrics, imported):
     """
     Update evaluation button enabled state and label
+
+    Selected saved results count towards the comparison, so a single
+    source measured against one archive is labelled as a comparison.
     """
     selected_sources = [s for s in (sources or []) if s.get("selected")]
     n_sources = len(selected_sources)
     n_metrics = len(selected_metrics or [])
+    n_saved = len([
+        e for e in (imported or {}).values() if e.get("selected")
+    ])
 
     if n_sources == 0 and n_metrics == 0:
         return True, "Run Evaluation", ""
@@ -509,7 +516,7 @@ def update_run_button(sources, selected_metrics):
     if n_metrics == 0:
         return True, "Run Evaluation", "Select at least one metric."
 
-    label = "Run Analysis" if n_sources == 1 else "Run Comparison"
+    label = "Run Analysis" if n_sources + n_saved == 1 else "Run Comparison"
     return False, label, ""
 
 @callback(

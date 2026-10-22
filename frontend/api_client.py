@@ -219,3 +219,154 @@ def _build_evaluation_payload(sources: list[dict], metric_ids: list[str]) -> dic
         "datasets": datasets,
         "metrics":  [{"metric_id": mid} for mid in metric_ids],
     }
+
+def export_results(datasets: list[dict], sources: list[dict]) -> tuple[str, bytes]:
+    """
+    POST /results/export — builds a results archive from a run.
+
+    The archive is assembled by the backend because the full export rows
+    it carries live in the backend export cache, not in the browser.
+
+    Parameters
+    ----------
+    datasets
+        Dataset results as received from /evaluate.
+    sources
+        store-sources entries, used to attach the source configuration
+        and scope each dataset was evaluated under.
+
+    Returns
+    -------
+    tuple
+        The suggested filename and the raw archive bytes.
+
+    Raises
+    ------
+    APIError
+        If the backend rejects the request or cannot be reached.
+    """
+    payload = _build_export_payload(datasets, sources)
+
+    try:
+        response = requests.post(
+            f"{BACKEND_URL}/results/export",
+            json=payload,
+            timeout=120,
+        )
+    except requests.ConnectionError:
+        raise APIError("Cannot reach the backend.")
+    except requests.Timeout:
+        raise APIError("Export request timed out.")
+
+    if response.status_code != 200:
+        raise APIError(_detail(response, "Could not export results."),
+                       status_code=response.status_code)
+
+    disposition = response.headers.get("Content-Disposition", "")
+    filename = "results.json"
+    if "filename=" in disposition:
+        filename = disposition.split("filename=")[1].strip('"; ')
+
+    return filename, response.content
+
+
+def import_results(archive_bytes: bytes) -> dict:
+    """
+    POST /results/import — reads a results archive back.
+
+    The file is forwarded as-is so the archive is only ever parsed and
+    validated in one place, the backend.
+
+    Parameters
+    ----------
+    archive_bytes
+        Raw contents of the uploaded archive file.
+
+    Returns
+    -------
+    dict
+        Structure: {schema_version, created_at, tool_version,
+        dropped_metrics, datasets}. The datasets list has the same shape
+        as an /evaluate response.
+
+    Raises
+    ------
+    APIError
+        If the file is not a readable archive or the backend cannot be
+        reached.
+    """
+    try:
+        response = requests.post(
+            f"{BACKEND_URL}/results/import",
+            data=archive_bytes,
+            headers={"Content-Type": "application/json"},
+            timeout=120,
+        )
+    except requests.ConnectionError:
+        raise APIError("Cannot reach the backend.")
+    except requests.Timeout:
+        raise APIError("Import request timed out.")
+
+    if response.status_code == 422:
+        raise APIError(
+            "The uploaded file is not a valid results archive.",
+            status_code=422,
+        )
+    if response.status_code != 200:
+        raise APIError(_detail(response, "Could not import the archive."),
+                       status_code=response.status_code)
+
+    return response.json()
+
+
+def _detail(response, fallback: str) -> str:
+    """
+    Extracts the backend's error detail from a response.
+
+    The import and export routes phrase their 400 details for the user,
+    so they are surfaced verbatim rather than wrapped.
+
+    Parameters
+    ----------
+    response
+        The requests response object.
+    fallback : str
+        Message to use when no detail could be read.
+
+    Returns
+    -------
+    str
+        The error message to show.
+    """
+    try:
+        detail = response.json().get("detail")
+    except ValueError:
+        detail = response.text
+    return detail if isinstance(detail, str) and detail else fallback
+
+
+def _build_export_payload(datasets: list[dict], sources: list[dict]) -> dict:
+    """
+    Builds the POST /results/export request body.
+
+    Each dataset result is joined with the source it came from so the
+    archive records how the data was loaded and which classes the run
+    was scoped to. A source deleted since the run simply contributes no
+    provenance.
+    """
+    by_id = {source["id"]: source for source in (sources or [])}
+
+    entries = []
+    for dataset in datasets:
+        source = by_id.get(dataset.get("dataset_id"), {})
+        entries.append({
+            "dataset_id":    dataset.get("dataset_id", ""),
+            "label":         dataset.get("label"),
+            "overall_score": dataset.get("overall_score"),
+            "stats":         dataset.get("stats"),
+            "metrics":       dataset.get("metrics", []),
+            "source_config": source.get("source_config"),
+            "scope":         source.get("scope"),
+        })
+
+    return {"datasets": entries}

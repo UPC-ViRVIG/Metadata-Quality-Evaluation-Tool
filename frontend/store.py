@@ -6,8 +6,13 @@ for synchronizing state between independent Dash callbacks.
 Stores are intentionally normalized into distinct domains:
 store-sources
     Dataset/source configuration and selection state.
+store-computed
+    Results of the most recent evaluation run.
+store-imported
+    Results loaded from saved archive files.
 store-results
-    Evaluation results and execution state.
+    Evaluation results and execution state, derived from the computed
+    and imported stores.
 store-ontology
     Cached ontology hierarchy data.
 store-ui
@@ -106,6 +111,50 @@ def make_results(datasets, error_message=None):
         "mode":          "analysis" if len(datasets) == 1 else "comparison",
         "error_message": None,
         "datasets":      datasets,
+    }
+
+
+# ============================================================================
+# store-computed / store-imported
+# ============================================================================
+COMPUTED_DEFAULT = None
+IMPORTED_DEFAULT = {}
+
+
+def make_imported(dataset, filename, created_at, schema_version, selected=False):
+    """
+    Create a normalized saved-result entry for store-imported.
+
+    Parameters
+    ----------
+    dataset : dict
+        One dataset result as returned by the import endpoint, already
+        in evaluation response shape.
+    filename : str
+        Name of the archive file the result was read from.
+    created_at : str | None
+        When the archive was written, if it recorded a timestamp.
+    schema_version : int
+        Archive format version the file declared.
+    selected : bool, default=False
+        Whether the result is included in the current view. Imports
+        start out excluded so that loading a file never changes what is
+        already on screen.
+
+    Returns
+    -------
+    dict
+        Canonical store-imported entry structure.
+
+    """
+    return {
+        "dataset":  dataset,
+        "selected": selected,
+        "archive":  {
+            "filename":       filename,
+            "created_at":     created_at,
+            "schema_version": schema_version,
+        },
     }
 
 
