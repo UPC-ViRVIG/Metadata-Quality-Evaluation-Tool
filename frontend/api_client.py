@@ -370,3 +370,49 @@ def _build_export_payload(datasets: list[dict], sources: list[dict]) -> dict:
         })
 
     return {"datasets": entries}
+
+
+def upload_source_file(filename: str, content: bytes) -> dict:
+    """
+    POST /sources/upload — stores an RDF file on the backend.
+
+    The file is sent to the backend rather than written to disk here, so
+    that the side which reads data files is also the side that owns
+    them, and the two applications need not share a filesystem.
+
+    Parameters
+    ----------
+    filename
+        Name of the file chosen in the browser.
+    content
+        Raw file contents.
+
+    Returns
+    -------
+    dict
+        Structure: {file_path, filename, format, size_bytes}. file_path
+        is what belongs in the source configuration.
+
+    Raises
+    ------
+    APIError
+        If the backend rejects the file or cannot be reached.
+    """
+    try:
+        response = requests.post(
+            f"{BACKEND_URL}/sources/upload",
+            params={"filename": filename},
+            data=content,
+            headers={"Content-Type": "application/octet-stream"},
+            timeout=300,
+        )
+    except requests.ConnectionError:
+        raise APIError("Cannot reach the backend.")
+    except requests.Timeout:
+        raise APIError("Upload timed out.")
+
+    if response.status_code != 200:
+        raise APIError(_detail(response, "Could not upload the file."),
+                       status_code=response.status_code)
+
+    return response.json()
