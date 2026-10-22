@@ -226,8 +226,11 @@ def render_detail_panel(
     if not datasets:
         return html.Div()
 
+    # Any dataset may be the one carrying the metric: the comparison
+    # view offers the union of metrics across datasets, so the active
+    # one need not be present in the first.
     metric = next(
-        (m for m in datasets[0].get("metrics", [])
+        (m for ds in datasets for m in ds.get("metrics", [])
          if m["metric_id"] == active_metric_id),
         None,
     )

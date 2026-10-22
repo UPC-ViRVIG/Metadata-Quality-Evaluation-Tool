@@ -45,6 +45,7 @@ Key capabilities:
 - **Scope filtering** — restrict an evaluation to instances of chosen RDF classes, discovered automatically from the data itself (no external schema required).
 - **Drill-down** — click a metric card to inspect per-class and per-property breakdowns.
 - **CSV export** — download the complete, uncapped violation lists behind any chart.
+- **Save & re-import results** — archive any evaluated dataset to a JSON file and load it back later, including comparing a fresh evaluation against an archived one.
 - **Graph caching** — a parsed graph is reused across repeated evaluations of the same source, so only the metric computation is paid for on the second run.
 
 ---
@@ -107,7 +108,9 @@ State is centralized in `dcc.Store` components — components never talk to each
 | Store | Contents |
 | --- | --- |
 | `store-sources` | Configured sources (id, label, source config, scope, selection flag). |
-| `store-results` | Full nested evaluation results. `null` → guide mode, one dataset → analysis mode, several → comparison mode. |
+| `store-computed` | Datasets returned by the most recent evaluation run, or the error that stopped it. |
+| `store-imported` | Results loaded from saved archive files, keyed by dataset id. Entries start unselected, so an import never alters the current view on its own. |
+| `store-results` | Full nested evaluation results, **derived** from the computed run plus the selected saved results. `null` → guide mode, one dataset → analysis mode, several → comparison mode. Written by exactly one callback, `merge_results`. |
 | `store-ontology` | Client-side cache of extracted class hierarchies, to avoid redundant `/ontology` calls. |
 | `store-ui` | Transient interaction state (active metric, active drill-down class). |
 | `store-metric-dims` / `store-dimensions` | Metric and dimension metadata fetched from the backend at startup. |
@@ -236,7 +239,25 @@ The dashboard is served at `http://127.0.0.1:8050`.
 
 **6. Drill down.** Clicking a metric card opens its detail view — per-class breakdowns, per-property fill rates, violation samples, and language distributions, depending on the metric.
 
-**7. Export.** Where a metric supports it, the detail view offers per-category CSV downloads — currently *Foundational and Format Consistency*. The on-screen samples are capped for readability, but the exported CSV contains the complete, uncapped set of rows.
+**7. Export violations.** Where a metric supports it, the detail view offers per-category CSV downloads — currently *Foundational and Format Consistency* and *Connectivity*. The on-screen samples are capped for readability, but the exported CSV contains the complete, uncapped set of rows.
+
+**8. Save a result.** After a run, a *Save Results* list appears under the Run button with one button per evaluated dataset. **Each export is a single dataset**, never a whole comparison, so saved results stay independent and can be recombined freely later. The archive holds that dataset's scores, all metric detail, the provenance of the run (source configuration, scope, timestamp, metric configuration snapshot), and the complete export rows behind the CSV downloads.
+
+**9. Load a saved result.** *Import Results* in the **Saved Results** section reads an archive back. Each dataset in the file becomes a card with its own checkbox.
+
+**An import arrives unselected and does not change what is on screen** — a loaded file is not an analysis you have run. Tick a saved result to bring it into the view:
+
+- One saved result ticked → analysis mode, with every chart, drill-down and CSV download intact.
+- Two or more ticked → comparison mode between saved results.
+- One ticked alongside a completed run → comparison mode. This is how a collection is compared against its own earlier state. When both carry the same label, the saved one is shown as *label (imported)*.
+
+Archives written by the CLI can be imported the same way, and result files from older CLI runs still load as the legacy format. A CLI run that evaluated several datasets produces one archive containing all of them; importing it yields one independently selectable card per dataset.
+
+**Comparing results that measured different metrics.** A saved result and a new run need not cover the same metrics, and the comparison only ever claims what is actually comparable:
+
+- A metric measured by only some of the compared results shows bars for those results alone, with *Not measured in: …* naming the rest. It is never drawn at 0%, which would read as a score rather than an absence.
+- The **Overall Score** chart is shown only when all compared results cover the same metrics. An overall score is a weighted mean over whichever metrics ran, so otherwise it is replaced by a note saying the scores are not comparable.
+- When the results have **no metric in common** at all, a warning explains that there is nothing to compare directly, and each metric is shown with the one result that measured it.
 
 ---
 
@@ -349,7 +370,8 @@ Notes:
 
 - **Relative output paths resolve against the `cli/` directory**, not the current working directory, so results always land in a predictable place. Absolute paths are used as-is.
 - Omitting the `output` section prints results to stdout; progress and summaries always go to stderr, so `python cli/cli.py -c config.yaml > results.json` yields clean output.
-- `json` produces the full nested result including per-metric details; `csv` produces one row per (dataset, metric) with score and status.
+- `json` produces a **results archive** — the full nested result plus provenance and the complete export rows — which can be imported straight into the dashboard. Because the export rows travel with it, an archive is considerably larger than the old output. `csv` produces one row per (dataset, metric) with score and status, and is a summary only: it cannot be imported back.
+- Result files from earlier CLI versions (a bare JSON list with no envelope) still import as the legacy format, so the samples in `cli/results/` remain usable.
 - A metric ID that is unknown to the configuration or registry is skipped with a warning rather than aborting the run.
 
 Ready-made configs are in [`backend/cli/configs/`](backend/cli/configs/), with sample outputs in [`backend/cli/results/`](backend/cli/results/).
@@ -367,6 +389,8 @@ Interactive documentation is available at `http://127.0.0.1:8000/docs` while the
 | `POST` | `/ontology` | Extract the class hierarchy of a dataset for scope configuration. |
 | `POST` | `/evaluate` | Run the selected metrics over the given datasets. |
 | `GET` | `/export/{dataset_id}/{metric_id}/{category}` | Stream the full export rows for a metric category as CSV. |
+| `POST` | `/results/export` | Serialize evaluation results into a portable results archive. |
+| `POST` | `/results/import` | Read a results archive back and restore its export rows. |
 
 ### `POST /evaluate`
 
@@ -432,6 +456,61 @@ Response (abbreviated):
 }
 ```
 
+### `POST /results/export`
+
+Request body — dataset results as received from `/evaluate`, optionally with the provenance of each run:
+
+```json
+{
+  "datasets": [
+    {
+      "dataset_id": "3f1c…",
+      "label": "Europeana EDM export",
+      "overall_score": 0.68,
+      "stats": { "triple_count": 74210, "entity_count": 5835, "class_count": 15 },
+      "metrics": [ "… as returned by /evaluate …" ],
+      "source_config": { "type": "rdf_file", "file_path": "…", "format": "turtle" },
+      "scope": null
+    }
+  ]
+}
+```
+
+The endpoint accepts any number of datasets, but the dashboard sends exactly one per archive so that saved results stay independent. CLI runs over several datasets write them into a single archive, which the importer then splits.
+
+The response is the archive itself, as indented JSON with a `Content-Disposition` filename. Its shape:
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `schema_version` | int | `1`. A bare top-level list is read as legacy version `0`. |
+| `tool` / `tool_version` | str | Which tool and version wrote the file. |
+| `created_at` | str | UTC ISO 8601, e.g. `2026-09-25T14:03:11Z`. |
+| `created_by` | str | `api` or `cli`. |
+| `metrics_config` | object | Snapshot of the configuration entries for the metrics present — names, dimensions and weights as they were at the time of the run. |
+| `datasets[]` | array | Per dataset: `dataset_id`, `label`, `overall_score`, `stats`, `source_config`, `scope`, `metrics[]`, and `exports`. |
+| `datasets[].exports` | object | `{metric_id: {category: [rows]}}` — the complete uncapped export rows read out of the export cache. |
+
+### `POST /results/import`
+
+The body is an archive, sent as-is; a legacy bare list is also accepted. The response carries the archive's provenance plus its datasets in exactly the `/evaluate` response shape, so no separate rendering path is needed:
+
+```json
+{
+  "schema_version": 1,
+  "created_at": "2026-09-25T14:03:11Z",
+  "tool_version": "1.0.0",
+  "dropped_metrics": [],
+  "datasets": [ "… same shape as POST /evaluate …" ]
+}
+```
+
+Two things happen on import:
+
+- **Dataset IDs are re-keyed** to `imported_<archive digest>_<n>`, so an archive can never collide with a live run's UUID in a merged comparison. The digest is derived from the file contents, so re-importing the same archive is idempotent.
+- **Export rows are written back into the export cache** under those new IDs, which is what lets `GET /export/…` serve an imported dataset exactly as it serves a freshly evaluated one.
+
+Metrics that failed or carry no numeric score are kept in the archive file but omitted from the response and named in `dropped_metrics`, because the dashboard treats a failed metric as a whole-view error.
+
 ### Status codes
 
 | Code | Meaning |
@@ -440,6 +519,7 @@ Response (abbreviated):
 | `422` | A dataset could not be loaded, or evaluation failed. |
 | `500` | A configured metric ID has no registered plugin — a configuration inconsistency, not user error. |
 | `404` | *(export only)* No export data exists for the requested combination; run `/evaluate` first. |
+| `400` | *(results import/export only)* The payload is not a readable archive, carries no datasets, or declares a schema version this tool does not support. |
 
 ### Export categories
 
@@ -452,7 +532,7 @@ Response (abbreviated):
 | `language_tag_format` | Language tags that are not valid BCP 47. |
 | `structural_issues` | Blank nodes and empty literals. |
 
-Export rows are cached in memory during `/evaluate` and invalidated together with the corresponding graph cache entry, so exports never go stale.
+Export rows are cached in memory during `/evaluate`, keyed by `(dataset_id, metric_id, category)`, and re-running an evaluation overwrites the entries for that dataset. The cache is process-local: it is emptied when the backend restarts, which is what a results archive protects against — importing one writes its rows back into the cache.
 
 ---
 
@@ -475,9 +555,10 @@ backend/
         sources/                  RDFFileSource, SPARQLEndpointSource
     engine/
         evaluation_engine.py      pipeline orchestration
-    export/                  Metric-specific CSV export infrastructure
+    export/                  Export and archive serialisation infrastructure
         export_cache.py           thread-safe in-memory export cache
         csv_writer.py             row serialisation
+        result_archive.py         results archive format, shared by API and CLI
     graph/
         graph_cache.py            thread-safe singleton graph cache
         ontology_extractor.py     class/property hierarchy extraction
@@ -499,7 +580,9 @@ frontend/
     store.py                 Shared application state (dcc.Store) definitions
     callbacks/               Reactive callback modules
         sources.py                source configuration and ontology loading
-        evaluation.py             evaluation triggering and normalisation
+        evaluation.py             evaluation triggering, and the merge that
+                                  derives store-results
+        results_io.py             saved result import, export, and selection
         main_panel.py             view-mode dispatch
         ui.py                     drill-down, export, active-card styling
     layout/
@@ -582,7 +665,7 @@ No engine or API change is required.
 
 ## Testing
 
-Data source unit tests live in `backend/tests/`, with RDF fixtures under `backend/tests/resources/` and per-metric evaluation fixtures under `backend/tests/evaluation/`.
+Unit tests live in `backend/tests/`, with RDF fixtures under `backend/tests/resources/` and per-metric evaluation fixtures under `backend/tests/evaluation/`. Two suites exist: the data source layer, and the results archive round trip (`test_result_archive.py`), which also checks every result file shipped in `backend/cli/results/` still imports.
 
 From `backend/`, with the virtual environment active:
 
@@ -613,6 +696,12 @@ The metric validates against a detected schema profile. On data with no matching
 
 **Results look stale after changing a source file on disk.**
 The graph cache is keyed by source configuration, not by file modification time. Restart the backend to clear it.
+
+**A CSV download from an imported result does nothing.**
+The export cache is process-local, so a backend restart empties it. Import the archive again — that writes its export rows back into the cache.
+
+**Importing a large archive is slow.**
+Dash sends an uploaded file through a callback as a base64 data URL, which adds about a third to its size. Archives carrying the full export rows for a large collection can be several megabytes.
 
 ---
 

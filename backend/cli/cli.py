@@ -99,7 +99,7 @@ metrics:
 # ── Output ────────────────────────────────────────────────────────────────
 # Where to write results. Omit this section to print to stdout.
 # Formats:
-#   json — full nested result including per-metric details
+#   json — re-importable results archive, including full export rows
 #   csv  — one row per (dataset, metric) with score and status
 
 output:
@@ -234,21 +234,21 @@ def _build_source_config(raw: dict) -> dict:
         raise ValueError(f"Unsupported source type: '{source_type}'")
 
 
-def _to_json(results: list) -> str:
+def _to_json(payload: dict | list) -> str:
     """
-    Serialise evaluation results to a formatted JSON string.
+    Serialise an evaluation payload to a formatted JSON string.
 
     Parameters
     ----------
-    results : list of dict
-        Evaluation results as plain dicts, one entry per dataset.
+    payload : dict or list
+        A results archive, or evaluation results as plain dicts.
 
     Returns
     -------
     str
         Pretty-printed JSON string with 2-space indentation.
     """
-    return json.dumps(results, indent=2, ensure_ascii=False)
+    return json.dumps(payload, indent=2, ensure_ascii=False)
 
 
 def _to_csv(results: list) -> str:
@@ -460,6 +460,12 @@ def run(config: dict) -> list:
         metrics (list of dict): Per-metric results, each containing
         metric_id, name, score, weight, status, and details.
 
+        source_config (dict): The resolved source configuration the
+        dataset was loaded from, carried through as provenance.
+
+        scope (list of str or None): The class URIs the run was
+        restricted to, carried through as provenance.
+
     Raises
     ------
     SystemExit
@@ -506,13 +512,18 @@ def run(config: dict) -> list:
 
     results_domain = engine.evaluate(datasets=datasets, metrics=metrics)
 
+    provenance = {ds["dataset_id"]: ds for ds in datasets}
+
     results = []
     for dr in results_domain:
+        source = provenance.get(dr.dataset_id, {})
         results.append({
             "dataset_id":    dr.dataset_id,
             "label":         dr.label,
             "overall_score": dr.overall_score,
             "stats":         dr.stats,
+            "source_config": source.get("source_config"),
+            "scope":         source.get("scope"),
             "metrics": [
                 {
                     "metric_id":       m.metric_id,
@@ -649,7 +660,9 @@ def write_output(results: list, output_config: dict | None) -> None:
         path (str, optional): Destination file path. If omitted,
         results are printed to stdout.
 
-        format (str, optional): json (default) or csv.
+        format (str, optional): json (default) or csv. json writes a
+        results archive that can be imported back into the dashboard,
+        including the full export rows; csv writes a flat summary.
 
     Returns
     -------
@@ -664,7 +677,12 @@ def write_output(results: list, output_config: dict | None) -> None:
     fmt  = (output_config or {}).get("format", "json").lower()
     path = (output_config or {}).get("path")
 
-    content = _to_csv(results) if fmt == "csv" else _to_json(results)
+    from export.result_archive import build_archive
+
+    content = (
+        _to_csv(results) if fmt == "csv"
+        else _to_json(build_archive(results, created_by="cli"))
+    )
 
     if path:
         out_path = (

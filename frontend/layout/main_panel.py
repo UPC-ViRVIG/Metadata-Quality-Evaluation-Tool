@@ -163,6 +163,16 @@ def build_comparison(
     labels         = [ds.get("label", f"Dataset {i+1}") for i, ds in enumerate(datasets)]
     overall_scores = [ds.get("overall_score", 0.0) for ds in datasets]
 
+    # An overall score is a weighted mean over whichever metrics ran, so
+    # two runs covering different metrics are not on the same scale.
+    metric_id_sets = [
+        {m["metric_id"] for m in ds.get("metrics", [])
+         if m.get("status") not in ("error", "skipped")}
+        for ds in datasets
+    ]
+    metric_sets_match = all(s == metric_id_sets[0] for s in metric_id_sets)
+    shared_metric_ids = set.intersection(*metric_id_sets) if metric_id_sets else set()
+
     seen: dict[str, int] = {}
     unique_labels = []
     for lbl in labels:
@@ -201,16 +211,30 @@ def build_comparison(
         stat_rows.append(html.Tr(cells))
 
     stats_table = dbc.Table(
-        [html.Thead(html.Tr([html.Th("")] + [html.Th(l) for l in labels])),
+        [html.Thead(html.Tr([html.Th("")] + [html.Th(l) for l in unique_labels])),
          html.Tbody(stat_rows)],
         bordered=True, size="sm", className="mb-0",
     )
 
     is_overview_active = active_metric_id == "__overview__"
+    overall_content = (
+        [dcc.Graph(figure=overall_fig, config={"displayModeBar": False})]
+        if metric_sets_match else
+        [
+            html.P("Overall Score", className="text-muted mb-2",
+                   style={"fontSize": "0.75rem", "textTransform": "uppercase",
+                          "letterSpacing": "0.06em"}),
+            html.P(
+                "Not comparable — these results do not cover the same "
+                "metrics, so each overall score averages a different set.",
+                className="text-muted mb-0",
+                style={"fontSize": "0.8rem"},
+            ),
+        ]
+    )
     overall_col = dbc.Col(
         html.Div(
-            card([dcc.Graph(figure=overall_fig, config={"displayModeBar": False})],
-                 className="h-100"),
+            card(overall_content, className="h-100"),
             id={"type": "metric-card", "index": "__overview__"},
             n_clicks=0,
             style={
@@ -231,11 +255,27 @@ def build_comparison(
                     and m["metric_id"] not in all_metrics_by_id):
                 all_metrics_by_id[m["metric_id"]] = m
 
+    no_overlap_warning = html.Span() if shared_metric_ids else dbc.Alert(
+        [
+            html.Strong("These results measured different metrics. "),
+            html.Small(
+                "They have no metric in common, so there is nothing to "
+                "compare directly. Each metric below was measured in only "
+                "one of them. To compare them, re-run the evaluation with "
+                "the metrics the saved result covers.",
+                className="text-muted",
+            ),
+        ],
+        color="warning",
+        style={"fontSize": "0.85rem"},
+    )
+
     return html.Div([
-        html.H6(f"Comparison — {' vs '.join(labels)}",
+        html.H6(f"Comparison — {' vs '.join(unique_labels)}",
                 className="text-muted mb-3 fw-semibold",
                 style={"fontSize": "0.8rem", "textTransform": "uppercase",
                        "letterSpacing": "0.08em"}),
+        no_overlap_warning,
         dbc.Row([
             overall_col,
             dbc.Col(

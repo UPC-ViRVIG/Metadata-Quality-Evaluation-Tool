@@ -232,3 +232,28 @@ class DimensionConfigResponse(BaseModel):
     name:        str
     description: str
     tooltip:     str
+
+class ResultImportResponse(BaseModel):
+    """
+    API response for POST /results/import.
+
+    The datasets field reuses DatasetEvaluationResponse so an imported
+    archive is shape-identical to an evaluation response and needs no
+    separate rendering path in the frontend.
+
+    Attributes
+    ----------
+    schema_version : int
+    created_at : str | None
+    tool_version : str | None
+    dropped_metrics : list of str
+        Metrics recorded in the archive but not renderable, named as
+        dataset label / metric id (status).
+    datasets : list of DatasetEvaluationResponse
+    """
+
+    schema_version:  int
+    created_at:      Optional[str] = None
+    tool_version:    Optional[str] = None
+    dropped_metrics: List[str] = []
+    datasets:        List[DatasetEvaluationResponse]

@@ -20,8 +20,13 @@ Shared State Stores
 -------------------
 store-sources
     User-configured dataset sources.
+store-computed
+    Results of the most recent evaluation run.
+store-imported
+    Results loaded from saved archive files, keyed by dataset id.
 store-results
-    Evaluation results returned from the backend.
+    Evaluation results shown in the main panel, derived from the
+    computed and imported stores.
 store-ontology
     Cached ontology/class hierarchy data.
 store-ui
@@ -52,6 +57,8 @@ app.layout = dbc.Container(
 
         # ── Stores ────────────────────────────────────────────────────────
         dcc.Store(id="store-sources", data=[]),
+        dcc.Store(id="store-computed", data=None),
+        dcc.Store(id="store-imported", data={}),
         dcc.Store(id="store-results",  data=None),
         dcc.Store(id="store-ontology", data={}),
         dcc.Store(id="store-ui", data={
@@ -87,6 +94,7 @@ app.layout = dbc.Container(
 
 import callbacks.sources      # noqa: F401, E402
 import callbacks.evaluation   # noqa: F401, E402
+import callbacks.results_io   # noqa: F401, E402
 import callbacks.main_panel   # noqa: F401, E402
 import callbacks.ui            # noqa: F401, E402
 

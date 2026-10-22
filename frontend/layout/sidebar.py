@@ -1,6 +1,6 @@
 """
 Sidebar layout: data source cards, the ontology scope-selection tree,
-and the metric selection accordion.
+the metric selection accordion, and saved result archives.
 """
 
 from dash import html, dcc
@@ -18,6 +18,8 @@ def build_sidebar() -> html.Div:
     """
     return html.Div([
         _sources_section(),
+        html.Hr(className="my-3"),
+        _saved_results_section(),
         html.Hr(className="my-3"),
         _metrics_section(),
         html.Hr(className="my-3"),
@@ -48,6 +50,42 @@ def _sources_section() -> html.Div:
             outline=True,
             size="sm",
             className="mt-2 w-100",
+        ),
+    ])
+
+
+def _saved_results_section() -> html.Div:
+    """
+    Build the saved results management section.
+
+    Returns
+    -------
+    html.Div
+        Saved result import and selection section.
+    """
+    return html.Div([
+        html.P(
+            "Saved Results",
+            className="text-muted text-uppercase fw-semibold mb-2",
+            style={"fontSize": "0.75rem", "letterSpacing": "0.08em"}
+        ),
+        html.Div(id="saved-results-list"),
+        dcc.Upload(
+            id="upload-saved-results",
+            accept=".json",
+            multiple=False,
+            children=dbc.Button(
+                "Import Results",
+                color="primary",
+                outline=True,
+                size="sm",
+                className="mt-2 w-100",
+            ),
+        ),
+        html.Div(
+            id="saved-results-feedback",
+            className="text-muted mt-2",
+            style={"fontSize": "0.8rem"},
         ),
     ])
 
@@ -84,6 +122,7 @@ def _run_section() -> html.Div:
     """
     from dash import dcc
     return html.Div([
+        dcc.Download(id="download-results-archive"),
         dcc.Loading(
             id="loading-run",
             type="circle",
@@ -100,6 +139,12 @@ def _run_section() -> html.Div:
         html.Div(
             id="run-feedback",
             className="text-muted",
+            style={"fontSize": "0.8rem"},
+        ),
+        html.Div(id="export-results-list"),
+        html.Div(
+            id="export-feedback",
+            className="text-muted mt-1",
             style={"fontSize": "0.8rem"},
         ),
     ])
@@ -232,6 +277,119 @@ def build_source_item(source: dict) -> html.Div:
     )
 
     return html.Div([card, tree_panel], className="mb-1")
+
+
+def build_export_item(dataset_id: str, label: str) -> dbc.Button:
+    """
+    Build an export button for one evaluated dataset.
+
+    Each dataset is exported on its own, so that a saved result is
+    always a single dataset and can be recombined freely with other
+    results later.
+
+    Parameters
+    ----------
+    dataset_id : str
+        Identifier of the dataset in the most recent run.
+    label : str
+        Human-readable dataset label shown on the button.
+
+    Returns
+    -------
+    dbc.Button
+        Export button for that dataset.
+    """
+    return dbc.Button(
+        [html.Span(label, className="text-truncate"), html.Span("⭱")],
+        id={"type": "btn-export-dataset", "index": dataset_id},
+        color="secondary",
+        outline=True,
+        size="sm",
+        className="w-100 mb-1 d-flex justify-content-between align-items-center",
+        style={"fontSize": "0.75rem"},
+        title=f"Save the results for {label}",
+    )
+
+
+def build_saved_result_item(dataset_id: str, entry: dict) -> html.Div:
+    """
+    Build a single saved result card.
+
+    Parameters
+    ----------
+    dataset_id : str
+        Identifier the result was given when the archive was imported.
+    entry : dict
+        A store-imported entry: the dataset result, its selection flag,
+        and the archive metadata it came from.
+
+    Returns
+    -------
+    html.Div
+        Saved result card.
+
+    Card Controls
+    -------------
+    checkbox
+        Include or exclude the result from the current view.
+    delete button
+        Remove the saved result from the store.
+    """
+    dataset  = entry.get("dataset") or {}
+    archive  = entry.get("archive") or {}
+    selected = entry.get("selected", False)
+    label    = dataset.get("label") or dataset_id
+
+    saved_badge = dbc.Badge(
+        "Saved",
+        color="secondary",
+        className="ms-1",
+        style={"fontSize": "0.65rem"},
+    )
+
+    created_at = archive.get("created_at")
+    subtitle = (created_at or "")[:10] or "date unknown"
+    metric_count = len(dataset.get("metrics") or [])
+
+    card = dbc.Card(
+        dbc.CardBody([
+            dbc.Row([
+                dbc.Col(
+                    dbc.Checkbox(
+                        id={"type": "saved-result-checkbox", "index": dataset_id},
+                        value=selected,
+                        label=html.Span([label, saved_badge]),
+                    ),
+                    width=10,
+                    className="d-flex align-items-center",
+                ),
+
+                dbc.Col(
+                    dbc.Button(
+                        "✕",
+                        id={"type": "btn-delete-saved", "index": dataset_id},
+                        color="link",
+                        size="sm",
+                        className="text-muted p-0",
+                        style={"lineHeight": "1"},
+                        title="Remove saved result",
+                    ),
+                    width=2,
+                    className="d-flex align-items-center justify-content-end",
+                ),
+            ], align="center", className="g-0"),
+
+            html.Small(
+                f"{subtitle} · {metric_count} metric(s)",
+                className="text-muted d-block",
+                style={"fontSize": "0.7rem"},
+            ),
+        ], className="py-2 px-2"),
+        className="mb-1",
+        style={"border": "1px solid #dee2e6", "borderRadius": "4px"},
+    )
+
+    return card
 
 
 def build_scope_tree(classes: list[dict], source_id: str,

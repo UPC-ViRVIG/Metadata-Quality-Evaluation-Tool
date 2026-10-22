@@ -146,33 +146,44 @@ def _analysis_card_body(m: dict) -> list:
 
 def _comparison_card_body(m: dict, datasets: list[dict]) -> list:
     """Build the comparison-mode card body: name, tooltip, and an inline
-    per-dataset bar chart of scores for this metric."""
-    ds_scores = []
-    for ds in datasets:
+    per-dataset bar chart of scores for this metric.
+
+    Only datasets that actually measured the metric get a bar. A dataset
+    that did not run it is named underneath instead of being drawn at
+    zero, which would read as a score of 0% rather than as an absence.
+    Colours stay keyed to each dataset's position, so a dataset keeps the
+    same colour across every card.
+    """
+    measured = []
+    missing  = []
+    for i, ds in enumerate(datasets):
+        label = ds.get("label", f"Dataset {i+1}")
         match = next(
             (x for x in ds.get("metrics", [])
              if x["metric_id"] == m["metric_id"]),
             None,
         )
-        ds_scores.append(match["score"] if match else 0.0)
+        if match is None or match.get("score") is None:
+            missing.append(label)
+        else:
+            measured.append((i, label, match["score"]))
 
-    ds_labels = [ds.get("label", f"Dataset {i+1}") for i, ds in enumerate(datasets)]
     mini_fig = go.Figure()
-    for i, score in enumerate(ds_scores):
+    for position, (color_index, label, score) in enumerate(measured):
         mini_fig.add_bar(
             y=[" "],          # single invisible category — no y-axis label
             x=[score],
             orientation="h",
-            marker_color=COLORS[i % len(COLORS)],
+            marker_color=COLORS[color_index % len(COLORS)],
             showlegend=False,
             # Show dataset name + score on hover, nothing else
-            hovertemplate=f"{ds_labels[i]}: {round(score * 100)}%<extra></extra>",
+            hovertemplate=f"{label}: {round(score * 100)}%<extra></extra>",
             text=[f"{round(score * 100)}%"],
             textposition="outside",
             textfont=dict(size=10),
             cliponaxis=False,
-            width=0.5 / len(ds_scores),
-            offset=(i - len(ds_scores) / 2) * (0.5 / len(ds_scores)),
+            width=0.5 / len(measured),
+            offset=(position - len(measured) / 2) * (0.5 / len(measured)),
         )
     mini_fig.update_layout(
         height=44,
@@ -219,4 +230,9 @@ def _comparison_card_body(m: dict, datasets: list[dict]) -> list:
             config={"displayModeBar": False},
             style={"height": "48px", "marginTop": "4px"},
         ),
+        html.Small(
+            f"Not measured in: {', '.join(missing)}",
+            className="text-muted d-block",
+            style={"fontSize": "0.7rem", "fontStyle": "italic"},
+        ) if missing else html.Span(),
     ]

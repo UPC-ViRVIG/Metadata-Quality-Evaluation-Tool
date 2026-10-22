@@ -22,8 +22,14 @@ def collect_ds_details(
     Returns
     -------
     list of dicts:
-        {"label": str, "color": str, "details": dict, "score": float}
+        {"label": str, "color": str, "details": dict, "score": float,
+         "dataset_id": str, "exports_available": list of str}
     One entry per dataset that contains the requested metric_id.
+
+    dataset_id and exports_available are carried here rather than
+    re-derived by the renderers, because datasets without the metric are
+    skipped: pairing this list back against datasets by position would
+    attach the wrong dataset's identity whenever the metric sets differ.
     """
     result = []
     for i, ds in enumerate(datasets):
@@ -33,10 +39,12 @@ def collect_ds_details(
         )
         if m:
             result.append({
-                "label":   ds.get("label", f"Dataset {i+1}"),
-                "color":   COLORS[i % len(COLORS)],
-                "details": m.get("details", {}),
-                "score":   m["score"],
+                "label":             ds.get("label", f"Dataset {i+1}"),
+                "color":             COLORS[i % len(COLORS)],
+                "details":           m.get("details", {}),
+                "score":             m["score"],
+                "dataset_id":        ds.get("dataset_id", ""),
+                "exports_available": m.get("exports_available") or [],
             })
     return result
 
