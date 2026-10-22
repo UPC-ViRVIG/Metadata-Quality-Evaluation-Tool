@@ -188,8 +188,7 @@ def run_evaluation(sources: list[dict], metric_ids: list[str]) -> list[dict]:
             detail = response.json().get("detail", "Unknown error.")
         except ValueError:
             detail = response.text or "Unknown error."
-        raise APIError(f"Evaluation failed: {detail}",
-                       status_code=response.status_code)
+        raise APIError(detail, status_code=response.status_code)
 
     return response.json()["datasets"]
 

@@ -221,7 +221,10 @@ def evaluate(request: EvaluationRequest):
     except Exception as exc:
         raise HTTPException(
             status_code=422,
-            detail=f"Evaluation failed: {exc}",
+            # The detail carries the cause only. The status already says
+            # the evaluation failed, and every reader of this message
+            # labels it again, which is how it came to be prefixed twice.
+            detail=str(exc) or f"{type(exc).__name__} during evaluation.",
         ) from exc
 
     response_datasets = []
