@@ -688,6 +688,9 @@ PyYAML is required by the CLI. Install it into the backend environment: `pip ins
 **A SPARQL endpoint returns 502 or 422.**
 Most often the query spans multiple lines inside a JSON body. Collapse it to a single line. If the query still fails, it may be too large or slow for the public endpoint — add or lower a `LIMIT`.
 
+**A SPARQL query fails and the message mentions rate limiting.**
+Public endpoints throttle aggressively — Wikidata has answered `429 Aggressively rate-limiting to 1 req / min` during service outages. Wait and retry; the graph cache means a successful load is not repeated. Errors from an endpoint are reported with the status code and the endpoint's own explanation, so the message distinguishes throttling, an unreachable host and a genuinely malformed query. Previously all three produced the same `Failed to query SPARQL endpoint: <url>`, because RDFLib collapses every transport failure into one ValueError about the query and the real cause was only visible in the server traceback.
+
 **`DataSourceLoadError: SPARQL query could not return a CONSTRUCT graph.`**
 The query is a `SELECT`. Rewrite it as a `CONSTRUCT` so the results can be materialized into a graph.
 
