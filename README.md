@@ -226,6 +226,8 @@ The dashboard is served at `http://127.0.0.1:8050`.
 
 **1. Add a data source.** Use *Add source* in the sidebar and choose either a local RDF file or a SPARQL endpoint. Give it a label — this is what appears in the charts and legends.
 
+For a local file you can drag and drop it onto the modal, or select it with a file picker, instead of typing a path. The file is uploaded to the backend, which stores it and fills in the path and the serialisation format for you. The format is guessed from the file name, so check the dropdown if the extension is unusual. Typing a path that already exists on the server still works and is the better option for large files.
+
 **2. (Optional) Narrow the scope.** Expand a source card to browse the class hierarchy extracted from the data itself. Selecting one or more classes restricts the evaluation to triples whose subject is an instance of those classes. Leaving the selection empty evaluates the whole graph. The hierarchy is fetched lazily on first expand and cached client-side.
 
 **3. Select metrics.** Metrics are grouped by quality dimension in the accordion. Each carries a tooltip explaining what it measures.
@@ -276,6 +278,7 @@ Archives written by the CLI can be imported the same way, and result files from 
 - `format` is optional — RDFLib attempts auto-detection from the file extension when it is omitted.
 - Supported formats include `turtle`, `xml`, `n3`, `nt`, and `json-ld`.
 - Relative paths resolve against the process working directory, i.e. `backend/` when the server or the CLI is started from there.
+- A file uploaded through the dashboard becomes an ordinary `rdf_file` source: the backend stores it under `backend/uploads/` (gitignored) and returns the path to put here. Stored names carry a short random prefix, so re-uploading the same file is never served from the previous file's cache entry. Nothing removes old uploads — clear the directory when it grows.
 
 ### SPARQL endpoint
 
@@ -391,6 +394,7 @@ Interactive documentation is available at `http://127.0.0.1:8000/docs` while the
 | `GET` | `/export/{dataset_id}/{metric_id}/{category}` | Stream the full export rows for a metric category as CSV. |
 | `POST` | `/results/export` | Serialize evaluation results into a portable results archive. |
 | `POST` | `/results/import` | Read a results archive back and restore its export rows. |
+| `POST` | `/sources/upload` | Store an RDF file uploaded from the dashboard as a local source. |
 
 ### `POST /evaluate`
 
@@ -511,6 +515,28 @@ Two things happen on import:
 
 Metrics that failed or carry no numeric score are kept in the archive file but omitted from the response and named in `dropped_metrics`, because the dashboard treats a failed metric as a whole-view error.
 
+### `POST /sources/upload`
+
+The file is sent as the raw request body, with its name as the `filename` query parameter — no multipart form, and therefore no extra backend dependency:
+
+```
+POST /sources/upload?filename=my_dataset.ttl
+Content-Type: application/octet-stream
+
+<raw file bytes>
+```
+
+```json
+{
+  "file_path": "…/backend/uploads/2f38ab23_my_dataset.ttl",
+  "filename": "my_dataset.ttl",
+  "format": "turtle",
+  "size_bytes": 3419
+}
+```
+
+`file_path` is what belongs in an `rdf_file` source configuration, and `format` is guessed from the extension (`null` when it is not recognised). Only the final component of the supplied name is used and unsafe characters are replaced, so a client cannot decide where the file is written. The limit is 200 MB.
+
 ### Status codes
 
 | Code | Meaning |
@@ -520,6 +546,8 @@ Metrics that failed or carry no numeric score are kept in the archive file but o
 | `500` | A configured metric ID has no registered plugin — a configuration inconsistency, not user error. |
 | `404` | *(export only)* No export data exists for the requested combination; run `/evaluate` first. |
 | `400` | *(results import/export only)* The payload is not a readable archive, carries no datasets, or declares a schema version this tool does not support. |
+| `400` | *(upload only)* The file is empty or its name has nothing usable in it. |
+| `413` | *(upload only)* The file exceeds the 200 MB upload limit. |
 
 ### Export categories
 
@@ -553,6 +581,7 @@ backend/
         datasource_interface.py   the load() strategy interface
         datasource_factory.py     source-type dispatch
         sources/                  RDFFileSource, SPARQLEndpointSource
+        upload_store.py           storage for files uploaded from the dashboard
     engine/
         evaluation_engine.py      pipeline orchestration
     export/                  Export and archive serialisation infrastructure
@@ -665,7 +694,7 @@ No engine or API change is required.
 
 ## Testing
 
-Unit tests live in `backend/tests/`, with RDF fixtures under `backend/tests/resources/` and per-metric evaluation fixtures under `backend/tests/evaluation/`. Two suites exist: the data source layer, and the results archive round trip (`test_result_archive.py`), which also checks every result file shipped in `backend/cli/results/` still imports.
+Unit tests live in `backend/tests/`, with RDF fixtures under `backend/tests/resources/` and per-metric evaluation fixtures under `backend/tests/evaluation/`. Three suites exist: the data source layer; the results archive round trip (`test_result_archive.py`), which also checks every result file shipped in `backend/cli/results/` still imports; and the upload store (`test_upload_store.py`), which covers format guessing and the handling of client-supplied file names.
 
 From `backend/`, with the virtual environment active:
 

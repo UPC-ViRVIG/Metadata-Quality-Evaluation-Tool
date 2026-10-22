@@ -507,7 +507,37 @@ def build_add_source_modal() -> dbc.Modal:
             html.Div(
                 id="source-fields-rdf",
                 children=[
-                    dbc.Label("File path", html_for="input-file-path"),
+                    dbc.Label("File", html_for="upload-source-file"),
+                    dcc.Upload(
+                        id="upload-source-file",
+                        accept=".ttl,.rdf,.nt,.n3,.owl,.xml,.jsonld",
+                        multiple=False,
+                        children=html.Div([
+                            "Drag and drop, or ",
+                            html.A("select a file",
+                                   style={"textDecoration": "underline"}),
+                        ]),
+                        style={
+                            "borderWidth":     "1px",
+                            "borderStyle":     "dashed",
+                            "borderColor":     "#adb5bd",
+                            "borderRadius":    "6px",
+                            "textAlign":       "center",
+                            "padding":         "18px",
+                            "cursor":          "pointer",
+                            "backgroundColor": "#f8f9fa",
+                            "fontSize":        "0.8rem",
+                        },
+                    ),
+                    html.Div(
+                        id="upload-source-feedback",
+                        className="text-muted mt-1",
+                        style={"fontSize": "0.78rem"},
+                    ),
+                    dbc.Label("or enter a path on the server",
+                              html_for="input-file-path",
+                              className="text-muted mt-2",
+                              style={"fontSize": "0.78rem"}),
                     dbc.Input(
                         id="input-file-path",
                         placeholder="e.g. data/my_dataset.ttl",

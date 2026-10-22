@@ -15,6 +15,7 @@ store-dimensions
     Dimension metadata cache.
 """
 
+import base64
 import uuid
 
 from dash import Input, Output, State, ALL, callback, ctx, no_update
@@ -150,6 +151,89 @@ def populate_metrics(_):
                                "tooltip":     d["tooltip"]}
                   for d in dimensions}
     return accordion, [], dims_map, dims_store
+
+
+@callback(
+    Output("input-file-path",        "value",    allow_duplicate=True),
+    Output("input-file-format",      "value",    allow_duplicate=True),
+    Output("upload-source-feedback", "children"),
+    Output("upload-source-file",     "contents", allow_duplicate=True),
+    Input("upload-source-file",      "contents"),
+    State("upload-source-file",      "filename"),
+    prevent_initial_call=True,
+)
+def upload_source_file_callback(contents, filename):
+    """
+    Send a dropped RDF file to the backend and point the source at it.
+
+    The backend stores the file and reports back where it put it, which
+    is what fills the path field, so an uploaded file becomes an
+    ordinary rdf_file source with no special handling downstream. The
+    format is set from the backend's guess, which also saves the user
+    from picking the wrong serialisation by hand.
+
+    Outputs
+    -------
+    input-file-path.value
+        Path the backend stored the file at.
+    input-file-format.value
+        Serialisation guessed from the file extension.
+    upload-source-feedback.children
+        What was uploaded, or why it was refused.
+    upload-source-file.contents
+        Cleared so that re-selecting the same file triggers again.
+
+    Parameters
+    ----------
+    contents : str | None
+        Base64 data URL delivered by the upload component.
+    filename : str | None
+        Name of the file chosen in the browser.
+
+    Returns
+    -------
+    tuple
+        Structure:
+
+            (
+                file_path,
+                file_format,
+                feedback_message,
+                upload_contents
+            )
+
+    """
+    if not contents:
+        return no_update, no_update, no_update, None
+
+    try:
+        payload = base64.b64decode(contents.split(",", 1)[-1])
+    except (ValueError, TypeError):
+        return no_update, no_update, "Could not read the selected file.", None
+
+    from api_client import upload_source_file, APIError
+
+    try:
+        stored = upload_source_file(filename or "upload.ttl", payload)
+    except APIError as exc:
+        return no_update, no_update, exc.message, None
+
+    size_kb = max(1, round(stored["size_bytes"] / 1024))
+    message = f"Uploaded {stored['filename']} ({size_kb:,} KB)."
+    file_format = stored.get("format")
+    if file_format:
+        # Naming the format makes a wrong guess visible, since it comes
+        # from the file extension rather than from the contents.
+        message += f" Format set to {file_format}."
+    else:
+        message += " Could not tell the format from the name — please pick one."
+
+    return (
+        stored["file_path"],
+        file_format or no_update,
+        message,
+        None,
+    )
 
 
 @callback(
