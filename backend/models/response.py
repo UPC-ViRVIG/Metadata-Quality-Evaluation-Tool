@@ -257,3 +257,27 @@ class ResultImportResponse(BaseModel):
     tool_version:    Optional[str] = None
     dropped_metrics: List[str] = []
     datasets:        List[DatasetEvaluationResponse]
+
+
+class FileUploadResponse(BaseModel):
+    """
+    API response for POST /sources/upload.
+
+    Attributes
+    ----------
+    file_path : str
+        Where the backend stored the file. Belongs in the file_path of
+        an rdf_file source configuration.
+    filename : str
+        The stored name, after unsafe characters were replaced.
+    format : str | None
+        Serialisation guessed from the extension, or None when the
+        extension is not recognised.
+    size_bytes : int
+        Size of the stored file.
+    """
+
+    file_path:  str
+    filename:   str
+    format:     Optional[str] = None
+    size_bytes: int
