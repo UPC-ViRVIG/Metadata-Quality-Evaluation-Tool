@@ -139,6 +139,7 @@ def populate_metrics(_):
     accordion = dbc.Accordion(
         items,
         start_collapsed=False,
+        always_open=True,
         flush=True,
         className="mb-1",
         style={"fontSize": "0.875rem"},
@@ -154,16 +155,25 @@ def populate_metrics(_):
 @callback(
     Output("metric-selection", "data", allow_duplicate=True),
     Input({"type": "dim-checklist", "index": ALL}, "value"),
+    State({"type": "dim-checklist", "index": ALL}, "options"),
     prevent_initial_call=True,
 )
-def sync_metric_selection(checklist_values):
+def sync_metric_selection(checklist_values, checklist_options):
     """
     Flatten all per-dimension checklist selections into one list.
-    
+
+    A checklist reports its value in the order the boxes were ticked, so
+    the selection is re-sorted to follow each checklist's own options.
+    Those come from the metric configuration, which is also what orders
+    the sidebar, so result cards end up in the same order as the metrics
+    the user sees rather than in the order they happened to click.
+
     Parameters
     ----------
     checklist_values : list[list[str]]
         Per-dimension selected metric identifiers.
+    checklist_options : list[list[dict]]
+        Per-dimension checklist options, in configuration order.
 
     Returns
     -------
@@ -171,8 +181,12 @@ def sync_metric_selection(checklist_values):
         Flattened list of selected metric identifiers.
     """
     flat = []
-    for vals in (checklist_values or []):
-        flat.extend(vals or [])
+    for vals, options in zip(checklist_values or [], checklist_options or []):
+        order = [o["value"] for o in (options or [])]
+        flat.extend(sorted(
+            vals or [],
+            key=lambda mid: order.index(mid) if mid in order else len(order),
+        ))
     return flat
 
 @callback(
