@@ -118,6 +118,8 @@ class ClassNodeResponse(BaseModel):
     uri : str
     label : str
     instance_count : int
+    aliases : list of str
+        URIs of other classes holding exactly the same resources.
     properties : list of PropertyInfoResponse
     children : list of ClassNodeResponse
     """
@@ -125,6 +127,7 @@ class ClassNodeResponse(BaseModel):
     uri:            str
     label:          str
     instance_count: int
+    aliases:        List[str] = []
     properties:     List[PropertyInfoResponse] = []
     children:       List["ClassNodeResponse"]  = []
 
@@ -148,6 +151,7 @@ class ClassNodeResponse(BaseModel):
             uri=node.uri,
             label=node.label,
             instance_count=node.instance_count,
+            aliases=node.aliases,
             properties=[
                 PropertyInfoResponse(uri=p.uri, label=p.label, count=p.count)
                 for p in node.properties
@@ -197,6 +201,9 @@ class DatasetEvaluationResponse(BaseModel):
     overall_score : float | None
     metrics : list of MetricResultResponse
     stats : DatasetStatsResponse | None
+    class_groups : list of list of str
+        Classes holding exactly the same resources in the evaluated
+        graph, one list per group with the representative first.
     """
 
     dataset_id:    str
@@ -204,6 +211,7 @@ class DatasetEvaluationResponse(BaseModel):
     overall_score: Optional[float]
     metrics:       List[MetricResultResponse]
     stats:         Optional[DatasetStatsResponse] = None
+    class_groups:  List[List[str]] = []
 
 
 class EvaluationResponse(BaseModel):

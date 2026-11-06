@@ -141,6 +141,45 @@ def test_export_rows_survive_cache_clear():
     ) == URI_ROWS
 
 
+def test_class_groups_survive_the_round_trip():
+    """Merged classes are the same after a file is imported again."""
+
+    export_cache.clear()
+    groups = [["http://example.org/A", "http://example.org/B"]]
+    dataset = _dataset()
+    dataset["class_groups"] = groups
+
+    parsed = parse_archive(build_archive([dataset]))
+
+    assert parsed["datasets"][0]["class_groups"] == groups
+
+
+def test_archive_without_class_groups_merges_nothing():
+    """A file written before groups were recorded still imports."""
+
+    parsed = parse_archive([{
+        "dataset_id": "old",
+        "label": "Old run",
+        "overall_score": 0.5,
+        "metrics": [],
+    }])
+
+    assert parsed["datasets"][0]["class_groups"] == []
+
+
+def test_malformed_class_groups_are_ignored():
+    """Only groups still naming at least two classes are kept."""
+
+    parsed = parse_archive([{
+        "dataset_id": "odd",
+        "label": "Odd",
+        "class_groups": ["not a list", ["only-one"], ["a", 3], ["b", "c"]],
+        "metrics": [],
+    }])
+
+    assert parsed["datasets"][0]["class_groups"] == [["b", "c"]]
+
+
 # ------------------------------------------------------------------
 # RE-KEYING
 # ------------------------------------------------------------------

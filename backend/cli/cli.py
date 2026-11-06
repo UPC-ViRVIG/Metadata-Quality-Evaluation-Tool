@@ -345,6 +345,8 @@ def _render_tree(nodes: list, prefix: str = "", is_last_list: list = None) -> No
 
         print(f"{prefix}{connector}{node.label}  ({node.instance_count} instances)")
         print(f"{prefix}{'    ' if is_last else '│   '}  {node.uri}")
+        for alias in node.aliases:
+            print(f"{prefix}{'    ' if is_last else '│   '}  also: {alias}")
 
         if node.properties:
             child_prefix = prefix + ("    " if is_last else "│   ") + "  "
@@ -466,6 +468,9 @@ def run(config: dict) -> list:
         scope (list of str or None): The class URIs the run was
         restricted to, carried through as provenance.
 
+        class_groups (list of list of str): Classes holding exactly the
+        same resources in the evaluated graph, representative first.
+
     Raises
     ------
     SystemExit
@@ -522,6 +527,7 @@ def run(config: dict) -> list:
             "label":         dr.label,
             "overall_score": dr.overall_score,
             "stats":         dr.stats,
+            "class_groups":  dr.class_groups,
             "source_config": source.get("source_config"),
             "scope":         source.get("scope"),
             "metrics": [

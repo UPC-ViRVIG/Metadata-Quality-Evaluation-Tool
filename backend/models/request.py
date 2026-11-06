@@ -128,6 +128,9 @@ class ResultExportDataset(BaseModel):
         Aggregated score, or None when nothing could be computed.
     stats : dict | None
         Graph statistics recorded for the run.
+    class_groups : List[List[str]]
+        Classes holding exactly the same resources in the evaluated
+        graph, one list per group with the representative first.
     metrics : List[dict]
         Per-metric results as returned by /evaluate.
     source_config : SourceConfig | None
@@ -140,6 +143,7 @@ class ResultExportDataset(BaseModel):
     label: Optional[str] = None
     overall_score: Optional[float] = None
     stats: Optional[dict] = None
+    class_groups: List[List[str]] = []
     metrics: List[dict] = []
     source_config: Optional[SourceConfig] = None
     scope: Optional[List[str]] = None

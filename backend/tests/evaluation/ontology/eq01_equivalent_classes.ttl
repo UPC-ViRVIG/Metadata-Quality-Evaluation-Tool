@@ -1,0 +1,25 @@
+# Equivalent classes: Work, Q838948 and Quote hold the same two resources,
+# Monument and Structure hold the same one, and Broad is a true superset.
+# Work is declared as a subclass of Q838948 and has Painting beneath it, so
+# merging has to rewrite the subclass edges as well.
+
+@prefix ex:   <http://example.org/> .
+@prefix wd:   <http://www.wikidata.org/entity/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc:   <http://purl.org/dc/elements/1.1/> .
+
+ex:Work     rdfs:subClassOf wd:Q838948 .
+ex:Painting rdfs:subClassOf ex:Work .
+
+ex:a a ex:Work, wd:Q838948, ex:Quote, ex:Broad ;
+    dc:title "A" .
+
+ex:b a ex:Work, wd:Q838948, ex:Quote, ex:Broad ;
+    dc:title "B" ;
+    dc:creator "Someone" .
+
+ex:c a ex:Broad, ex:Monument, ex:Structure ;
+    dc:title "C" .
+
+ex:d a ex:Painting ;
+    dc:title "D" .
