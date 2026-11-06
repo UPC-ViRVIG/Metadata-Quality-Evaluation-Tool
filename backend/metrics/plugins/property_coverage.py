@@ -39,7 +39,7 @@ EXCLUDED_PROPERTIES = {
 }
 
 
-def get_records_by_class(graph: Graph, scope: list[str] | None = None) -> dict[str, set[str]]:
+def get_records_by_class(graph: Graph) -> dict[str, set[str]]:
     """
     Group named RDF resources by rdf:type.
 
@@ -47,12 +47,14 @@ def get_records_by_class(graph: Graph, scope: list[str] | None = None) -> dict[s
     rdf:type. Resources without a non-blank rdf:type are grouped
     under the synthetic class label "Unknown".
 
+    Scope is not applied here. The engine has already restricted the
+    graph to the selected resources, and those resources keep all their
+    types, so this metric reports the same classes as every other.
+
     Parameters
     ----------
     graph : rdflib.Graph
         RDF graph to analyse.
-    scope : list[str] | None, optional
-        Optional whitelist of class URIs.
 
     Returns
     -------
@@ -69,7 +71,6 @@ def get_records_by_class(graph: Graph, scope: list[str] | None = None) -> dict[s
                     }
             } 
     """
-    scope_set = set(scope) if scope else None
     class_records: dict[str, set[str]] = defaultdict(set)
 
     for subject in graph.subjects():
@@ -80,9 +81,6 @@ def get_records_by_class(graph: Graph, scope: list[str] | None = None) -> dict[s
             str(t) for t in graph.objects(subject, RDF.type)
             if not isinstance(t, BNode)
         ]
-
-        if scope_set:
-            types = [t for t in types if t in scope_set]
 
         if types:
             for t in types:
@@ -286,7 +284,7 @@ class PropertyCoverageMetric(MetricPlugin):
                 f"Dataset '{context.dataset_id}' contains an empty graph."
             )
 
-        class_records = get_records_by_class(graph, context.scope)
+        class_records = get_records_by_class(graph)
 
         if not class_records:
             raise NoTargetRecordsError(

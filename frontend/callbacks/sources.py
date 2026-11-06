@@ -614,6 +614,11 @@ def update_run_button(sources, selected_metrics, imported):
     if n_metrics == 0:
         return True, "Run Evaluation", "Select at least one metric."
 
+    no_classes = [s for s in selected_sources if s.get("scope") == []]
+    if no_classes:
+        return (True, "Run Evaluation",
+                f"Select at least one class for {no_classes[0]['label']}.")
+
     label = "Run Analysis" if n_sources + n_saved == 1 else "Run Comparison"
     return False, label, ""
 
@@ -731,7 +736,8 @@ def render_scope_trees(ontology_store, sources):
     for s in sources:
         sid      = s["id"]
         expanded = s.get("expanded", False)
-        scope    = set(s.get("scope") or [])
+        scope    = s.get("scope")
+        scope    = None if scope is None else set(scope)
 
         if not expanded:
             children_out.append(no_update)
@@ -815,38 +821,52 @@ def _flatten_uris(classes: list) -> set:
 
 @callback(
     Output("store-sources", "data", allow_duplicate=True),
+    Output({"type": "scope-checkbox", "index": ALL}, "value"),
     Input({"type": "scope-checkbox", "index": ALL}, "value"),
+    Input({"type": "btn-scope-all",  "index": ALL}, "n_clicks"),
+    Input({"type": "btn-scope-none", "index": ALL}, "n_clicks"),
     State("store-sources",  "data"),
     State("store-ontology", "data"),
     prevent_initial_call=True,
 )
-def update_scope(checkbox_values, sources, ontology_store):
+def update_scope(checkbox_values, all_clicks, none_clicks, sources,
+                 ontology_store):
     """
     Update ontology class scope selection for a dataset.
+
+    Handles a ticked or unticked class, which cascades to its
+    descendants, and the Select all and Unselect all buttons. The
+    checkboxes are written back from the resulting scope, so ticks shown
+    on screen always match what will be evaluated, including the
+    descendants a cascade changed.
+
+    Scope values in store-sources:
+      - None      → every class, i.e. no filter (the default)
+      - [uri, …]  → only the listed classes
+      - []        → no class selected; the run is blocked
+
+    Selecting every class stores None rather than the full list, because
+    a scope keeps only typed resources: listing all classes would
+    silently drop resources with no rdf:type.
     """
-    if not sources:
-        return no_update
+    no_change = (no_update, [no_update] * len(ctx.outputs_list[1]))
 
-    ontology = ontology_store or {}
-
-    # Find which checkbox changed
     triggered = ctx.triggered_id
-    if not triggered or not isinstance(triggered, dict):
-        return no_update
+    if not sources or not isinstance(triggered, dict):
+        return no_change
 
-    raw       = triggered["index"]   # "{source_id}::{class_uri}"
-    source_id, toggled_uri = raw.split("::", 1)
+    kind  = triggered["type"]
+    value = ctx.triggered[0]["value"]
 
-    # Find the triggering checkbox value
-    toggled_value = next(
-        (item["value"] for item in ctx.inputs_list[0]
-         if item["id"]["index"] == raw),
-        False,
-    )
+    if kind == "scope-checkbox":
+        source_id, toggled_uri = triggered["index"].split("::", 1)
+    else:
+        if not value:
+            return no_change
+        source_id = triggered["index"]
 
-    # Get ontology tree for this source (for cascade)
-    tree_classes = ontology.get(source_id, {}).get("classes", [])
-    descendants  = _all_descendants(toggled_uri, tree_classes)
+    tree_classes = (ontology_store or {}).get(source_id, {}).get("classes", [])
+    all_uris     = _flatten_uris(tree_classes)
 
     updated = []
     for s in sources:
@@ -855,19 +875,23 @@ def update_scope(checkbox_values, sources, ontology_store):
             continue
 
         s = dict(s)
-        current_scope = set(s.get("scope") or [])
-
-        if toggled_value:
-            # Check: add this URI + all descendants
-            current_scope.add(toggled_uri)
-            current_scope |= descendants
+        if kind == "btn-scope-all":
+            s["scope"] = None
+        elif kind == "btn-scope-none":
+            s["scope"] = []
         else:
-            # Uncheck: remove this URI + all descendants
-            current_scope.discard(toggled_uri)
-            current_scope -= descendants
-
-        # None = full graph (no filter applied)
-        s["scope"] = sorted(current_scope) if current_scope else None
+            current  = s.get("scope")
+            selected = all_uris if current is None else set(current) & all_uris
+            affected = {toggled_uri} | _all_descendants(toggled_uri, tree_classes)
+            selected = selected | affected if value else selected - affected
+            s["scope"] = None if all_uris <= selected else sorted(selected)
         updated.append(s)
 
-    return updated
+    scopes = {s["id"]: s.get("scope") for s in updated}
+    checked = []
+    for item in ctx.outputs_list[1]:
+        sid, uri = item["id"]["index"].split("::", 1)
+        scope = scopes.get(sid)
+        checked.append(scope is None or uri in scope)
+
+    return updated, checked

@@ -107,7 +107,7 @@ State is centralized in `dcc.Store` components — components never talk to each
 
 | Store | Contents |
 | --- | --- |
-| `store-sources` | Configured sources (id, label, source config, scope, selection flag). |
+| `store-sources` | Configured sources (id, label, source config, scope, selection flag). A scope of `null` means every class (no filter), a list means only those classes, and an empty list means none selected, which blocks the run. |
 | `store-computed` | Datasets returned by the most recent evaluation run, or the error that stopped it. |
 | `store-imported` | Results loaded from saved archive files, keyed by dataset id. Entries start unselected, so an import never alters the current view on its own. |
 | `store-results` | Full nested evaluation results, **derived** from the computed run plus the selected saved results. `null` → guide mode, one dataset → analysis mode, several → comparison mode. Written by exactly one callback, `merge_results`. |
@@ -228,7 +228,9 @@ The dashboard is served at `http://127.0.0.1:8050`.
 
 For a local file you can drag and drop it onto the modal, or select it with a file picker, instead of typing a path. The file is uploaded to the backend, which stores it and fills in the path and the serialisation format for you. The format is guessed from the file name, so check the dropdown if the extension is unusual. Typing a path that already exists on the server still works and is the better option for large files.
 
-**2. (Optional) Narrow the scope.** Expand a source card to browse the class hierarchy extracted from the data itself. Selecting one or more classes restricts the evaluation to triples whose subject is an instance of those classes. Leaving the selection empty evaluates the whole graph. The hierarchy is fetched lazily on first expand and cached client-side.
+**2. (Optional) Narrow the scope.** Expand a source card to browse the class hierarchy extracted from the data itself. The hierarchy is fetched lazily on first expand and cached client-side. Every class starts selected, which means no filter: the whole graph is evaluated, including resources with no `rdf:type`. Untick classes to restrict the evaluation to triples whose subject is an instance of the classes still ticked; unticking a class also unticks its subclasses. *Select all* and *Unselect all* sit above the tree. A source with no class selected cannot be run until at least one is ticked again.
+
+Scoping selects resources, not types. A selected resource keeps all of its `rdf:type` values, so per-class charts can still show other classes those resources belong to, in every metric alike.
 
 Classes that hold exactly the same resources appear as one entry, with the others named beside it, for example *CreativeWork (=Q386724, =Q838948)*. This reflects the loaded data only: the same classes may differ in another dataset.
 

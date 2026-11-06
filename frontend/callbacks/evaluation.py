@@ -84,6 +84,14 @@ def run_evaluation_callback(n_clicks, sources, selected_metrics):
     if not selected_metrics:
         return no_update, no_update, no_update, "Select at least one metric."
 
+    # An empty scope means every class was unselected. It must not reach
+    # the backend, which would read it as no filter and evaluate the
+    # whole graph.
+    no_classes = [s for s in selected_sources if s.get("scope") == []]
+    if no_classes:
+        return (no_update, no_update, no_update,
+                f"Select at least one class for {no_classes[0]['label']}.")
+
     label = "Run Analysis" if len(selected_sources) == 1 else "Run Comparison"
 
     try:
