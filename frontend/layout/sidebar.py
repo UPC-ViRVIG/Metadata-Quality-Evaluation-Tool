@@ -393,7 +393,7 @@ def build_saved_result_item(dataset_id: str, entry: dict) -> html.Div:
 
 
 def build_scope_tree(classes: list[dict], source_id: str,
-                     selected_uris: set) -> html.Div:
+                     selected_uris: set | None) -> html.Div:
     """
     Renders the ontology class tree as a recursive checkbox list.
 
@@ -402,11 +402,15 @@ def build_scope_tree(classes: list[dict], source_id: str,
       - Some descendants selected → parent checked, amber badge "partial"
       - No descendants selected   → parent unchecked
 
+    A Select all / Unselect all row sits above the tree. With no scope
+    set, every class is shown as selected.
+
     Parameters
     ----------
     classes       : list of class dicts from /ontology response
     source_id     : used to build pattern-matched checkbox ids
-    selected_uris : set of URIs currently in source["scope"]
+    selected_uris : set of URIs currently in source["scope"], or None
+                    when no scope is set and every class is included
     """
     if not classes:
         return html.P("No classes found.", className="text-muted mb-0",
@@ -426,7 +430,7 @@ def build_scope_tree(classes: list[dict], source_id: str,
         label      = cls.get("label", uri.split("#")[-1].split("/")[-1])
         count      = cls.get("instance_count", 0)
         children   = cls.get("children", [])
-        checked    = uri in selected_uris
+        checked    = selected_uris is None or uri in selected_uris
         aliases    = [a.split("#")[-1].split("/")[-1]
                       for a in cls.get("aliases", [])]
         if aliases:
@@ -434,7 +438,7 @@ def build_scope_tree(classes: list[dict], source_id: str,
 
         # Partial selection indicator for parents with children
         partial_badge = None
-        if children:
+        if children and selected_uris is not None:
             desc_uris     = _all_descendant_uris(cls)
             selected_desc = desc_uris & selected_uris
             if selected_desc and selected_desc != desc_uris:
@@ -464,7 +468,23 @@ def build_scope_tree(classes: list[dict], source_id: str,
         child_nodes = [_render_node(c, depth + 1) for c in children]
         return html.Div([row] + child_nodes)
 
-    return html.Div([_render_node(c) for c in classes])
+    link_style = {"fontSize": "0.75rem", "textDecoration": "none"}
+    controls = html.Div([
+        dbc.Button(
+            "Select all",
+            id={"type": "btn-scope-all", "index": source_id},
+            color="link", size="sm", className="p-0 me-2",
+            style=link_style,
+        ),
+        dbc.Button(
+            "Unselect all",
+            id={"type": "btn-scope-none", "index": source_id},
+            color="link", size="sm", className="p-0",
+            style=link_style,
+        ),
+    ], className="mb-1")
+
+    return html.Div([controls] + [_render_node(c) for c in classes])
 
 
 def build_add_source_modal() -> dbc.Modal:
