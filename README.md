@@ -226,6 +226,8 @@ The dashboard is served at `http://127.0.0.1:8050`.
 
 **1. Add a data source.** Use *Add source* in the sidebar and choose either a local RDF file or a SPARQL endpoint. Give it a label — this is what appears in the charts and legends.
 
+For a local file you can drag and drop it onto the modal, or select it with a file picker, instead of typing a path. The file is uploaded to the backend, which stores it and fills in the path and the serialisation format for you. The format is guessed from the file name, so check the dropdown if the extension is unusual. Typing a path that already exists on the server still works and is the better option for large files.
+
 **2. (Optional) Narrow the scope.** Expand a source card to browse the class hierarchy extracted from the data itself. Selecting one or more classes restricts the evaluation to triples whose subject is an instance of those classes. Leaving the selection empty evaluates the whole graph. The hierarchy is fetched lazily on first expand and cached client-side.
 
 Classes that hold exactly the same resources appear as one entry, with the others named beside it, for example *CreativeWork (=Q386724, =Q838948)*. This reflects the loaded data only: the same classes may differ in another dataset.
@@ -282,6 +284,7 @@ Archives written by the CLI can be imported the same way, and result files from 
 - `format` is optional — RDFLib attempts auto-detection from the file extension when it is omitted.
 - Supported formats include `turtle`, `xml`, `n3`, `nt`, and `json-ld`.
 - Relative paths resolve against the process working directory, i.e. `backend/` when the server or the CLI is started from there.
+- A file uploaded through the dashboard becomes an ordinary `rdf_file` source: the backend stores it under `backend/uploads/` (gitignored) and returns the path to put here. Stored names carry a short random prefix, so re-uploading the same file is never served from the previous file's cache entry. Nothing removes old uploads — clear the directory when it grows.
 
 ### SPARQL endpoint
 
@@ -397,6 +400,7 @@ Interactive documentation is available at `http://127.0.0.1:8000/docs` while the
 | `GET` | `/export/{dataset_id}/{metric_id}/{category}` | Stream the full export rows for a metric category as CSV. |
 | `POST` | `/results/export` | Serialize evaluation results into a portable results archive. |
 | `POST` | `/results/import` | Read a results archive back and restore its export rows. |
+| `POST` | `/sources/upload` | Store an RDF file uploaded from the dashboard as a local source. |
 
 ### `POST /evaluate`
 
@@ -518,6 +522,28 @@ Two things happen on import:
 
 Metrics that failed or carry no numeric score are kept in the archive file but omitted from the response and named in `dropped_metrics`, because the dashboard treats a failed metric as a whole-view error.
 
+### `POST /sources/upload`
+
+The file is sent as the raw request body, with its name as the `filename` query parameter — no multipart form, and therefore no extra backend dependency:
+
+```
+POST /sources/upload?filename=my_dataset.ttl
+Content-Type: application/octet-stream
+
+<raw file bytes>
+```
+
+```json
+{
+  "file_path": "…/backend/uploads/2f38ab23_my_dataset.ttl",
+  "filename": "my_dataset.ttl",
+  "format": "turtle",
+  "size_bytes": 3419
+}
+```
+
+`file_path` is what belongs in an `rdf_file` source configuration, and `format` is guessed from the extension (`null` when it is not recognised). Only the final component of the supplied name is used and unsafe characters are replaced, so a client cannot decide where the file is written. The limit is 200 MB.
+
 ### Status codes
 
 | Code | Meaning |
@@ -527,6 +553,8 @@ Metrics that failed or carry no numeric score are kept in the archive file but o
 | `500` | A configured metric ID has no registered plugin — a configuration inconsistency, not user error. |
 | `404` | *(export only)* No export data exists for the requested combination; run `/evaluate` first. |
 | `400` | *(results import/export only)* The payload is not a readable archive, carries no datasets, or declares a schema version this tool does not support. |
+| `400` | *(upload only)* The file is empty or its name has nothing usable in it. |
+| `413` | *(upload only)* The file exceeds the 200 MB upload limit. |
 
 ### Export categories
 
@@ -560,6 +588,7 @@ backend/
         datasource_interface.py   the load() strategy interface
         datasource_factory.py     source-type dispatch
         sources/                  RDFFileSource, SPARQLEndpointSource
+        upload_store.py           storage for files uploaded from the dashboard
     engine/
         evaluation_engine.py      pipeline orchestration
     export/                  Export and archive serialisation infrastructure
@@ -672,7 +701,7 @@ No engine or API change is required.
 
 ## Testing
 
-Unit tests live in `backend/tests/`, with RDF fixtures under `backend/tests/resources/` and per-metric evaluation fixtures under `backend/tests/evaluation/`. Three suites exist: the data source layer; the results archive round trip (`test_result_archive.py`), which also checks every result file shipped in `backend/cli/results/` still imports; and equivalent-class handling in the ontology extractor (`test_ontology_extractor.py`).
+Unit tests live in `backend/tests/`, with RDF fixtures under `backend/tests/resources/` and per-metric evaluation fixtures under `backend/tests/evaluation/`. Three suites exist: the data source layer; the results archive round trip (`test_result_archive.py`), which also checks every result file shipped in `backend/cli/results/` still imports; and the upload store (`test_upload_store.py`), which covers format guessing and the handling of client-supplied file names.
 
 From `backend/`, with the virtual environment active:
 
@@ -694,6 +723,9 @@ PyYAML is required by the CLI. Install it into the backend environment: `pip ins
 
 **A SPARQL endpoint returns 502 or 422.**
 Most often the query spans multiple lines inside a JSON body. Collapse it to a single line. If the query still fails, it may be too large or slow for the public endpoint — add or lower a `LIMIT`.
+
+**A SPARQL query fails and the message mentions rate limiting.**
+Public endpoints throttle aggressively — Wikidata has answered `429 Aggressively rate-limiting to 1 req / min` during service outages. Wait and retry; the graph cache means a successful load is not repeated. Errors from an endpoint are reported with the status code and the endpoint's own explanation, so the message distinguishes throttling, an unreachable host and a genuinely malformed query. Previously all three produced the same `Failed to query SPARQL endpoint: <url>`, because RDFLib collapses every transport failure into one ValueError about the query and the real cause was only visible in the server traceback.
 
 **`DataSourceLoadError: SPARQL query could not return a CONSTRUCT graph.`**
 The query is a `SELECT`. Rewrite it as a `CONSTRUCT` so the results can be materialized into a graph.

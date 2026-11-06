@@ -15,6 +15,7 @@ store-dimensions
     Dimension metadata cache.
 """
 
+import base64
 import uuid
 
 from dash import Input, Output, State, ALL, callback, ctx, no_update
@@ -139,6 +140,7 @@ def populate_metrics(_):
     accordion = dbc.Accordion(
         items,
         start_collapsed=False,
+        always_open=True,
         flush=True,
         className="mb-1",
         style={"fontSize": "0.875rem"},
@@ -152,18 +154,110 @@ def populate_metrics(_):
 
 
 @callback(
-    Output("metric-selection", "data", allow_duplicate=True),
-    Input({"type": "dim-checklist", "index": ALL}, "value"),
+    Output("input-file-path",        "value",    allow_duplicate=True),
+    Output("input-file-format",      "value",    allow_duplicate=True),
+    Output("upload-source-feedback", "children"),
+    Output("upload-source-file",     "contents", allow_duplicate=True),
+    Input("upload-source-file",      "contents"),
+    State("upload-source-file",      "filename"),
     prevent_initial_call=True,
 )
-def sync_metric_selection(checklist_values):
+def upload_source_file_callback(contents, filename):
+    """
+    Send a dropped RDF file to the backend and point the source at it.
+
+    The backend stores the file and reports back where it put it, which
+    is what fills the path field, so an uploaded file becomes an
+    ordinary rdf_file source with no special handling downstream. The
+    format is set from the backend's guess, which also saves the user
+    from picking the wrong serialisation by hand.
+
+    Outputs
+    -------
+    input-file-path.value
+        Path the backend stored the file at.
+    input-file-format.value
+        Serialisation guessed from the file extension.
+    upload-source-feedback.children
+        What was uploaded, or why it was refused.
+    upload-source-file.contents
+        Cleared so that re-selecting the same file triggers again.
+
+    Parameters
+    ----------
+    contents : str | None
+        Base64 data URL delivered by the upload component.
+    filename : str | None
+        Name of the file chosen in the browser.
+
+    Returns
+    -------
+    tuple
+        Structure:
+
+            (
+                file_path,
+                file_format,
+                feedback_message,
+                upload_contents
+            )
+
+    """
+    if not contents:
+        return no_update, no_update, no_update, None
+
+    try:
+        payload = base64.b64decode(contents.split(",", 1)[-1])
+    except (ValueError, TypeError):
+        return no_update, no_update, "Could not read the selected file.", None
+
+    from api_client import upload_source_file, APIError
+
+    try:
+        stored = upload_source_file(filename or "upload.ttl", payload)
+    except APIError as exc:
+        return no_update, no_update, exc.message, None
+
+    size_kb = max(1, round(stored["size_bytes"] / 1024))
+    message = f"Uploaded {stored['filename']} ({size_kb:,} KB)."
+    file_format = stored.get("format")
+    if file_format:
+        # Naming the format makes a wrong guess visible, since it comes
+        # from the file extension rather than from the contents.
+        message += f" Format set to {file_format}."
+    else:
+        message += " Could not tell the format from the name — please pick one."
+
+    return (
+        stored["file_path"],
+        file_format or no_update,
+        message,
+        None,
+    )
+
+
+@callback(
+    Output("metric-selection", "data", allow_duplicate=True),
+    Input({"type": "dim-checklist", "index": ALL}, "value"),
+    State({"type": "dim-checklist", "index": ALL}, "options"),
+    prevent_initial_call=True,
+)
+def sync_metric_selection(checklist_values, checklist_options):
     """
     Flatten all per-dimension checklist selections into one list.
-    
+
+    A checklist reports its value in the order the boxes were ticked, so
+    the selection is re-sorted to follow each checklist's own options.
+    Those come from the metric configuration, which is also what orders
+    the sidebar, so result cards end up in the same order as the metrics
+    the user sees rather than in the order they happened to click.
+
     Parameters
     ----------
     checklist_values : list[list[str]]
         Per-dimension selected metric identifiers.
+    checklist_options : list[list[dict]]
+        Per-dimension checklist options, in configuration order.
 
     Returns
     -------
@@ -171,8 +265,12 @@ def sync_metric_selection(checklist_values):
         Flattened list of selected metric identifiers.
     """
     flat = []
-    for vals in (checklist_values or []):
-        flat.extend(vals or [])
+    for vals, options in zip(checklist_values or [], checklist_options or []):
+        order = [o["value"] for o in (options or [])]
+        flat.extend(sorted(
+            vals or [],
+            key=lambda mid: order.index(mid) if mid in order else len(order),
+        ))
     return flat
 
 @callback(

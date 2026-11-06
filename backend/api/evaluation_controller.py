@@ -24,12 +24,14 @@ POST /results/export
     Serialises evaluation results into a portable results archive.
 POST /results/import
     Reads a results archive back and restores its export rows.
+POST /sources/upload
+    Stores an RDF file uploaded from the dashboard as a local source.
 
 Graph loading, caching, and scope filtering all happen further down the
 stack — the router never touches a graph directly.
 """
 
-from fastapi import APIRouter, Body, HTTPException
+from fastapi import APIRouter, Body, HTTPException, Request
 from fastapi.responses import Response, StreamingResponse
 import io
 import json
@@ -37,6 +39,7 @@ import re
 
 from engine.evaluation_engine import EvaluationEngine
 from datasource.datasource_factory import DataSourceFactory
+from datasource.upload_store import save as save_upload, UploadError
 from graph.graph_cache import get_or_load
 from graph.ontology_extractor import extract
 
@@ -64,6 +67,7 @@ from models.response import (
     OntologyResponse,
     ClassNodeResponse,
     ResultImportResponse,
+    FileUploadResponse,
 )
 
 from config.config_loader import load_metrics_config, load_dimensions_config
@@ -217,7 +221,10 @@ def evaluate(request: EvaluationRequest):
     except Exception as exc:
         raise HTTPException(
             status_code=422,
-            detail=f"Evaluation failed: {exc}",
+            # The detail carries the cause only. The status already says
+            # the evaluation failed, and every reader of this message
+            # labels it again, which is how it came to be prefixed twice.
+            detail=str(exc) or f"{type(exc).__name__} during evaluation.",
         ) from exc
 
     response_datasets = []
@@ -451,3 +458,47 @@ def import_results(payload: dict | list = Body(...)):
         dropped_metrics=parsed["dropped_metrics"],
         datasets=response_datasets,
     )
+
+
+@router.post("/sources/upload", response_model=FileUploadResponse)
+async def upload_source_file(filename: str, request: Request):
+    """
+    Store an RDF file uploaded from the dashboard.
+
+    The file arrives as the raw request body rather than as a multipart
+    form, which keeps the backend free of an additional dependency, and
+    the filename travels as a query parameter. The stored path is
+    returned so the client can use it as an ordinary rdf_file source.
+
+    This is the only asynchronous endpoint in the module: reading the
+    request body is awaited.
+
+    Parameters
+    ----------
+    filename : str
+        Name of the uploaded file, used to derive the stored name and to
+        guess the serialisation format.
+    request : Request
+        Carries the raw file contents as its body.
+
+    Returns
+    -------
+    FileUploadResponse
+        Where the file was stored, its name, guessed format and size.
+
+    Raises
+    ------
+    HTTPException 400
+        If the file is empty or has no usable name.
+    HTTPException 413
+        If the file exceeds the upload size limit.
+    """
+    content = await request.body()
+
+    try:
+        stored = save_upload(filename, content)
+    except UploadError as exc:
+        status = 413 if "larger than" in str(exc) else 400
+        raise HTTPException(status_code=status, detail=str(exc)) from exc
+
+    return FileUploadResponse(**stored)
