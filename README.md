@@ -228,6 +228,8 @@ The dashboard is served at `http://127.0.0.1:8050`.
 
 **2. (Optional) Narrow the scope.** Expand a source card to browse the class hierarchy extracted from the data itself. Selecting one or more classes restricts the evaluation to triples whose subject is an instance of those classes. Leaving the selection empty evaluates the whole graph. The hierarchy is fetched lazily on first expand and cached client-side.
 
+Classes that hold exactly the same resources appear as one entry, with the others named beside it, for example *CreativeWork (=Q386724, =Q838948)*. This reflects the loaded data only: the same classes may differ in another dataset.
+
 **3. Select metrics.** Metrics are grouped by quality dimension in the accordion. Each carries a tooltip explaining what it measures.
 
 **4. Run the evaluation.** At least one source and one metric must be selected.
@@ -238,6 +240,10 @@ The dashboard is served at `http://127.0.0.1:8050`.
 - Two or more → **comparison mode**: the same metrics rendered side by side across datasets.
 
 **6. Drill down.** Clicking a metric card opens its detail view — per-class breakdowns, per-property fill rates, violation samples, and language distributions, depending on the metric.
+
+The same merging applies to the per-class charts, which show one row per group. A notice under the dataset summary lists every merged group, with each class's full URI on hover, and stays visible whichever metric is open. Merging is worked out on the evaluated data, so after scoping to a class, a broader class holding the same remaining resources merges with it too. In a comparison, classes merge only if every compared result groups them together.
+
+Merging affects display only. Metric details keep a row for every class, and scores are unchanged. Property Coverage and Licensing weight their scores by class size, so resources in equivalent classes count once per class.
 
 **7. Export violations.** Where a metric supports it, the detail view offers per-category CSV downloads — currently *Foundational and Format Consistency* and *Connectivity*. The on-screen samples are capped for readability, but the exported CSV contains the complete, uncapped set of rows.
 
@@ -487,7 +493,8 @@ The response is the archive itself, as indented JSON with a `Content-Disposition
 | `created_at` | str | UTC ISO 8601, e.g. `2026-09-25T14:03:11Z`. |
 | `created_by` | str | `api` or `cli`. |
 | `metrics_config` | object | Snapshot of the configuration entries for the metrics present — names, dimensions and weights as they were at the time of the run. |
-| `datasets[]` | array | Per dataset: `dataset_id`, `label`, `overall_score`, `stats`, `source_config`, `scope`, `metrics[]`, and `exports`. |
+| `datasets[]` | array | Per dataset: `dataset_id`, `label`, `overall_score`, `stats`, `class_groups`, `source_config`, `scope`, `metrics[]`, and `exports`. |
+| `datasets[].class_groups` | array | Classes holding exactly the same resources in the evaluated graph, one list per group with the representative first. Empty in files written before this was recorded. |
 | `datasets[].exports` | object | `{metric_id: {category: [rows]}}` — the complete uncapped export rows read out of the export cache. |
 
 ### `POST /results/import`
@@ -665,7 +672,7 @@ No engine or API change is required.
 
 ## Testing
 
-Unit tests live in `backend/tests/`, with RDF fixtures under `backend/tests/resources/` and per-metric evaluation fixtures under `backend/tests/evaluation/`. Two suites exist: the data source layer, and the results archive round trip (`test_result_archive.py`), which also checks every result file shipped in `backend/cli/results/` still imports.
+Unit tests live in `backend/tests/`, with RDF fixtures under `backend/tests/resources/` and per-metric evaluation fixtures under `backend/tests/evaluation/`. Three suites exist: the data source layer; the results archive round trip (`test_result_archive.py`), which also checks every result file shipped in `backend/cli/results/` still imports; and equivalent-class handling in the ontology extractor (`test_ontology_extractor.py`).
 
 From `backend/`, with the virtual environment active:
 

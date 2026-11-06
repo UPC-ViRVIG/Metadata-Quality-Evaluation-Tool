@@ -247,6 +247,7 @@ def evaluate(request: EvaluationRequest):
                 overall_score=dataset_result.overall_score,
                 metrics=metric_responses,
                 stats=stats_response,
+                class_groups=dataset_result.class_groups,
             )
         )
 
@@ -439,6 +440,7 @@ def import_results(payload: dict | list = Body(...)):
                 overall_score=dataset["overall_score"],
                 metrics=metric_responses,
                 stats=stats,
+                class_groups=dataset["class_groups"],
             )
         )
 

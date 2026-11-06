@@ -427,6 +427,10 @@ def build_scope_tree(classes: list[dict], source_id: str,
         count      = cls.get("instance_count", 0)
         children   = cls.get("children", [])
         checked    = uri in selected_uris
+        aliases    = [a.split("#")[-1].split("/")[-1]
+                      for a in cls.get("aliases", [])]
+        if aliases:
+            label = f"{label} (=" + ", =".join(aliases) + ")"
 
         # Partial selection indicator for parents with children
         partial_badge = None

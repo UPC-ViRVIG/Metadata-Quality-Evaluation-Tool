@@ -21,6 +21,7 @@ inside individual metrics.
 from datasource.datasource_factory import DataSourceFactory
 from graph.scope_filter import apply as apply_scope
 from graph.scope_filter import stats as compute_stats
+from graph.ontology_extractor import group_equivalent_classes
 from metrics.metric_plugin import MetricPlugin
 from models.dataset_context import DatasetContext
 from models.dataset_evaluation_result import DatasetEvaluationResult
@@ -90,6 +91,7 @@ class EvaluationEngine:
 
             # Step 6: Stats on the active graph
             stats = compute_stats(active_graph)
+            class_groups = group_equivalent_classes(active_graph, scope)
 
             all_dataset_results.append(DatasetEvaluationResult(
                 dataset_id=dataset_context.dataset_id,
@@ -97,6 +99,7 @@ class EvaluationEngine:
                 overall_score=overall_score,
                 metrics=metric_results,
                 stats=stats,
+                class_groups=class_groups,
             ))
 
         return all_dataset_results

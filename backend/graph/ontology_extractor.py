@@ -8,6 +8,11 @@ for instances and rdfs:subClassOf for the tree structure — so no
 external schema or ontology file is required. Classes without instances
 are omitted, and each class carries the properties its instances use.
 
+Classes holding exactly the same resources are reported as one node,
+with the others listed as aliases. This equivalence is a property of the
+loaded data only: two classes that coincide here need not coincide in
+another dataset.
+
 This module is independent of the evaluation pipeline. It exists to let
 a user explore an unfamiliar dataset and choose a meaningful scope
 before running any metric.
@@ -15,11 +20,14 @@ before running any metric.
 
 from __future__ import annotations
 
+import re
 from collections import defaultdict
 from dataclasses import dataclass, field
 from typing import Optional
 
 from rdflib import Graph, RDF, RDFS, OWL, URIRef
+
+_OPAQUE_NAME = re.compile(r"^[A-Za-z]?\d+$")
 
 @dataclass
 class PropertyInfo:
@@ -51,6 +59,8 @@ class ClassNode:
         Human-readable class name.
     instance_count : int
         Number of RDF subjects typed as this class.
+    aliases : list[str]
+        URIs of other classes holding exactly the same resources.
     properties : list[PropertyInfo]
         Properties used by instances of this class.
     children : list[ClassNode]
@@ -59,6 +69,7 @@ class ClassNode:
     uri: str
     label: str
     instance_count: int
+    aliases: list[str] = field(default_factory=list)
     properties: list[PropertyInfo] = field(default_factory=list)
     children: list["ClassNode"] = field(default_factory=list)
 
@@ -185,6 +196,7 @@ def _build_tree(
     class_properties: dict[str, list[PropertyInfo]],
     children_map: dict[str, list[str]],
     visited: set[str],
+    aliases_map: dict[str, list[str]] | None = None,
 ) -> list[ClassNode]:
     """
     Recursively construct a hierarchy of ClassNode objects.
@@ -195,6 +207,8 @@ def _build_tree(
         Class URIs to use as the current recursion roots.
     visited : set[str]
         Prevents cycles and duplicate processing.
+    aliases_map : dict[str, list[str]] | None
+        Representative class URIs mapped to their equivalent classes.
 
     Returns
     -------
@@ -215,6 +229,7 @@ def _build_tree(
             uri=class_uri,
             label=_local_name(class_uri),
             instance_count=instance_count,
+            aliases=(aliases_map or {}).get(class_uri, []),
             properties=class_properties.get(class_uri, []),
             children=_build_tree(
                 child_uris,
@@ -222,12 +237,118 @@ def _build_tree(
                 class_properties,
                 children_map,
                 visited,
+                aliases_map,
             ),
         )
         nodes.append(node)
 
     nodes.sort(key=lambda n: n.instance_count, reverse=True)
     return nodes
+
+
+def _representative_key(uri: str, preferred: set[str]) -> tuple:
+    """
+    Sort key that puts the best name for an equivalence group first.
+
+    A class in preferred wins, so a class the user selected names its
+    group. After that a readable name beats an opaque identifier such as
+    Q838948, then a shorter name beats a longer one, and the URI settles
+    any remaining tie so the choice never depends on triple order.
+
+    Parameters
+    ----------
+    uri : str
+        Class URI.
+    preferred : set[str]
+        Class URIs to favour.
+
+    Returns
+    -------
+    tuple
+        Sort key, lowest first.
+    """
+    name = _local_name(uri)
+    return (
+        uri not in preferred,
+        bool(_OPAQUE_NAME.match(name)),
+        len(name),
+        uri,
+    )
+
+
+def group_equivalent_classes(
+    graph: Graph,
+    preferred: list[str] | None = None,
+) -> list[list[str]]:
+    """
+    Find classes that hold exactly the same resources in graph.
+
+    Equivalence depends on the graph given. On a scoped graph a broad
+    class can coincide with a narrower one, because only the resources
+    in scope remain.
+
+    Parameters
+    ----------
+    graph : rdflib.Graph
+        Any graph (full or already filtered).
+    preferred : list[str] | None
+        Class URIs to favour as representatives, typically the scope.
+
+    Returns
+    -------
+    list[list[str]]
+        One list per group of two or more classes, with the
+        representative first. Groups are sorted by representative.
+    """
+    preferred_set = set(preferred or [])
+    by_instances: dict[frozenset[str], list[str]] = defaultdict(list)
+
+    for class_uri, instances in _collect_instances(graph).items():
+        by_instances[frozenset(instances)].append(class_uri)
+
+    return sorted(
+        sorted(
+            members,
+            key=lambda uri: _representative_key(uri, preferred_set),
+        )
+        for members in by_instances.values()
+        if len(members) > 1
+    )
+
+
+def _merge_subclass_edges(
+    children_map: dict[str, list[str]],
+    representative: dict[str, str],
+) -> dict[str, list[str]]:
+    """
+    Rewrite subclass edges so they only connect representatives.
+
+    Without this an alias declared as a subclass would reappear in the
+    tree as a child with no instances.
+
+    Parameters
+    ----------
+    children_map : dict[str, list[str]]
+        Parent class URIs mapped to their child class URIs.
+    representative : dict[str, str]
+        Alias class URIs mapped to their representative.
+
+    Returns
+    -------
+    dict[str, list[str]]
+        Edges with aliases replaced, self-edges dropped and duplicates
+        removed.
+    """
+    merged: dict[str, list[str]] = defaultdict(list)
+
+    for parent, children in children_map.items():
+        new_parent = representative.get(parent, parent)
+        for child in children:
+            new_child = representative.get(child, child)
+            if new_child != new_parent and new_child not in merged[new_parent]:
+                merged[new_parent].append(new_child)
+
+    return merged
 
 
 def extract(graph: Graph) -> list[ClassNode]:
@@ -251,8 +372,20 @@ def extract(graph: Graph) -> list[ClassNode]:
     if not class_instances:
         return []
 
+    groups = group_equivalent_classes(graph)
+    aliases_map = {group[0]: group[1:] for group in groups}
+    representative = {
+        alias: group[0] for group in groups for alias in group[1:]
+    }
+    class_instances = {
+        uri: instances for uri, instances in class_instances.items()
+        if uri not in representative
+    }
+
     class_properties = _collect_properties(graph, class_instances)
-    children_map = _collect_subclass_edges(graph)
+    children_map = _merge_subclass_edges(
+        _collect_subclass_edges(graph), representative
+    )
 
     # Determine root classes
     all_children: set[str] = {
@@ -274,5 +407,6 @@ def extract(graph: Graph) -> list[ClassNode]:
 
     visited: set[str] = set()
     return _build_tree(
-        roots, class_instances, class_properties, children_map, visited
+        roots, class_instances, class_properties, children_map, visited,
+        aliases_map,
     )

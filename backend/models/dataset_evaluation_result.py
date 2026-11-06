@@ -29,6 +29,9 @@ class DatasetEvaluationResult:
             {"triple_count": int, "entity_count": int, "class_count": int}
 
         None if stats were not computed.
+    class_groups : list | None
+        Classes holding exactly the same resources in the evaluated
+        graph, one list per group with the representative first.
     """
 
     def __init__(
@@ -38,9 +41,11 @@ class DatasetEvaluationResult:
         overall_score: float | None,
         metrics: list,
         stats: dict | None = None,
+        class_groups: list | None = None,
     ):
         self.dataset_id = dataset_id
         self.label = label
         self.overall_score = overall_score
         self.metrics = metrics
         self.stats = stats
+        self.class_groups = class_groups or []

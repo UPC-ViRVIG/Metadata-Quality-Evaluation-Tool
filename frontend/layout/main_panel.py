@@ -11,6 +11,11 @@ import plotly.graph_objects as go
 from charts.palette import ACCENT, COLORS
 from charts.overview import donut
 from layout.components.common import card, stat_card
+from layout.components.detail_views_helpers import (
+    equivalent_classes_notice,
+    merged_class_count,
+    shared_class_groups,
+)
 from layout.components.metric_card import build_metric_cards
 
 
@@ -130,8 +135,11 @@ def build_analysis(
             overall_card,
             stat_card("Triples",  stats.get("triple_count")),
             stat_card("Entities", stats.get("entity_count")),
-            stat_card("Classes",  stats.get("class_count")),
+            stat_card("Classes",  merged_class_count(
+                stats, shared_class_groups(datasets)
+            )),
         ], className="g-2"),
+        equivalent_classes_notice(datasets),
         html.Hr(className="my-2"),
         html.P("Quality Metric Scores", className="text-muted fw-semibold mb-2",
                style={"fontSize": "0.75rem", "textTransform": "uppercase",
@@ -201,13 +209,17 @@ def build_comparison(
         showlegend=False,
     )
 
+    class_groups = shared_class_groups(datasets)
     stat_rows = []
     for sk, sl in [("triple_count", "Triples"),
                    ("entity_count", "Entities"),
                    ("class_count",  "Classes")]:
         cells = [html.Td(html.Strong(sl))]
         for ds in datasets:
-            cells.append(html.Td(str(ds.get("stats", {}).get(sk, "—"))))
+            ds_stats = ds.get("stats", {})
+            value = (merged_class_count(ds_stats, class_groups)
+                     if sk == "class_count" else ds_stats.get(sk))
+            cells.append(html.Td(str("—" if value is None else value)))
         stat_rows.append(html.Tr(cells))
 
     stats_table = dbc.Table(
@@ -288,6 +300,7 @@ def build_comparison(
                 md=7, className="mb-3",
             ),
         ], className="g-2"),
+        equivalent_classes_notice(datasets),
         html.Hr(className="my-2"),
         html.P("Quality Metric Scores", className="text-muted fw-semibold mb-2",
                style={"fontSize": "0.75rem", "textTransform": "uppercase",

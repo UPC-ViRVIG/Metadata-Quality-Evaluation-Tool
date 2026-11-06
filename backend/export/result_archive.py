@@ -120,6 +120,7 @@ def build_archive(datasets: list[dict], created_by: str = "api") -> dict:
             "label":         dataset.get("label"),
             "overall_score": dataset.get("overall_score"),
             "stats":         dataset.get("stats"),
+            "class_groups":  dataset.get("class_groups") or [],
             "source_config": dataset.get("source_config"),
             "scope":         dataset.get("scope"),
             "metrics":       metrics,
@@ -379,6 +380,7 @@ def _normalize_dataset(
         "label":               label,
         "overall_score":       _numeric_or_none(raw.get("overall_score")),
         "stats":               _normalize_stats(raw.get("stats")),
+        "class_groups":        _normalize_class_groups(raw.get("class_groups")),
         "source_config":       source_config
                                if isinstance(source_config, dict) else None,
         "scope":               _normalize_scope(raw.get("scope")),
@@ -507,6 +509,35 @@ def _normalize_stats(raw) -> dict | None:
             return None
         stats[key] = int(value)
     return stats
+
+
+def _normalize_class_groups(raw) -> list[list[str]]:
+    """
+    Keep equivalence groups that still name at least two classes.
+
+    Archives written before groups were recorded have none, which the
+    dashboard treats as no classes being merged.
+
+    Parameters
+    ----------
+    raw : any
+        The archived class_groups value.
+
+    Returns
+    -------
+    list of list of str
+        The usable groups, representative first.
+    """
+    if not isinstance(raw, list):
+        return []
+
+    groups = []
+    for group in raw:
+        if isinstance(group, list):
+            uris = [uri for uri in group if isinstance(uri, str) and uri]
+            if len(uris) > 1:
+                groups.append(uris)
+    return groups
 
 
 def _normalize_scope(raw) -> list[str] | None:
