@@ -24,6 +24,9 @@ POST /results/export
     Serialises evaluation results into a portable results archive.
 POST /results/import
     Reads a results archive back and restores its export rows.
+GET /profiles
+    The SHACL profiles Structural Completeness can use, and what each
+    one requires.
 POST /sources/upload
     Stores an RDF file uploaded from the dashboard as a local source.
 
@@ -67,11 +70,14 @@ from models.response import (
     OntologyResponse,
     ClassNodeResponse,
     ResultImportResponse,
+    ProfileResponse,
     FileUploadResponse,
 )
 
 from config.config_loader import load_metrics_config, load_dimensions_config
-from metrics.metric_registry import METRIC_REGISTRY
+from metrics.metric_registry import METRIC_REGISTRY, resolve_metric_options
+from metrics.metrics_exceptions import MetricConfigurationError
+from metrics.plugins.structural_completeness import describe_profiles
 
 router = APIRouter()
 engine = EvaluationEngine()
@@ -90,9 +96,29 @@ def get_metrics():
             description=config["description"],
             dimension=config["dimension"],
             weight=config["weight"],
+            options=getattr(METRIC_REGISTRY.get(metric_id), "options", {}),
         )
         for metric_id, config in metric_config.items()
     ]
+
+
+@router.get("/profiles", response_model=list[ProfileResponse])
+def get_profiles():
+    """
+    Returns the SHACL profiles Structural Completeness can use.
+
+    Used by the frontend to show what a profile requires, so a
+    Structural Completeness score can be read against its definition.
+
+    Raises
+    ------
+    HTTPException 500
+        If a registered profile file is missing or cannot be parsed.
+    """
+    try:
+        return describe_profiles()
+    except MetricConfigurationError as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
 @router.get("/dimensions", response_model=list[DimensionConfigResponse])
@@ -179,7 +205,8 @@ def evaluate(request: EvaluationRequest):
     Raises
     ------
     HTTPException 400
-        If a metric ID is not defined in configuration.
+        If a metric ID is not defined in configuration, or a dataset's
+        metric options name an unknown metric, option or choice.
     HTTPException 500
         If no plugin is registered for a metric ID.
     HTTPException 422
@@ -206,15 +233,21 @@ def evaluate(request: EvaluationRequest):
 
         metrics.append(metric_class())
 
-    datasets = [
-        {
-            "dataset_id":    dataset_req.dataset_id,
-            "label":         dataset_req.label,
-            "source_config": dataset_req.source_config.model_dump(),
-            "scope":         dataset_req.scope,
-        }
-        for dataset_req in request.datasets
-    ]
+    try:
+        datasets = [
+            {
+                "dataset_id":     dataset_req.dataset_id,
+                "label":          dataset_req.label,
+                "source_config":  dataset_req.source_config.model_dump(),
+                "scope":          dataset_req.scope,
+                "metric_options": resolve_metric_options(
+                    dataset_req.metric_options
+                ),
+            }
+            for dataset_req in request.datasets
+        ]
+    except MetricConfigurationError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
 
     try:
         results = engine.evaluate(datasets=datasets, metrics=metrics)

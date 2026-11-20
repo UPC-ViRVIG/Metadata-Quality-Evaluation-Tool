@@ -101,8 +101,10 @@ def build_analysis(
     label   = dataset.get("label", "Dataset")
     stats   = dataset.get("stats", {})
     overall = dataset.get("overall_score", 0.0)
+    # Failed metrics are kept: they render as failed cards with their
+    # message rather than disappearing from the view.
     metrics = [m for m in dataset.get("metrics", [])
-               if m.get("status") not in ("error", "skipped")]
+               if m.get("status") != "skipped"]
 
     is_overview_active = active_metric_id == "__overview__"
     overall_card = dbc.Col(
@@ -264,6 +266,12 @@ def build_comparison(
     for ds in datasets:
         for m in ds.get("metrics", []):
             if (m.get("status") not in ("error", "skipped")
+                    and m["metric_id"] not in all_metrics_by_id):
+                all_metrics_by_id[m["metric_id"]] = m
+    # A metric that failed in every dataset still gets a (failed) card.
+    for ds in datasets:
+        for m in ds.get("metrics", []):
+            if (m.get("status") == "error"
                     and m["metric_id"] not in all_metrics_by_id):
                 all_metrics_by_id[m["metric_id"]] = m
 

@@ -35,12 +35,16 @@ store-metric-dims
     Metric-to-dimension mapping metadata.
 store-dimensions
     Quality dimension descriptions and tooltips.
+store-metric-options
+    Options each configurable metric accepts, from GET /metrics.
+store-profiles
+    SHACL profile definitions, from GET /profiles.
 """
 import dash
 from dash import html, dcc
 import dash_bootstrap_components as dbc
 
-from layout.sidebar import build_sidebar, build_add_source_modal
+from layout.sidebar import build_sidebar, build_add_source_modal, build_metric_options_modal, build_profile_modal
 
 
 app = dash.Dash(
@@ -69,9 +73,14 @@ app.layout = dbc.Container(
         dcc.Store(id="store-metric-dims",  data={}),
 
         dcc.Store(id="store-dimensions",  data={}),
+        dcc.Store(id="store-metric-options", data={}),
+        dcc.Store(id="store-profiles",       data=[]),
+        dcc.Store(id="metric-options-active"),
 
         # ── Modal ─────────────────────────────────────────────────────────
         build_add_source_modal(),
+        build_metric_options_modal(),
+        build_profile_modal(),
 
         # ── Top bar ───────────────────────────────────────────────────────
         dbc.Row(
@@ -95,6 +104,7 @@ app.layout = dbc.Container(
 import callbacks.sources      # noqa: F401, E402
 import callbacks.evaluation   # noqa: F401, E402
 import callbacks.results_io   # noqa: F401, E402
+import callbacks.metric_options  # noqa: F401, E402
 import callbacks.main_panel   # noqa: F401, E402
 import callbacks.ui            # noqa: F401, E402
 

@@ -40,8 +40,28 @@ def render(metric: dict, datasets: list[dict]) -> html.Div:
                         metric=metric)
     )
 
+    profiles = {
+        d["details"].get("profile_name") or d["details"].get("profile")
+        for d in ds_details if d["details"].get("profile")
+    }
+    profile_note = dbc.Alert(
+        [
+            html.Strong("Checked against different profiles. "),
+            ", ".join(
+                f"{d['label']}: "
+                f"{d['details'].get('profile_name') or d['details'].get('profile')}"
+                for d in ds_details if d["details"].get("profile")
+            ),
+            ". Their Structural Completeness scores are not directly "
+            "comparable.",
+        ],
+        color="warning", className="py-2 mb-2",
+        style={"fontSize": "0.82rem"},
+    ) if comparison and len(profiles) > 1 else html.Div()
+
     return html.Div([
         header,
+        profile_note,
         _distribution_section(ds_details),
         _summary_section(ds_details, comparison),
         _class_section(ds_details),
@@ -50,12 +70,44 @@ def render(metric: dict, datasets: list[dict]) -> html.Div:
 
 # ── Section builders ──────────────────────────────────────────────────────
 
+def _profile_cell(d: dict) -> list:
+    """
+    The profile a dataset was scored against, how it was chosen, and a
+    link that opens its definition.
+
+    Results saved before profiles could be chosen carry only the profile
+    id, which is shown as it is.
+
+    Parameters
+    ----------
+    d : dict
+        One entry of ds_details.
+    """
+    details = d["details"]
+    profile = details.get("profile")
+    if not profile:
+        return ["—"]
+
+    cell = [details.get("profile_name") or profile]
+    if details.get("profile_source"):
+        cell.append(html.Span(f" ({details['profile_source']})",
+                              className="text-muted"))
+    cell.append(dbc.Button(
+        "View",
+        id={"type": "btn-view-profile", "index": f"{d['dataset_id']}::{profile}"},
+        color="link", size="sm", className="p-0 ms-2",
+        style={"fontSize": "0.8rem", "verticalAlign": "baseline"},
+    ))
+    return cell
+
+
 def _summary_section(ds_details: list[dict], comparison: bool) -> html.Div:
     """
     Summary statistics table.
 
     Rows: total records, mean completeness, median completeness,
-    min/max completeness, detected profile.
+    min/max completeness, and the profile used, with whether it was
+    detected or selected and a link to its definition.
     Mean is placed first after total records as it gives the most
     immediately useful quality signal.
 
@@ -78,8 +130,6 @@ def _summary_section(ds_details: list[dict], comparison: bool) -> html.Div:
          lambda v: f"{round(v * 100)}%"),
         ("max_record_completeness",    "Max Completeness",
          lambda v: f"{round(v * 100)}%"),
-        ("profile",                    "Detected Profile",
-         str),
     ]
 
     stat_rows = []
@@ -94,6 +144,12 @@ def _summary_section(ds_details: list[dict], comparison: bool) -> html.Div:
                                  style={"fontSize": "0.82rem"}))]
             + [html.Td(v, style={"fontSize": "0.82rem"}) for v in vals]
         ))
+
+    stat_rows.append(html.Tr(
+        [html.Td(html.Strong("Profile", style={"fontSize": "0.82rem"}))]
+        + [html.Td(_profile_cell(d), style={"fontSize": "0.82rem"})
+           for d in ds_details]
+    ))
 
     warnings = [
         (d["label"], d["details"]["warning"])

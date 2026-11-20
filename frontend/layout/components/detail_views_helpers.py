@@ -211,7 +211,9 @@ def collect_ds_details(
             (x for x in ds.get("metrics", []) if x["metric_id"] == metric_id),
             None,
         )
-        if m:
+        # A failed metric has no score or details to chart. It is shown
+        # as a failed card instead, so it is skipped here.
+        if m and m.get("status") != "error" and m.get("score") is not None:
             result.append({
                 "label":             ds.get("label", f"Dataset {i+1}"),
                 "color":             COLORS[i % len(COLORS)],

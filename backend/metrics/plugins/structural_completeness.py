@@ -14,6 +14,10 @@ When no known vocabulary dominates, a generic core profile is used and
 the result is flagged as low_confidence, since a score produced against
 a profile that does not describe the data says little about its quality.
 
+The profile can also be chosen per dataset through the profile option.
+Detection still runs, so a choice that differs from what the data
+suggests is reported alongside the result rather than hidden.
+
 Score
 -----
 Each record scores
@@ -29,6 +33,7 @@ per-record scores.
 from pathlib import Path
 from pyshacl import validate
 from rdflib import Graph, URIRef
+from rdflib.collection import Collection
 from rdflib.namespace import SH, RDF
 import statistics
 
@@ -46,11 +51,25 @@ from metrics.metrics_exceptions import (
 
 SHAPES_DIR = Path(__file__).parent.parent / "shapes"
 
-NAMESPACE_SIGNATURES = {
-    "http://www.europeana.eu/schemas/edm/":       ("edm", SHAPES_DIR / "edm_profile.ttl"),
-    "http://www.openarchives.org/ore/terms/":      ("edm", SHAPES_DIR / "edm_profile.ttl"),
+# Known profiles. Adding one is a new shapes file plus an entry here; the
+# namespaces are what detection counts in the data.
+PROFILES = {
+    "edm": {
+        "name":       "Europeana Data Model (EDM)",
+        "file":       SHAPES_DIR / "edm_profile.ttl",
+        "namespaces": [
+            "http://www.europeana.eu/schemas/edm/",
+            "http://www.openarchives.org/ore/terms/",
+        ],
+    },
+    "core": {
+        "name":       "Generic core profile",
+        "file":       SHAPES_DIR / "core_profile.ttl",
+        "namespaces": [],
+    },
 }
-CORE_PROFILE = ("core", SHAPES_DIR / "core_profile.ttl")
+FALLBACK_PROFILE = "core"
+AUTO_PROFILE = "auto"
 
 
 def detect_profile(graph: Graph) -> tuple[str, Path]:
@@ -60,7 +79,8 @@ def detect_profile(graph: Graph) -> tuple[str, Path]:
 
     Unlike instance-count-based detection, this approach inspects all
     URI positions — subjects, predicates, and objects — and selects
-    the profile whose namespace appears most frequently. This makes
+    the profile whose namespaces appear most frequently, summed per
+    profile. This makes
     detection robust to scoped subgraphs that may not contain any
     instances of specific target classes but still use predicates or
     object URIs from a known vocabulary.
@@ -83,30 +103,132 @@ def detect_profile(graph: Graph) -> tuple[str, Path]:
         If URI counting fails due to an unexpected graph error.
     """
     try:
-        namespace_counts: dict[str, int] = {ns: 0 for ns in NAMESPACE_SIGNATURES}
+        profile_counts: dict[str, int] = {
+            profile_id: 0
+            for profile_id, profile in PROFILES.items()
+            if profile["namespaces"]
+        }
 
         for subject, predicate, obj in graph:
             for uri_term in (subject, predicate, obj):
                 if not isinstance(uri_term, URIRef):
                     continue
                 uri_str = str(uri_term)
-                for namespace in namespace_counts:
-                    if uri_str.startswith(namespace):
-                        namespace_counts[namespace] += 1
+                for profile_id in profile_counts:
+                    if any(uri_str.startswith(ns)
+                           for ns in PROFILES[profile_id]["namespaces"]):
+                        profile_counts[profile_id] += 1
 
-        # Only consider namespaces that actually appear in the graph
-        active = {ns: count for ns, count in namespace_counts.items() if count > 0}
+        # Namespaces are summed per profile, so a vocabulary split over
+        # several namespaces (EDM uses edm: and ore:) counts as one.
+        active = {pid: count for pid, count in profile_counts.items() if count > 0}
 
         if active:
-            dominant_ns = max(active, key=lambda ns: active[ns])
-            return NAMESPACE_SIGNATURES[dominant_ns]  
+            dominant = max(active, key=lambda pid: active[pid])
+            return dominant, PROFILES[dominant]["file"]
 
-        return CORE_PROFILE
+        return FALLBACK_PROFILE, PROFILES[FALLBACK_PROFILE]["file"]
 
     except Exception as e:
         raise ProfileDetectionError(
             f"Failed to detect schema profile from graph: {e}"
         ) from e
+
+
+def describe_profiles() -> list[dict]:
+    """
+    Describe every known profile in a form a person can read.
+
+    Lists, for each profile, the shapes it contains: which resources
+    each shape targets and which properties it requires. A shape-level
+    sh:or is reported as one requirement satisfied by any of its paths.
+
+    Returns
+    -------
+    list[dict]
+        One entry per profile:
+
+            {
+                "id":          str,
+                "name":        str,
+                "is_fallback": bool,
+                "shapes": [
+                    {
+                        "targets":    [{"kind": str, "uri": str, "label": str}],
+                        "properties": [{"path": str, "severity": str | None,
+                                        "message": str | None}]
+                    }
+                ]
+            }
+
+    Raises
+    ------
+    ShapeProfileNotFoundError
+        If a registered shapes file is missing.
+    MetricConfigurationError
+        If a registered shapes file cannot be parsed.
+    """
+    profiles = []
+    for profile_id, profile in PROFILES.items():
+        shapes_graph = load_shapes(profile["file"])
+
+        def _label(term) -> str:
+            """Return a prefixed name such as dc:title, or the URI."""
+            try:
+                return shapes_graph.namespace_manager.normalizeUri(term)
+            except Exception:
+                return str(term)
+
+        def _severity(node) -> str | None:
+            """Return Violation, Warning or Info, or None when unset."""
+            value = shapes_graph.value(node, SH.severity)
+            return str(value).rsplit("#", 1)[-1] if value is not None else None
+
+        shapes = []
+        for shape in sorted(shapes_graph.subjects(RDF.type, SH.NodeShape), key=str):
+            targets = [
+                {"kind": kind, "uri": str(uri), "label": _label(uri)}
+                for kind, predicate in (("class", SH.targetClass),
+                                        ("subjects_of", SH.targetSubjectsOf))
+                for uri in shapes_graph.objects(shape, predicate)
+            ]
+
+            properties = []
+            for prop in shapes_graph.objects(shape, SH.property):
+                path = shapes_graph.value(prop, SH.path)
+                message = shapes_graph.value(prop, SH.message)
+                properties.append({
+                    "path":     _label(path) if path is not None else "",
+                    "severity": _severity(prop),
+                    "message":  str(message) if message is not None else None,
+                })
+
+            for alternatives in shapes_graph.objects(shape, SH["or"]):
+                paths = [
+                    _label(shapes_graph.value(prop, SH.path))
+                    for member in Collection(shapes_graph, alternatives)
+                    for prop in shapes_graph.objects(member, SH.property)
+                    if shapes_graph.value(prop, SH.path) is not None
+                ]
+                message = shapes_graph.value(shape, SH.message)
+                properties.append({
+                    "path":     " or ".join(paths),
+                    "severity": _severity(shape),
+                    "message":  str(message) if message is not None else None,
+                })
+
+            shapes.append({
+                "targets":    targets,
+                "properties": sorted(properties, key=lambda p: p["path"]),
+            })
+
+        profiles.append({
+            "id":          profile_id,
+            "name":        profile["name"],
+            "is_fallback": profile_id == FALLBACK_PROFILE,
+            "shapes":      shapes,
+        })
+    return profiles
 
 
 def load_shapes(shapes_path: Path) -> Graph:
@@ -387,12 +509,22 @@ class StructuralCompletenessMetric(MetricPlugin):
 
     id = "structural_completeness"
 
+    options = {
+        "profile": {
+            "label":   "SHACL profile",
+            "default": AUTO_PROFILE,
+            "choices": [{"id": AUTO_PROFILE, "label": "Auto (detect from the data)"}]
+                       + [{"id": pid, "label": p["name"]} for pid, p in PROFILES.items()],
+        },
+    }
+
     def evaluate(self, context: DatasetContext) -> MetricResult:
         """
         Evaluates the structural completeness of a dataset using SHACL validation.
 
         The evaluation process includes:
-        1. Detecting the appropriate schema profile
+        1. Detecting the appropriate schema profile, or using the one
+           chosen for this dataset
         2. Loading the corresponding SHACL shapes
         3. Running SHACL validation
         4. Identifying target records
@@ -428,11 +560,26 @@ class StructuralCompletenessMetric(MetricPlugin):
             )
 
         try:
-            profile_name, shapes_path = detect_profile(graph)
+            choice = self.resolve_options(
+                context.options.get(self.id)
+            )["profile"]
+        except MetricConfigurationError as e:
+            return self.error_result(str(e))
+
+        try:
+            detected_profile, detected_path = detect_profile(graph)
         except ProfileDetectionError as e:
             return self.error_result(str(e))
 
-        low_confidence = (profile_name == "core")
+        if choice == AUTO_PROFILE:
+            profile_name, shapes_path = detected_profile, detected_path
+            profile_source = "detected"
+        else:
+            profile_name = choice
+            shapes_path  = PROFILES[choice]["file"]
+            profile_source = "selected"
+
+        low_confidence = (profile_name == FALLBACK_PROFILE)
 
         try:
             shapes_graph = load_shapes(shapes_path)
@@ -454,6 +601,18 @@ class StructuralCompletenessMetric(MetricPlugin):
 
         try:
             all_records = get_target_records(shapes_graph, graph)
+            if not all_records and profile_source == "selected":
+                targets = sorted(
+                    shapes_graph.namespace_manager.normalizeUri(t)
+                    for t in shapes_graph.objects(None, SH.targetClass)
+                )
+                raise NoTargetRecordsError(
+                    f"The selected profile, {PROFILES[profile_name]['name']}, "
+                    f"found no matching records in this dataset. It checks "
+                    f"resources of type {', '.join(targets) or 'any'}; "
+                    f"detection suggests "
+                    f"{PROFILES[detected_profile]['name']} instead."
+                )
             if not all_records:
                 raise NoTargetRecordsError(
                     f"No records matching the '{profile_name}' profile "
@@ -475,6 +634,8 @@ class StructuralCompletenessMetric(MetricPlugin):
 
         details = {
             "profile":                    profile_name,
+            "profile_name":               PROFILES[profile_name]["name"],
+            "profile_source":             profile_source,
             "low_confidence":             low_confidence,
             "total_records":              total_records,
             "median_record_completeness": round(statistics.median(score_values), 4),
@@ -484,7 +645,15 @@ class StructuralCompletenessMetric(MetricPlugin):
             "class_statistics":           compute_class_statistics(per_record_scores, graph),
         }
 
-        if low_confidence:
+        if profile_source == "selected" and profile_name != detected_profile:
+            details["detected_profile"] = detected_profile
+            details["warning"] = (
+                f"{PROFILES[profile_name]['name']} was selected, "
+                f"but the data looks like "
+                f"{PROFILES[detected_profile]['name']}. "
+                f"Scores reflect the selected profile."
+            )
+        elif low_confidence:
             details["warning"] = (
                 "No standard schema profile was detected. "
                 "Evaluation used the core fallback profile. "

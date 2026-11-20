@@ -24,3 +24,36 @@ METRIC_REGISTRY = {
     "connectivity": ConnectivityMetric,
     "licensing_rights": LicensingRightsMetric,
 }
+
+
+def resolve_metric_options(metric_options: dict | None) -> dict:
+    """
+    Validate the per-metric options chosen for one dataset.
+
+    Parameters
+    ----------
+    metric_options : dict | None
+        Metric ids mapped to their chosen option values.
+
+    Returns
+    -------
+    dict
+        The same metric ids mapped to complete, validated options.
+
+    Raises
+    ------
+    MetricConfigurationError
+        If a metric id is not registered, or one of its options is not
+        valid.
+    """
+    from metrics.metrics_exceptions import MetricConfigurationError
+
+    resolved = {}
+    for metric_id, options in (metric_options or {}).items():
+        metric_class = METRIC_REGISTRY.get(metric_id)
+        if metric_class is None:
+            raise MetricConfigurationError(
+                f"Options were given for unknown metric '{metric_id}'."
+            )
+        resolved[metric_id] = metric_class.resolve_options(options)
+    return resolved

@@ -71,6 +71,10 @@ datasets:
                               # scope:
                               #   - http://www.europeana.eu/schemas/edm/ProvidedCHO
                               #   - http://www.openarchives.org/ore/terms/Proxy
+    metric_options: {}        # per-metric choices for this dataset, e.g.:
+                              # metric_options:
+                              #   structural_completeness:
+                              #     profile: edm      # auto | edm | core
 
   - id: wikidata_paintings
     label: "Wikidata Paintings sample"
@@ -301,11 +305,17 @@ def list_metrics() -> None:
     None
     """
     from config.config_loader import load_metrics_config
+    from metrics.metric_registry import METRIC_REGISTRY
     config = load_metrics_config()
     print("\nAvailable metrics:\n")
     for metric_id, meta in config.items():
         print(f"  {metric_id}")
         print(f"      {meta.get('description', '')}")
+        options = getattr(METRIC_REGISTRY.get(metric_id), "options", {})
+        for name, spec in options.items():
+            choices = ", ".join(choice["id"] for choice in spec["choices"])
+            print(f"      option {name} ({spec['label']}): {choices}"
+                  f" — default {spec['default']}")
         print()
 
 
@@ -499,15 +509,24 @@ def run(config: dict) -> list:
         print("ERROR: No valid metrics to run.", file=sys.stderr)
         sys.exit(1)
 
+    from metrics.metric_registry import resolve_metric_options
+    from metrics.metrics_exceptions import MetricConfigurationError
+
     datasets = []
     for ds in config["datasets"]:
         source_config = _build_source_config(ds["source_config"])
         scope = ds.get("scope") or None
+        try:
+            metric_options = resolve_metric_options(ds.get("metric_options"))
+        except MetricConfigurationError as e:
+            print(f"ERROR: dataset '{ds['id']}': {e}", file=sys.stderr)
+            sys.exit(1)
         datasets.append({
-            "dataset_id":    ds["id"],
-            "label":         ds.get("label", ds["id"]),
-            "source_config": source_config,
-            "scope":         scope,
+            "dataset_id":     ds["id"],
+            "label":          ds.get("label", ds["id"]),
+            "source_config":  source_config,
+            "scope":          scope,
+            "metric_options": metric_options,
         })
 
     print(
@@ -530,6 +549,7 @@ def run(config: dict) -> list:
             "class_groups":  dr.class_groups,
             "source_config": source.get("source_config"),
             "scope":         source.get("scope"),
+            "metric_options": source.get("metric_options") or {},
             "metrics": [
                 {
                     "metric_id":       m.metric_id,

@@ -123,6 +123,7 @@ def build_archive(datasets: list[dict], created_by: str = "api") -> dict:
             "class_groups":  dataset.get("class_groups") or [],
             "source_config": dataset.get("source_config"),
             "scope":         dataset.get("scope"),
+            "metric_options": dataset.get("metric_options") or {},
             "metrics":       metrics,
             "exports":       exports,
         })
@@ -384,6 +385,7 @@ def _normalize_dataset(
         "source_config":       source_config
                                if isinstance(source_config, dict) else None,
         "scope":               _normalize_scope(raw.get("scope")),
+        "metric_options":      _normalize_metric_options(raw.get("metric_options")),
         "metrics":             metrics,
         "exports":             exports,
     }
@@ -538,6 +540,38 @@ def _normalize_class_groups(raw) -> list[list[str]]:
             if len(uris) > 1:
                 groups.append(uris)
     return groups
+
+
+def _normalize_metric_options(raw) -> dict:
+    """
+    Keep metric options shaped as metric id to option name to choice.
+
+    Archives written before options were recorded have none, which
+    means every metric ran with its defaults.
+
+    Parameters
+    ----------
+    raw : any
+        The archived metric_options value.
+
+    Returns
+    -------
+    dict
+        Metric ids mapped to option names mapped to choice ids.
+    """
+    if not isinstance(raw, dict):
+        return {}
+
+    options = {}
+    for metric_id, values in raw.items():
+        if isinstance(metric_id, str) and isinstance(values, dict):
+            kept = {
+                name: value for name, value in values.items()
+                if isinstance(name, str) and isinstance(value, str)
+            }
+            if kept:
+                options[metric_id] = kept
+    return options
 
 
 def _normalize_scope(raw) -> list[str] | None:

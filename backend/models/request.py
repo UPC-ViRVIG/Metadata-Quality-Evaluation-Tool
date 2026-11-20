@@ -10,7 +10,7 @@ the two entry points describe an evaluation the same way.
 """
 
 from pydantic import BaseModel
-from typing import Optional, List
+from typing import Dict, Optional, List
 
 
 class SourceConfig(BaseModel):
@@ -54,12 +54,17 @@ class DatasetRequest(BaseModel):
         Optional list of class URIs to restrict evaluation to.
         None (default) means the full graph is evaluated.
         An empty list [] is treated identically to None.
+    metric_options : dict
+        Options chosen for this dataset, keyed by metric id, e.g.
+        {"structural_completeness": {"profile": "edm"}}. Values are
+        choice ids, never file paths.
     """
 
     dataset_id: str
     label: Optional[str] = None
     source_config: SourceConfig
     scope: Optional[List[str]] = None
+    metric_options: Dict[str, Dict[str, str]] = {}
 
 
 class MetricSelection(BaseModel):
@@ -137,6 +142,8 @@ class ResultExportDataset(BaseModel):
         Provenance: how the dataset was loaded.
     scope : List[str] | None
         Provenance: class URIs the run was restricted to.
+    metric_options : dict
+        Provenance: options chosen for this dataset, keyed by metric id.
     """
 
     dataset_id: str
@@ -147,6 +154,7 @@ class ResultExportDataset(BaseModel):
     metrics: List[dict] = []
     source_config: Optional[SourceConfig] = None
     scope: Optional[List[str]] = None
+    metric_options: Dict[str, Dict[str, str]] = {}
 
 
 class ResultExportRequest(BaseModel):

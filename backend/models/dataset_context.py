@@ -10,6 +10,9 @@ caching, or scope filtering.
 Both the scoped graph and the unfiltered one are carried, so a metric can
 compute against the user's selection while still consulting the full
 graph where that is genuinely needed.
+
+Options chosen for this dataset travel here too, keyed by metric id,
+because the same metric can be configured differently per dataset.
 """
 
 
@@ -21,10 +24,13 @@ class DatasetContext:
     - dataset label
     - RDF graph loaded from the data source
     - scope
+    - per-metric options, keyed by metric id
     """
-    def __init__(self, dataset_id, label, graph, scope=None, full_graph=None):
+    def __init__(self, dataset_id, label, graph, scope=None, full_graph=None,
+                 options=None):
         self.dataset_id = dataset_id
         self.label = label
         self.graph = graph          
         self.scope = scope
         self.full_graph = full_graph or graph
+        self.options = options or {}
