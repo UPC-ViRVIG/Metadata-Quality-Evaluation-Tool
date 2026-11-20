@@ -236,6 +236,10 @@ Classes that hold exactly the same resources appear as one entry, with the other
 
 **3. Select metrics.** Metrics are grouped by quality dimension in the accordion. Each carries a tooltip explaining what it measures.
 
+A metric with options shows a gear (⚙) next to it. Options are chosen per data source: the gear opens a window with one row per source. Structural Completeness uses this to choose its SHACL profile. *Auto* detects the profile from the data, as before, or you can pick one explicitly. The same window explains what each profile checks, and the Structural Completeness detail view names the profile each dataset was scored against, whether it was detected or selected, with a *View* link to its definition. When a selected profile differs from what detection would pick, the result says so. When datasets in a comparison were checked against different profiles, a note says their scores are not directly comparable.
+
+If a metric fails on a dataset — for example a selected profile that matches none of its records — that metric's card shows *Failed* with the reason, and every other metric is still displayed.
+
 **4. Run the evaluation.** At least one source and one metric must be selected.
 
 **5. Read the results.**
@@ -384,6 +388,7 @@ Notes:
 - `json` produces a **results archive** — the full nested result plus provenance and the complete export rows — which can be imported straight into the dashboard. Because the export rows travel with it, an archive is considerably larger than the old output. `csv` produces one row per (dataset, metric) with score and status, and is a summary only: it cannot be imported back.
 - Result files from earlier CLI versions (a bare JSON list with no envelope) still import as the legacy format, so the samples in `cli/results/` remain usable.
 - A metric ID that is unknown to the configuration or registry is skipped with a warning rather than aborting the run.
+- Each dataset can set `metric_options`, mirroring the API, e.g. `structural_completeness: {profile: edm}`. An invalid option stops the run with an error. `--list-metrics` shows each metric's options and choices.
 
 Ready-made configs are in [`backend/cli/configs/`](backend/cli/configs/), with sample outputs in [`backend/cli/results/`](backend/cli/results/).
 
@@ -397,6 +402,7 @@ Interactive documentation is available at `http://127.0.0.1:8000/docs` while the
 | --- | --- | --- |
 | `GET` | `/metrics` | Implemented metrics with display metadata, from `metrics_config.json`. |
 | `GET` | `/dimensions` | The four quality dimensions with descriptions and tooltips. |
+| `GET` | `/profiles` | The SHACL profiles Structural Completeness can use, with each profile's target classes and required properties. |
 | `POST` | `/ontology` | Extract the class hierarchy of a dataset for scope configuration. |
 | `POST` | `/evaluate` | Run the selected metrics over the given datasets. |
 | `GET` | `/export/{dataset_id}/{metric_id}/{category}` | Stream the full export rows for a metric category as CSV. |
@@ -550,7 +556,7 @@ Content-Type: application/octet-stream
 
 | Code | Meaning |
 | --- | --- |
-| `400` | A requested metric ID is not defined in the configuration (user error). |
+| `400` | A requested metric ID is not defined in the configuration, or a dataset's `metric_options` name an unknown metric, option or choice (user error). |
 | `422` | A dataset could not be loaded, or evaluation failed. |
 | `500` | A configured metric ID has no registered plugin — a configuration inconsistency, not user error. |
 | `404` | *(export only)* No export data exists for the requested combination; run `/evaluate` first. |

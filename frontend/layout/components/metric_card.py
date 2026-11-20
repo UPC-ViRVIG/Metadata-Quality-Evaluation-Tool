@@ -51,7 +51,10 @@ def build_metric_cards(
             is_active  = m["metric_id"] == active_metric_id
             card_style = _card_style(is_active)
 
-            if comparison_mode:
+            failed = m.get("status") == "error"
+            if failed:
+                body = _failed_card_body(m, datasets if comparison_mode else None)
+            elif comparison_mode:
                 body = _comparison_card_body(m, datasets)
             else:
                 body = _analysis_card_body(m)
@@ -63,9 +66,13 @@ def build_metric_cards(
                             dbc.CardBody(body, className="p-3"),
                             className="h-100",
                         ),
-                        id={"type": "metric-card", "index": m["metric_id"]},
+                        # A failed card has nothing to drill into, so it
+                        # uses its own id type and never becomes active.
+                        id={"type": "metric-card-failed" if failed else "metric-card",
+                            "index": m["metric_id"]},
                         n_clicks=0,
-                        style=card_style,
+                        style={"borderLeft": "3px solid #dc3545"} if failed
+                              else card_style,
                     ),
                     xs=12, md=6, lg=4,
                     className="mb-3",
@@ -95,6 +102,36 @@ def _card_style(is_active: bool) -> dict:
         "borderLeft": f"3px solid {ACCENT}" if is_active else "1px solid #dee2e6",
         "transition": "border 0.15s",
     }
+
+
+def _failed_card_body(m: dict, datasets: list[dict] | None) -> list:
+    """Build the body of a card for a metric that failed: its name, a
+    Failed badge, and why — the backend's message in analysis mode, or
+    the datasets it failed in for a comparison."""
+    if datasets is None:
+        message = str((m.get("details") or {}).get("error") or "No details.")
+    else:
+        names = [
+            ds.get("label", f"Dataset {i+1}")
+            for i, ds in enumerate(datasets)
+            if any(x["metric_id"] == m["metric_id"] and x.get("status") == "error"
+                   for x in ds.get("metrics", []))
+        ]
+        message = f"Failed in: {', '.join(names)}"
+
+    return [
+        dbc.Row([
+            dbc.Col(html.Span(m.get("name", m["metric_id"]),
+                              style={"fontSize": "0.875rem", "fontWeight": "500"}),
+                    width=9),
+            dbc.Col(dbc.Badge("Failed", color="danger", className="float-end"),
+                    width=3, className="text-end"),
+        ], className="g-0 mb-1"),
+        html.Small(message, className="text-muted d-block", title=message,
+                   style={"fontSize": "0.78rem", "overflow": "hidden",
+                          "display": "-webkit-box", "WebkitLineClamp": "3",
+                          "WebkitBoxOrient": "vertical"}),
+    ]
 
 
 def _analysis_card_body(m: dict) -> list:
@@ -156,6 +193,7 @@ def _comparison_card_body(m: dict, datasets: list[dict]) -> list:
     """
     measured = []
     missing  = []
+    failed   = []
     for i, ds in enumerate(datasets):
         label = ds.get("label", f"Dataset {i+1}")
         match = next(
@@ -163,7 +201,9 @@ def _comparison_card_body(m: dict, datasets: list[dict]) -> list:
              if x["metric_id"] == m["metric_id"]),
             None,
         )
-        if match is None or match.get("score") is None:
+        if match is not None and match.get("status") == "error":
+            failed.append(label)
+        elif match is None or match.get("score") is None:
             missing.append(label)
         else:
             measured.append((i, label, match["score"]))
@@ -235,4 +275,9 @@ def _comparison_card_body(m: dict, datasets: list[dict]) -> list:
             className="text-muted d-block",
             style={"fontSize": "0.7rem", "fontStyle": "italic"},
         ) if missing else html.Span(),
+        html.Small(
+            f"Failed in: {', '.join(failed)}",
+            className="text-danger d-block",
+            style={"fontSize": "0.7rem"},
+        ) if failed else html.Span(),
     ]

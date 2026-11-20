@@ -36,6 +36,7 @@ _LABEL_STYLE = {
     Output("metric-selection",   "data"),
     Output("store-metric-dims",  "data"),
     Output("store-dimensions",   "data"),
+    Output("store-metric-options", "data"),
     Input("store-sources", "id"),
 )
 def populate_metrics(_):
@@ -59,12 +60,16 @@ def populate_metrics(_):
 
     store-dimensions.data
         Cached dimension metadata.
+    store-metric-options.data
+        Mapping:
+            metric_id -> {name, options}
+        for metrics that accept options; a gear next to each opens them.
     """
     try:
         metrics    = get_metrics()
         dimensions = get_dimensions()
     except APIError:
-        return [], [], {}, {}
+        return [], [], {}, {}, {}
 
     dim_info = {d["name"]: d for d in dimensions}
 
@@ -96,7 +101,16 @@ def populate_metrics(_):
                     target=tip_id, placement="right",
                     style={"maxWidth": "280px"},
                 ),
-            ], style={"marginBottom": "4px", "lineHeight": "1.6rem"}))
+            ] + ([dbc.Button(
+                "⚙",
+                id={"type": "btn-metric-options", "index": m["metric_id"]},
+                color="link", size="sm",
+                className="p-0 ms-1 text-muted",
+                style={"fontSize": "0.8rem", "lineHeight": "1",
+                       "verticalAlign": "baseline", "textDecoration": "none"},
+                title=f"Options for {m['name']}",
+            )] if m.get("options") else []),
+                style={"marginBottom": "4px", "lineHeight": "1.6rem"}))
 
         dim_tip_id     = f"tip-dim-{dim.lower().replace(' ', '-')}"
         dim_info_entry = dim_info.get(dim, {})
@@ -150,7 +164,11 @@ def populate_metrics(_):
     dims_store = {d["name"]: {"description": d["description"],
                                "tooltip":     d["tooltip"]}
                   for d in dimensions}
-    return accordion, [], dims_map, dims_store
+    options_store = {
+        m["metric_id"]: {"name": m["name"], "options": m["options"]}
+        for m in metrics if m.get("options")
+    }
+    return accordion, [], dims_map, dims_store, options_store
 
 
 @callback(

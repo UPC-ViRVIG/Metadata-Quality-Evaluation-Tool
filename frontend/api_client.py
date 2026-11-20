@@ -64,6 +64,23 @@ def get_dimensions() -> list[dict]:
     return response.json()
 
 
+def get_profiles() -> list[dict]:
+    """
+    GET /profiles — fetches the SHACL profile definitions on startup.
+    Returns list of {id, name, is_fallback, shapes}.
+    """
+    try:
+        response = requests.get(f"{BACKEND_URL}/profiles", timeout=10)
+    except requests.ConnectionError:
+        raise APIError("Cannot reach the backend.")
+    except requests.Timeout:
+        raise APIError("Request to /profiles timed out.")
+    if response.status_code != 200:
+        raise APIError(f"Unexpected response from /profiles: {response.status_code}",
+                       status_code=response.status_code)
+    return response.json()
+
+
 def get_export_csv(dataset_id: str, metric_id: str, category: str) -> bytes:
     """
     GET /export/{dataset_id}/{metric_id}/{category}
@@ -212,6 +229,10 @@ def _build_evaluation_payload(sources: list[dict], metric_ids: list[str]) -> dic
         scope = source.get("scope")
         if scope:
             entry["scope"] = scope
+        # Only include options the user has changed from the defaults
+        metric_options = source.get("metric_options")
+        if metric_options:
+            entry["metric_options"] = metric_options
         datasets.append(entry)
 
     return {
@@ -366,6 +387,7 @@ def _build_export_payload(datasets: list[dict], sources: list[dict]) -> dict:
             "metrics":       dataset.get("metrics", []),
             "source_config": source.get("source_config"),
             "scope":         source.get("scope"),
+            "metric_options": source.get("metric_options") or {},
         })
 
     return {"datasets": entries}

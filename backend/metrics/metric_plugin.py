@@ -18,6 +18,7 @@ presentation configurable without touching its logic.
 from abc import ABC, abstractmethod
 from models.dataset_context import DatasetContext
 from models.metric_result import MetricResult
+from metrics.metrics_exceptions import MetricConfigurationError
 
 import json
 from pathlib import Path
@@ -33,8 +34,14 @@ class MetricPlugin(ABC):
     outcome.
 
     Subclasses must implement the 'evaluate' method
+
+    A subclass may declare options, a choice the user can make per
+    dataset. Each option maps its name to a label, a default and a list
+    of choices given as {"id", "label"}. Metrics without options leave
+    this empty and are unaffected.
     """
     id : str
+    options: dict = {}
     
     def __init__(self):
         """
@@ -50,6 +57,50 @@ class MetricPlugin(ABC):
         self.description = config.get("description", "")
         self.dimension   = config.get("dimension", "")
         self.weight      = config.get("weight", 1.0)
+
+    @classmethod
+    def resolve_options(cls, given: dict | None) -> dict:
+        """
+        Validate chosen option values and fill in the defaults.
+
+        This is the single check used by the API and the CLI, and by the
+        metric itself when it reads its options from the context.
+
+        Parameters
+        ----------
+        given : dict | None
+            Option names mapped to the chosen choice ids.
+
+        Returns
+        -------
+        dict
+            Every declared option mapped to its chosen or default id.
+
+        Raises
+        ------
+        MetricConfigurationError
+            If an option is not declared by the metric, or a value is
+            not one of its choices.
+        """
+        given = given or {}
+
+        unknown = sorted(set(given) - set(cls.options))
+        if unknown:
+            raise MetricConfigurationError(
+                f"Metric '{cls.id}' has no option '{unknown[0]}'."
+            )
+
+        resolved = {}
+        for name, spec in cls.options.items():
+            value = given.get(name, spec["default"])
+            allowed = [choice["id"] for choice in spec["choices"]]
+            if value not in allowed:
+                raise MetricConfigurationError(
+                    f"'{value}' is not a valid {spec['label']} for metric "
+                    f"'{cls.id}'. Choose one of: {', '.join(allowed)}."
+                )
+            resolved[name] = value
+        return resolved
 
     @abstractmethod
     def evaluate(self, context: DatasetContext) -> MetricResult:

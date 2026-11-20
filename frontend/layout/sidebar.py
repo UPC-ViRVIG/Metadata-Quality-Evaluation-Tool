@@ -626,3 +626,56 @@ def build_add_source_modal() -> dbc.Modal:
         is_open=False,
         backdrop="static",
     )
+
+
+def build_metric_options_modal() -> dbc.Modal:
+    """
+    Build the window for a metric's per-source options.
+
+    Its title and body are filled in by callbacks when a metric's gear
+    is clicked, since which metrics have options comes from the backend.
+
+    Returns
+    -------
+    dbc.Modal
+        Metric options window.
+    """
+    return dbc.Modal(
+        [
+            dbc.ModalHeader(dbc.ModalTitle(id="metric-options-title")),
+            dbc.ModalBody(html.Div(id="metric-options-body")),
+            dbc.ModalFooter(
+                dbc.Button("Close", id="btn-metric-options-close",
+                           color="secondary", size="sm"),
+            ),
+        ],
+        id="modal-metric-options",
+        is_open=False,
+        size="lg",
+        scrollable=True,
+    )
+
+
+def build_profile_modal() -> dbc.Modal:
+    """
+    Build the window showing what a SHACL profile checks.
+
+    Returns
+    -------
+    dbc.Modal
+        Profile definition window.
+    """
+    return dbc.Modal(
+        [
+            dbc.ModalHeader(dbc.ModalTitle("SHACL profile")),
+            dbc.ModalBody(html.Div(id="profile-view-body")),
+            dbc.ModalFooter(
+                dbc.Button("Close", id="btn-profile-view-close",
+                           color="secondary", size="sm"),
+            ),
+        ],
+        id="modal-profile-view",
+        is_open=False,
+        size="lg",
+        scrollable=True,
+    )

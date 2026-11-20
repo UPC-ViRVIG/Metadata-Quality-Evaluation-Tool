@@ -54,6 +54,7 @@ class EvaluationEngine:
             * label         - str | None
             * source_config - dict
             * scope         - list[str] | None  (optional)
+            * metric_options - dict, metric id to options (optional)
 
         metrics : list[MetricPlugin]
         """
@@ -76,6 +77,7 @@ class EvaluationEngine:
                 graph=active_graph,
                 scope=scope,
                 full_graph=full_graph,
+                options=dataset.get("metric_options"),
             )
 
             # Step 4: Run metrics

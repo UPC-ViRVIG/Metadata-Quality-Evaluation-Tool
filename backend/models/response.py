@@ -82,6 +82,9 @@ class MetricConfigResponse(BaseModel):
     description : str
     dimension : str
     weight : float
+    options : dict
+        Options the metric accepts per dataset, by name, each with a
+        label, a default and its choices. Empty for most metrics.
     """
 
     metric_id:   str
@@ -89,6 +92,7 @@ class MetricConfigResponse(BaseModel):
     description: str
     dimension:   str
     weight:      float
+    options:     dict = {}
 
 class PropertyInfoResponse(BaseModel):
     """
@@ -289,3 +293,73 @@ class FileUploadResponse(BaseModel):
     filename:   str
     format:     Optional[str] = None
     size_bytes: int
+
+
+class ProfileTargetResponse(BaseModel):
+    """
+    What a shape applies to.
+
+    Attributes
+    ----------
+    kind : str
+        class (resources of a type) or subjects_of (resources using a
+        property).
+    uri : str
+    label : str
+        Prefixed name such as ore:Proxy.
+    """
+
+    kind:  str
+    uri:   str
+    label: str
+
+
+class ProfilePropertyResponse(BaseModel):
+    """
+    A requirement a shape checks.
+
+    Attributes
+    ----------
+    path : str
+        Prefixed property name, or several joined by "or" when any of
+        them satisfies the requirement.
+    severity : str | None
+    message : str | None
+    """
+
+    path:     str
+    severity: Optional[str] = None
+    message:  Optional[str] = None
+
+
+class ProfileShapeResponse(BaseModel):
+    """
+    One shape of a profile: its targets and its requirements.
+
+    Attributes
+    ----------
+    targets : list of ProfileTargetResponse
+    properties : list of ProfilePropertyResponse
+    """
+
+    targets:    List[ProfileTargetResponse]
+    properties: List[ProfilePropertyResponse]
+
+
+class ProfileResponse(BaseModel):
+    """
+    API response for one SHACL profile in GET /profiles.
+
+    Attributes
+    ----------
+    id : str
+    name : str
+    is_fallback : bool
+        True for the profile used when detection finds no vocabulary.
+    shapes : list of ProfileShapeResponse
+    """
+
+    id:          str
+    name:        str
+    is_fallback: bool
+    shapes:      List[ProfileShapeResponse]

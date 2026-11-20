@@ -53,6 +53,7 @@ def make_source(id, label, source_config, selected=False):
         "expanded":      False,
         "source_config": source_config,
         "scope":         None,
+        "metric_options": {},
     }
 
 
@@ -84,6 +85,11 @@ def make_results(datasets, error_message=None):
         Activated when exactly one dataset is evaluated.
     comparison
         Activated when multiple datasets are evaluated.
+
+    A metric that failed on a dataset does not turn the whole result
+    into an error. It stays in the datasets, and the main panel shows it
+    as a failed card while every other metric still displays. Only an
+    explicit error_message, a run that produced nothing, does that.
     """
     if error_message is not None:
         return {
@@ -92,19 +98,6 @@ def make_results(datasets, error_message=None):
             "error_message": error_message,
             "datasets":      [],
         }
-
-    for dataset in datasets:
-        for metric in dataset.get("metrics", []):
-            if metric.get("status") == "error":
-                return {
-                    "status":        "error",
-                    "mode":          None,
-                    "error_message": (
-                        f"Metric '{metric['name']}' failed on dataset "
-                        f"'{dataset['label']}': {metric.get('details', 'no details')}"
-                    ),
-                    "datasets":      datasets,
-                }
 
     return {
         "status":        "ok",
