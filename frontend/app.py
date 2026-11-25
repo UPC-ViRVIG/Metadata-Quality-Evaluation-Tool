@@ -109,4 +109,4 @@ import callbacks.main_panel   # noqa: F401, E402
 import callbacks.ui            # noqa: F401, E402
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8050)
+    app.run(debug=True, port=8050, use_reloader=False)
