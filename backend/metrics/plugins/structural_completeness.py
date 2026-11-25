@@ -62,6 +62,13 @@ PROFILES = {
             "http://www.openarchives.org/ore/terms/",
         ],
     },
+    "dublin_core": {
+        "name":       "Dublin Core (simple)",
+        "file":       SHAPES_DIR / "dublin_core_profile.ttl",
+        "namespaces": [
+            "http://purl.org/dc/elements/1.1/",
+        ],
+    },
     "core": {
         "name":       "Generic core profile",
         "file":       SHAPES_DIR / "core_profile.ttl",

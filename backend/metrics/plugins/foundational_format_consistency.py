@@ -62,9 +62,85 @@ from models.metric_result import MetricResult
 from metrics.metrics_exceptions import EmptyGraphError
 from export import export_cache
 
+import json  # ADDED
+from functools import lru_cache # ADDED
+from pathlib import Path # ADDED
+
 # Maximum number of sample violations sent to the frontend per area.
 # The full lists are stored in the export cache separately.
 MAX_SAMPLES = 50
+
+# JSON built from the IANA Language Subtag Registry
+_BCP47_JSON = Path(__file__).parent.parent / "shapes" / "bcp47_registry.json"
+
+_ALPHA = re.compile(r"^[a-z]+$")
+_DIGIT = re.compile(r"^[0-9]+$")
+_ALNUM = re.compile(r"^[a-z0-9]+$")
+
+
+@lru_cache(maxsize=1)
+def _load_bcp47_registry() -> dict:
+    """Load the registry JSON once and turn the lists into sets."""
+    with open(_BCP47_JSON, encoding="utf-8") as f:
+        reg = json.load(f)
+    for key in ("language", "extlang", "script", "region", "variant", "whole_tags"):
+        reg[key] = set(reg[key])
+    return reg
+
+
+def _in_registry(reg: dict, kind: str, subtag: str) -> bool:
+    """True if subtag is in the list for `kind`, or inside one of its ranges."""
+    return subtag in reg[kind] or any(
+        len(start) == len(subtag) and start <= subtag <= end
+        for start, end in reg["ranges"][kind]
+    )
+
+
+@lru_cache(maxsize=4096)
+def _validate_lang_tag(tag: str) -> tuple:
+    """Return (is_valid, reason). Case-insensitive; cached per tag."""
+    reg = _load_bcp47_registry()
+    tag = tag.lower()
+    if tag in reg["whole_tags"]:
+        return True, "grandfathered or redundant tag"
+    parts = tag.split("-")
+    if not all(_ALNUM.match(p) and len(p) <= 8 for p in parts):
+        return False, "not well-formed"
+    if parts[0] == "x":
+        return len(parts) > 1, "private use"
+    if not _in_registry(reg, "language", parts[0]):
+        return False, f"unknown language '{parts[0]}'"
+    i = 1
+    if (i < len(parts) and len(parts[i]) == 3 and _ALPHA.match(parts[i])
+            and _in_registry(reg, "extlang", parts[i])):
+        i += 1
+    if i < len(parts) and len(parts[i]) == 4 and _ALPHA.match(parts[i]):
+        if not _in_registry(reg, "script", parts[i]):
+            return False, f"unknown script '{parts[i]}'"
+        i += 1
+    if i < len(parts) and ((len(parts[i]) == 2 and _ALPHA.match(parts[i]))
+                           or (len(parts[i]) == 3 and _DIGIT.match(parts[i]))):
+        if not _in_registry(reg, "region", parts[i]):
+            return False, f"unknown region '{parts[i]}'"
+        i += 1
+    seen = set()
+    while i < len(parts) and (len(parts[i]) >= 5
+                              or (len(parts[i]) == 4 and parts[i][0].isdigit())):
+        if not _in_registry(reg, "variant", parts[i]) or parts[i] in seen:
+            return False, f"unknown or repeated variant '{parts[i]}'"
+        seen.add(parts[i])
+        i += 1
+    while i < len(parts) and len(parts[i]) == 1 and parts[i] != "x":  # extensions
+        i += 1
+        if i >= len(parts) or len(parts[i]) < 2:
+            return False, "extension without content"
+        while i < len(parts) and len(parts[i]) >= 2:
+            i += 1
+    if i < len(parts) and parts[i] == "x":                            # private use
+        return i + 1 < len(parts), "private use suffix"
+    if i == len(parts):
+        return True, "valid"
+    return False, f"unexpected subtag '{parts[i]}'"
 
 _BCP47_PATTERN = re.compile(
     r"^[a-zA-Z]{2,8}"
@@ -154,7 +230,8 @@ def _is_valid_lang_tag(tag: str) -> bool:
     -------
     bool
     """
-    return bool(_BCP47_PATTERN.match(tag))
+    #return bool(_BCP47_PATTERN.match(tag))
+    return _validate_lang_tag(tag)[0] # ADDED
 
 
 def _is_valid_datatype_value(value: str, datatype: str) -> bool:

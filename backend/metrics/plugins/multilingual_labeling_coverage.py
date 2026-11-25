@@ -33,7 +33,7 @@ from collections import defaultdict
 import re
 
 from rdflib import Graph, URIRef, Literal, BNode
-from rdflib.namespace import RDF
+from rdflib.namespace import RDF, XSD
 
 from metrics.metric_plugin import MetricPlugin
 from models.dataset_context import DatasetContext
@@ -45,6 +45,12 @@ MAX_LANGUAGES = 10
 
 _BCP47_RE = re.compile(r"^[a-zA-Z]{2,8}(-[a-zA-Z0-9]{1,8})*$")
 
+_TEXTUAL_DATATYPES = {
+    None,
+    XSD.string,
+    XSD.normalizedString,
+    XSD.token,
+}
 def _is_valid_bcp47(tag: str) -> bool:
     """Return True if tag conforms to BCP 47 (simplified check)."""
     return bool(_BCP47_RE.match(tag))
@@ -91,6 +97,8 @@ def _collect_resource_data(graph: Graph) -> dict:
             continue
 
         if not isinstance(obj, Literal):
+            continue
+        if obj.datatype not in _TEXTUAL_DATATYPES:
             continue
 
         uri = str(subject)
