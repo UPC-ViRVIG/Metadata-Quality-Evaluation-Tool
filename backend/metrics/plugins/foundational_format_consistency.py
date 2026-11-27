@@ -103,7 +103,7 @@ _LANG_ISSUE_DESCRIPTIONS = {
 #     r"^[a-zA-Z]{2,8}"
 #     r"(-[a-zA-Z0-9]{1,8})*$"
 # )
-# Literals  with these datatypes are excluded from the count (numbers, dates, etc..)
+
 _XSD_VALIDATORS = {
     str(XSD.integer):            re.compile(r"^[+-]?\d+$"),
     str(XSD.decimal):            re.compile(r"^[+-]?\d+(\.\d+)?$"),
