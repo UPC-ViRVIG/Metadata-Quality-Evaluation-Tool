@@ -48,7 +48,7 @@ _SUB_SCORE_LABELS = {
     "language_tag_format":  "Language Tag Format",
     "structural_issues":    "Structural Issues",
 }
-
+_SUB_SCORE_KEYS = list(_SUB_SCORE_LABELS)
 
 def render(metric: dict, datasets: list[dict]) -> html.Div:
     """
@@ -116,12 +116,7 @@ def _sub_scores_section(ds_details: list[dict]) -> html.Div:
     - Violation count cards per concern area with ℹ tooltips
     - Horizontal bar chart of violation counts, clickable to open drilldown
     """
-    keys = [
-        "uri_validity",
-        "datatype_correctness",
-        "language_tag_format",
-        "structural_issues",
-    ]
+    keys = _SUB_SCORE_KEYS
 
     # ── Violation count cards ─────────────────────────────────────────────
     cards = []
@@ -508,7 +503,11 @@ def _export_section(ds_details: list[dict]) -> html.Div:
         row_content = []
 
         if exports_available:
-            for cat in exports_available:
+            for cat in sorted(
+                    exports_available,
+                    key=lambda c: _SUB_SCORE_KEYS.index(c)
+                    if c in _SUB_SCORE_KEYS else len(_SUB_SCORE_KEYS),
+            ):
                 btn_label = _EXPORT_LABELS.get(
                     cat, cat.replace("_", " ").title()
                 )
