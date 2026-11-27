@@ -1,0 +1,62 @@
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix dbr:      <http://dbpedia.org/resource/> .
+@prefix dbo:      <http://dbpedia.org/ontology/> .
+@prefix dbp:      <http://dbpedia.org/property/> .
+@prefix schema1:  <http://schema.org/> .
+@prefix wikidata: <http://www.wikidata.org/entity/> .
+@prefix geo1:     <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix ogcgs:    <http://www.opengis.net/ont/geosparql#> .
+@prefix ex:       <http://example.org/> .
+
+# =============================================================================
+# MLC-07: Non-Textual Literals — Excluded From Coverage
+#
+# Purpose: verify that literals which can never carry a language (numbers,
+# dates, coordinates, geometries) are not counted as untagged text. Only
+# literals with a language tag, no datatype, or a string datatype
+# (TEXTUAL_DATATYPES) enter tagged_count / untagged_count.
+#
+# Resources:
+#   dbr:A_Great_Day_in_Hip_Hop
+#       1 tagged literal (@en), plus a wktLiteral, two xsd:float and an
+#       xsd:date, all excluded → coverage 1/1, one language
+#       → score 1.0 × 0.5 = 0.5
+#       (counting every literal, as scoring version 1 did, gave
+#       1/5 × 0.5 = 0.1)
+#   ex:res002
+#       @en + @fr, one xsd:string and one xsd:integer; the integer is
+#       excluded, the xsd:string counts as untagged text
+#       → coverage 2/3, two languages → score 0.6667 × 1.0 = 0.6667
+#
+# Overall score = mean(0.5, 0.6667) = 0.5833
+#
+# General info:
+#   tagged_literal_count   = 3
+#   untagged_literal_count = 1
+#
+# Key assertions:
+#   - non-textual literals add nothing to untagged_literal_count
+#   - an xsd:string literal still counts as untagged text
+#   - details.scoring_version = 2
+# =============================================================================
+
+# Reported example: one English label, four non-textual values
+dbr:A_Great_Day_in_Hip_Hop
+    a dbo:Artwork, dbo:Work, schema1:CreativeWork, owl:Thing,
+      wikidata:Q386724, wikidata:Q838948 ;
+    rdfs:label "A Great Day in Hip Hop"@en ;
+    geo1:geometry "POINT(-86.168800354004 39.776798248291)"^^ogcgs:wktLiteral ;
+    geo1:lat "39.776798"^^xsd:float ;
+    geo1:long "-86.1688"^^xsd:float ;
+    dbp:completionDate "1998-09-29"^^xsd:date .
+
+# res002 — mixed: tagged text, an explicit xsd:string, and a number
+ex:res002
+    a dbo:Artwork ;
+    rdfs:label "Untitled"@en ;
+    rdfs:label "Sans titre"@fr ;
+    rdfs:comment "No description given"^^xsd:string ;
+    dbp:year "1998"^^xsd:integer .

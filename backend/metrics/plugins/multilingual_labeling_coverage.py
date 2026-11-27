@@ -3,10 +3,10 @@ metrics/plugins/multilingual_labeling_coverage.py
 -------------------------------------------------
 Measures how well the dataset supports multiple languages.
 
-The metric inspects every literal in the graph and asks two separate
-questions of each resource: how much of its textual content carries a
-language tag at all, and whether more than one language is actually
-present. A resource can be thoroughly tagged and still monolingual, so
+The metric inspects every textual literal in the graph and asks two
+separate questions of each resource: how much of its textual content
+carries a language tag at all, and whether more than one language is
+actually present. A resource can be thoroughly tagged and still monolingual, so
 depth and breadth are scored independently and then combined.
 
 Language tags are checked against a simplified BCP 47 pattern. For
@@ -19,11 +19,18 @@ Each resource scores
 
     coverage ratio * language breadth multiplier
 
-where the coverage ratio is the proportion of its literals carrying any
-language tag, and the multiplier is 0.0 for no tags, 0.5 for exactly one
-language, and 1.0 for two or more. The metric score is the mean across
-resources, so a resource must be both well tagged and genuinely
-multilingual to score highly.
+where the coverage ratio is the proportion of its textual literals
+carrying any language tag, and the multiplier is 0.0 for no tags, 0.5 for
+exactly one language, and 1.0 for two or more. The metric score is the
+mean across resources, so a resource must be both well tagged and
+genuinely multilingual to score highly.
+
+Textual literals are those with a language tag, no datatype, or a string
+datatype (TEXTUAL_DATATYPES). Numbers, dates, coordinates and other typed
+values can never carry a language, so they are not counted. An earlier
+rule counted every literal as untagged text, which lowered the score of
+any resource with such values. Results carry scoring_version so the two
+can be told apart.
 
 Per-class rates cover named resources only: blank nodes carry no
 rdf:type and therefore cannot be attributed to any class.
@@ -33,7 +40,7 @@ from collections import defaultdict
 import re
 
 from rdflib import Graph, URIRef, Literal, BNode
-from rdflib.namespace import RDF
+from rdflib.namespace import RDF, XSD
 
 from metrics.metric_plugin import MetricPlugin
 from models.dataset_context import DatasetContext
@@ -42,6 +49,18 @@ from metrics.metrics_exceptions import EmptyGraphError
 
 # Maximum number of distinct language columns before collapsing into "other"
 MAX_LANGUAGES = 10
+
+# Version 2 counts textual literals only; version 1 counted every literal
+SCORING_VERSION = 2
+
+# Datatypes of literals that hold text. Language-tagged literals have no
+# datatype in RDFLib, so None covers them as well as plain literals.
+TEXTUAL_DATATYPES = {
+    None,
+    XSD.string,
+    XSD.normalizedString,
+    XSD.token,
+}
 
 _BCP47_RE = re.compile(r"^[a-zA-Z]{2,8}(-[a-zA-Z0-9]{1,8})*$")
 
@@ -91,6 +110,8 @@ def _collect_resource_data(graph: Graph) -> dict:
             continue
 
         if not isinstance(obj, Literal):
+            continue
+        if obj.datatype not in TEXTUAL_DATATYPES:
             continue
 
         uri = str(subject)
@@ -398,6 +419,7 @@ class MultilingualLabelingCoverageMetric(MetricPlugin):
         score = _compute_score(resources)
 
         details = {
+            "scoring_version":      SCORING_VERSION,
             "total_resources":      len(resources),
             "general_info":         general_info,
             "language_distribution": language_distribution,
