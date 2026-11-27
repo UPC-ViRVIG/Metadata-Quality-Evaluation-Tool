@@ -99,11 +99,11 @@ _LANG_ISSUE_DESCRIPTIONS = {
     "script_mismatch": "Script mismatch (text is not in the script expected for the tag)",
 }
 
-_BCP47_PATTERN = re.compile(
-    r"^[a-zA-Z]{2,8}"
-    r"(-[a-zA-Z0-9]{1,8})*$"
-)
-
+# _BCP47_PATTERN = re.compile(
+#     r"^[a-zA-Z]{2,8}"
+#     r"(-[a-zA-Z0-9]{1,8})*$"
+# )
+# Literals  with these datatypes are excluded from the count (numbers, dates, etc..)
 _XSD_VALIDATORS = {
     str(XSD.integer):            re.compile(r"^[+-]?\d+$"),
     str(XSD.decimal):            re.compile(r"^[+-]?\d+(\.\d+)?$"),
@@ -195,7 +195,7 @@ def _is_valid_datatype_value(value: str, datatype: str) -> bool:
     """
     Check whether a literal value is compatible with its XSD datatype.
 
-    Only datatypes listed in _XSD_VALIDATORS are checked. Unknown
+    datatypes listed in _XSD_VALIDATORS are excluded. Unknown
     datatypes are considered valid by convention — the metric does not
     penalise the use of custom or external datatypes.
 
