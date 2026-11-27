@@ -291,7 +291,7 @@ def _is_valid_datatype_value(value: str, datatype: str) -> bool:
     """
     Check whether a literal value is compatible with its XSD datatype.
 
-    datatypes listed in _XSD_VALIDATORS are excluded. Unknown
+    Only datatypes listed in _XSD_VALIDATORS are checked. Unknown
     datatypes are considered valid by convention — the metric does not
     penalise the use of custom or external datatypes.
 
