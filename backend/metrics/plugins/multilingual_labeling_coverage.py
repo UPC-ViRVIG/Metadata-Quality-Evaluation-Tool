@@ -40,17 +40,28 @@ from models.dataset_context import DatasetContext
 from models.metric_result import MetricResult
 from metrics.metrics_exceptions import EmptyGraphError
 
+from decimal import Decimal, InvalidOperation
+
 # Maximum number of distinct language columns before collapsing into "other"
 MAX_LANGUAGES = 10
 
 _BCP47_RE = re.compile(r"^[a-zA-Z]{2,8}(-[a-zA-Z0-9]{1,8})*$")
 
-_TEXTUAL_DATATYPES = {
-    None,
-    XSD.string,
-    XSD.normalizedString,
-    XSD.token,
+_NON_TEXTUAL_DATATYPES = {
+    XSD.integer,
+    XSD.decimal,
+    XSD.float,
+    XSD.double,
+    XSD.boolean,
+    XSD.date,
+    XSD.dateTime,
+    XSD.time,
+    XSD.gYear,
+    XSD.gYearMonth,
+    XSD.duration,
+    URIRef("http://www.opengis.net/ont/geosparql#wktLiteral"),
 }
+
 def _is_valid_bcp47(tag: str) -> bool:
     """Return True if tag conforms to BCP 47 (simplified check)."""
     return bool(_BCP47_RE.match(tag))
@@ -98,7 +109,9 @@ def _collect_resource_data(graph: Graph) -> dict:
 
         if not isinstance(obj, Literal):
             continue
-        if obj.datatype not in _TEXTUAL_DATATYPES:
+        if obj.datatype in _NON_TEXTUAL_DATATYPES:
+            continue
+        if _is_numeric_literal(str(obj)):
             continue
 
         uri = str(subject)
@@ -121,6 +134,13 @@ def _collect_resource_data(graph: Graph) -> dict:
             resources[uri]["untagged_count"] += 1
 
     return resources
+
+def _is_numeric_literal(value):
+    try:
+        Decimal(value.strip())
+        return True
+    except (InvalidOperation, ValueError):
+        return False
 
 
 def _compute_general_info(resources: dict) -> dict:
