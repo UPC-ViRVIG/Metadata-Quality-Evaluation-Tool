@@ -643,13 +643,54 @@ def build_metric_options_modal() -> dbc.Modal:
     return dbc.Modal(
         [
             dbc.ModalHeader(dbc.ModalTitle(id="metric-options-title")),
-            dbc.ModalBody(html.Div(id="metric-options-body")),
+            dbc.ModalBody([
+                html.Div(id="metric-options-body"),
+                # Outcome of the last profile upload or removal, shown
+                # in the section it concerns when the body is built.
+                dcc.Store(id="shacl-upload-message", data=None),
+            ]),
             dbc.ModalFooter(
                 dbc.Button("Close", id="btn-metric-options-close",
                            color="secondary", size="sm"),
             ),
         ],
         id="modal-metric-options",
+        is_open=False,
+        size="lg",
+        scrollable=True,
+    )
+
+
+def build_run_warning_modal() -> dbc.Modal:
+    """
+    Build the window that asks the user to confirm a run.
+
+    Shown when a metric reports that a choice does not fit the data,
+    such as a SHACL profile matching no records. The warnings and the
+    buttons for changing each choice are filled in by the run callback;
+    "Yes, evaluate" runs with the choices as they are.
+
+    Returns
+    -------
+    dbc.Modal
+        Run confirmation window.
+    """
+    return dbc.Modal(
+        [
+            dbc.ModalHeader(dbc.ModalTitle("Check before evaluating")),
+            dbc.ModalBody([
+                html.Div(id="run-warning-body"),
+                html.P("Are you sure you want to proceed with the evaluation?",
+                       className="mb-0 mt-3 fw-semibold",
+                       style={"fontSize": "0.9rem"}),
+            ]),
+            dbc.ModalFooter([
+                html.Div(id="run-warning-actions", className="me-auto"),
+                dbc.Button("Yes, evaluate", id="btn-run-confirm",
+                           color="primary", size="sm", n_clicks=0),
+            ]),
+        ],
+        id="modal-run-warning",
         is_open=False,
         size="lg",
         scrollable=True,

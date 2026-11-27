@@ -21,6 +21,7 @@ from rdflib import Graph
 import main
 from export import export_cache
 from export.result_archive import build_archive, parse_archive
+from metrics import profile_store
 from metrics.metric_registry import resolve_metric_options
 from metrics.metrics_exceptions import MetricConfigurationError
 from metrics.plugins.structural_completeness import (
@@ -35,6 +36,17 @@ FIXTURES = Path(__file__).parent / "evaluation" / "structural_completeness"
 EDM_DATA = FIXTURES / "sc02_perfect_dataset.ttl"
 CORE_DATA = FIXTURES / "sc04_core_fallback.ttl"
 METRIC = "structural_completeness"
+
+
+@pytest.fixture(autouse=True)
+def isolated_store(tmp_path, monkeypatch):
+    """
+    Keep profiles users added out of these tests.
+
+    Auto prefers added profiles, so a profile in backend/uploads that
+    happens to match a fixture would otherwise change the outcome.
+    """
+    monkeypatch.setattr(profile_store, "UPLOAD_DIR", tmp_path / "profiles")
 
 
 def _graph(path: Path) -> Graph:
@@ -158,6 +170,8 @@ def test_selected_profile_matching_no_records_names_the_profile():
     result = _evaluate(CORE_DATA, "edm")
 
     assert result.status == "error"
+    assert result.details["not_applicable"] is True
+    assert result.details["profile"] == "edm"
     message = str(result.details)
     assert "Europeana Data Model (EDM)" in message
     assert "found no matching records" in message

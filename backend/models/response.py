@@ -295,6 +295,47 @@ class FileUploadResponse(BaseModel):
     size_bytes: int
 
 
+class RunWarningResponse(BaseModel):
+    """
+    Something a metric asks the user to confirm before a run.
+
+    Attributes
+    ----------
+    dataset_id : str
+    label : str | None
+        Display name of the dataset.
+    metric_id : str
+    metric_name : str | None
+    message : str
+        One-line summary, e.g. that a chosen profile does not match.
+    lines : list[str]
+        The facts behind it, such as how many resources a profile covers.
+    action : str
+        Label for changing the choice, e.g. "Choose another profile".
+    """
+
+    dataset_id:  str
+    label:       str | None = None
+    metric_id:   str
+    metric_name: str | None = None
+    message:     str
+    lines:       list[str] = []
+    action:      str
+
+
+class RunCheckResponse(BaseModel):
+    """
+    Response of POST /evaluate/preflight.
+
+    Attributes
+    ----------
+    warnings : list[RunWarningResponse]
+        Empty when nothing needs confirming.
+    """
+
+    warnings: list[RunWarningResponse]
+
+
 class ProfileTargetResponse(BaseModel):
     """
     What a shape applies to.
@@ -302,8 +343,10 @@ class ProfileTargetResponse(BaseModel):
     Attributes
     ----------
     kind : str
-        class (resources of a type) or subjects_of (resources using a
-        property).
+        class (resources of a type), subjects_of (resources using a
+        property), objects_of (resources a property points to), node
+        (one named resource) or sparql (resources a SPARQL query
+        selects).
     uri : str
     label : str
         Prefixed name such as ore:Proxy.
@@ -322,14 +365,19 @@ class ProfilePropertyResponse(BaseModel):
     ----------
     path : str
         Prefixed property name, or several joined by "or" when any of
-        them satisfies the requirement.
+        them satisfies the requirement. Empty for a requirement on the
+        resource itself, such as its type.
+    requirement : str | None
+        What the constraint asks for, in words, e.g. "at least 1" or
+        "must be a crm:E21_Person".
     severity : str | None
     message : str | None
     """
 
-    path:     str
-    severity: Optional[str] = None
-    message:  Optional[str] = None
+    path:        str
+    requirement: Optional[str] = None
+    severity:    Optional[str] = None
+    message:     Optional[str] = None
 
 
 class ProfileShapeResponse(BaseModel):
@@ -356,10 +404,19 @@ class ProfileResponse(BaseModel):
     name : str
     is_fallback : bool
         True for the profile used when detection finds no vocabulary.
+    uploaded : bool
+        True for a profile a user added rather than a built-in one.
+    filename : str | None
+        Original file name of an added profile.
+    uploaded_at : str | None
+        When an added profile was stored.
     shapes : list of ProfileShapeResponse
     """
 
     id:          str
     name:        str
     is_fallback: bool
+    uploaded:    bool = False
+    filename:    Optional[str] = None
+    uploaded_at: Optional[str] = None
     shapes:      List[ProfileShapeResponse]

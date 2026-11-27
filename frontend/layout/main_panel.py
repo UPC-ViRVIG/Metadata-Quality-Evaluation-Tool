@@ -113,8 +113,13 @@ def build_analysis(
                 html.P("Overall Score", className="text-muted mb-1",
                        style={"fontSize": "0.75rem", "textTransform": "uppercase",
                               "letterSpacing": "0.06em"}),
+                # No metric produced a score, e.g. the only one was not
+                # applicable: say so rather than draw a made-up value.
                 dcc.Graph(figure=donut(overall), config={"displayModeBar": False},
-                          style={"height": "160px"}),
+                          style={"height": "160px"})
+                if overall is not None else
+                html.P("No score: no metric produced one for this run.",
+                       className="text-muted mb-0", style={"fontSize": "0.8rem"}),
             ], className="h-100"),
             id={"type": "metric-card", "index": "__overview__"},
             n_clicks=0,
@@ -197,7 +202,8 @@ def build_comparison(
         x=unique_labels,
         y=overall_scores,
         marker_color=[COLORS[i % len(COLORS)] for i in range(len(unique_labels))],
-        text=[f"{round(s * 100)}%" for s in overall_scores],
+        text=[f"{round(s * 100)}%" if s is not None else "no score"
+              for s in overall_scores],
         textposition="outside",
         hoverinfo="none",
     ))

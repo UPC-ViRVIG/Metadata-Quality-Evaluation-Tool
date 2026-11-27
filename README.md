@@ -65,7 +65,7 @@ Metrics are grouped into four quality dimensions. Dimensions and metrics are bot
 
 | Metric ID | Name | Dimension | What it measures |
 | --- | --- | --- | --- |
-| `structural_completeness` | Structural Completeness | Contextual | Proportion of records containing all required fields, validated with SHACL against a detected schema profile (EDM or a generic core profile). |
+| `structural_completeness` | Structural Completeness | Contextual | Share of its own required fields each record has, validated with SHACL against a detected or chosen profile (EDM, a generic core profile, or a SHACL file you add). Each record is scored only against the shapes that target it. |
 | `property_coverage` | Property Coverage | Contextual | How consistently properties are used across all instances of each class — data-driven per-class fill rates, weighted by class size. |
 | `multilingual_labeling_coverage` | Multilingual Labeling Coverage | Contextual | Presence and distribution of language-tagged literals: how many resources carry multilingual metadata and how evenly languages are represented. |
 | `foundational_format_consistency` | Foundational and Format Consistency | Representational | URI validity, datatype correctness, BCP 47 language-tag format, and structural issues (blank nodes, empty literals). Each sub-score is exportable separately. |
@@ -238,6 +238,12 @@ Classes that hold exactly the same resources appear as one entry, with the other
 
 A metric with options shows a gear (⚙) next to it. Options are chosen per data source: the gear opens a window with one row per source. Structural Completeness uses this to choose its SHACL profile. *Auto* detects the profile from the data, as before, or you can pick one explicitly. The same window explains what each profile checks, and the Structural Completeness detail view names the profile each dataset was scored against, whether it was detected or selected, with a *View* link to its definition. When a selected profile differs from what detection would pick, the result says so. When datasets in a comparison were checked against different profiles, a note says their scores are not directly comparable.
 
+You can also add your own SHACL file in the same window: drag it onto *Add your own SHACL profile*. It is checked first — it must declare at least one shape with a target (`sh:targetClass`, `sh:targetNode`, `sh:targetSubjectsOf`, `sh:targetObjectsOf` or a SPARQL target) and at least one constraint — and then becomes a choice for every source. SPARQL constraints (`sh:sparql`) and SPARQL targets are accepted when their queries only read the data being evaluated: a query using `SERVICE` or `FROM` is refused, since these queries run on the server. SHACL rules and custom constraint components are refused. A refusal names the shapes concerned. Note that a very slow query also slows the evaluation; there is no time limit. Added profiles are kept across restarts and can be removed from the preview. Adding a profile selects it for every source listed in the window; each source's dropdown can change that. A source left on *Auto* prefers added profiles: if any targets records in its data, the one targeting the most is used; only otherwise does detection fall back to EDM or core.
+
+A profile you choose is never replaced. Before each run, the dashboard checks every chosen profile against its source's data. If it targets no resources, leaves typed resources unchecked, or differs from what *Auto* would pick, a window lists those facts, with how many resources the profile covers, and asks: *Yes, evaluate* runs with your choice, *Choose another profile* opens the options. A confirmed profile that targets nothing is reported as **Not applicable**, with no score. The CLI prints the same warnings and continues.
+
+**How Structural Completeness scores a record.** Each record scores the share of its *own* requirements it meets: a sculpture is scored out of what the profile asks of sculptures, not out of everything it asks of every class. A requirement broken by several values counts once, and every severity counts equally. Results saved before this rule was introduced scored higher, because requirements of other classes counted as met; a comparison mixing the two says so.
+
 If a metric fails on a dataset — for example a selected profile that matches none of its records — that metric's card shows *Failed* with the reason, and every other metric is still displayed.
 
 **4. Run the evaluation.** At least one source and one metric must be selected.
@@ -389,6 +395,7 @@ Notes:
 - Result files from earlier CLI versions (a bare JSON list with no envelope) still import as the legacy format, so the samples in `cli/results/` remain usable.
 - A metric ID that is unknown to the configuration or registry is skipped with a warning rather than aborting the run.
 - Each dataset can set `metric_options`, mirroring the API, e.g. `structural_completeness: {profile: edm}`. An invalid option stops the run with an error. `--list-metrics` shows each metric's options and choices.
+- A top-level `profiles:` section adds your own SHACL files under the id you give them, e.g. `profiles: {my_model: shapes/my_model.ttl}`, so `metric_options` can choose `profile: my_model`. They are checked as in the dashboard and kept, so the dashboard can use them too.
 
 Ready-made configs are in [`backend/cli/configs/`](backend/cli/configs/), with sample outputs in [`backend/cli/results/`](backend/cli/results/).
 
@@ -403,8 +410,11 @@ Interactive documentation is available at `http://127.0.0.1:8000/docs` while the
 | `GET` | `/metrics` | Implemented metrics with display metadata, from `metrics_config.json`. |
 | `GET` | `/dimensions` | The four quality dimensions with descriptions and tooltips. |
 | `GET` | `/profiles` | The SHACL profiles Structural Completeness can use, with each profile's target classes and required properties. |
+| `POST` | `/profiles/upload` | Add a SHACL file as a profile (raw body, `filename` query parameter). |
+| `DELETE` | `/profiles/{profile_id}` | Remove a profile that was added. Built-in profiles cannot be removed. |
 | `POST` | `/ontology` | Extract the class hierarchy of a dataset for scope configuration. |
 | `POST` | `/evaluate` | Run the selected metrics over the given datasets. |
+| `POST` | `/evaluate/preflight` | Same body as `/evaluate`; runs nothing and returns what the user should confirm first, e.g. a chosen SHACL profile that does not fit the data. |
 | `GET` | `/export/{dataset_id}/{metric_id}/{category}` | Stream the full export rows for a metric category as CSV. |
 | `POST` | `/results/export` | Serialize evaluation results into a portable results archive. |
 | `POST` | `/results/import` | Read a results archive back and restore its export rows. |

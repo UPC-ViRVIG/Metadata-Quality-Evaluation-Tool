@@ -24,7 +24,7 @@ def build_profile_definition(profile: dict | None) -> html.Div:
     -------
     html.Div
         The profile's name, a note on how requirements are scored, and
-        one table per shape.
+        one table listing every shape's targets and requirements.
     """
     if not profile:
         return html.P(
@@ -40,6 +40,16 @@ def build_profile_definition(profile: dict | None) -> html.Div:
             "scores say little about domain-specific completeness."
         )
 
+    if profile.get("uploaded"):
+        added = (profile.get("uploaded_at") or "")[:10]
+        source = profile.get("filename")
+        intro.append(html.Span(
+            " — added"
+            + (f" on {added}" if added else "")
+            + (f" from {source}" if source else ""),
+            className="text-muted",
+        ))
+
     blocks = [
         html.P(intro, className="mb-1", style={"fontSize": "0.9rem"}),
         html.P(
@@ -50,27 +60,35 @@ def build_profile_definition(profile: dict | None) -> html.Div:
         ),
     ]
 
+    # One table for the whole profile: a profile with hundreds of shapes,
+    # such as a generated domain/range profile, stays readable, and each
+    # shape's targets span the rows of its requirements.
+    rows = []
     for shape in profile.get("shapes", []):
-        blocks.append(html.P(
-            [html.Span("Applies to: ", className="text-muted"),
-             html.Strong(_targets_text(shape.get("targets", [])))],
-            className="mb-1",
-            style={"fontSize": "0.82rem"},
-        ))
-        blocks.append(dbc.Table(
-            [html.Thead(html.Tr([html.Th("Property"), html.Th("Severity"),
-                                 html.Th("Message")])),
-             html.Tbody([
-                 html.Tr([
-                     html.Td(prop["path"]),
-                     html.Td(prop.get("severity") or "—"),
-                     html.Td(prop.get("message") or "—"),
-                 ])
-                 for prop in shape.get("properties", [])
-             ])],
-            bordered=True, size="sm", className="mb-3",
-            style={"fontSize": "0.8rem"},
-        ))
+        requirements = shape.get("properties", [])
+        for i, prop in enumerate(requirements):
+            cells = []
+            if i == 0:
+                cells.append(html.Td(_targets_text(shape.get("targets", [])),
+                                     rowSpan=len(requirements),
+                                     style={"verticalAlign": "top"}))
+            cells += [
+                html.Td(prop.get("path") or html.Span("the resource itself",
+                                                      className="text-muted")),
+                html.Td(prop.get("requirement") or "—"),
+                html.Td(prop.get("severity") or "—"),
+                html.Td(prop.get("message") or "—"),
+            ]
+            rows.append(html.Tr(cells))
+
+    blocks.append(dbc.Table(
+        [html.Thead(html.Tr([html.Th("Applies to"), html.Th("Property"),
+                             html.Th("Requirement"), html.Th("Severity"),
+                             html.Th("Message")])),
+         html.Tbody(rows)],
+        bordered=True, size="sm", className="mb-0",
+        style={"fontSize": "0.8rem"},
+    ))
 
     return html.Div(blocks)
 
@@ -87,11 +105,17 @@ def _targets_text(targets: list[dict]) -> str:
     Returns
     -------
     str
-        For example "ore:Proxy" or "any resource using rdf:type".
+        For example "ore:Proxy", "any resource using crm:P100" or "any
+        value of crm:P100".
     """
+    wording = {
+        "class":       "{}",
+        "subjects_of": "any resource using {}",
+        "objects_of":  "any value of {}",
+        "node":        "{}",
+    }
     parts = [
-        target["label"] if target["kind"] == "class"
-        else f"any resource using {target['label']}"
+        wording.get(target["kind"], "{}").format(target["label"])
         for target in targets
     ]
     return ", ".join(parts) or "—"

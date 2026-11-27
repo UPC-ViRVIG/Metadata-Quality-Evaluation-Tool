@@ -16,28 +16,47 @@ a profile that does not describe the data says little about its quality.
 
 The profile can also be chosen per dataset through the profile option.
 Detection still runs, so a choice that differs from what the data
-suggests is reported alongside the result rather than hidden.
+suggests is reported alongside the result rather than hidden. Besides the
+built-in profiles, users can add their own SHACL files, kept by
+metrics/profile_store.py. Auto prefers an added profile: if any added
+profile targets records in the data, the one targeting the most is used,
+and only otherwise does detection fall back to the built-in vocabularies.
 
 Score
 -----
 Each record scores
 
-    1 - (missing constraints / expected constraints)
+    1 - (constraints failed / constraints expected)
 
-where the expected count is the number of distinct constraint messages in
-the profile. Messages are deduplicated, so a property required by several
-shapes is not counted more than once. The metric score is the mean of the
-per-record scores.
+counting only the constraints of the shapes that target that record. A
+WebResource is scored out of what a WebResource must have, not out of
+everything the profile asks of every class. Each constraint is counted
+once, however many values break it, and every severity counts equally.
+The metric score is the mean of the per-record scores.
+
+This replaced an earlier rule that divided by every constraint in the
+profile. Requirements of other classes, which a record can never fail,
+then counted as met, which inflated scores most for small classes in
+large profiles. Results carry scoring_version so the two can be told
+apart.
 """
 
+import hashlib
 from pathlib import Path
 from pyshacl import validate
 from rdflib import Graph, URIRef
 from rdflib.collection import Collection
-from rdflib.namespace import SH, RDF
+from rdflib.namespace import SH, RDF, RDFS
 import statistics
 
 from metrics.metric_plugin import MetricPlugin
+from metrics.shacl_shapes import (
+    failed_constraints,
+    record_constraints,
+    shape_constraints,
+    shapes_with_targets,
+)
+from metrics import profile_store
 from models.dataset_context import DatasetContext
 from models.metric_result import MetricResult
 from metrics.metrics_exceptions import (
@@ -68,6 +87,79 @@ PROFILES = {
         "namespaces": [],
     },
 }
+
+
+def all_profiles() -> dict[str, dict]:
+    """
+    Return the built-in profiles and those users have added.
+
+    Returns
+    -------
+    dict[str, dict]
+        Profile ids mapped to their entries. Built-in entries come first
+        and are marked uploaded False.
+    """
+    builtin = {pid: {**p, "uploaded": False} for pid, p in PROFILES.items()}
+    return {**builtin, **profile_store.uploaded_profiles()}
+
+
+def register_profile(
+    filename: str,
+    content: bytes,
+    name: str | None = None,
+    profile_id: str | None = None,
+) -> str:
+    """
+    Add a user's SHACL file as a profile, keeping built-in ids reserved.
+
+    Parameters
+    ----------
+    filename : str
+        Name of the file.
+    content : bytes
+        Raw file contents.
+    name : str | None
+        Display name.
+    profile_id : str | None
+        Identifier to use, or None to derive one.
+
+    Returns
+    -------
+    str
+        The new profile's identifier.
+
+    Raises
+    ------
+    profile_store.ProfileError
+        If the file is not acceptable or the identifier is taken.
+    """
+    return profile_store.register_profile(
+        filename, content, name=name, profile_id=profile_id,
+        reserved=set(PROFILES) | {AUTO_PROFILE},
+    )
+
+
+def remove_profile(profile_id: str) -> None:
+    """
+    Remove a profile a user added. Built-in profiles cannot be removed.
+
+    Parameters
+    ----------
+    profile_id : str
+
+    Raises
+    ------
+    profile_store.ProfileError
+        If the profile is built-in or does not exist.
+    """
+    if profile_id in PROFILES:
+        raise profile_store.ProfileError(
+            f"'{profile_id}' is a built-in profile and cannot be removed."
+        )
+    profile_store.remove_profile(profile_id)
+
+
+SCORING_VERSION = 2
 FALLBACK_PROFILE = "core"
 AUTO_PROFILE = "auto"
 
@@ -135,6 +227,46 @@ def detect_profile(graph: Graph) -> tuple[str, Path]:
         ) from e
 
 
+def choose_profile(graph: Graph) -> tuple[str, Path]:
+    """
+    Pick the profile Auto uses, preferring profiles users have added.
+
+    An added profile is a deliberate statement of what the data should
+    meet, so it wins whenever it applies at all: the added profile whose
+    shapes target the most records in graph is used. Only when no added
+    profile targets anything does detection fall back to the built-in
+    vocabularies, as detect_profile describes.
+
+    Parameters
+    ----------
+    graph : rdflib.Graph
+        The data being evaluated.
+
+    Returns
+    -------
+    tuple[str, pathlib.Path]
+        The chosen profile id and its shapes file.
+
+    Raises
+    ------
+    ProfileDetectionError
+        If built-in detection fails.
+    """
+    best = None
+    for profile_id, profile in profile_store.uploaded_profiles().items():
+        try:
+            shapes_graph = load_shapes(profile["file"])
+        except (ShapeProfileNotFoundError, MetricConfigurationError):
+            continue
+        matched = len(record_constraints(shapes_graph, graph))
+        if matched and (best is None or matched > best[0]):
+            best = (matched, profile_id, profile["file"])
+
+    if best is not None:
+        return best[1], best[2]
+    return detect_profile(graph)
+
+
 def describe_profiles() -> list[dict]:
     """
     Describe every known profile in a form a person can read.
@@ -169,8 +301,15 @@ def describe_profiles() -> list[dict]:
         If a registered shapes file cannot be parsed.
     """
     profiles = []
-    for profile_id, profile in PROFILES.items():
-        shapes_graph = load_shapes(profile["file"])
+    for profile_id, profile in all_profiles().items():
+        try:
+            shapes_graph = load_shapes(profile["file"])
+        except (ShapeProfileNotFoundError, MetricConfigurationError):
+            # An added file damaged on disk must not hide every other
+            # profile. Built-in files are part of the tool and still fail.
+            if profile.get("uploaded"):
+                continue
+            raise
 
         def _label(term) -> str:
             """Return a prefixed name such as dc:title, or the URI."""
@@ -184,37 +323,105 @@ def describe_profiles() -> list[dict]:
             value = shapes_graph.value(node, SH.severity)
             return str(value).rsplit("#", 1)[-1] if value is not None else None
 
+        def _requirement(node) -> str:
+            """Describe in words what a constraint asks for."""
+            parts = []
+            value = shapes_graph.value
+            if value(node, SH.minCount) is not None:
+                parts.append(f"at least {value(node, SH.minCount)}")
+            if value(node, SH.maxCount) is not None:
+                parts.append(f"at most {value(node, SH.maxCount)}")
+            if value(node, SH["class"]) is not None:
+                parts.append(f"must be a {_label(value(node, SH['class']))}")
+            if value(node, SH.datatype) is not None:
+                parts.append(f"typed {_label(value(node, SH.datatype))}")
+            if value(node, SH.nodeKind) is not None:
+                kind = str(value(node, SH.nodeKind)).rsplit("#", 1)[-1]
+                parts.append({"Literal": "must be a literal",
+                              "IRI": "must be an IRI",
+                              "BlankNode": "must be a blank node"}
+                             .get(kind, f"node kind {kind}"))
+            if value(node, SH.minLength) is not None:
+                parts.append(f"at least {value(node, SH.minLength)} characters")
+            if value(node, SH.maxLength) is not None:
+                parts.append(f"at most {value(node, SH.maxLength)} characters")
+            if value(node, SH.pattern) is not None:
+                parts.append(f"matches {value(node, SH.pattern)}")
+            if value(node, SH.languageIn) is not None:
+                languages = Collection(shapes_graph, value(node, SH.languageIn))
+                parts.append("language " + " or ".join(str(l) for l in languages))
+            if value(node, SH.disjoint) is not None:
+                parts.append(f"no value shared with {_label(value(node, SH.disjoint))}")
+            if value(node, SH["in"]) is not None:
+                parts.append("one of a listed set of values")
+            if value(node, SH.hasValue) is not None:
+                parts.append(f"has value {_label(value(node, SH.hasValue))}")
+            if value(node, SH["or"]) is not None:
+                parts.append("at least one of these present")
+            if value(node, SH.node) is not None:
+                parts.append(f"conforms to {_label(value(node, SH.node))}")
+            for negated in shapes_graph.objects(node, SH["not"]):
+                if value(negated, SH["class"]) is not None:
+                    parts.append(f"must not be a {_label(value(negated, SH['class']))}")
+                else:
+                    parts.append("must not match a given shape")
+            if value(node, SH.sparql) is not None:
+                parts.append("custom SPARQL check")
+            return "; ".join(parts) or "—"
+
+        def _or_paths(shape) -> str:
+            """Join the paths an sh:or accepts, for its row."""
+            return " or ".join(
+                _label(shapes_graph.value(prop, SH.path))
+                for alternatives in shapes_graph.objects(shape, SH["or"])
+                for member in Collection(shapes_graph, alternatives)
+                for prop in shapes_graph.objects(member, SH.property)
+                if shapes_graph.value(prop, SH.path) is not None
+            )
+
+        # Exactly the shapes and constraints the scoring counts, so what
+        # is shown is what a record is measured against.
         shapes = []
-        for shape in sorted(shapes_graph.subjects(RDF.type, SH.NodeShape), key=str):
+        for shape in shapes_with_targets(shapes_graph):
+            constraints = shape_constraints(shapes_graph, shape)
+            if not constraints:
+                continue
+
             targets = [
                 {"kind": kind, "uri": str(uri), "label": _label(uri)}
                 for kind, predicate in (("class", SH.targetClass),
-                                        ("subjects_of", SH.targetSubjectsOf))
+                                        ("subjects_of", SH.targetSubjectsOf),
+                                        ("objects_of", SH.targetObjectsOf),
+                                        ("node", SH.targetNode))
                 for uri in shapes_graph.objects(shape, predicate)
             ]
+            if (shape, RDF.type, RDFS.Class) in shapes_graph:
+                targets.append({"kind": "class", "uri": str(shape),
+                                "label": _label(shape)})
+            if shapes_graph.value(shape, SH.target) is not None:
+                targets.append({"kind": "sparql", "uri": "",
+                                "label": "resources selected by a SPARQL query"})
 
             properties = []
-            for prop in shapes_graph.objects(shape, SH.property):
-                path = shapes_graph.value(prop, SH.path)
-                message = shapes_graph.value(prop, SH.message)
+            for constraint in constraints:
+                path = shapes_graph.value(constraint, SH.path)
+                if path is not None:
+                    path_text = _label(path)
+                elif shapes_graph.value(constraint, SH["or"]) is not None:
+                    path_text = _or_paths(constraint)
+                else:
+                    path_text = ""
+                message = shapes_graph.value(constraint, SH.message)
+                if message is None:
+                    # A SPARQL check usually carries its message itself.
+                    check = shapes_graph.value(constraint, SH.sparql)
+                    if check is not None:
+                        message = shapes_graph.value(check, SH.message)
                 properties.append({
-                    "path":     _label(path) if path is not None else "",
-                    "severity": _severity(prop),
-                    "message":  str(message) if message is not None else None,
-                })
-
-            for alternatives in shapes_graph.objects(shape, SH["or"]):
-                paths = [
-                    _label(shapes_graph.value(prop, SH.path))
-                    for member in Collection(shapes_graph, alternatives)
-                    for prop in shapes_graph.objects(member, SH.property)
-                    if shapes_graph.value(prop, SH.path) is not None
-                ]
-                message = shapes_graph.value(shape, SH.message)
-                properties.append({
-                    "path":     " or ".join(paths),
-                    "severity": _severity(shape),
-                    "message":  str(message) if message is not None else None,
+                    "path":        path_text,
+                    "requirement": _requirement(constraint),
+                    "severity":    _severity(constraint),
+                    "message":     str(message) if message is not None else None,
                 })
 
             shapes.append({
@@ -226,6 +433,9 @@ def describe_profiles() -> list[dict]:
             "id":          profile_id,
             "name":        profile["name"],
             "is_fallback": profile_id == FALLBACK_PROFILE,
+            "uploaded":    profile.get("uploaded", False),
+            "filename":    profile.get("filename"),
+            "uploaded_at": profile.get("uploaded_at"),
             "shapes":      shapes,
         })
     return profiles
@@ -268,98 +478,23 @@ def load_shapes(shapes_path: Path) -> Graph:
         ) from e
 
 
-def get_target_records(shapes_graph: Graph, data_graph: Graph) -> set[str]:
-    """
-    Extracts the set of target record URIs defined by a SHACL shape.
-    Supports 
-    - sh:targetClass (selects subjects with matching rdf:type)
-    - sh:targetSubjectsOf (selects subjects having a given property)
-
-    Parameters
-    ----------
-    shapes_graph
-        The SHACL shapes graph.
-    data_graph
-        The RDF data graph being evaluated.
-
-    Returns
-    -------
-    set[str]
-        A set of record URIs (as strings) targeted by the shape.
-        Returns an empty set if no targeting rules are defined.
-    """
-    target_classes = list(shapes_graph.objects(None, SH.targetClass))
-    if target_classes:
-        subjects = set()
-        for cls in target_classes:
-            subjects.update(
-                str(s) for s in data_graph.subjects(RDF.type, cls)
-            )
-        return subjects
-
-    target_props = list(shapes_graph.objects(None, SH.targetSubjectsOf))
-    if target_props:
-        subjects = set()
-        for prop in target_props:
-            subjects.update(
-                str(s) for s in data_graph.subjects(prop, None)
-            )
-        return subjects
-
-    return set()
-
-
-def extract_violations(results_graph: Graph) -> dict[str, list[str]]:
-    """
-    Extracts validation violations from a SHACL results graph.
-    Each violation is grouped by its message, mapping to the list
-    of focus nodes (records) that failed the constraint.
-    All severities are included, as every violation contributes
-    equally to completeness scoring.
-
-    Parameters
-    ----------
-    results_graph
-        The SHACL validation results graph.
-
-    Returns
-    -------
-    dict[str, list[str]]
-        A dictionary where:
-        - key: violation message (str)
-        - value: list of record URIs (str) that violate the constraint
-    """
-    violations: dict[str, list[str]] = {}
-
-    for node in results_graph.subjects(SH.resultSeverity, None):
-        name  = results_graph.value(node, SH.resultMessage)
-        focus = results_graph.value(node, SH.focusNode)
-        if focus is None:
-            continue
-        key = str(name) if name else "unknown"
-        violations.setdefault(key, []).append(str(focus))
-
-    return violations
-
-
 def compute_per_record_scores(
-    all_records: set[str],
-    violations: dict[str, list[str]],
-    num_properties: int
+    expected: dict[str, set],
+    failed: dict[str, set],
 ) -> dict[str, float]:
     """
     Computes a completeness score for each record.
-    Score = (expected properties - missing properties) / expected properties
-    Records with no violations score 1.0.
+
+    Score = 1 - (constraints failed / constraints expected), where both
+    counts are limited to the constraints of the shapes targeting the
+    record.
 
     Parameters
     ----------
-    all_records : set[str]
-        Set of all record URIs in the dataset.
-    violations : dict[str, list[str]]
-        Mapping of violation messages to lists of affected record URIs.
-    num_properties : int
-        Total number of expected properties (constraints) per record.
+    expected : dict[str, set]
+        Record URIs mapped to the constraints they are expected to meet.
+    failed : dict[str, set]
+        Record URIs mapped to the constraints they failed.
 
     Returns
     -------
@@ -367,19 +502,11 @@ def compute_per_record_scores(
         A dictionary mapping each record URI to its completeness score
         (range: 0.0 to 1.0).
     """
-    if num_properties == 0:
-        return {record: 1.0 for record in all_records}
-
-    missing_per_record: dict[str, int] = {}
-    for _, nodes in violations.items():
-        for node in nodes:
-            missing_per_record[node] = missing_per_record.get(node, 0) + 1
-
     return {
         record: round(
-            1 - missing_per_record.get(record, 0) / num_properties, 4
+            1 - len(failed.get(record, set()) & constraints) / len(constraints), 4
         )
-        for record in all_records
+        for record, constraints in expected.items()
     }
 
 
@@ -463,44 +590,6 @@ def compute_class_statistics(
     }
 
 
-def count_shape_properties(shapes_graph: Graph) -> int:
-    """
-    Counts the number of distinct constraints defined in a SHACL shape.
-
-    The count includes:
-    - sh:message values attached to sh:property constraints
-    - sh:message values attached to sh:or constraints at node shape level
-
-    This count represents the number of expected properties used
-    to compute completeness scores.
-
-    Parameters
-    ----------
-    shapes_graph
-        The SHACL shapes graph.
-
-    Returns
-    -------
-    int
-        The number of distinct constraint messages.
-        Returns 1 as a fallback to avoid division by zero.
-    """
-    property_messages = set()
-    for prop_node in shapes_graph.objects(None, SH.property):
-        msg = shapes_graph.value(prop_node, SH.message)
-        if msg:
-            property_messages.add(str(msg))
-
-    or_messages = set()
-    for shape in shapes_graph.subjects(RDF.type, SH.NodeShape):
-        msg = shapes_graph.value(shape, SH.message)
-        if msg:
-            or_messages.add(str(msg))
-
-    total = len(property_messages) + len(or_messages)
-    return total if total > 0 else 1
-
-
 class StructuralCompletenessMetric(MetricPlugin):
     """
     Validates records against a detected SHACL profile and scores them
@@ -509,14 +598,28 @@ class StructuralCompletenessMetric(MetricPlugin):
 
     id = "structural_completeness"
 
-    options = {
-        "profile": {
-            "label":   "SHACL profile",
-            "default": AUTO_PROFILE,
-            "choices": [{"id": AUTO_PROFILE, "label": "Auto (detect from the data)"}]
-                       + [{"id": pid, "label": p["name"]} for pid, p in PROFILES.items()],
-        },
-    }
+    @classmethod
+    def get_options(cls) -> dict:
+        """
+        Return the profile option, with every current profile a choice.
+
+        Computed on each call rather than fixed, so a profile a user has
+        just added can be chosen straight away.
+
+        Returns
+        -------
+        dict
+            The profile option: label, default and choices.
+        """
+        return {
+            "profile": {
+                "label":   "SHACL profile",
+                "default": AUTO_PROFILE,
+                "choices": [{"id": AUTO_PROFILE, "label": "Auto (detect from the data)"}]
+                           + [{"id": pid, "label": p["name"]}
+                              for pid, p in all_profiles().items()],
+            },
+        }
 
     def evaluate(self, context: DatasetContext) -> MetricResult:
         """
@@ -567,16 +670,18 @@ class StructuralCompletenessMetric(MetricPlugin):
             return self.error_result(str(e))
 
         try:
-            detected_profile, detected_path = detect_profile(graph)
+            detected_profile, detected_path = choose_profile(graph)
         except ProfileDetectionError as e:
             return self.error_result(str(e))
+
+        profiles = all_profiles()
 
         if choice == AUTO_PROFILE:
             profile_name, shapes_path = detected_profile, detected_path
             profile_source = "detected"
         else:
             profile_name = choice
-            shapes_path  = PROFILES[choice]["file"]
+            shapes_path  = profiles[choice]["file"]
             profile_source = "selected"
 
         low_confidence = (profile_name == FALLBACK_PROFILE)
@@ -600,19 +705,27 @@ class StructuralCompletenessMetric(MetricPlugin):
             ) from e
 
         try:
-            all_records = get_target_records(shapes_graph, graph)
+            expected    = record_constraints(shapes_graph, graph)
+            all_records = set(expected)
             if not all_records and profile_source == "selected":
+                # The user chose this profile and confirmed it before the
+                # run, so it is reported as not applying rather than
+                # replaced: there is no fallback from a choice.
                 targets = sorted(
                     shapes_graph.namespace_manager.normalizeUri(t)
                     for t in shapes_graph.objects(None, SH.targetClass)
                 )
-                raise NoTargetRecordsError(
-                    f"The selected profile, {PROFILES[profile_name]['name']}, "
-                    f"found no matching records in this dataset. It checks "
-                    f"resources of type {', '.join(targets) or 'any'}; "
+                result = self.error_result(
+                    f"Not applicable: the selected profile, "
+                    f"{profiles[profile_name]['name']}, found no matching "
+                    f"records in this dataset, so there is nothing to score. "
+                    f"It checks resources of type {', '.join(targets) or 'any'}; "
                     f"detection suggests "
-                    f"{PROFILES[detected_profile]['name']} instead."
+                    f"{profiles[detected_profile]['name']} instead."
                 )
+                result.details["not_applicable"] = True
+                result.details["profile"] = profile_name
+                return result
             if not all_records:
                 raise NoTargetRecordsError(
                     f"No records matching the '{profile_name}' profile "
@@ -621,12 +734,10 @@ class StructuralCompletenessMetric(MetricPlugin):
         except NoTargetRecordsError as e:
             return self.error_result(str(e))
 
-        total_records  = len(all_records)
-        num_properties = count_shape_properties(shapes_graph)
-        violations     = extract_violations(results_graph)
+        total_records = len(all_records)
 
         per_record_scores = compute_per_record_scores(
-            all_records, violations, num_properties
+            expected, failed_constraints(results_graph)
         )
 
         score_values = list(per_record_scores.values())
@@ -634,9 +745,13 @@ class StructuralCompletenessMetric(MetricPlugin):
 
         details = {
             "profile":                    profile_name,
-            "profile_name":               PROFILES[profile_name]["name"],
+            "profile_name":               profiles[profile_name]["name"],
+            "profile_sha256":             hashlib.sha256(
+                Path(shapes_path).read_bytes()
+            ).hexdigest(),
             "profile_source":             profile_source,
             "low_confidence":             low_confidence,
+            "scoring_version":            SCORING_VERSION,
             "total_records":              total_records,
             "median_record_completeness": round(statistics.median(score_values), 4),
             "min_record_completeness":    round(min(score_values), 4),
@@ -648,9 +763,9 @@ class StructuralCompletenessMetric(MetricPlugin):
         if profile_source == "selected" and profile_name != detected_profile:
             details["detected_profile"] = detected_profile
             details["warning"] = (
-                f"{PROFILES[profile_name]['name']} was selected, "
+                f"{profiles[profile_name]['name']} was selected, "
                 f"but the data looks like "
-                f"{PROFILES[detected_profile]['name']}. "
+                f"{profiles[detected_profile]['name']}. "
                 f"Scores reflect the selected profile."
             )
         elif low_confidence:
@@ -668,3 +783,75 @@ class StructuralCompletenessMetric(MetricPlugin):
             status="computed",
             details=details,
         )
+
+    def check_before_run(self, context: DatasetContext) -> list[dict]:
+        """
+        Ask for confirmation when a chosen profile does not fit the data.
+
+        Only a profile the user chose is checked; Auto picks a profile
+        that fits by definition. A choice is reported when it targets no
+        records here, when Auto would pick a different profile for this
+        data, or when it leaves typed resources unchecked. The warning
+        states how many records the choice covers, so a partial fit is
+        visible before the run. The choice is never replaced: the user
+        either confirms it or changes it.
+
+        Parameters
+        ----------
+        context : DatasetContext
+            Contains dataset metadata and the RDF graph that would be
+            evaluated.
+
+        Returns
+        -------
+        list[dict]
+            At most one warning, as MetricPlugin.check_before_run
+            describes; empty when the choice fits or is Auto.
+        """
+        try:
+            choice = self.resolve_options(context.options.get(self.id))["profile"]
+        except MetricConfigurationError:
+            return []   # evaluate reports an invalid choice itself
+        if choice == AUTO_PROFILE:
+            return []
+
+        graph = context.graph
+        profiles = all_profiles()
+        try:
+            detected, _ = choose_profile(graph)
+            shapes_graph = load_shapes(profiles[choice]["file"])
+        except (ProfileDetectionError, ShapeProfileNotFoundError,
+                MetricConfigurationError):
+            return []   # evaluate reports these as failures
+
+        records   = set(record_constraints(shapes_graph, graph))
+        matched   = len(records)
+        typed     = {str(s) for s in graph.subjects(RDF.type, None)}
+        unchecked = len(typed - records)
+        if matched and detected == choice and not unchecked:
+            return []
+
+        name  = profiles[choice]["name"]
+        lines = [
+            f"{name} applies to {matched:,} resource(s) here; "
+            f"{unchecked:,} of the {len(typed):,} typed resource(s) are not "
+            f"checked by it."
+        ]
+        if not matched:
+            lines.append(
+                "With nothing to score, Structural Completeness will be "
+                "reported as not applicable for this source."
+            )
+        if detected != choice:
+            lines.append(
+                f"Auto would choose {profiles[detected]['name']} for this data."
+            )
+        mismatch = not matched or detected != choice
+        return [{
+            "message": f"The chosen profile, {name}, does not match this "
+                       f"source's data." if mismatch else
+                       f"The chosen profile, {name}, covers only part of this "
+                       f"source's data.",
+            "lines":   lines,
+            "action":  "Choose another profile",
+        }]
