@@ -59,9 +59,23 @@ def render(metric: dict, datasets: list[dict]) -> html.Div:
         style={"fontSize": "0.82rem"},
     ) if comparison and len(profiles) > 1 else html.Div()
 
+    # Results saved before the per-record rule carry no version.
+    versions = {d["details"].get("scoring_version", 1) for d in ds_details}
+    version_note = dbc.Alert(
+        [
+            html.Strong("Scored with different rules. "),
+            "Some of these results were saved before Structural "
+            "Completeness scored each record only against its own class, "
+            "so their scores are higher and not directly comparable.",
+        ],
+        color="warning", className="py-2 mb-2",
+        style={"fontSize": "0.82rem"},
+    ) if comparison and len(versions) > 1 else html.Div()
+
     return html.Div([
         header,
         profile_note,
+        version_note,
         _distribution_section(ds_details),
         _summary_section(ds_details, comparison),
         _class_section(ds_details),

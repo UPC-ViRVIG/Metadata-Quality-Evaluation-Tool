@@ -71,8 +71,9 @@ def build_metric_cards(
                         id={"type": "metric-card-failed" if failed else "metric-card",
                             "index": m["metric_id"]},
                         n_clicks=0,
-                        style={"borderLeft": "3px solid #dc3545"} if failed
-                              else card_style,
+                        style={"borderLeft": "3px solid "
+                               + ("#6c757d" if _not_applicable(m) else "#dc3545")}
+                              if failed else card_style,
                     ),
                     xs=12, md=6, lg=4,
                     className="mb-3",
@@ -104,27 +105,43 @@ def _card_style(is_active: bool) -> dict:
     }
 
 
+def _not_applicable(m: dict) -> bool:
+    """Whether a metric without a score did not apply, rather than fail:
+    for instance a SHACL profile the user chose that matched no records."""
+    return bool((m.get("details") or {}).get("not_applicable"))
+
+
 def _failed_card_body(m: dict, datasets: list[dict] | None) -> list:
     """Build the body of a card for a metric that failed: its name, a
     Failed badge, and why — the backend's message in analysis mode, or
-    the datasets it failed in for a comparison."""
+    the datasets it failed in for a comparison. A metric that did not
+    apply gets a grey Not applicable badge instead, as nothing broke."""
     if datasets is None:
         message = str((m.get("details") or {}).get("error") or "No details.")
+        not_applicable = _not_applicable(m)
     else:
-        names = [
-            ds.get("label", f"Dataset {i+1}")
-            for i, ds in enumerate(datasets)
-            if any(x["metric_id"] == m["metric_id"] and x.get("status") == "error"
-                   for x in ds.get("metrics", []))
-        ]
-        message = f"Failed in: {', '.join(names)}"
+        failed, inapplicable = [], []
+        for i, ds in enumerate(datasets):
+            for x in ds.get("metrics", []):
+                if x["metric_id"] == m["metric_id"] and x.get("status") == "error":
+                    (inapplicable if _not_applicable(x) else failed).append(
+                        ds.get("label", f"Dataset {i+1}"))
+        parts = []
+        if failed:
+            parts.append(f"Failed in: {', '.join(failed)}")
+        if inapplicable:
+            parts.append(f"Not applicable in: {', '.join(inapplicable)}")
+        message = ". ".join(parts)
+        not_applicable = not failed
 
     return [
         dbc.Row([
             dbc.Col(html.Span(m.get("name", m["metric_id"]),
                               style={"fontSize": "0.875rem", "fontWeight": "500"}),
                     width=9),
-            dbc.Col(dbc.Badge("Failed", color="danger", className="float-end"),
+            dbc.Col(dbc.Badge("Not applicable" if not_applicable else "Failed",
+                              color="secondary" if not_applicable else "danger",
+                              className="float-end"),
                     width=3, className="text-end"),
         ], className="g-0 mb-1"),
         html.Small(message, className="text-muted d-block", title=message,

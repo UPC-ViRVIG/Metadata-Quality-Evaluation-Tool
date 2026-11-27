@@ -91,6 +91,12 @@ datasets:
         LIMIT 100
     scope: null
 
+# ── Profiles (optional) ───────────────────────────────────────────────────
+# Your own SHACL files, by the id metric_options refers to them with.
+# They are kept, so the dashboard can use them too.
+# profiles:
+#   my_model: shapes/my_model.ttl
+
 # ── Metrics ───────────────────────────────────────────────────────────────
 # List the metric IDs to run.
 # See all available metrics with: python cli.py --list-metrics
@@ -311,7 +317,8 @@ def list_metrics() -> None:
     for metric_id, meta in config.items():
         print(f"  {metric_id}")
         print(f"      {meta.get('description', '')}")
-        options = getattr(METRIC_REGISTRY.get(metric_id), "options", {})
+        metric_class = METRIC_REGISTRY.get(metric_id)
+        options = metric_class.get_options() if metric_class else {}
         for name, spec in options.items():
             choices = ", ".join(choice["id"] for choice in spec["choices"])
             print(f"      option {name} ({spec['label']}): {choices}"
@@ -443,8 +450,10 @@ def run(config: dict) -> list:
 
     Resolves metric plugins from the registry, builds dataset descriptors,
     and delegates to the EvaluationEngine. Metrics not found in the config
-    or registry are skipped with a warning printed to stderr. A summary
-    of scores is printed to stderr after evaluation completes.
+    or registry are skipped with a warning printed to stderr. What the
+    dashboard would ask to confirm, such as a chosen profile that does
+    not fit the data, is printed to stderr too, and the run continues.
+    A summary of scores is printed to stderr after evaluation completes.
 
     Parameters
     ----------
@@ -511,6 +520,22 @@ def run(config: dict) -> list:
 
     from metrics.metric_registry import resolve_metric_options
     from metrics.metrics_exceptions import MetricConfigurationError
+    from metrics.plugins.structural_completeness import register_profile
+    from metrics.profile_store import ProfileError
+
+    # Profiles listed in the config are added before anything is
+    # validated, so metric_options below can refer to them by id.
+    for profile_id, profile_path in (config.get("profiles") or {}).items():
+        path = Path(profile_path)
+        if not path.is_absolute():
+            path = Path.cwd() / path
+        try:
+            register_profile(path.name, path.read_bytes(),
+                             profile_id=str(profile_id))
+        except (OSError, ProfileError) as e:
+            print(f"ERROR: profile '{profile_id}': {e}", file=sys.stderr)
+            sys.exit(1)
+        print(f"Profile '{profile_id}' added from {path}", file=sys.stderr)
 
     datasets = []
     for ds in config["datasets"]:
@@ -528,6 +553,14 @@ def run(config: dict) -> list:
             "scope":          scope,
             "metric_options": metric_options,
         })
+
+    # The dashboard asks for confirmation here. A config file already is
+    # the user's explicit choice, so the CLI reports and carries on.
+    for warning in engine.check_before_run(datasets=datasets, metrics=metrics):
+        print(f"WARNING: dataset '{warning['dataset_id']}', "
+              f"{warning['metric_id']}: {warning['message']}", file=sys.stderr)
+        for line in warning["lines"]:
+            print(f"    {line}", file=sys.stderr)
 
     print(
         f"\nRunning {len(metrics)} metric(s) on {len(datasets)} dataset(s)...\n",

@@ -16,6 +16,11 @@ it performs six steps:
 
 Scope filtering happens here, once per dataset, and is never duplicated
 inside individual metrics.
+
+Before a run, check_before_run prepares each dataset the same way and
+collects what the selected metrics ask the user to confirm, such as a
+chosen SHACL profile that does not fit the data. The engine only passes
+these warnings on; deciding what to warn about is each metric's job.
 """
 
 from datasource.datasource_factory import DataSourceFactory
@@ -62,23 +67,10 @@ class EvaluationEngine:
 
         for dataset in datasets:
 
-            # Step 1: Load via Data Source (cache-aware internally)
-            datasource = DataSourceFactory.create(dataset["source_config"])
-            full_graph = datasource.load()
-
-            # Step 2: Scope filtering
-            scope = dataset.get("scope")
-            active_graph = apply_scope(full_graph, scope)
-
-            # Step 3: Build context
-            dataset_context = DatasetContext(
-                dataset_id=dataset["dataset_id"],
-                label=dataset.get("label"),
-                graph=active_graph,
-                scope=scope,
-                full_graph=full_graph,
-                options=dataset.get("metric_options"),
-            )
+            # Steps 1-3: Load, scope and wrap in a context
+            dataset_context = self._prepare(dataset)
+            scope        = dataset_context.scope
+            active_graph = dataset_context.graph
 
             # Step 4: Run metrics
             metric_results = []
@@ -105,3 +97,76 @@ class EvaluationEngine:
             ))
 
         return all_dataset_results
+
+    def check_before_run(
+        self,
+        datasets: list[dict],
+        metrics: list[MetricPlugin],
+    ) -> list[dict]:
+        """
+        Collect what each metric asks the user to confirm before a run.
+
+        Prepares each dataset exactly as evaluate does, so a warning is
+        about the graph that would really be evaluated, and the loaded
+        graph is cached for the run that follows. A dataset that cannot
+        be loaded yields no warnings: the run itself reports that error.
+
+        Parameters
+        ----------
+        datasets : list[dict]
+            As for evaluate.
+        metrics : list[MetricPlugin]
+
+        Returns
+        -------
+        list[dict]
+            One entry per warning, the metric's own fields plus
+            dataset_id, label and metric_id.
+        """
+        warnings = []
+        for dataset in datasets:
+            try:
+                dataset_context = self._prepare(dataset)
+            except Exception:
+                continue
+            for metric in metrics:
+                for warning in metric.check_before_run(dataset_context):
+                    warnings.append({
+                        "dataset_id": dataset_context.dataset_id,
+                        "label":      dataset_context.label,
+                        "metric_id":  metric.id,
+                        **warning,
+                    })
+        return warnings
+
+    def _prepare(self, dataset: dict) -> DatasetContext:
+        """
+        Load, scope and wrap one dataset: steps 1 to 3 of the pipeline.
+
+        Parameters
+        ----------
+        dataset : dict
+            One entry of the datasets list given to evaluate.
+
+        Returns
+        -------
+        DatasetContext
+            The scoped graph, with the full graph and metric options.
+        """
+        # Step 1: Load via Data Source (cache-aware internally)
+        datasource = DataSourceFactory.create(dataset["source_config"])
+        full_graph = datasource.load()
+
+        # Step 2: Scope filtering
+        scope = dataset.get("scope")
+        active_graph = apply_scope(full_graph, scope)
+
+        # Step 3: Build context
+        return DatasetContext(
+            dataset_id=dataset["dataset_id"],
+            label=dataset.get("label"),
+            graph=active_graph,
+            scope=scope,
+            full_graph=full_graph,
+            options=dataset.get("metric_options"),
+        )

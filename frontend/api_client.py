@@ -81,6 +81,65 @@ def get_profiles() -> list[dict]:
     return response.json()
 
 
+def upload_profile(filename: str, content: bytes) -> dict:
+    """
+    POST /profiles/upload — adds a SHACL file as a profile.
+
+    The file is sent as-is; the backend checks it and keeps it, so a
+    refusal comes back with the reason the backend gives.
+
+    Returns
+    -------
+    dict
+        The new profile, as GET /profiles describes it.
+
+    Raises
+    ------
+    APIError
+        If the file is refused or the backend cannot be reached.
+    """
+    try:
+        response = requests.post(
+            f"{BACKEND_URL}/profiles/upload",
+            params={"filename": filename},
+            data=content,
+            headers={"Content-Type": "application/octet-stream"},
+            timeout=120,
+        )
+    except requests.ConnectionError:
+        raise APIError("Cannot reach the backend.")
+    except requests.Timeout:
+        raise APIError("Upload timed out.")
+
+    if response.status_code != 200:
+        raise APIError(_detail(response, "Could not add the profile."),
+                       status_code=response.status_code)
+    return response.json()
+
+
+def delete_profile(profile_id: str) -> None:
+    """
+    DELETE /profiles/{profile_id} — removes a profile a user added.
+
+    Raises
+    ------
+    APIError
+        If the profile cannot be removed or the backend cannot be
+        reached.
+    """
+    try:
+        response = requests.delete(f"{BACKEND_URL}/profiles/{profile_id}",
+                                   timeout=30)
+    except requests.ConnectionError:
+        raise APIError("Cannot reach the backend.")
+    except requests.Timeout:
+        raise APIError("Request to remove the profile timed out.")
+
+    if response.status_code != 200:
+        raise APIError(_detail(response, "Could not remove the profile."),
+                       status_code=response.status_code)
+
+
 def get_export_csv(dataset_id: str, metric_id: str, category: str) -> bytes:
     """
     GET /export/{dataset_id}/{metric_id}/{category}
@@ -208,6 +267,38 @@ def run_evaluation(sources: list[dict], metric_ids: list[str]) -> list[dict]:
         raise APIError(detail, status_code=response.status_code)
 
     return response.json()["datasets"]
+
+
+def check_before_run(sources: list[dict], metric_ids: list[str]) -> list[dict]:
+    """
+    POST /evaluate/preflight — what to confirm before running.
+
+    Sends the same body as run_evaluation. Nothing is evaluated; each
+    selected metric reports choices that look wrong for the data, such
+    as a SHACL profile matching no records.
+
+    Returns
+    -------
+    list[dict]
+        Warnings, each with dataset_id, label, metric_id, metric_name,
+        message, lines and action. Empty when nothing needs confirming.
+
+    Raises
+    ------
+    APIError
+        If the request is refused or the backend cannot be reached.
+    """
+    payload = _build_evaluation_payload(sources, metric_ids)
+    try:
+        response = requests.post(f"{BACKEND_URL}/evaluate/preflight",
+                                 json=payload, timeout=None)
+    except requests.ConnectionError:
+        raise APIError("Cannot reach the backend.")
+
+    if response.status_code != 200:
+        raise APIError(_detail(response, "Could not check the evaluation."),
+                       status_code=response.status_code)
+    return response.json()["warnings"]
 
 
 def _build_evaluation_payload(sources: list[dict], metric_ids: list[str]) -> dict:

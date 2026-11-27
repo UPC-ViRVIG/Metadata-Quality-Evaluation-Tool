@@ -18,6 +18,8 @@ POST /ontology
     Lazy class-hierarchy extraction, used to configure scope filtering.
 POST /evaluate
     Runs the selected metrics over the requested datasets.
+POST /evaluate/preflight
+    Reports what the user should confirm before that run.
 GET /export/{dataset_id}/{metric_id}/{category}
     Streams the cached export rows for one metric category as CSV.
 POST /results/export
@@ -27,6 +29,10 @@ POST /results/import
 GET /profiles
     The SHACL profiles Structural Completeness can use, and what each
     one requires.
+POST /profiles/upload
+    Adds a user's SHACL file as a profile.
+DELETE /profiles/{profile_id}
+    Removes a profile a user added.
 POST /sources/upload
     Stores an RDF file uploaded from the dashboard as a local source.
 
@@ -38,6 +44,7 @@ from fastapi import APIRouter, Body, HTTPException, Request
 from fastapi.responses import Response, StreamingResponse
 import io
 import json
+import logging
 import re
 
 from engine.evaluation_engine import EvaluationEngine
@@ -72,12 +79,18 @@ from models.response import (
     ResultImportResponse,
     ProfileResponse,
     FileUploadResponse,
+    RunCheckResponse,
 )
 
 from config.config_loader import load_metrics_config, load_dimensions_config
 from metrics.metric_registry import METRIC_REGISTRY, resolve_metric_options
 from metrics.metrics_exceptions import MetricConfigurationError
-from metrics.plugins.structural_completeness import describe_profiles
+from metrics.plugins.structural_completeness import (
+    describe_profiles,
+    register_profile,
+    remove_profile,
+)
+from metrics.profile_store import ProfileError, MAX_PROFILE_BYTES
 
 router = APIRouter()
 engine = EvaluationEngine()
@@ -96,7 +109,8 @@ def get_metrics():
             description=config["description"],
             dimension=config["dimension"],
             weight=config["weight"],
-            options=getattr(METRIC_REGISTRY.get(metric_id), "options", {}),
+            options=(METRIC_REGISTRY[metric_id].get_options()
+                     if metric_id in METRIC_REGISTRY else {}),
         )
         for metric_id, config in metric_config.items()
     ]
@@ -119,6 +133,87 @@ def get_profiles():
         return describe_profiles()
     except MetricConfigurationError as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@router.post("/profiles/upload", response_model=ProfileResponse)
+async def upload_profile(filename: str, request: Request, name: str | None = None):
+    """
+    Add a user's SHACL file as a profile.
+
+    The file arrives as the raw request body, like POST /sources/upload,
+    and is checked before it is kept: it must parse as RDF, declare at
+    least one targeted shape with constraints, and use no SHACL-SPARQL.
+
+    Parameters
+    ----------
+    filename : str
+        Name of the file, used to guess its format and as the default
+        display name.
+    request : Request
+        Carries the raw file contents as its body.
+    name : str | None
+        Display name for the profile.
+
+    Returns
+    -------
+    ProfileResponse
+        The new profile, described for display.
+
+    Raises
+    ------
+    HTTPException 400
+        If the file is not an acceptable SHACL profile.
+    HTTPException 413
+        If the file exceeds the size limit.
+    """
+    content = await request.body()
+    if len(content) > MAX_PROFILE_BYTES:
+        raise HTTPException(
+            status_code=413,
+            detail=f"The SHACL file is larger than the "
+                   f"{MAX_PROFILE_BYTES // (1024 * 1024)} MB limit.",
+        )
+
+    try:
+        profile_id = register_profile(filename, content, name=name)
+    except ProfileError as exc:
+        # Also written to the backend console, which otherwise shows only
+        # the status code.
+        logging.getLogger("uvicorn.error").warning(
+            "SHACL profile %r refused: %s", filename, exc
+        )
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+    return next(p for p in describe_profiles() if p["id"] == profile_id)
+
+
+@router.delete("/profiles/{profile_id}")
+def delete_profile(profile_id: str):
+    """
+    Remove a profile a user added.
+
+    Parameters
+    ----------
+    profile_id : str
+
+    Returns
+    -------
+    dict
+        {"removed": profile_id}
+
+    Raises
+    ------
+    HTTPException 400
+        If the profile is built-in.
+    HTTPException 404
+        If no added profile has that id.
+    """
+    try:
+        remove_profile(profile_id)
+    except ProfileError as exc:
+        status = 400 if "built-in" in str(exc) else 404
+        raise HTTPException(status_code=status, detail=str(exc)) from exc
+    return {"removed": profile_id}
 
 
 @router.get("/dimensions", response_model=list[DimensionConfigResponse])
@@ -181,18 +276,12 @@ def get_ontology(request: OntologyRequest):
     )
 
 
-@router.post("/evaluate", response_model=EvaluationResponse)
-def evaluate(request: EvaluationRequest):
+def _resolve_request(request: EvaluationRequest) -> tuple[list[dict], list]:
     """
-    Executes metadata quality evaluation for the requested datasets.
+    Turn an evaluation request into the engine's datasets and metrics.
 
-    Graph loading, caching, and scope filtering are handled by the
-    Evaluation Engine and Data Source layer. The router resolves metric
-    plugins, passes a clean dataset list to the engine, and serialises
-    results into the response.
-
-    Export data stored by metrics during evaluation is available via
-    GET /export/{dataset_id}/{metric_id}/{category}.
+    Shared by POST /evaluate and POST /evaluate/preflight, so a check
+    before a run reads the request exactly as the run will.
 
     Parameters
     ----------
@@ -200,7 +289,8 @@ def evaluate(request: EvaluationRequest):
 
     Returns
     -------
-    EvaluationResponse
+    tuple[list[dict], list]
+        (datasets, metric plugin instances)
 
     Raises
     ------
@@ -209,8 +299,6 @@ def evaluate(request: EvaluationRequest):
         metric options name an unknown metric, option or choice.
     HTTPException 500
         If no plugin is registered for a metric ID.
-    HTTPException 422
-        If evaluation fails for any dataset.
     """
     metric_config = load_metrics_config()
     metrics = []
@@ -248,6 +336,77 @@ def evaluate(request: EvaluationRequest):
         ]
     except MetricConfigurationError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+    return datasets, metrics
+
+
+@router.post("/evaluate/preflight", response_model=RunCheckResponse)
+def evaluate_preflight(request: EvaluationRequest):
+    """
+    Report what the user should confirm before running this evaluation.
+
+    Takes the same body as POST /evaluate and runs nothing: each selected
+    metric looks at the data it would evaluate and says whether a choice
+    looks wrong for it, such as a SHACL profile matching no records. The
+    dashboard asks the user to confirm or change the choice; the run
+    itself never replaces it.
+
+    Parameters
+    ----------
+    request : EvaluationRequest
+
+    Returns
+    -------
+    RunCheckResponse
+        The warnings; an empty list when nothing needs confirming.
+
+    Raises
+    ------
+    HTTPException 400
+        If the request names an unknown metric or option.
+    HTTPException 500
+        If no plugin is registered for a metric ID.
+    """
+    datasets, metrics = _resolve_request(request)
+    names = {metric.id: metric.name for metric in metrics}
+    return {"warnings": [
+        {**warning, "metric_name": names.get(warning["metric_id"])}
+        for warning in engine.check_before_run(datasets=datasets, metrics=metrics)
+    ]}
+
+
+@router.post("/evaluate", response_model=EvaluationResponse)
+def evaluate(request: EvaluationRequest):
+    """
+    Executes metadata quality evaluation for the requested datasets.
+
+    Graph loading, caching, and scope filtering are handled by the
+    Evaluation Engine and Data Source layer. The router resolves metric
+    plugins, passes a clean dataset list to the engine, and serialises
+    results into the response.
+
+    Export data stored by metrics during evaluation is available via
+    GET /export/{dataset_id}/{metric_id}/{category}.
+
+    Parameters
+    ----------
+    request : EvaluationRequest
+
+    Returns
+    -------
+    EvaluationResponse
+
+    Raises
+    ------
+    HTTPException 400
+        If a metric ID is not defined in configuration, or a dataset's
+        metric options name an unknown metric, option or choice.
+    HTTPException 500
+        If no plugin is registered for a metric ID.
+    HTTPException 422
+        If evaluation fails for any dataset.
+    """
+    datasets, metrics = _resolve_request(request)
 
     try:
         results = engine.evaluate(datasets=datasets, metrics=metrics)

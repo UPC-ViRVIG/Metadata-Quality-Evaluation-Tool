@@ -59,6 +59,22 @@ class MetricPlugin(ABC):
         self.weight      = config.get("weight", 1.0)
 
     @classmethod
+    def get_options(cls) -> dict:
+        """
+        Return the options this metric declares, as of now.
+
+        Most metrics declare a fixed set in options. A metric whose
+        choices can change while the backend runs, such as profiles a
+        user adds, overrides this so the choices are always current.
+
+        Returns
+        -------
+        dict
+            Option names mapped to label, default and choices.
+        """
+        return cls.options
+
+    @classmethod
     def resolve_options(cls, given: dict | None) -> dict:
         """
         Validate chosen option values and fill in the defaults.
@@ -84,14 +100,15 @@ class MetricPlugin(ABC):
         """
         given = given or {}
 
-        unknown = sorted(set(given) - set(cls.options))
+        options = cls.get_options()
+        unknown = sorted(set(given) - set(options))
         if unknown:
             raise MetricConfigurationError(
                 f"Metric '{cls.id}' has no option '{unknown[0]}'."
             )
 
         resolved = {}
-        for name, spec in cls.options.items():
+        for name, spec in options.items():
             value = given.get(name, spec["default"])
             allowed = [choice["id"] for choice in spec["choices"]]
             if value not in allowed:
@@ -119,6 +136,34 @@ class MetricPlugin(ABC):
             Structured evaluation result.
         """
         pass
+
+    def check_before_run(self, context: DatasetContext) -> list[dict]:
+        """
+        Report anything the user should confirm before this metric runs.
+
+        Called by the engine before an evaluation, so the dashboard can
+        ask the user to confirm or change their choices. It must be
+        cheap: it never computes the metric itself. Most metrics have
+        nothing to report, so the default returns no warnings.
+
+        Parameters
+        ----------
+        context : DatasetContext
+            Object containing dataset metadata and
+            the RDF graph that would be evaluated.
+
+        Returns
+        -------
+        list[dict]
+            One entry per warning:
+
+                {
+                    "message": str,        one-line summary
+                    "lines":   list[str],  facts behind it
+                    "action":  str         label for changing the choice
+                }
+        """
+        return []
 
     def error_result(self, message: str) -> MetricResult:
         """

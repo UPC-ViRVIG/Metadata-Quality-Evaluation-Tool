@@ -44,7 +44,7 @@ import dash
 from dash import html, dcc
 import dash_bootstrap_components as dbc
 
-from layout.sidebar import build_sidebar, build_add_source_modal, build_metric_options_modal, build_profile_modal
+from layout.sidebar import build_sidebar, build_add_source_modal, build_metric_options_modal, build_profile_modal, build_run_warning_modal
 
 
 app = dash.Dash(
@@ -76,11 +76,13 @@ app.layout = dbc.Container(
         dcc.Store(id="store-metric-options", data={}),
         dcc.Store(id="store-profiles",       data=[]),
         dcc.Store(id="metric-options-active"),
+        dcc.Store(id="metric-options-preview"),
 
         # ── Modal ─────────────────────────────────────────────────────────
         build_add_source_modal(),
         build_metric_options_modal(),
         build_profile_modal(),
+        build_run_warning_modal(),
 
         # ── Top bar ───────────────────────────────────────────────────────
         dbc.Row(
