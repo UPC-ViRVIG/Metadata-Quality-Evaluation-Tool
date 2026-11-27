@@ -187,8 +187,8 @@ def _is_valid_lang_tag(tag: str) -> bool:
     -------
     bool
     """
-    #return bool(_BCP47_PATTERN.match(tag))
-    return _validate_lang_tag(tag)[0] # ADDED
+    # IANA registry check, bool only; the reason from _validate_lang_tag is kept for future issue reporting
+    return _validate_lang_tag(tag)[0]
 
 
 @lru_cache(maxsize=1)
