@@ -191,6 +191,102 @@ def _is_valid_lang_tag(tag: str) -> bool:
     return _validate_lang_tag(tag)[0] # ADDED
 
 
+@lru_cache(maxsize=1)
+def _load_bcp47_registry() -> dict:
+    """Load the registry JSON once and turn the lists into sets."""
+    with open(_BCP47_JSON, encoding="utf-8") as f:
+        reg = json.load(f)
+    for key in ("language", "extlang", "script", "region", "variant", "whole_tags"):
+        reg[key] = set(reg[key])
+    return reg
+
+
+def _in_registry(reg: dict, kind: str, subtag: str) -> bool:
+    """True if subtag is in the list for `kind`, or inside one of its ranges."""
+    return subtag in reg[kind] or any(
+        len(start) == len(subtag) and start <= subtag <= end
+        for start, end in reg["ranges"][kind]
+    )
+
+
+@lru_cache(maxsize=4096)
+def _validate_lang_tag(tag: str) -> tuple:
+    """Return (is_valid, reason). Case-insensitive; cached per tag."""
+    reg = _load_bcp47_registry()
+    tag = tag.lower()
+    if tag in reg["whole_tags"]:
+        return True, "grandfathered or redundant tag"
+    parts = tag.split("-")
+    if not all(_ALNUM.match(p) and len(p) <= 8 for p in parts):
+        return False, "not well-formed"
+    if parts[0] == "x":
+        return len(parts) > 1, "private use"
+    if not _in_registry(reg, "language", parts[0]):
+        return False, f"unknown language '{parts[0]}'"
+    i = 1
+    if (i < len(parts) and len(parts[i]) == 3 and _ALPHA.match(parts[i])
+            and _in_registry(reg, "extlang", parts[i])):
+        i += 1
+    if i < len(parts) and len(parts[i]) == 4 and _ALPHA.match(parts[i]):
+        if not _in_registry(reg, "script", parts[i]):
+            return False, f"unknown script '{parts[i]}'"
+        i += 1
+    if i < len(parts) and ((len(parts[i]) == 2 and _ALPHA.match(parts[i]))
+                           or (len(parts[i]) == 3 and _DIGIT.match(parts[i]))):
+        if not _in_registry(reg, "region", parts[i]):
+            return False, f"unknown region '{parts[i]}'"
+        i += 1
+    seen = set()
+    while i < len(parts) and (len(parts[i]) >= 5
+                              or (len(parts[i]) == 4 and parts[i][0].isdigit())):
+        if not _in_registry(reg, "variant", parts[i]) or parts[i] in seen:
+            return False, f"unknown or repeated variant '{parts[i]}'"
+        seen.add(parts[i])
+        i += 1
+    while i < len(parts) and len(parts[i]) == 1 and parts[i] != "x":  # extensions
+        i += 1
+        if i >= len(parts) or len(parts[i]) < 2:
+            return False, "extension without content"
+        while i < len(parts) and len(parts[i]) >= 2:
+            i += 1
+    if i < len(parts) and parts[i] == "x":                            # private use
+        return i + 1 < len(parts), "private use suffix"
+    if i == len(parts):
+        return True, "valid"
+    return False, f"unexpected subtag '{parts[i]}'"
+
+def _expected_script(tag: str):
+    """Script subtag in the tag, else the registry default, else None."""
+    parts = tag.lower().split("-")
+    for part in parts[1:]:
+        if len(part) == 1:                      # extension / private use starts
+            break
+        if len(part) == 4 and part.isalpha():   # explicit script wins
+            return part
+    return _load_bcp47_registry()["suppress_script"].get(parts[0])
+
+
+def _script_share(text: str, script: str):
+    """Share of the letters in text that belong to script; None if unknown."""
+    prefixes = _SCRIPT_PREFIXES.get(script)
+    if prefixes is None:
+        return None
+    letters = [c for c in text if c.isalpha()]
+    if not letters:
+        return None
+    hits = sum(1 for c in letters if unicodedata.name(c, "").startswith(prefixes))
+    return hits / len(letters)
+
+
+def _has_script_mismatch(tag: str, text: str) -> bool:
+    """True if the text is clearly not written in the script the tag implies."""
+    script = _expected_script(tag)
+    if script is None:
+        return False
+    share = _script_share(text, script)
+    return share is not None and share < _SCRIPT_MATCH_THRESHOLD
+
+
 def _is_valid_datatype_value(value: str, datatype: str) -> bool:
     """
     Check whether a literal value is compatible with its XSD datatype.
@@ -723,102 +819,6 @@ def _compute_language_tag_format(raw: dict) -> tuple[float, dict]:
         "class_violation_rates": class_violation_rates,
         "samples": issues[:MAX_SAMPLES],
     }
-
-@lru_cache(maxsize=1)
-def _load_bcp47_registry() -> dict:
-    """Load the registry JSON once and turn the lists into sets."""
-    with open(_BCP47_JSON, encoding="utf-8") as f:
-        reg = json.load(f)
-    for key in ("language", "extlang", "script", "region", "variant", "whole_tags"):
-        reg[key] = set(reg[key])
-    return reg
-
-
-def _in_registry(reg: dict, kind: str, subtag: str) -> bool:
-    """True if subtag is in the list for `kind`, or inside one of its ranges."""
-    return subtag in reg[kind] or any(
-        len(start) == len(subtag) and start <= subtag <= end
-        for start, end in reg["ranges"][kind]
-    )
-
-
-@lru_cache(maxsize=4096)
-def _validate_lang_tag(tag: str) -> tuple:
-    """Return (is_valid, reason). Case-insensitive; cached per tag."""
-    reg = _load_bcp47_registry()
-    tag = tag.lower()
-    if tag in reg["whole_tags"]:
-        return True, "grandfathered or redundant tag"
-    parts = tag.split("-")
-    if not all(_ALNUM.match(p) and len(p) <= 8 for p in parts):
-        return False, "not well-formed"
-    if parts[0] == "x":
-        return len(parts) > 1, "private use"
-    if not _in_registry(reg, "language", parts[0]):
-        return False, f"unknown language '{parts[0]}'"
-    i = 1
-    if (i < len(parts) and len(parts[i]) == 3 and _ALPHA.match(parts[i])
-            and _in_registry(reg, "extlang", parts[i])):
-        i += 1
-    if i < len(parts) and len(parts[i]) == 4 and _ALPHA.match(parts[i]):
-        if not _in_registry(reg, "script", parts[i]):
-            return False, f"unknown script '{parts[i]}'"
-        i += 1
-    if i < len(parts) and ((len(parts[i]) == 2 and _ALPHA.match(parts[i]))
-                           or (len(parts[i]) == 3 and _DIGIT.match(parts[i]))):
-        if not _in_registry(reg, "region", parts[i]):
-            return False, f"unknown region '{parts[i]}'"
-        i += 1
-    seen = set()
-    while i < len(parts) and (len(parts[i]) >= 5
-                              or (len(parts[i]) == 4 and parts[i][0].isdigit())):
-        if not _in_registry(reg, "variant", parts[i]) or parts[i] in seen:
-            return False, f"unknown or repeated variant '{parts[i]}'"
-        seen.add(parts[i])
-        i += 1
-    while i < len(parts) and len(parts[i]) == 1 and parts[i] != "x":  # extensions
-        i += 1
-        if i >= len(parts) or len(parts[i]) < 2:
-            return False, "extension without content"
-        while i < len(parts) and len(parts[i]) >= 2:
-            i += 1
-    if i < len(parts) and parts[i] == "x":                            # private use
-        return i + 1 < len(parts), "private use suffix"
-    if i == len(parts):
-        return True, "valid"
-    return False, f"unexpected subtag '{parts[i]}'"
-
-def _expected_script(tag: str):
-    """Script subtag in the tag, else the registry default, else None."""
-    parts = tag.lower().split("-")
-    for part in parts[1:]:
-        if len(part) == 1:                      # extension / private use starts
-            break
-        if len(part) == 4 and part.isalpha():   # explicit script wins
-            return part
-    return _load_bcp47_registry()["suppress_script"].get(parts[0])
-
-
-def _script_share(text: str, script: str):
-    """Share of the letters in text that belong to script; None if unknown."""
-    prefixes = _SCRIPT_PREFIXES.get(script)
-    if prefixes is None:
-        return None
-    letters = [c for c in text if c.isalpha()]
-    if not letters:
-        return None
-    hits = sum(1 for c in letters if unicodedata.name(c, "").startswith(prefixes))
-    return hits / len(letters)
-
-
-def _has_script_mismatch(tag: str, text: str) -> bool:
-    """True if the text is clearly not written in the script the tag implies."""
-    script = _expected_script(tag)
-    if script is None:
-        return False
-    share = _script_share(text, script)
-    return share is not None and share < _SCRIPT_MATCH_THRESHOLD
-
 
 def _compute_structural_issues(
     raw: dict,
